@@ -11,7 +11,8 @@ There are, however, some particularities to the nature of the library, presented
 <h4>Power flow and Initialization</h4>
 <p>
 All models in a Modelica library require initial guess values that should come from a solution of
-the steady state of the overall model. This initial guess is called power flow.
+the steady state of the overall model. This initial guess in case of power system studies is commonly the result of 
+the so-called called power flow analysis.
 However, there is no power flow solver associated to the library as of the present time.
 When building a use case, initialization of all variables must be performed with a power flow software.
 The users are free to choose their power flow software of choice.
@@ -23,7 +24,7 @@ simulation tool, e.g., <a href=\"http://faraday1.ucd.ie/psat.html\">PSAT</a> and
 You can use these tools to create a power flow solution for your network.
 If you do not have access to these tools or do not want to use them, there are several power flow solvers
 available on Github.
-Future work in the <strong><code>OpenIPSL</code></strong> effort will include to generate Modelica records from open source power flow solvers
+Future work in the <strong><code>OpenIPSL</code></strong> effort will include ways to generate Modelica records from open source power flow solvers
 such as <a href=\"https://github.com/SanPen/GridCal\">GridCal</a> or <a href=\"https://github.com/FRESNA/PyPSA\">PyPSA</a>.
 </p>
 <p>
@@ -33,15 +34,15 @@ See <a href=\"http://www.ep.liu.se/ecp/article.asp?issue=119&amp;article=010\">t
 </p>
 <p>
 As we have just mentioned, the full initialization of the components&apos; internal variables and states is achieved by a set of internal <strong>initial equations</strong> that are to be derived by the developer of the model.
-In a effort to harmonized the presentation of the power flow parameters, a model should extend <strong>pfComponent</strong> that will provide all the necessary parameters for data coming from power flow solutions to be used in the initialization of the model.
-The <strong>pfComponent</strong> also provide the support for the common <strong>SystemBase</strong> component that provides a single instance of the system's common parameters, i.e., frequency and base power.
+In a effort to harmonize the presentation of the power flow parameters, a model should extend <strong>pfComponent</strong> that will provide all the necessary parameters for data coming from power flow solutions to be used in the initialization of the model.
+The <strong>pfComponent</strong> also provides the support for the common <strong>SystemBase</strong> component that in turn provides a single instance of the system's common parameters, i.e., frequency and base power.
 </p>
 <h4>Running Time Domain Simulations</h4>
 <p>
 The time domain simulations are prepared to work with Modelica-compliant tools.
 Users of the <strong><code>OpenIPSL</code></strong> are free to choose their tool of choice. However, note that the development of <strong><code>OpenIPSL</code></strong> has been carried out using <a href=\"https://www.openmodelica.org/\">OpenModelica</a>  and <a href=\"http://www.3ds.com/products-services/catia/products/dymola\">Dymola</a>.
 The library is, also, systematically checked using the two mentioned tools (see <a href=\"modelica://OpenIPSL.UsersGuide.LibraryTesting\">Library Testing</a>).
-Nonetheless, it might be possible to face issues when using other <a href=\"https://modelica.org/tools\">Modelica Tools</a> that we have not fully tested.
+It might be possible to face issues when using other <a href=\"https://modelica.org/tools\">Modelica Tools</a> that we have not fully tested.
 </p>
 </html>"));
 end GettingStarted;
