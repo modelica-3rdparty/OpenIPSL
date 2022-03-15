@@ -1,3 +1,20 @@
 {
-   "signedContributors": []
+  "signedContributors": [
+    {
+      "name": "dietmarw",
+      "id": 9332,
+      "comment_id": 1068091065,
+      "created_at": "2022-03-15T15:02:53Z",
+      "repoId": 56375051,
+      "pullRequestNo": 284
+    },
+    {
+      "name": "dietmarw",
+      "id": 9332,
+      "comment_id": 1068173405,
+      "created_at": "2022-03-15T16:11:14Z",
+      "repoId": 56375051,
+      "pullRequestNo": 284
+    }
+  ]
 }
