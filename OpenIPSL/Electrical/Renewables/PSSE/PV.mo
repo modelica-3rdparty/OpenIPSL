@@ -190,19 +190,20 @@ equation
           smooth=Smooth.Bezier)}),                               Diagram(
         coordinateSystem(preserveAspectRatio=false)),
     Documentation(info="<html>
-<p>
-This model is meant as a simple framework to create a photovoltaic power plant that consists of:
-</p>
-<ul>
-<li>Generator/Converter</li>
-<li>Electrical Controller</li>
-<li>Plant Controller</li>
-</ul>
-<p>
-The type of each can be selected via a drop down list where also
- a deactivation is provided (normally via feed through). 
-</p>
-<p>
-The type of control configuration can also be selected via drop down list.
+   <p>
+      This model is meant as a simple framework to create a photovoltaic power plant that consists of:
+   </p>
+   <ul>
+      <li>Generator/Converter</li>
+      <li>Electrical Controller</li>
+      <li>Plant Controller</li>
+   </ul>
+   <p>
+      The type of each can be selected via a drop down list where also
+      a deactivation is provided (normally via feed through). 
+   </p>
+   <p>
+      The type of control configuration can also be selected via drop down list.
+   </p>
 </html>"));
 end PV;

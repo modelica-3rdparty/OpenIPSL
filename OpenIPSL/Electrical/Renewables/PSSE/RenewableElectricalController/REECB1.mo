@@ -1,23 +1,23 @@
-﻿within OpenIPSL.Electrical.Renewables.PSSE.RenewableElectricalController;
+within OpenIPSL.Electrical.Renewables.PSSE.RenewableElectricalController;
 model REECB1 "Electrical control model for large scale photovoltaic"
   extends
     OpenIPSL.Electrical.Renewables.PSSE.RenewableElectricalController.BaseClasses.BaseREECB(
      Iqcmd(start=Iq0), Ipcmd(start=Ip0));
 
-  parameter OpenIPSL.Types.PerUnit Vdip = -99 "Low voltage threshold to activate reactive current injection logic (0.85 – 0.9 pu)";
+  parameter OpenIPSL.Types.PerUnit Vdip = -99 "Low voltage threshold to activate reactive current injection logic (0.85 - 0.9 pu)";
   parameter OpenIPSL.Types.PerUnit Vup = 99 "Voltage above which reactive current injection logic is activated (>1.1 pu)";
-  parameter OpenIPSL.Types.Time Trv = 0 "Filter time constant for voltage measurement (0.01 – 0.02 s)";
-  parameter OpenIPSL.Types.PerUnit dbd1 = -0.05 "Voltage error dead band lower threshold (-0.1 – 0 pu)";
-  parameter OpenIPSL.Types.PerUnit dbd2 = 0.05 "Voltage error dead band upper threshold (0 – 0.1 pu)";
-  parameter Real Kqv = 0 "Reactive current injection gain during over and undervoltage conditions (0 – 10)";
-  parameter OpenIPSL.Types.PerUnit Iqh1 = 1.05 "Upper limit on reactive current injection Iqinj (1 – 1.1 pu)";
-  parameter OpenIPSL.Types.PerUnit Iql1 = -1.05 "Lower limit on reactive current injection Iqinj (-1.1 – 1 pu)";
-  parameter OpenIPSL.Types.PerUnit vref0 = 1 "User defined voltage reference (0.95 – 1.05 pu)";
+  parameter OpenIPSL.Types.Time Trv = 0 "Filter time constant for voltage measurement (0.01 - 0.02 s)";
+  parameter OpenIPSL.Types.PerUnit dbd1 = -0.05 "Voltage error dead band lower threshold (-0.1 - 0 pu)";
+  parameter OpenIPSL.Types.PerUnit dbd2 = 0.05 "Voltage error dead band upper threshold (0 - 0.1 pu)";
+  parameter Real Kqv = 0 "Reactive current injection gain during over and undervoltage conditions (0 - 10)";
+  parameter OpenIPSL.Types.PerUnit Iqh1 = 1.05 "Upper limit on reactive current injection Iqinj (1 - 1.1 pu)";
+  parameter OpenIPSL.Types.PerUnit Iql1 = -1.05 "Lower limit on reactive current injection Iqinj (-1.1 - 1 pu)";
+  parameter OpenIPSL.Types.PerUnit vref0 = 1 "User defined voltage reference (0.95 - 1.05 pu)";
   parameter OpenIPSL.Types.Time Tp = 0.05 "Filter time constant for electrical power (0.01 - 0.1 s)";
-  parameter OpenIPSL.Types.PerUnit Qmax = 0.4360 "Upper limits of the limit for reactive power regulator (0.4 – 1.0 pu)";
-  parameter OpenIPSL.Types.PerUnit Qmin = -0.4360 "Lower limits of the  limit for reactive power regulator (-1.0 – -0.4 pu)";
-  parameter OpenIPSL.Types.PerUnit Vmax = 1.1 "Maximum limit for voltage control (1.05 – 1.1 pu)";
-  parameter OpenIPSL.Types.PerUnit Vmin = 0.9 "Lower limits of input signals (0.9 – 0.95 pu)";
+  parameter OpenIPSL.Types.PerUnit Qmax = 0.4360 "Upper limits of the limit for reactive power regulator (0.4 - 1.0 pu)";
+  parameter OpenIPSL.Types.PerUnit Qmin = -0.4360 "Lower limits of the  limit for reactive power regulator (-1.0 - -0.4 pu)";
+  parameter OpenIPSL.Types.PerUnit Vmax = 1.1 "Maximum limit for voltage control (1.05 - 1.1 pu)";
+  parameter OpenIPSL.Types.PerUnit Vmin = 0.9 "Lower limits of input signals (0.9 - 0.95 pu)";
   parameter Real Kqp = 0 "Reactive power regulator proportional gain (No predefined range)";
   parameter Real Kqi = 0.1 "Reactive power regulator integral gain (No predefined range)";
   parameter Real Kvp = 0 "Voltage regulator proportional gain (No predefined range)";
@@ -27,7 +27,7 @@ model REECB1 "Electrical control model for large scale photovoltaic"
   parameter Real dPmin = -99 "Lower limits of input signals (No predefined range pu/s)";
   parameter OpenIPSL.Types.PerUnit Pmax = 1 "Maximum power limit (1 pu)";
   parameter OpenIPSL.Types.PerUnit Pmin = 0 "Minimum power limit (0 pu)";
-  parameter OpenIPSL.Types.PerUnit Imax = 1.82 "Maximum limit on total converter current (1.1 – 1.3 pu)";
+  parameter OpenIPSL.Types.PerUnit Imax = 1.82 "Maximum limit on total converter current (1.1 - 1.3 pu)";
   parameter OpenIPSL.Types.Time Tpord = 0.02 "Power filter time constant (0.01 - 0.02 s) ";
 
   Integer Voltage_dip;
