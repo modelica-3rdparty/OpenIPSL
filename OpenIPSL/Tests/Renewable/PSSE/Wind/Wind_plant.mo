@@ -111,5 +111,6 @@ coordinated V/Q control), 2 active power options (No governor response, Governor
 <li><code>GEN1.v</code></li>
 <li><code>FAULT.v</code></li>
 <li><code>GEN2.v</code></li>
+</ul>
 </html>"));
 end Wind_plant;
