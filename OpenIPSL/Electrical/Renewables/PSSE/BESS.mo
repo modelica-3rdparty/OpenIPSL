@@ -12,29 +12,29 @@ extends OpenIPSL.Electrical.Essentials.pfComponent(
     final enableS_b=true);
 
   // Parameters for selection
-  parameter Integer QFunctionality = 0  annotation(Dialog(group= "Reactive Power Control Options"), choices(choice=0 "Constant local PF control", choice=1 "Constant local Q control", choice=2 "Local V control", choice=3 "Local coordinated V/Q control", choice=4 "Plant level Q control", choice=5 "Plant level V control", choice=6 "Plant level Q control + local coordinated V/Q control", choice=7 "Plant level V control + local coordinated V/Q control"));
-  parameter Integer PFunctionality = 0  annotation (Dialog(group= "Active Power Control Options", enable=(QFunctionality >=4)), choices(choice=0 "No governor response",  choice=1 "Governor response with up and down regulation"));
+  parameter Integer QFunctionality = 0 "BESS Reactive Power Control Options"  annotation(Dialog(group= "Reactive Power Control Options"), choices(choice=0 "Constant local PF control", choice=1 "Constant local Q control", choice=2 "Local V control", choice=3 "Local coordinated V/Q control", choice=4 "Plant level Q control", choice=5 "Plant level V control", choice=6 "Plant level Q control + local coordinated V/Q control", choice=7 "Plant level V control + local coordinated V/Q control"));
+  parameter Integer PFunctionality = 0 "BESS Real Power Control Options" annotation (Dialog(group= "Active Power Control Options", enable=(QFunctionality >=4)), choices(choice=0 "No governor response",  choice=1 "Governor response with up and down regulation"));
 
-  replaceable OpenIPSL.Electrical.Renewables.PSSE.RenewableGeneratorConverter.BaseClasses.baseRenewableGenerator
+  replaceable
+    OpenIPSL.Electrical.Renewables.PSSE.InverterInterface.BaseClasses.BaseREGC
     RenewableGenerator(
     P_0=P_0,
     Q_0=Q_0,
     v_0=v_0,
-    angle_0=angle_0)
-    annotation (choicesAllMatching=true,Placement(transformation(extent={{30,-20},
-            {70,20}})));
+    angle_0=angle_0) annotation (choicesAllMatching=true, Placement(
+        transformation(extent={{30,-20},{70,20}})));
   replaceable
-    OpenIPSL.Electrical.Renewables.PSSE.RenewableElectricalController.BaseClasses.BaseREECC
+    OpenIPSL.Electrical.Renewables.PSSE.ElectricalController.BaseClasses.BaseREECC
     RenewableController(
     pfflag=pfflag,
     vflag=vflag,
     qflag=qflag,
-    pqflag=false)
-                 annotation (choicesAllMatching=true, Placement(transformation(
+    pqflag=false) annotation (choicesAllMatching=true, Placement(transformation(
           extent={{-20,-20},{20,20}})));
   Interfaces.PwPin pwPin
     annotation (Placement(transformation(extent={{90,-10},{110,10}})));
-  replaceable RenewablePlantController.BaseClasses.basePlantController
+  replaceable
+    OpenIPSL.Electrical.Renewables.PSSE.PlantController.BaseClasses.BaseREPC
     PlantController(
     P_0=P_0,
     Q_0=Q_0,

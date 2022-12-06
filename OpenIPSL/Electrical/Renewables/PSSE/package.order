@@ -1,7 +1,7 @@
 BESS
 Wind
 PV
-RenewableGeneratorConverter
-RenewableElectricalController
-RenewablePlantController
-RenewableDriveTrain
+InverterInterface
+ElectricalController
+PlantController
+WindDriveTrain

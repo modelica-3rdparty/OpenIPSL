@@ -10,8 +10,7 @@ model BESS_plant
     angle_0=0.02574992,
     QFunctionality=7,
     PFunctionality=0,
-    redeclare
-      OpenIPSL.Electrical.Renewables.PSSE.RenewableGeneratorConverter.REGC_A
+    redeclare OpenIPSL.Electrical.Renewables.PSSE.InverterInterface.REGCA1
       RenewableGenerator(
       V_b=100000,
       Tg=0.017,
@@ -21,8 +20,7 @@ model BESS_plant
       Iqrmax=99,
       Iqrmin=-99,
       Lvplsw=true),
-    redeclare
-      OpenIPSL.Electrical.Renewables.PSSE.RenewableElectricalController.REECCU1
+    redeclare OpenIPSL.Electrical.Renewables.PSSE.ElectricalController.REECCU1
       RenewableController(
       pfflag=false,
       vflag=false,
@@ -46,8 +44,7 @@ model BESS_plant
       Vq2=0.2,
       Vq3=0.5,
       Vq4=1),
-    redeclare
-      OpenIPSL.Electrical.Renewables.PSSE.RenewablePlantController.REPCA1
+    redeclare OpenIPSL.Electrical.Renewables.PSSE.PlantController.REPCA1
       PlantController)
     annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
 equation

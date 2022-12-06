@@ -10,8 +10,7 @@ model Wind_plant
     QFunctionality=4,
     PFunctionality=0,
     TOscillation=0,
-    redeclare
-      OpenIPSL.Electrical.Renewables.PSSE.RenewableGeneratorConverter.REGC_A
+    redeclare OpenIPSL.Electrical.Renewables.PSSE.InverterInterface.REGCA1
       RenewableGenerator(
       Tg=0.01,
       rrpwr=3,
@@ -26,11 +25,9 @@ model Wind_plant
       Khv=1,
       Iqrmax=99,
       Iqrmin=-99),
-    redeclare
-      OpenIPSL.Electrical.Renewables.PSSE.RenewablePlantController.REPCA1
+    redeclare OpenIPSL.Electrical.Renewables.PSSE.PlantController.REPCA1
       PlantController,
-    redeclare
-      OpenIPSL.Electrical.Renewables.PSSE.RenewableElectricalController.REECA1
+    redeclare OpenIPSL.Electrical.Renewables.PSSE.ElectricalController.REECA1
       RenewableController(
       pqflag=false,
       dbd1=-0.1,
@@ -72,7 +69,7 @@ model Wind_plant
       Ip3=1.2,
       Vp4=1,
       Ip4=1.2),
-    redeclare OpenIPSL.Electrical.Renewables.PSSE.RenewableDriveTrain.WTDTA1
+    redeclare OpenIPSL.Electrical.Renewables.PSSE.WindDriveTrain.WTDTA1
       DriveTrain(
       H=0.01,
       Freq1=10,

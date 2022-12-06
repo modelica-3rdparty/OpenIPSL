@@ -9,19 +9,16 @@ model PV_plant
     angle_0(displayUnit="deg") = 0.02574992,
     QFunctionality=4,
     PFunctionality=0,
-    redeclare
-      OpenIPSL.Electrical.Renewables.PSSE.RenewableGeneratorConverter.REGC_A
+    redeclare OpenIPSL.Electrical.Renewables.PSSE.InverterInterface.REGCA1
       RenewableGenerator(Lvplsw=true),
-    redeclare
-      OpenIPSL.Electrical.Renewables.PSSE.RenewableElectricalController.REECB1
+    redeclare OpenIPSL.Electrical.Renewables.PSSE.ElectricalController.REECB1
       RenewableController(
       pfflag=false,
       vflag=false,
       qflag=false,
       pqflag=false,
       vref0=1),
-    redeclare
-      OpenIPSL.Electrical.Renewables.PSSE.RenewablePlantController.REPCA1
+    redeclare OpenIPSL.Electrical.Renewables.PSSE.PlantController.REPCA1
       PlantController(
       Rc=0,
       Xc=0,

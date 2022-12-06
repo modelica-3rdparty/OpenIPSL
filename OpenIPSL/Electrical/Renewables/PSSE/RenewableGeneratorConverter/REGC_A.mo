@@ -1,4 +1,4 @@
-within OpenIPSL.Electrical.Renewables.PSSE.RenewableGeneratorConverter;
+﻿within OpenIPSL.Electrical.Renewables.PSSE.RenewableGeneratorConverter;
 model REGC_A "Renewable energy generator/converter model A"
   extends BaseClasses.baseRenewableGenerator;
   Modelica.Blocks.Sources.RealExpression Vt(y=VT)
@@ -144,5 +144,17 @@ equation
   annotation (Icon(graphics={Text(
           extent={{-90,70},{90,-70}},
           textColor={0,0,255},
-          textString="REGCA")}));
+          textString="REGCA")}), Documentation(info="<html>
+<p>The REGC_A component is used to represent the renewable source (inverter) interface with the grid. It takes in as input the real current command
+(Ipcmd) and the reactive current command (Iqcmd) from the electrical controller, and outputs real (Ip) and reactive (Iq) injected currents to the grid through
+OpenIPSL's proprietary pwpin connector.</p>
+<p>In order to properly initialize all the components that form the renewable energy source, the REGC_A component has five initialization outputs, which its constant output originates from the 
+starting power flow: initial real and reactive injection currents (IP0 and IQ0), initial terminal voltage (V_0), and initial active and reactive power 
+injections (p_0 and q_0). This method reduces repetitiveness of initialization calculation, being calculated once at the REGC_A component.</p>
+<p>The connection with other components requires a closed loop through terminal voltage variable (V_t), and active and reactive power generation (Pgen and Qgen).</p>
+<p>The modelling of such devices is based, mainly, on the following references:</p>
+<ul>
+<li><em>Siemens PTI, PSS®E 34.2.0 model library</em>, by Siemens Power Technologies International, Schenectady, NY (2017),</li>
+</ul>
+</html>"));
 end REGC_A;

@@ -245,4 +245,10 @@ package BaseClasses "Base classes for renewable energy generator/converter model
           coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
               100,100}})));
   end LVPL;
+  annotation (Documentation(info="<html>
+<p>
+This package contains the base class component used in the REGC_A component, as well as the Low Voltage Active Current Management (LVACM)
+ and the Low Voltage Power Logic (LVPL).
+</p>
+</html>"));
 end BaseClasses;
