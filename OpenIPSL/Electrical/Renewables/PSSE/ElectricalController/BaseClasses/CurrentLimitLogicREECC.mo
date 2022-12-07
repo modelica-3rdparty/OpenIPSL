@@ -1,0 +1,140 @@
+within OpenIPSL.Electrical.Renewables.PSSE.ElectricalController.BaseClasses;
+model CurrentLimitLogicREECC "Current limit logic for REECC"
+
+  parameter OpenIPSL.Types.PerUnit start_ii "Starting current value from Iqcmd (comes from power flow simulation)";
+  parameter OpenIPSL.Types.PerUnit start_ir "Starting current value from Ipcmd (comes from power flow simulation)";
+  parameter Real Imax "Maximum limit on total converter current (pu)";
+
+  Modelica.Blocks.Interfaces.RealInput VDL1_out annotation (Placement(
+        transformation(
+        extent={{-20,-20},{20,20}},
+        rotation=0,
+        origin={-120,60}), iconTransformation(extent={{-140,80},{-100,40}})));
+  Modelica.Blocks.Interfaces.BooleanInput pqflag annotation (Placement(
+        transformation(
+        extent={{-20,-20},{20,20}},
+        rotation=180,
+        origin={120,0}), iconTransformation(
+        extent={{0,0},{40,40}},
+        rotation=180,
+        origin={140,20})));
+  Modelica.Blocks.Interfaces.RealInput VDL2_out annotation (Placement(
+        transformation(
+        extent={{-20,-20},{20,20}},
+        rotation=0,
+        origin={-120,-60}), iconTransformation(extent={{-140,-40},{-100,-80}})));
+  Modelica.Blocks.Interfaces.RealInput Iqcmd(start = -start_ii) annotation (Placement(
+        transformation(
+        extent={{-20,-20},{20,20}},
+        rotation=180,
+        origin={120,60}), iconTransformation(
+        extent={{-13.3335,-13.3336},{26.6673,26.6664}},
+        rotation=180,
+        origin={126.667,66.6664})));
+  Modelica.Blocks.Interfaces.RealInput Ipcmd(start =  start_ir) annotation (Placement(
+        transformation(
+        extent={{-20,-20},{20,20}},
+        rotation=180,
+        origin={120,-60}), iconTransformation(
+        extent={{-3.63659,79.9998},{36.3659,39.9999}},
+        rotation=180,
+        origin={136.363,-0.0002})));
+  Modelica.Blocks.Interfaces.RealOutput Iqmax annotation (Placement(
+        transformation(
+        extent={{-10,-10},{10,10}},
+        rotation=90,
+        origin={-60,110})));
+  Modelica.Blocks.Interfaces.RealOutput Iqmin annotation (Placement(
+        transformation(
+        extent={{-10,-10},{10,10}},
+        rotation=90,
+        origin={60,110})));
+  Modelica.Blocks.Interfaces.RealOutput Ipmax annotation (Placement(
+        transformation(
+        extent={{-10,-10},{10,10}},
+        rotation=270,
+        origin={-60,-110})));
+  Modelica.Blocks.Interfaces.RealOutput Ipmin annotation (Placement(
+        transformation(
+        extent={{-10,-10},{10,10}},
+        rotation=270,
+        origin={60,-110})));
+equation
+
+    Iqmax = if pqflag == false then min(VDL1_out, Imax) else min(VDL1_out, sqrt(Imax^2 - Ipcmd^2));
+    Iqmin = -Iqmax;
+    Ipmax = if pqflag == false then min(VDL2_out, sqrt(Imax^2-Iqcmd^2)) else min(VDL2_out, Imax);
+    Ipmin = -Ipmax;
+
+  annotation (Icon(graphics={Rectangle(
+          extent={{-100,100},{100,-100}},
+          lineColor={28,108,200},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.None),  Text(
+          extent={{-60,40},{60,-40}},
+          lineColor={28,108,200},
+          lineThickness=0.5,
+          fillColor={28,108,200},
+          fillPattern=FillPattern.Solid,
+          textString="CLL REECC"),        Text(
+          extent={{52,80},{92,40}},
+          lineColor={28,108,200},
+          lineThickness=0.5,
+          fillColor={28,108,200},
+          fillPattern=FillPattern.Solid,
+          textString="IQCMD"),            Text(
+          extent={{52,-40},{92,-80}},
+          lineColor={28,108,200},
+          lineThickness=0.5,
+          fillColor={28,108,200},
+          fillPattern=FillPattern.Solid,
+          textString="IPCMD"),            Text(
+          extent={{-90,80},{-50,40}},
+          lineColor={28,108,200},
+          lineThickness=0.5,
+          fillColor={28,108,200},
+          fillPattern=FillPattern.Solid,
+          textString="VDL1"),             Text(
+          extent={{-90,-40},{-50,-80}},
+          lineColor={28,108,200},
+          lineThickness=0.5,
+          fillColor={28,108,200},
+          fillPattern=FillPattern.Solid,
+          textString="VDL2"),             Text(
+          extent={{-68,98},{-28,58}},
+          lineColor={28,108,200},
+          lineThickness=0.5,
+          fillColor={28,108,200},
+          fillPattern=FillPattern.Solid,
+          textString="IQMIN"),            Text(
+          extent={{52,98},{92,58}},
+          lineColor={28,108,200},
+          lineThickness=0.5,
+          fillColor={28,108,200},
+          fillPattern=FillPattern.Solid,
+          textString="IQMAX")}), Documentation(info="<html>
+The pseudo-code for the current limit logic in the REECC electrical controller detailed below:
+<pre> 
+<code> 
+if Pqflag = true:
+   Ipmax = min(VDL2_out, Imax);
+   Ipmin = -Ipmax;
+   Iqmax = min(VDL1_out, sqrt(Imax^2   Ipcmd^2);
+   Iqmin = -Iqmax;
+end
+
+if Pqflag = false:
+   Ipmax = min(VDL2_out, sqrt(Imax^2 - Iqcmd^2));
+   Ipmin = -Ipmax;
+   Iqmax = min(VDL1_out, Imax);
+   Iqmin = -Iqmax;
+end
+</code>
+</pre>
+<p>The modelling of the current limit logic for the REECB electrical controller is based on the following references:</p>
+<ul>
+<li><em>Siemens PTI, PSSE 34.2.0 model library</em>, by Siemens Power Technologies International, Schenectady, NY (2017), and</li>
+<li><em>WECC Battery Storage Dynamic Modeling Guideline</em>, by WECC Renewable Energy Modeling Task Force.</li>
+</ul>
+</html>"));
+end CurrentLimitLogicREECC;
