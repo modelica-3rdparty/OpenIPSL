@@ -1,4 +1,4 @@
-﻿within OpenIPSL.Electrical.Renewables.PSSE;
+within OpenIPSL.Electrical.Renewables.PSSE;
 package ElectricalController "Renewable Electrical Controllers"
 
   model REECA1 "Electrical control model for large scale wind"
@@ -407,7 +407,7 @@ are Vt, Pgen, and Qgen while the two inputs that could potentially be constant v
 </p>
 <p>The modelling of such devices is based, mainly, on the following references:</p>
 <ul>
-<li><em>Siemens PTI, PSS®E 34.2.0 model library</em>, by Siemens Power Technologies International, Schenectady, NY (2017), and</li>
+<li><em>Siemens PTI, PSSE 34.2.0 model library</em>, by Siemens Power Technologies International, Schenectady, NY (2017), and</li>
 <li><em>WECC Wind Power Plant Dynamic Modeling Guide</em>, by WECC Renewable Energy Modeling Task Force.</li>
 </ul>
 </html>"));
@@ -799,7 +799,7 @@ are Vt, Pgen, and Qgen while the two inputs that could potentially be constant v
 </p>
 <p>The modelling of such devices is based, mainly, on the following references:</p>
 <ul>
-<li><em>Siemens PTI, PSS®E 34.2.0 model library</em>, by Siemens Power Technologies International, Schenectady, NY (2017), and</li>
+<li><em>Siemens PTI, PSSE 34.2.0 model library</em>, by Siemens Power Technologies International, Schenectady, NY (2017), and</li>
 <li><em>WECC Solar Photovoltaic Power Plant Modeling and Validation Guideline</em>, by WECC Renewable Energy Modeling Task Force.</li>
 </ul>
 </html>"));
@@ -1300,7 +1300,7 @@ are Vt, Pgen, and Qgen while the two inputs that could potentially be constant v
 </p>
 <p>The modelling of such devices is based, mainly, on the following references:</p>
 <ul>
-<li><em>Siemens PTI, PSS®E 34.2.0 model library</em>, by Siemens Power Technologies International, Schenectady, NY (2017), and</li>
+<li><em>Siemens PTI, PSSE 34.2.0 model library</em>, by Siemens Power Technologies International, Schenectady, NY (2017), and</li>
 <li><em>WECC Battery Storage Dynamic Modeling Guideline</em>, by WECC Renewable Energy Modeling Task Force.</li>
 </ul>
 
@@ -1864,7 +1864,7 @@ end
 </pre>
 <p>The modelling of the current limit logic for the REECA electrical controller is based on the following references:</p>
 <ul>
-<li><em>Siemens PTI, PSS®E 34.2.0 model library</em>, by Siemens Power Technologies International, Schenectady, NY (2017), and</li>
+<li><em>Siemens PTI, PSSE 34.2.0 model library</em>, by Siemens Power Technologies International, Schenectady, NY (2017), and</li>
 <li><em>WECC Wind Power Plant Dynamic Modeling Guide</em>, by WECC Renewable Energy Modeling Task Force.</li>
 </ul>
 </html>"));
@@ -2002,7 +2002,7 @@ end
 </pre>
 <p>The modelling of the current limit logic for the REECB electrical controller is based on the following references:</p>
 <ul>
-<li><em>Siemens PTI, PSS®E 34.2.0 model library</em>, by Siemens Power Technologies International, Schenectady, NY (2017), and</li>
+<li><em>Siemens PTI, PSSE 34.2.0 model library</em>, by Siemens Power Technologies International, Schenectady, NY (2017), and</li>
 <li><em>WECC Solar Photovoltaic Power Plant Modeling and Validation Guideline</em>, by WECC Renewable Energy Modeling Task Force.</li>
 </ul>
 </html>"));
@@ -2128,12 +2128,12 @@ The pseudo-code for the current limit logic in the REECC electrical controller d
 if Pqflag = true:
    Ipmax = min(VDL2_out, Imax);
    Ipmin = -Ipmax;
-   Iqmax = min(VDL1_out, sqrt(Imax^2 - Ipcmd^2);
+   Iqmax = min(VDL1_out, sqrt(Imax^2   Ipcmd^2);
    Iqmin = -Iqmax;
 end
 
 if Pqflag = false:
-   Ipmax = min(VDL2_out, sqrt(Imax^2-Iqcmd^2));
+   Ipmax = min(VDL2_out, sqrt(Imax^2 - Iqcmd^2));
    Ipmin = -Ipmax;
    Iqmax = min(VDL1_out, Imax);
    Iqmin = -Iqmax;
@@ -2142,7 +2142,7 @@ end
 </pre>
 <p>The modelling of the current limit logic for the REECB electrical controller is based on the following references:</p>
 <ul>
-<li><em>Siemens PTI, PSS®E 34.2.0 model library</em>, by Siemens Power Technologies International, Schenectady, NY (2017), and</li>
+<li><em>Siemens PTI, PSSE 34.2.0 model library</em>, by Siemens Power Technologies International, Schenectady, NY (2017), and</li>
 <li><em>WECC Battery Storage Dynamic Modeling Guideline</em>, by WECC Renewable Energy Modeling Task Force.</li>
 </ul>
 </html>"));
@@ -2199,7 +2199,7 @@ end
 </pre>
 <p>The modelling of the state of charge for the REECC electrical controller is based on the following references:</p>
 <ul>
-<li><em>Siemens PTI, PSS®E 34.2.0 model library</em>, by Siemens Power Technologies International, Schenectady, NY (2017), and</li>
+<li><em>Siemens PTI, PSSE 34.2.0 model library</em>, by Siemens Power Technologies International, Schenectady, NY (2017), and</li>
 <li><em>WECC Battery Storage Dynamic Modeling Guideline</em>, by WECC Renewable Energy Modeling Task Force.</li>
 </ul>
 </html>"));

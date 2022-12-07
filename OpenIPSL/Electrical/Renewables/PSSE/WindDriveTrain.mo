@@ -1,4 +1,4 @@
-﻿within OpenIPSL.Electrical.Renewables.PSSE;
+within OpenIPSL.Electrical.Renewables.PSSE;
 package WindDriveTrain "Drive train for wind turbines"
 
   model WTDTA1 "Generic Drive Train Model for Type 3 and Type 4 Wind Machines"
@@ -178,7 +178,7 @@ simple two mass drive train model represents in the WTDTA1 component. Thus, the 
 </p>
 <p>The modelling of such devices is based, mainly, on the following references:</p>
 <ul>
-<li><em>Siemens PTI, PSS®E 34.2.0 model library</em>, by Siemens Power Technologies International, Schenectady, NY (2017), and</li>
+<li><em>Siemens PTI, PSSE 34.2.0 model library</em>, by Siemens Power Technologies International, Schenectady, NY (2017), and</li>
 <li><em>WECC Wind Power Plant Dynamic Modeling Guide</em>, by WECC Renewable Energy Modeling Task Force.</li>
 </ul>
 </html>"));
@@ -261,4 +261,9 @@ This package contains the base class for wind turbine drive train model (WTDTA1)
 </p>
 </html>"));
   end BaseClasses;
+  annotation (Documentation(info="<html>
+<p>
+This package contains components that model the wind drive train component of wind turbines for the WECC-based renewable energy sources.
+</p>
+</html>"));
 end WindDriveTrain;
