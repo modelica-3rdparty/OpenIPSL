@@ -1,4 +1,4 @@
-﻿within OpenIPSL.Electrical.Renewables.PSSE.InverterInterface.BaseClasses;
+within OpenIPSL.Electrical.Renewables.PSSE.InverterInterface.BaseClasses;
 model LVACM "Low Voltage Active Control Management"
         parameter Real lvpnt0 "Low voltage point for low voltage active current management (pu)";
         parameter Real lvpnt1 "High voltage point for low voltage active current management (pu)";
@@ -35,12 +35,12 @@ equation
             100,100}})),
     Documentation(info="<html>
 <p>
-In the inverter inteface model block diagram there are two blocks labeled, “high-voltage reactive current management”  and “low-voltage power logic”. 
+In the inverter inteface model block diagram there are two blocks labeled, \"high-voltage reactive current management\"  and \"low-voltage power logic\". 
 These blocks represent logic associated with the dynamic model and the limit in active power injection into the system.
 </p>
 <p>The modelling of such devices is based, mainly, on the following references:</p>
 <ul>
-<li><em>Siemens PTI, PSSE 34.2.0 model library</em>, by Siemens Power Technologies International, Schenectady, NY (2017),</li>
+<li><em>Siemens PTI, PSSE 34.2.0 model library</em>, by Siemens Power Technologies International, Schenectady, NY (2017).</li>
 </ul>
 </html>"));
 end LVACM;
