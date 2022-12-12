@@ -445,12 +445,10 @@ equation
           {88.8,-50.4}}, color={0,0,127}));
   connect(PQFLAG.y, ccl_reecc.pqflag)
     annotation (Line(points={{147,-60},{127.2,-60}}, color={255,0,255}));
-  connect(IQCMD.y, ccl_reecc.Iqcmd) annotation (Line(points={{147,-38},{132,
-          -38},{132,-50.4},{127.2,-50.4}},
-                                      color={0,0,127}));
-  connect(IPCMD.y, ccl_reecc.Ipcmd) annotation (Line(points={{147,-82},{132,
-          -82},{132,-69.6},{127.2,-69.6}},
-                                      color={0,0,127}));
+  connect(IQCMD.y, ccl_reecc.Iqcmd) annotation (Line(points={{147,-38},{132,-38},
+          {132,-50.4},{127.2,-50.4}}, color={0,0,127}));
+  connect(IPCMD.y, ccl_reecc.Ipcmd) annotation (Line(points={{147,-82},{132,-82},
+          {132,-69.6},{127.2,-69.6}}, color={0,0,127}));
   connect(limiter.y, add9.u1)
     annotation (Line(points={{-107,234},{232,234},{232,86}}, color={0,0,127}));
   connect(variableLimiter.y, Iqcmd)
@@ -494,7 +492,7 @@ are Vt, Pgen, and Qgen while the two inputs that could potentially be constant v
 </p>
 <p>The modelling of such devices is based, mainly, on the following references:</p>
 <ul>
-<li><em>Siemens PTI, PSSE 34.2.0 model library</em>, by Siemens Power Technologies International, Schenectady, NY (2017), and</li>
+<li><em>Siemens PTI, PSS®E 34.2.0 model library</em>, by Siemens Power Technologies International, Schenectady, NY (2017), and</li>
 <li><em>WECC Battery Storage Dynamic Modeling Guideline</em>, by WECC Renewable Energy Modeling Task Force.</li>
 </ul>
 

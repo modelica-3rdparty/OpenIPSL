@@ -1,5 +1,5 @@
 within OpenIPSL.Tests.Renewable.PSSE.PV;
-model PV_plant
+model PVPlant
   "PV source in a SMIB system to test functionality of REPCA plant controller model"
   extends BaseClasses.SMIBRenewable(SysData(fn=60), freq(k=SysData.fn));
   Electrical.Renewables.PSSE.PV pV(
@@ -61,4 +61,4 @@ coordinated V/Q control), 2 active power options (No governor response, Governor
 <li><code>GEN2.v</code></li>
 </ul>
 </html>"));
-end PV_plant;
+end PVPlant;

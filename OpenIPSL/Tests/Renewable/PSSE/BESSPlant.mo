@@ -1,5 +1,5 @@
 within OpenIPSL.Tests.Renewable.PSSE.BESS;
-model BESS_plant
+model BESSPlant
   "BESS source in a SMIB system to test functionality of REPCA plant controller model"
   extends BaseClasses.SMIBRenewable;
   Electrical.Renewables.PSSE.BESS bESS(
@@ -82,4 +82,4 @@ coordinated V/Q control), 2 active power options (No governor response, Governor
 <li><code>GEN2.v</code></li>
 </ul>
 </html>"));
-end BESS_plant;
+end BESSPlant;

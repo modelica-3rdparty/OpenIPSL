@@ -385,7 +385,7 @@ are Vt, Pgen, and Qgen while the two inputs that could potentially be constant v
 </p>
 <p>The modelling of such devices is based, mainly, on the following references:</p>
 <ul>
-<li><em>Siemens PTI, PSSE 34.2.0 model library</em>, by Siemens Power Technologies International, Schenectady, NY (2017), and</li>
+<li><em>Siemens PTI, PSS®E 34.2.0 model library</em>, by Siemens Power Technologies International, Schenectady, NY (2017), and</li>
 <li><em>WECC Solar Photovoltaic Power Plant Modeling and Validation Guideline</em>, by WECC Renewable Energy Modeling Task Force.</li>
 </ul>
 </html>"));

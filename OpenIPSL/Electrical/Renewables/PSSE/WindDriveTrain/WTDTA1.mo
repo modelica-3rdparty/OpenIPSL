@@ -176,7 +176,7 @@ simple two mass drive train model represents in the WTDTA1 component. Thus, the 
 </p>
 <p>The modelling of such devices is based, mainly, on the following references:</p>
 <ul>
-<li><em>Siemens PTI, PSSE 34.2.0 model library</em>, by Siemens Power Technologies International, Schenectady, NY (2017), and</li>
+<li><em>Siemens PTI, PSS®E 34.2.0 model library</em>, by Siemens Power Technologies International, Schenectady, NY (2017), and</li>
 <li><em>WECC Wind Power Plant Dynamic Modeling Guide</em>, by WECC Renewable Energy Modeling Task Force.</li>
 </ul>
 </html>"));

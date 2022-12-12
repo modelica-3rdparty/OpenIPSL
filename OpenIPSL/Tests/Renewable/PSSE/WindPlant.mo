@@ -1,5 +1,5 @@
 within OpenIPSL.Tests.Renewable.PSSE.Wind;
-model Wind_plant
+model WindPlant
   "Wind source in a SMIB system to test functionality of REECCA electrical controller model"
   extends BaseClasses.SMIBRenewable;
   Electrical.Renewables.PSSE.Wind wind(
@@ -110,4 +110,4 @@ coordinated V/Q control), 2 active power options (No governor response, Governor
 <li><code>GEN2.v</code></li>
 </ul>
 </html>"));
-end Wind_plant;
+end WindPlant;

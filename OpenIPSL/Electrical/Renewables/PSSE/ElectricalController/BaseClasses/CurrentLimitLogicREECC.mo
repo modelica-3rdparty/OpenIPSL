@@ -133,7 +133,7 @@ end
 </pre>
 <p>The modelling of the current limit logic for the REECB electrical controller is based on the following references:</p>
 <ul>
-<li><em>Siemens PTI, PSSE 34.2.0 model library</em>, by Siemens Power Technologies International, Schenectady, NY (2017), and</li>
+<li><em>Siemens PTI, PSS®E 34.2.0 model library</em>, by Siemens Power Technologies International, Schenectady, NY (2017), and</li>
 <li><em>WECC Battery Storage Dynamic Modeling Guideline</em>, by WECC Renewable Energy Modeling Task Force.</li>
 </ul>
 </html>"));

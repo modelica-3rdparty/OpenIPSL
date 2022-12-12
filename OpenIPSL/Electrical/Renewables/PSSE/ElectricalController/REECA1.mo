@@ -339,9 +339,8 @@ equation
           {96.8,-70.4}}, color={0,0,127}));
   connect(PQFLAG.y, CCL_REECA.pqflag)
     annotation (Line(points={{155,-80},{135.2,-80}}, color={255,0,255}));
-  connect(IQCMD.y,CCL_REECA.Iqcmd)  annotation (Line(points={{155,-58},{140,
-          -58},{140,-70.4},{135.2,-70.4}},
-                                      color={0,0,127}));
+  connect(IQCMD.y,CCL_REECA.Iqcmd)  annotation (Line(points={{155,-58},{140,-58},
+          {140,-70.4},{135.2,-70.4}}, color={0,0,127}));
   connect(IPCMD.y,CCL_REECA.Ipcmd)  annotation (Line(points={{155,-102},{140,
           -102},{140,-89.6},{135.2,-89.6}},
                                       color={0,0,127}));
@@ -405,7 +404,7 @@ are Vt, Pgen, and Qgen while the two inputs that could potentially be constant v
 </p>
 <p>The modelling of such devices is based, mainly, on the following references:</p>
 <ul>
-<li><em>Siemens PTI, PSSE 34.2.0 model library</em>, by Siemens Power Technologies International, Schenectady, NY (2017), and</li>
+<li><em>Siemens PTI, PSS®E 34.2.0 model library</em>, by Siemens Power Technologies International, Schenectady, NY (2017), and</li>
 <li><em>WECC Wind Power Plant Dynamic Modeling Guide</em>, by WECC Renewable Energy Modeling Task Force.</li>
 </ul>
 </html>"));
