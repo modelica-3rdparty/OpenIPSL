@@ -1,4 +1,4 @@
-within OpenIPSL.Tests.Renewable.PSSE.Wind;
+within OpenIPSL.Tests.Renewable.PSSE;
 model WindPlant
   "Wind source in a SMIB system to test functionality of REECCA electrical controller model"
   extends BaseClasses.SMIBRenewable;

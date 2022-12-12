@@ -1,4 +1,4 @@
-within OpenIPSL.Tests.Renewable.PSSE.BESS;
+within OpenIPSL.Tests.Renewable.PSSE;
 model BESSPlant
   "BESS source in a SMIB system to test functionality of REPCA plant controller model"
   extends BaseClasses.SMIBRenewable;
