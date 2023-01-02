@@ -1,10 +1,10 @@
 within OpenIPSL.Electrical.Renewables.PSSE.ElectricalController.BaseClasses;
 model PIwithNoVariableLimiter "PI with no variable limiter controller for WECC electrical controllers"
   import Modelica.Units.SI;
-  parameter SI.PerUnit K_P "Voltage regulator proportional gain (pu)";
-  parameter SI.TimeAging K_I "Voltage regulator integral gain (pu)";
-  parameter SI.PerUnit V_RMAX "Maximum regulator output (pu)";
-  parameter SI.PerUnit V_RMIN "Minimum regulator output (pu)";
+  parameter SI.PerUnit K_P "Voltage regulator proportional gain";
+  parameter SI.TimeAging K_I "Voltage regulator integral gain";
+  parameter SI.PerUnit V_RMAX "Maximum regulator output";
+  parameter SI.PerUnit V_RMIN "Minimum regulator output";
   parameter Real y_start "Starting output value for the integrator";
   Modelica.Blocks.Continuous.Integrator    integral(
     k=K_I,
@@ -76,7 +76,8 @@ Specific PI with no variable limiter component for the WECC-based renewable ener
 </p>
 <p>The modelling of such component is based, mainly, on the following reference:</p>
 <ul>
-<li><em>Modelling and Simulation of PI-controllers Limiters for the Dynamic Analysis of VSC-based Devices</em>, by Mohammed Ahsan Adib Murad, Student Member, IEEE and Federico Milano, Fellow, IEEE.</li>
+<li>Mohammed, M., Federico, M.: \"Modeling and Simulation of PI-Controllers Limiters for the Dynamic Analysis of VSC-Based Devices\" 
+<a href=\"modelica://OpenIPSL.UsersGuide.References\">[Mohammed2019]</a>,</li>
 </ul>
 </html>"));
 end PIwithNoVariableLimiter;

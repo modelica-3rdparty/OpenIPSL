@@ -4,31 +4,31 @@ model REECB1 "Electrical control model for large scale photovoltaic"
     OpenIPSL.Electrical.Renewables.PSSE.ElectricalController.BaseClasses.BaseREECB(
      Iqcmd(start=Iq0), Ipcmd(start=Ip0));
 
-  parameter OpenIPSL.Types.PerUnit Vdip = -99 "Low voltage threshold to activate reactive current injection logic (0.85 - 0.9 pu)";
-  parameter OpenIPSL.Types.PerUnit Vup = 99 "Voltage above which reactive current injection logic is activated (>1.1 pu)";
-  parameter OpenIPSL.Types.Time Trv = 0 "Filter time constant for voltage measurement (0.01 - 0.02 s)";
-  parameter OpenIPSL.Types.PerUnit dbd1 = -0.05 "Voltage error dead band lower threshold (-0.1 - 0 pu)";
-  parameter OpenIPSL.Types.PerUnit dbd2 = 0.05 "Voltage error dead band upper threshold (0 - 0.1 pu)";
+  parameter OpenIPSL.Types.PerUnit Vdip = -99 "Low voltage threshold to activate reactive current injection logic (0.85 - 0.9)";
+  parameter OpenIPSL.Types.PerUnit Vup = 99 "Voltage above which reactive current injection logic is activated (>1.1)";
+  parameter OpenIPSL.Types.Time Trv = 0 "Filter time constant for voltage measurement (0.01 - 0.02)";
+  parameter OpenIPSL.Types.PerUnit dbd1 = -0.05 "Voltage error dead band lower threshold (-0.1 - 0)";
+  parameter OpenIPSL.Types.PerUnit dbd2 = 0.05 "Voltage error dead band upper threshold (0 - 0.1)";
   parameter Real Kqv = 0 "Reactive current injection gain during over and undervoltage conditions (0 - 10)";
-  parameter OpenIPSL.Types.PerUnit Iqh1 = 1.05 "Upper limit on reactive current injection Iqinj (1 - 1.1 pu)";
-  parameter OpenIPSL.Types.PerUnit Iql1 = -1.05 "Lower limit on reactive current injection Iqinj (-1.1 - 1 pu)";
-  parameter OpenIPSL.Types.PerUnit vref0 = 1 "User defined voltage reference (0.95 - 1.05 pu)";
-  parameter OpenIPSL.Types.Time Tp = 0.05 "Filter time constant for electrical power (0.01 - 0.1 s)";
-  parameter OpenIPSL.Types.PerUnit Qmax = 0.4360 "Upper limits of the limit for reactive power regulator (0.4 - 1.0 pu)";
-  parameter OpenIPSL.Types.PerUnit Qmin = -0.4360 "Lower limits of the  limit for reactive power regulator (-1.0 - -0.4 pu)";
-  parameter OpenIPSL.Types.PerUnit Vmax = 1.1 "Maximum limit for voltage control (1.05 - 1.1 pu)";
-  parameter OpenIPSL.Types.PerUnit Vmin = 0.9 "Lower limits of input signals (0.9 - 0.95 pu)";
+  parameter OpenIPSL.Types.PerUnit Iqh1 = 1.05 "Upper limit on reactive current injection Iqinj (1 - 1.1)";
+  parameter OpenIPSL.Types.PerUnit Iql1 = -1.05 "Lower limit on reactive current injection Iqinj (-1.1 - 1)";
+  parameter OpenIPSL.Types.PerUnit vref0 = 1 "User defined voltage reference (0.95 - 1.05)";
+  parameter OpenIPSL.Types.Time Tp = 0.05 "Filter time constant for electrical power (0.01 - 0.1)";
+  parameter OpenIPSL.Types.PerUnit Qmax = 0.4360 "Upper limits of the limit for reactive power regulator (0.4 - 1.0)";
+  parameter OpenIPSL.Types.PerUnit Qmin = -0.4360 "Lower limits of the  limit for reactive power regulator (-1.0 - -0.4)";
+  parameter OpenIPSL.Types.PerUnit Vmax = 1.1 "Maximum limit for voltage control (1.05 - 1.1)";
+  parameter OpenIPSL.Types.PerUnit Vmin = 0.9 "Lower limits of input signals (0.9 - 0.95)";
   parameter Real Kqp = 0 "Reactive power regulator proportional gain (No predefined range)";
   parameter Real Kqi = 0.1 "Reactive power regulator integral gain (No predefined range)";
   parameter Real Kvp = 0 "Voltage regulator proportional gain (No predefined range)";
   parameter Real Kvi = 40 "Voltage regulator integral gain (No predefined range)";
-  parameter OpenIPSL.Types.Time Tiq = 0.02 "Time constant on lag delay (0.01 - 0.02 s)";
-  parameter Real dPmax = 99 "Power reference maximum ramp rate (No predefined range pu/s)";
-  parameter Real dPmin = -99 "Lower limits of input signals (No predefined range pu/s)";
-  parameter OpenIPSL.Types.PerUnit Pmax = 1 "Maximum power limit (1 pu)";
-  parameter OpenIPSL.Types.PerUnit Pmin = 0 "Minimum power limit (0 pu)";
-  parameter OpenIPSL.Types.PerUnit Imax = 1.82 "Maximum limit on total converter current (1.1 - 1.3 pu)";
-  parameter OpenIPSL.Types.Time Tpord = 0.02 "Power filter time constant (0.01 - 0.02 s) ";
+  parameter OpenIPSL.Types.Time Tiq = 0.02 "Time constant on lag delay (0.01 - 0.02)";
+  parameter Real dPmax = 99 "Power reference maximum ramp rate (No predefined range)";
+  parameter Real dPmin = -99 "Lower limits of input signals (No predefined range)";
+  parameter OpenIPSL.Types.PerUnit Pmax = 1 "Maximum power limit";
+  parameter OpenIPSL.Types.PerUnit Pmin = 0 "Minimum power limit";
+  parameter OpenIPSL.Types.PerUnit Imax = 1.82 "Maximum limit on total converter current (1.1 - 1.3)";
+  parameter OpenIPSL.Types.Time Tpord = 0.02 "Power filter time constant (0.01 - 0.02) ";
 
   Integer Voltage_dip;
 
@@ -316,7 +316,7 @@ equation
   connect(IPMAX.y,variableLimiter1. limit1) annotation (Line(points={{53,-140},{
           34,-140},{34,-162},{52,-162}}, color={0,0,127}));
   connect(variableLimiter1.y, Ipcmd) annotation (Line(points={{75,-170},{254,-170},
-          {254,-150},{310,-150}},
+          {254,-160},{310,-160}},
                                 color={0,0,127}));
   connect(Vt, simpleLag.u)
     annotation (Line(points={{-320,160},{-288,160}}, color={0,0,127}));
@@ -342,14 +342,14 @@ equation
   connect(division1.y, variableLimiter1.u)
     annotation (Line(points={{-51,-170},{52,-170}}, color={0,0,127}));
   connect(variableLimiter.y, Iqcmd)
-    annotation (Line(points={{285,80},{298,80},{298,150},{310,150}},
+    annotation (Line(points={{285,80},{298,80},{298,160},{310,160}},
                                                  color={0,0,127}));
   connect(Pqflag_logic.y, ccl.Pqflag)
     annotation (Line(points={{241,-30},{258,-30}}, color={255,0,255}));
-  connect(ccl.Iqcmd, Iqcmd) annotation (Line(points={{282,-25},{292,-25},{292,150},
-          {310,150}},color={0,0,127}));
-  connect(ccl.Ipcmd, Ipcmd) annotation (Line(points={{282,-35},{292,-35},{292,-150},
-          {310,-150}},color={0,0,127}));
+  connect(ccl.Iqcmd, Iqcmd) annotation (Line(points={{282,-25},{292,-25},{292,160},
+          {310,160}},color={0,0,127}));
+  connect(ccl.Ipcmd, Ipcmd) annotation (Line(points={{282,-35},{292,-35},{292,-160},
+          {310,-160}},color={0,0,127}));
   connect(product2.u1, add1.y) annotation (Line(points={{-124,26},{-128,26},{-128,
           40},{-111,40},{-111,60}}, color={0,0,127}));
   connect(gain.u, integrator.u) annotation (Line(points={{-94,60},{-98,60},{-98,
@@ -374,7 +374,7 @@ with feedback variables that original from the inverter interface component, spe
 and provides real (Ipcmd) and reactive current (Iqcmd) commands to the REGC types module.
 </p>
 <p>
-For initialization purposes, there are 5 inputs that are derived from the inverter component: initial real and reactive injection currents (IP0 and IQ0), initial terminal voltage (V_0), and initial active and reactive power 
+For initialization purposes, there are 5 inputs that are derived from the inverter component: initial real and reactive injection currents (IP0 and IQ0), initial terminal voltage (v_0), and initial active and reactive power 
 injections (p_0 and q_0).
 </p>
 <p>
@@ -385,8 +385,10 @@ are Vt, Pgen, and Qgen while the two inputs that could potentially be constant v
 </p>
 <p>The modelling of such devices is based, mainly, on the following references:</p>
 <ul>
-<li><em>Siemens PTI, PSS®E 34.2.0 model library</em>, by Siemens Power Technologies International, Schenectady, NY (2017), and</li>
-<li><em>WECC Solar Photovoltaic Power Plant Modeling and Validation Guideline</em>, by WECC Renewable Energy Modeling Task Force.</li>
+<li>Siemens: \"PSS®E Model Library\" 
+<a href=\"modelica://OpenIPSL.UsersGuide.References\">[PSSE-MODELS]</a>,</li>
+<li>WECC: \"Solar Photovoltaic Power Plant Modeling and Validation Guideline\"
+<a href=\"modelica://OpenIPSL.UsersGuide.References\">[WECCPhotovoltaic]</a>.</li>
 </ul>
 </html>"));
 end REECB1;

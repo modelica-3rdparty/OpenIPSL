@@ -3,13 +3,13 @@ model CurrentLimitLogicREECB "Current Limit Logic for REECB"
 
   parameter OpenIPSL.Types.PerUnit start_ii "Starting current value from Iqcmd (comes from power flow simulation)";
   parameter OpenIPSL.Types.PerUnit start_ir "Starting current value from Ipcmd (comes from power flow simulation)";
-  parameter OpenIPSL.Types.PerUnit Imax "Maximum limit on total converter current (pu)";
+  parameter OpenIPSL.Types.PerUnit Imax "Maximum limit on total converter current";
 
   Modelica.Blocks.Interfaces.RealInput Iqcmd(start = -start_ii) annotation (Placement(
         transformation(
         extent={{-20,-20},{20,20}},
         rotation=270,
-        origin={70,120}), iconTransformation(
+        origin={60,120}), iconTransformation(
         extent={{-20,-20},{20,20}},
         rotation=180,
         origin={120,50})));
@@ -17,7 +17,7 @@ model CurrentLimitLogicREECB "Current Limit Logic for REECB"
         transformation(
         extent={{-20,-20},{20,20}},
         rotation=90,
-        origin={70,-120}), iconTransformation(
+        origin={60,-120}), iconTransformation(
         extent={{-20,-20},{20,20}},
         rotation=180,
         origin={120,-50})));
@@ -25,7 +25,7 @@ model CurrentLimitLogicREECB "Current Limit Logic for REECB"
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
-        origin={-70,110}), iconTransformation(
+        origin={-60,110}), iconTransformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-60,110})));
@@ -33,7 +33,7 @@ model CurrentLimitLogicREECB "Current Limit Logic for REECB"
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
-        origin={-30,110}), iconTransformation(
+        origin={-20,110}), iconTransformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={60,110})));
@@ -41,7 +41,7 @@ model CurrentLimitLogicREECB "Current Limit Logic for REECB"
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
-        origin={-70,-110}), iconTransformation(
+        origin={-60,-110}), iconTransformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-60,-110})));
@@ -49,7 +49,7 @@ model CurrentLimitLogicREECB "Current Limit Logic for REECB"
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
-        origin={-30,-110}), iconTransformation(
+        origin={-20,-110}), iconTransformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={60,-110})));
@@ -131,8 +131,10 @@ end
 </pre>
 <p>The modelling of the current limit logic for the REECB electrical controller is based on the following references:</p>
 <ul>
-<li><em>Siemens PTI, PSS®E 34.2.0 model library</em>, by Siemens Power Technologies International, Schenectady, NY (2017), and</li>
-<li><em>WECC Solar Photovoltaic Power Plant Modeling and Validation Guideline</em>, by WECC Renewable Energy Modeling Task Force.</li>
+<li>Siemens: \"PSS®E Model Library\" 
+<a href=\"modelica://OpenIPSL.UsersGuide.References\">[PSSE-MODELS]</a>,</li>
+<li>WECC: \"Solar Photovoltaic Power Plant Modeling and Validation Guideline\"
+<a href=\"modelica://OpenIPSL.UsersGuide.References\">[WECCPhotovoltaic]</a>.</li>
 </ul>
 </html>"));
 end CurrentLimitLogicREECB;

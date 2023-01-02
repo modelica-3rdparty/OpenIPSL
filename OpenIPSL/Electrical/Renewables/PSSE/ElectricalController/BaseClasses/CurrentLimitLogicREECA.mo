@@ -3,7 +3,7 @@ model CurrentLimitLogicREECA "Current limit logic for REECA"
 
   parameter OpenIPSL.Types.PerUnit start_ii "Starting current value from Iqcmd (comes from power flow simulation)";
   parameter OpenIPSL.Types.PerUnit start_ir "Starting current value from Ipcmd (comes from power flow simulation)";
-  parameter Real Imax "Maximum limit on total converter current (pu)";
+  parameter OpenIPSL.Types.PerUnit Imax "Maximum limit on total converter current";
 
   OpenIPSL.Types.PerUnit Ipost;
   OpenIPSL.Types.PerUnit Ipre;
@@ -152,8 +152,10 @@ end
 </pre>
 <p>The modelling of the current limit logic for the REECA electrical controller is based on the following references:</p>
 <ul>
-<li><em>Siemens PTI, PSS®E 34.2.0 model library</em>, by Siemens Power Technologies International, Schenectady, NY (2017), and</li>
-<li><em>WECC Wind Power Plant Dynamic Modeling Guide</em>, by WECC Renewable Energy Modeling Task Force.</li>
+<li>Siemens: \"PSS®E Model Library\" 
+<a href=\"modelica://OpenIPSL.UsersGuide.References\">[PSSE-MODELS]</a>,</li>
+<li>WECC: \"Wind Power Plant Dynamic Modeling Guideline\"
+<a href=\"modelica://OpenIPSL.UsersGuide.References\">[WECCWind]</a>.</li>
 </ul>
 </html>"));
 end CurrentLimitLogicREECA;

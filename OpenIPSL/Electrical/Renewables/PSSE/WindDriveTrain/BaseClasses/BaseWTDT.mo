@@ -12,13 +12,13 @@ partial model BaseWTDT
     final enableP_0=false,
     final enableS_b=false);
 
-  Modelica.Blocks.Interfaces.RealInput Pm
+  Modelica.Blocks.Interfaces.RealInput Pm "Mechanical Power"
     annotation (Placement(transformation(extent={{-160,40},{-120,80}})));
-  Modelica.Blocks.Interfaces.RealInput Pe
+  Modelica.Blocks.Interfaces.RealInput Pe "Electrical Power"
     annotation (Placement(transformation(extent={{-160,-80},{-120,-40}})));
-  Modelica.Blocks.Interfaces.RealOutput wt
+  Modelica.Blocks.Interfaces.RealOutput wt "Rotational Speed Deviation Turbine Blade"
     annotation (Placement(transformation(extent={{120,50},{140,70}})));
-  Modelica.Blocks.Interfaces.RealOutput wg
+  Modelica.Blocks.Interfaces.RealOutput wg "Rotational Speed Deviation Generator"
     annotation (Placement(transformation(extent={{120,-70},{140,-50}})));
   Modelica.Blocks.Interfaces.RealInput W_0 annotation (Placement(transformation(
         extent={{-20,-20},{20,20}},
@@ -64,7 +64,7 @@ partial model BaseWTDT
           preserveAspectRatio=false, extent={{-120,-120},{120,120}})),
     Documentation(info="<html>
 <p>
-The BaseWTDT model is the base class that is extended to create the WTDTA1 component.
+The BaseWTDT model is the base class that is extended to create the <a href=\"modelica://OpenIPSL.Electrical.Renewables.PSSE.WindDriveTrain.WTDTA1\">WTDTA1</a> component.
 </p>
 </html>"));
 end BaseWTDT;

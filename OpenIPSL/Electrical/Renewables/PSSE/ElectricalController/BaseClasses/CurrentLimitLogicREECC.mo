@@ -3,7 +3,7 @@ model CurrentLimitLogicREECC "Current limit logic for REECC"
 
   parameter OpenIPSL.Types.PerUnit start_ii "Starting current value from Iqcmd (comes from power flow simulation)";
   parameter OpenIPSL.Types.PerUnit start_ir "Starting current value from Ipcmd (comes from power flow simulation)";
-  parameter Real Imax "Maximum limit on total converter current (pu)";
+  parameter OpenIPSL.Types.PerUnit Imax "Maximum limit on total converter current";
 
   Modelica.Blocks.Interfaces.RealInput VDL1_out annotation (Placement(
         transformation(
@@ -133,8 +133,10 @@ end
 </pre>
 <p>The modelling of the current limit logic for the REECB electrical controller is based on the following references:</p>
 <ul>
-<li><em>Siemens PTI, PSS®E 34.2.0 model library</em>, by Siemens Power Technologies International, Schenectady, NY (2017), and</li>
-<li><em>WECC Battery Storage Dynamic Modeling Guideline</em>, by WECC Renewable Energy Modeling Task Force.</li>
+<li>Siemens: \"PSS®E Model Library\" 
+<a href=\"modelica://OpenIPSL.UsersGuide.References\">[PSSE-MODELS]</a>,</li>
+<li>WECC: \"Battery Storage Dynamic Modeling Guideline\"
+<a href=\"modelica://OpenIPSL.UsersGuide.References\">[WECCBattery]</a>.</li>
 </ul>
 </html>"));
 end CurrentLimitLogicREECC;

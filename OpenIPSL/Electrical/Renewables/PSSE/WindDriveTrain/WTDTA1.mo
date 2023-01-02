@@ -5,12 +5,12 @@ model WTDTA1 "Generic Drive Train Model for Type 3 and Type 4 Wind Machines"
 
   import Modelica.Constants.pi;
 
-  parameter Modelica.Units.SI.Frequency fn = SysData.fn  "System nominal frequency (50 - 60 Hz)";
-  parameter Modelica.Units.SI.Time H = 5.3 "Total inertia constant (No predefined range s)";
-  parameter OpenIPSL.Types.PerUnit DAMP = 0 "Machine damping factor (No predefined range pu)";
+  parameter Modelica.Units.SI.Frequency fn = SysData.fn  "System nominal frequency (50 or 60 Hz)";
+  parameter Modelica.Units.SI.Time H = 5.3 "Total inertia constant (No predefined range)";
+  parameter OpenIPSL.Types.PerUnit DAMP = 0 "Machine damping factor (No predefined range)";
   parameter Real Htfrac = 0.92 "Turbine inertia fraction, Ht/H (No predefined range)";
   parameter Modelica.Units.SI.Frequency Freq1 = 2.132 "First shaft torsional resonancy frequency (No predefined range)";
-  parameter OpenIPSL.Types.PerUnit Dshaft = 1 "Shaft damping factor (No predefined range pu)";
+  parameter OpenIPSL.Types.PerUnit Dshaft = 1 "Shaft damping factor (No predefined range)";
 
   Modelica.Blocks.Sources.RealExpression W0_(y=W0)
     annotation (Placement(transformation(extent={{-8,-120},{12,-100}})));
@@ -176,8 +176,10 @@ simple two mass drive train model represents in the WTDTA1 component. Thus, the 
 </p>
 <p>The modelling of such devices is based, mainly, on the following references:</p>
 <ul>
-<li><em>Siemens PTI, PSS®E 34.2.0 model library</em>, by Siemens Power Technologies International, Schenectady, NY (2017), and</li>
-<li><em>WECC Wind Power Plant Dynamic Modeling Guide</em>, by WECC Renewable Energy Modeling Task Force.</li>
+<li>Siemens: \"PSS®E Model Library\" 
+<a href=\"modelica://OpenIPSL.UsersGuide.References\">[PSSE-MODELS]</a>,</li>
+<li>WECC: \"Wind Power Plant Dynamic Modeling Guideline\"
+<a href=\"modelica://OpenIPSL.UsersGuide.References\">[WECCWind]</a>.</li>
 </ul>
 </html>"));
 end WTDTA1;

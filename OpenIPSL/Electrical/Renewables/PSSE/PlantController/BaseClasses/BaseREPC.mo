@@ -19,54 +19,54 @@ partial model BaseREPC
     final enableP_0=true,
     final enableS_b=true);
 
-  parameter Boolean vcflag=true "Reactive dropp (False) or line drop compensation (True)" annotation (Dialog(tab="Control"));
-  parameter Boolean refflag=true "Plant-level reactive power (False) or voltage control (True)" annotation (Dialog(tab="Control"));
-  parameter Boolean fflag=true "Governor response disable (False) or enable (True)" annotation (Dialog(tab="Control"));
+  parameter Boolean vcflag=true "Reactive droop (false) or line drop compensation (true)" annotation (Dialog(tab="Control"));
+  parameter Boolean refflag=true "Plant-level reactive power (false) or voltage control (true)" annotation (Dialog(tab="Control"));
+  parameter Boolean fflag=true "Governor response disable (false) or enable (true)" annotation (Dialog(tab="Control"));
 
-  Modelica.Blocks.Interfaces.RealInput Qref annotation (Placement(
-        transformation(extent={{-240,90},{-200,130}}),  iconTransformation(
-          extent={{-240,90},{-200,130}})));
-  Modelica.Blocks.Interfaces.RealInput Plant_pref annotation (Placement(
+  Modelica.Blocks.Interfaces.RealInput Qref "Reactive Power Reference" annotation (Placement(
+        transformation(extent={{-240,100},{-200,140}}), iconTransformation(
+          extent={{-240,100},{-200,140}})));
+  Modelica.Blocks.Interfaces.RealInput Plant_pref "Active Power Reference" annotation (Placement(
         transformation(extent={{-240,20},{-200,60}}), iconTransformation(
           extent={{-20,-20},{20,20}},
         rotation=0,
         origin={-220,40})));
-  Modelica.Blocks.Interfaces.RealInput Freq annotation (Placement(
+  Modelica.Blocks.Interfaces.RealInput Freq "Connection Point Frequency" annotation (Placement(
         transformation(extent={{-240,-60},{-200,-20}}), iconTransformation(
           extent={{-240,-60},{-200,-20}})));
-  Modelica.Blocks.Interfaces.RealInput Freq_ref
-    "Connector of Real input signal 2" annotation (Placement(
-        transformation(extent={{-240,-130},{-200,-90}}),
-        iconTransformation(extent={{-240,-130},{-200,-90}})));
-  Modelica.Blocks.Interfaces.RealOutput Qext(start=q0) "Connector of Real output signal"
+  Modelica.Blocks.Interfaces.RealInput Freq_ref "Frequency ReferenceConnector of Real input signal 2"
+                                       annotation (Placement(
+        transformation(extent={{-240,-140},{-200,-100}}),
+        iconTransformation(extent={{-240,-140},{-200,-100}})));
+  Modelica.Blocks.Interfaces.RealOutput Qext(start=q0) "Reactive Power output signal"
     annotation (Placement(transformation(extent={{200,90},{220,110}})));
-  Modelica.Blocks.Interfaces.RealOutput Pref(start=p0) "Connector of Real output signal"
+  Modelica.Blocks.Interfaces.RealOutput Pref(start=p0) "Real Power output signal"
     annotation (Placement(transformation(extent={{200,-110},{220,-90}})));
 
-  Modelica.Blocks.Interfaces.RealInput p0 annotation (Placement(transformation(
+  Modelica.Blocks.Interfaces.RealInput p0 "Initial Active Power" annotation (Placement(transformation(
         extent={{-20,-20},{20,20}},
         rotation=90,
         origin={-120,-220}), iconTransformation(extent={{-20,-20},{20,20}},
         rotation=90,
         origin={-120,-220})));
-  Modelica.Blocks.Interfaces.RealInput q0 annotation (Placement(transformation(
+  Modelica.Blocks.Interfaces.RealInput q0 "Initial Reactive Power" annotation (Placement(transformation(
         extent={{-20,-20},{20,20}},
         rotation=90,
         origin={120,-220}), iconTransformation(extent={{-20,-20},{20,20}},
         rotation=90,
         origin={120,-220})));
-  Modelica.Blocks.Interfaces.RealInput v0 annotation (Placement(transformation(
+  Modelica.Blocks.Interfaces.RealInput v0 "Initial Terminal Voltage Magnitude" annotation (Placement(transformation(
         extent={{-20,-20},{20,20}},
         rotation=90,
         origin={0,-220}), iconTransformation(extent={{-20,-20},{20,20}},
         rotation=90,
         origin={0,-220})));
-  Modelica.Blocks.Interfaces.RealInput branch_ir annotation (Placement(
+  Modelica.Blocks.Interfaces.RealInput branch_ir "Measured Branch Real Current" annotation (Placement(
         transformation(
         extent={{-20,-20},{20,20}},
         rotation=270,
         origin={-140,220})));
-  Modelica.Blocks.Interfaces.RealInput branch_ii annotation (Placement(
+  Modelica.Blocks.Interfaces.RealInput branch_ii "Measured Branch Imaginary Current" annotation (Placement(
         transformation(
         extent={{-20,-20},{20,20}},
         rotation=270,
@@ -74,12 +74,12 @@ partial model BaseREPC
         extent={{-20,-20},{20,20}},
         rotation=270,
         origin={-40,220})));
-  Modelica.Blocks.Interfaces.RealInput regulate_vr annotation (Placement(
+  Modelica.Blocks.Interfaces.RealInput regulate_vr "Regulated Branch Real Voltage" annotation (Placement(
         transformation(
         extent={{-20,-20},{20,20}},
         rotation=270,
         origin={60,220})));
-  Modelica.Blocks.Interfaces.RealInput regulate_vi annotation (Placement(
+  Modelica.Blocks.Interfaces.RealInput regulate_vi "Regulated Branch Imaginary Voltage" annotation (Placement(
         transformation(
         extent={{-20,-20},{20,20}},
         rotation=270,
@@ -155,7 +155,7 @@ equation
           preserveAspectRatio=false, extent={{-200,-200},{200,200}})),
     Documentation(info="<html>
 <p>
-The BaseREPC model is the base class that is extended to create the REPCA1 component.
+The BaseREPC model is the base class that is extended to create the <a href=\"modelica://OpenIPSL.Electrical.Renewables.PSSE.PlantController.REPCA1\">REPCA1</a> component.
 </p>
 </html>"));
 end BaseREPC;

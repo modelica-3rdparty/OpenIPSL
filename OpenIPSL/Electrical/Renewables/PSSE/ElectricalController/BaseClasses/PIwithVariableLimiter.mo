@@ -1,8 +1,8 @@
 within OpenIPSL.Electrical.Renewables.PSSE.ElectricalController.BaseClasses;
 model PIwithVariableLimiter "PI with variable limiter controller for WECC electrical controllers"
   import Modelica.Units.SI;
-  parameter SI.PerUnit K_P "Voltage regulator proportional gain (pu)";
-  parameter SI.TimeAging K_I "Voltage regulator integral gain (pu)";
+  parameter SI.PerUnit K_P "Voltage regulator proportional gain";
+  parameter SI.TimeAging K_I "Voltage regulator integral gain";
   parameter Real y_start "Starting output value for the integrator";
   Modelica.Blocks.Continuous.Integrator    integral(
     k=K_I,
@@ -30,13 +30,13 @@ model PIwithVariableLimiter "PI with variable limiter controller for WECC electr
       Placement(transformation(
         extent={{-20,-20},{20,20}},
         rotation=270,
-        origin={68,120})));
+        origin={60,120})));
   Modelica.Blocks.Interfaces.RealInput limit2
     "Connector of Real input signal used as minimum of input u" annotation (
       Placement(transformation(
         extent={{-20,-20},{20,20}},
         rotation=90,
-        origin={68,-120})));
+        origin={60,-120})));
   Modelica.Blocks.Logical.Or or1
     annotation (Placement(transformation(extent={{-92,30},{-72,50}})));
   Modelica.Blocks.Interfaces.BooleanInput voltage_dip
@@ -66,9 +66,11 @@ equation
   connect(variableLimiter1.y, y)
     annotation (Line(points={{91,0},{110,0}}, color={0,0,127}));
   connect(variableLimiter1.limit1, limit1)
-    annotation (Line(points={{68,8},{68,120}}, color={0,0,127}));
+    annotation (Line(points={{68,8},{68,120},{60,120}},
+                                               color={0,0,127}));
   connect(variableLimiter1.limit2, limit2)
-    annotation (Line(points={{68,-8},{68,-120}}, color={0,0,127}));
+    annotation (Line(points={{68,-8},{68,-120},{60,-120}},
+                                                 color={0,0,127}));
   connect(integral.y, PI_add.u1)
     annotation (Line(points={{25,40},{30,40},{30,6},{36,6}}, color={0,0,127}));
   connect(or1.y, reset_switch.u2)
@@ -90,7 +92,8 @@ Specific PI with variable limiter component for the WECC-based renewable energy 
 </p>
 <p>The modelling of such component is based, mainly, on the following reference:</p>
 <ul>
-<li><em>Modelling and Simulation of PI-controllers Limiters for the Dynamic Analysis of VSC-based Devices</em>, by Mohammed Ahsan Adib Murad, Student Member, IEEE and Federico Milano, Fellow, IEEE.</li>
+<li>Mohammed, M., Federico, M.: \"Modeling and Simulation of PI-Controllers Limiters for the Dynamic Analysis of VSC-Based Devices\" 
+<a href=\"modelica://OpenIPSL.UsersGuide.References\">[Mohammed2019]</a>,</li>
 </ul>
 </html>"));
 end PIwithVariableLimiter;

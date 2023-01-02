@@ -1,15 +1,15 @@
 within OpenIPSL.Electrical.Renewables.PSSE.ElectricalController.BaseClasses;
 model StateOfChargeLogic "State of charge logic for REECC"
-  Modelica.Blocks.Interfaces.RealInput SOC
+  Modelica.Blocks.Interfaces.RealInput SOC "State of Charge of the Battery"
     annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
-  Modelica.Blocks.Interfaces.RealOutput ipmax_SOC
-    annotation (Placement(transformation(extent={{100,-60},{120,-40}}),
-        iconTransformation(extent={{100,-60},{120,-40}})));
-  Modelica.Blocks.Interfaces.RealOutput ipmin_SOC
-    annotation (Placement(transformation(extent={{100,40},{120,60}}),
-        iconTransformation(extent={{100,40},{120,60}})));
-        parameter Real SOCmin "Minimum allowable state of charge (pu)";
-        parameter Real SOCmax "Maximum allowable state of charge (pu)";
+  Modelica.Blocks.Interfaces.RealOutput ipmax_SOC "Maximum Battery Charge"
+    annotation (Placement(transformation(extent={{100,-70},{120,-50}}),
+        iconTransformation(extent={{100,-70},{120,-50}})));
+  Modelica.Blocks.Interfaces.RealOutput ipmin_SOC "Minimum Battery Charge"
+    annotation (Placement(transformation(extent={{100,50},{120,70}}),
+        iconTransformation(extent={{100,50},{120,70}})));
+        parameter OpenIPSL.Types.PerUnit SOCmin "Minimum allowable state of charge";
+        parameter OpenIPSL.Types.PerUnit SOCmax "Maximum allowable state of charge";
 equation
   ipmax_SOC = if SOC <= SOCmin then 0 else 1;
   ipmin_SOC = if SOC >= SOCmax then 0 else 1;
@@ -50,8 +50,10 @@ end
 </pre>
 <p>The modelling of the state of charge for the REECC electrical controller is based on the following references:</p>
 <ul>
-<li><em>Siemens PTI, PSS®E 34.2.0 model library</em>, by Siemens Power Technologies International, Schenectady, NY (2017), and</li>
-<li><em>WECC Battery Storage Dynamic Modeling Guideline</em>, by WECC Renewable Energy Modeling Task Force.</li>
+<li>Siemens: \"PSS®E Model Library\" 
+<a href=\"modelica://OpenIPSL.UsersGuide.References\">[PSSE-MODELS]</a>,</li>
+<li>WECC: \"Battery Storage Dynamic Modeling Guideline\"
+<a href=\"modelica://OpenIPSL.UsersGuide.References\">[WECCBattery]</a>.</li>
 </ul>
 </html>"));
 end StateOfChargeLogic;

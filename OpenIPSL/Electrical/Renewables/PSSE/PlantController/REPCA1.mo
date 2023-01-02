@@ -1,33 +1,33 @@
 within OpenIPSL.Electrical.Renewables.PSSE.PlantController;
 model REPCA1 "Renewable energy plant controller model A"
 
-  parameter Modelica.Units.SI.Time Tfltr=0.02 "Voltage or reactive power measurement filter time constant (s)";
-  parameter OpenIPSL.Types.PerUnit Kp=18 "Reactive power PI control proportional gain (pu)";
-  parameter OpenIPSL.Types.PerUnit Ki=5 "Reactive power PI control integral gain (pu)";
-  parameter Modelica.Units.SI.Time Tft=0 "Lead time constant (s)";
-  parameter Modelica.Units.SI.Time Tfv=0.075 "Lag time constant (s)";
-  parameter OpenIPSL.Types.PerUnit Vfrz=0 "Voltage below which State s2 is frozen (pu)";
-  parameter OpenIPSL.Types.PerUnit Rc=0.0025 "Line drop compensation resistance (pu)";
-  parameter OpenIPSL.Types.PerUnit Xc=0.0025 "Line drop compensation reactance (pu)";
-  parameter OpenIPSL.Types.PerUnit Kc=0.02 "Reactive current compensation gain (pu)";
-  parameter OpenIPSL.Types.PerUnit emax=0.1 "Upper limit on deadband output (pu)";
-  parameter OpenIPSL.Types.PerUnit emin=-0.1 "Lower limit on deadband output (pu)";
+  parameter Modelica.Units.SI.Time Tfltr=0.02 "Voltage or reactive power measurement filter time constant";
+  parameter OpenIPSL.Types.PerUnit Kp=18 "Reactive power PI control proportional gain";
+  parameter OpenIPSL.Types.PerUnit Ki=5 "Reactive power PI control integral gain";
+  parameter Modelica.Units.SI.Time Tft=0 "Lead time constant";
+  parameter Modelica.Units.SI.Time Tfv=0.075 "Lag time constant";
+  parameter OpenIPSL.Types.PerUnit Vfrz=0 "Voltage below which State s2 is frozen";
+  parameter OpenIPSL.Types.PerUnit Rc=0.0025 "Line drop compensation resistance";
+  parameter OpenIPSL.Types.PerUnit Xc=0.0025 "Line drop compensation reactance";
+  parameter OpenIPSL.Types.PerUnit Kc=0.02 "Reactive current compensation gain";
+  parameter OpenIPSL.Types.PerUnit emax=0.1 "Upper limit on deadband output";
+  parameter OpenIPSL.Types.PerUnit emin=-0.1 "Lower limit on deadband output";
   parameter OpenIPSL.Types.PerUnit dbd1=0 "Lower threshold for reactive power control deadband (<=0)";
   parameter OpenIPSL.Types.PerUnit dbd2=0 "Upper threshold for reactive power control deadband (>=0)";
-  parameter OpenIPSL.Types.PerUnit Qmax=0.4360 "Upper limit on output of V/Q control (pu)";
-  parameter OpenIPSL.Types.PerUnit Qmin=-0.4360 "Lower limit on output of V/Q control (pu)";
-  parameter OpenIPSL.Types.PerUnit Kpg=0.1 "Proportional gain for power control (pu)";
-  parameter OpenIPSL.Types.PerUnit Kig=0.05 "Proportional gain for power control (pu)";
-  parameter Modelica.Units.SI.Time Tp=0.25 "Real power measurement filter time constant (s)";
+  parameter OpenIPSL.Types.PerUnit Qmax=0.4360 "Upper limit on output of V/Q control";
+  parameter OpenIPSL.Types.PerUnit Qmin=-0.4360 "Lower limit on output of V/Q control";
+  parameter OpenIPSL.Types.PerUnit Kpg=0.1 "Proportional gain for power control";
+  parameter OpenIPSL.Types.PerUnit Kig=0.05 "Proportional gain for power control";
+  parameter Modelica.Units.SI.Time Tp=0.25 "Real power measurement filter time constant";
   parameter OpenIPSL.Types.PerUnit fdbd1=0 "Deadband for frequency control, lower threshold (<=0)";
   parameter OpenIPSL.Types.PerUnit fdbd2=0 "Deadband for frequency control, upper threshold (>=0)";
-  parameter OpenIPSL.Types.PerUnit femax=999 "Frequency error upper limit (pu)";
-  parameter OpenIPSL.Types.PerUnit femin=-999 "Frequency error lower limit (pu)";
-  parameter OpenIPSL.Types.PerUnit Pmax=999 "Upper limit on power reference (pu)";
-  parameter OpenIPSL.Types.PerUnit Pmin=-999 "Lower limit on power reference (pu)";
-  parameter Modelica.Units.SI.Time Tg=0.1 "Power Controller lag time constant (s)";
-  parameter OpenIPSL.Types.PerUnit Ddn=20 "Reciprocal of droop for over-frequency conditions (pu)";
-  parameter OpenIPSL.Types.PerUnit Dup=0 "Reciprocal of droop for under-frequency conditions (pu)";
+  parameter OpenIPSL.Types.PerUnit femax=999 "Frequency error upper limit";
+  parameter OpenIPSL.Types.PerUnit femin=-999 "Frequency error lower limit";
+  parameter OpenIPSL.Types.PerUnit Pmax=999 "Upper limit on power reference";
+  parameter OpenIPSL.Types.PerUnit Pmin=-999 "Lower limit on power reference";
+  parameter Modelica.Units.SI.Time Tg=0.1 "Power Controller lag time constant";
+  parameter OpenIPSL.Types.PerUnit Ddn=20 "Reciprocal of droop for over-frequency conditions";
+  parameter OpenIPSL.Types.PerUnit Dup=0 "Reciprocal of droop for under-frequency conditions";
   parameter Real Vref=v_0 "Regulated bus initial voltage";
 
   extends BaseClasses.BaseREPC(                          Qext(start = q00), Pref(start = p00));
@@ -228,8 +228,8 @@ equation
     annotation (Line(points={{-79,120},{-72,120}}, color={0,0,127}));
   connect(VREF.y,add5. u1)
     annotation (Line(points={{-79,156},{-72,156},{-72,132}}, color={0,0,127}));
-  connect(add4.u2, Qref) annotation (Line(points={{-112,10},{-186,10},{-186,
-          110},{-220,110}},
+  connect(add4.u2, Qref) annotation (Line(points={{-112,10},{-186,10},{-186,120},
+          {-220,120}},
                  color={0,0,127}));
   connect(REFFLAG.y,deadZone. u)
     annotation (Line(points={{-15,90},{-10,90}}, color={0,0,127}));
@@ -242,7 +242,7 @@ equation
   connect(DUP.u,DDN. u)
     annotation (Line(points={{-130,-160},{-130,-124}},
                                                     color={0,0,127}));
-  connect(Freq_ref, add.u2) annotation (Line(points={{-220,-110},{-224,-110},{-224,
+  connect(Freq_ref, add.u2) annotation (Line(points={{-220,-120},{-224,-120},{-224,
           -112},{-208,-112},{-208,-150},{-190,-150}}, color={0,0,127}));
   connect(Freq, add.u1) annotation (Line(points={{-220,-40},{-198,-40},{-198,-138},
           {-190,-138}}, color={0,0,127}));
@@ -275,9 +275,10 @@ reactive power to then generate volt/var control at the plant level. It also gen
 frequency and active power output to emulate active power control. TThe REPCA1 module
 provides active reactive power command references to the electrical controller components (REECA1, REECB1, and REECCU1).
 </p>
-<p>The modelling of such devices is based, mainly, on the following references:</p>
+<p>The modelling of such devices is based, mainly, on the following reference:</p>
 <ul>
-<li><em>Siemens PTI, PSS®E 34.2.0 model library</em>, by Siemens Power Technologies International, Schenectady, NY (2017).</li>
+<li>Siemens: \"PSS®E Model Library\" 
+<a href=\"modelica://OpenIPSL.UsersGuide.References\">[PSSE-MODELS]</a>,</li>
 </ul>
 </html>"));
 end REPCA1;

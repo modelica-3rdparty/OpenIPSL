@@ -115,8 +115,8 @@ equation
           {-92,56},{-92,68},{-88,68}},     color={0,0,127}));
   connect(gain.y,add3. u1) annotation (Line(points={{-99,80},{-88,80}},
                                color={0,0,127}));
-  connect(gain.u, Iqcmd) annotation (Line(points={{-122,80},{-160,80}},
-                      color={0,0,127}));
+  connect(gain.u, Iqcmd) annotation (Line(points={{-122,80},{-142,80},{-142,60},
+          {-160,60}}, color={0,0,127}));
   connect(Ipcmd,add2. u1) annotation (Line(points={{-160,-60},{-130,-60},{-130,-24},
           {-112,-24}},          color={0,0,127}));
   connect(Constant.y, switch1.u3) annotation (Line(points={{-51,-114},{-62,-114},
@@ -148,12 +148,14 @@ equation
 (Ipcmd) and the reactive current command (Iqcmd) from the electrical controller, and outputs real (Ip) and reactive (Iq) injected currents to the grid through
 OpenIPSL's proprietary pwpin connector.</p>
 <p>In order to properly initialize all the components that form the renewable energy source, the REGC_A component has five initialization outputs, which its constant output originates from the 
-starting power flow: initial real and reactive injection currents (IP0 and IQ0), initial terminal voltage (V_0), and initial active and reactive power 
+starting power flow: initial real and reactive injection currents (IP0 and IQ0), initial terminal voltage (v_0), and initial active and reactive power 
 injections (p_0 and q_0). This method reduces repetitiveness of initialization calculation, being calculated once at the REGCA1 component.</p>
 <p>The connection with other components requires a closed loop through terminal voltage variable (V_t), and active and reactive power generation (Pgen and Qgen).</p>
-<p>The modelling of such devices is based, mainly, on the following references:</p>
+<p>The modelling of such devices is based, mainly, on the following reference:</p>
 <ul>
-<li><em>Siemens PTI, PSS®E 34.2.0 model library</em>, by Siemens Power Technologies International, Schenectady, NY (2017),</li>
+<li><p>Siemens: \"PSS®E Model Library\" 
+<a href=\"modelica://OpenIPSL.UsersGuide.References\">[PSSE-MODELS]</a>.</p>
+<blockquote></li>
 </ul>
 </html>"));
 end REGCA1;

@@ -18,21 +18,21 @@ partial model BaseREGC "Base renewable generator/converter for PSSE models"
     final enableS_b=true);
 
   // Set of Model Parameters
-  parameter Modelica.Units.SI.Time Tg = 0.02 "Converter time constant (s)" annotation (Dialog(group="Input Parameters"));
-  parameter OpenIPSL.Types.PerUnit rrpwr = 10 "Low Voltage Power Logic (LVPL) ramp rate limit (pu/s)" annotation (Dialog(group="Input Parameters"));
-  parameter OpenIPSL.Types.PerUnit Brkpt = 0.9 "LVPL characteristic voltage 2 (pu)" annotation (Dialog(group="Input Parameters"));
-  parameter OpenIPSL.Types.PerUnit Zerox = 0.5 "LVPL characteristic voltage 1 (pu)" annotation (Dialog(group="Input Parameters"));
-  parameter OpenIPSL.Types.PerUnit Lvpl1 = 1.22 "LVPL gain (pu)" annotation (Dialog(group="Input Parameters"));
-  parameter OpenIPSL.Types.PerUnit Volim = 1.2 "Voltage limit (pu) for high voltage reactive current management" annotation (Dialog(group="Input Parameters"));
-  parameter OpenIPSL.Types.PerUnit lvpnt1 = 0.8 "High voltage point for low voltage active current management (pu)" annotation (Dialog(group="Input Parameters"));
-  parameter OpenIPSL.Types.PerUnit lvpnt0 = 0.4 "Low voltage point for low voltage active current management (pu)" annotation (Dialog(group="Input Parameters"));
-  parameter OpenIPSL.Types.PerUnit Iolim = -1.3 "Current limit (pu) for high voltage reactive current management (specified as a negative value)" annotation (Dialog(group="Input Parameters"));
-  parameter Modelica.Units.SI.Time Tfltr = 0.02 "Voltage filter time constant for low voltage active current management (s)" annotation (Dialog(group="Input Parameters"));
+  parameter Modelica.Units.SI.Time Tg = 0.02 "Converter time constant" annotation (Dialog(group="Input Parameters"));
+  parameter Modelica.Units.SI.TimeAging rrpwr = 10 "Low Voltage Power Logic (LVPL) ramp rate limit" annotation (Dialog(group="Input Parameters"));
+  parameter OpenIPSL.Types.PerUnit Brkpt = 0.9 "LVPL characteristic voltage 2" annotation (Dialog(group="Input Parameters"));
+  parameter OpenIPSL.Types.PerUnit Zerox = 0.5 "LVPL characteristic voltage 1" annotation (Dialog(group="Input Parameters"));
+  parameter OpenIPSL.Types.PerUnit Lvpl1 = 1.22 "LVPL gain" annotation (Dialog(group="Input Parameters"));
+  parameter OpenIPSL.Types.PerUnit Volim = 1.2 "Voltage limit for high voltage reactive current management" annotation (Dialog(group="Input Parameters"));
+  parameter OpenIPSL.Types.PerUnit lvpnt1 = 0.8 "High voltage point for low voltage active current management" annotation (Dialog(group="Input Parameters"));
+  parameter OpenIPSL.Types.PerUnit lvpnt0 = 0.4 "Low voltage point for low voltage active current management" annotation (Dialog(group="Input Parameters"));
+  parameter OpenIPSL.Types.PerUnit Iolim = -1.3 "Current limit for high voltage reactive current management (specified as a negative value)" annotation (Dialog(group="Input Parameters"));
+  parameter Modelica.Units.SI.Time Tfltr = 0.02 "Voltage filter time constant for low voltage active current management" annotation (Dialog(group="Input Parameters"));
   parameter Real Khv = 0.7 "Overvoltage compensation gain used in the high voltage reactive current management" annotation (Dialog(group="Input Parameters"));
-  parameter OpenIPSL.Types.PerUnit Iqrmax = 9999 "Upper limit on rate of change for reactive current (pu/s)" annotation (Dialog(group="Input Parameters"));
-  parameter OpenIPSL.Types.PerUnit Iqrmin = -9999 "Lower limit on rate of change for reactive current (pu/s)" annotation (Dialog(group="Input Parameters"));
+  parameter Modelica.Units.SI.TimeAging Iqrmax = 9999 "Upper limit on rate of change for reactive current" annotation (Dialog(group="Input Parameters"));
+  parameter Modelica.Units.SI.TimeAging Iqrmin = -9999 "Lower limit on rate of change for reactive current" annotation (Dialog(group="Input Parameters"));
 
-  parameter Boolean Lvplsw=true "Enable (True) or disable (False) low voltage power logic." annotation (Dialog(tab="Controls"));
+  parameter Boolean Lvplsw=true "Enable (true) or disable (false) low voltage power logic." annotation (Dialog(tab="Controls"));
 
   OpenIPSL.Interfaces.PwPin p(
     vr(start=vr0),
@@ -40,13 +40,13 @@ partial model BaseREGC "Base renewable generator/converter for PSSE models"
     ir(start=-ir0*CoB),
     ii(start=-ii0*CoB)) annotation (Placement(transformation(extent={{130,-10},{150,10}}),
                           iconTransformation(extent={{130,-10},{150,10}})));
-  Modelica.Blocks.Interfaces.RealInput Iqcmd(start=-Iq0)
-    annotation (Placement(transformation(extent={{-180,60},{-140,100}}),
+  Modelica.Blocks.Interfaces.RealInput Iqcmd(start=-Iq0) "Imaginary Command Current"
+    annotation (Placement(transformation(extent={{-180,40},{-140,80}}),
         iconTransformation(extent={{-180,50},{-140,90}})));
-  Modelica.Blocks.Interfaces.RealInput Ipcmd(start=Ip0)
+  Modelica.Blocks.Interfaces.RealInput Ipcmd(start=Ip0) "Real Command Current"
     annotation (Placement(transformation(extent={{-180,-80},{-140,-40}}),
         iconTransformation(extent={{-180,-90},{-140,-50}})));
-  Modelica.Blocks.Interfaces.RealOutput IQ0 annotation (Placement(
+  Modelica.Blocks.Interfaces.RealOutput IQ0 "Initial Reactive Power" annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
@@ -54,7 +54,7 @@ partial model BaseREGC "Base renewable generator/converter for PSSE models"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-120,-150})));
-  Modelica.Blocks.Interfaces.RealOutput IP0 annotation (Placement(
+  Modelica.Blocks.Interfaces.RealOutput IP0 "Initial Active Power" annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
@@ -62,29 +62,29 @@ partial model BaseREGC "Base renewable generator/converter for PSSE models"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-60,-150})));
-  Modelica.Blocks.Interfaces.RealOutput V_0 annotation (Placement(
+  Modelica.Blocks.Interfaces.RealOutput V_0 "Initial Terminal Voltage Magnitude" annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={0,-150})));
-  Modelica.Blocks.Interfaces.RealOutput q_0 annotation (Placement(
+  Modelica.Blocks.Interfaces.RealOutput q_0 "Initial Reactive Power" annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={60,-150})));
-  Modelica.Blocks.Interfaces.RealOutput p_0 annotation (Placement(
+  Modelica.Blocks.Interfaces.RealOutput p_0 "Initial Active Power" annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={120,-150})));
-  Modelica.Blocks.Interfaces.RealOutput V_t annotation (Placement(
+  Modelica.Blocks.Interfaces.RealOutput V_t "Terminal Voltage Magnitude" annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
-        origin={-90,150}), iconTransformation(extent={{-10,-10},{10,10}},
-          origin={-90,150},
+        origin={-80,150}), iconTransformation(extent={{-10,-10},{10,10}},
+          origin={-80,150},
         rotation=90)));
-  Modelica.Blocks.Interfaces.RealOutput Pgen "Value of Real output"
+  Modelica.Blocks.Interfaces.RealOutput Pgen "Active Power injection"
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
@@ -92,14 +92,14 @@ partial model BaseREGC "Base renewable generator/converter for PSSE models"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={0,150})));
-  Modelica.Blocks.Interfaces.RealOutput Qgen "Value of Real output"
+  Modelica.Blocks.Interfaces.RealOutput Qgen "Reactive Power injection"
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
-        origin={90,150}),  iconTransformation(
+        origin={80,150}),  iconTransformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
-        origin={90,150})));
+        origin={80,150})));
 protected
   OpenIPSL.Types.Angle delta(start=angle_0);
   OpenIPSL.Types.PerUnit VT(start=v_0) "Bus voltage magnitude";
@@ -169,9 +169,11 @@ equation
 <p>
 This component is the base class for the inverter components from the InverterInterface sub-package.
 </p>
-<p>The modelling of such devices is based, mainly, on the following references:</p>
+<p>The modelling of such devices is based, mainly, on the following reference:</p>
 <ul>
-<li><em>Siemens PTI, PSS®E 34.2.0 model library</em>, by Siemens Power Technologies International, Schenectady, NY (2017),</li>
+<li><p>Siemens: \"PSS®E Model Library\" 
+<a href=\"modelica://OpenIPSL.UsersGuide.References\">[PSSE-MODELS]</a>.</p>
+<blockquote></li>
 </ul>
 </html>"));
 end BaseREGC;

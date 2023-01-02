@@ -5,31 +5,31 @@ model REECCU1
     OpenIPSL.Electrical.Renewables.PSSE.ElectricalController.BaseClasses.BaseREECC(
      Iqcmd(start=Iq0), Ipcmd(start=Ip0));
 
-  parameter OpenIPSL.Types.PerUnit Vdip = -99 "Low voltage threshold to activate reactive current injection logic (0.85 - 0.9 pu)";
-  parameter OpenIPSL.Types.PerUnit Vup = 99 "Voltage above which reactive current injection logic is activated (>1.1 pu)";
-  parameter OpenIPSL.Types.Time Trv = 0.01 "Filter time constant for voltage measurement (0.01 - 0.02 s)";
-  parameter OpenIPSL.Types.PerUnit dbd1 = 0 "Voltage error dead band lower threshold (-0.1 - 0 pu)";
-  parameter OpenIPSL.Types.PerUnit dbd2 = 0 "Voltage error dead band upper threshold (0 - 0.1 pu)";
+  parameter OpenIPSL.Types.PerUnit Vdip = -99 "Low voltage threshold to activate reactive current injection logic (0.85 - 0.9)";
+  parameter OpenIPSL.Types.PerUnit Vup = 99 "Voltage above which reactive current injection logic is activated (>1.1)";
+  parameter OpenIPSL.Types.Time Trv = 0.01 "Filter time constant for voltage measurement (0.01 - 0.02)";
+  parameter OpenIPSL.Types.PerUnit dbd1 = 0 "Voltage error dead band lower threshold (-0.1 - 0)";
+  parameter OpenIPSL.Types.PerUnit dbd2 = 0 "Voltage error dead band upper threshold (0 - 0.1)";
   parameter Real Kqv = 0 "Reactive current injection gain during over and undervoltage conditions (0 - 10)";
-  parameter OpenIPSL.Types.PerUnit Iqh1 = 1 "Upper limit on reactive current injection Iqinj (1 - 1.1 pu)";
-  parameter OpenIPSL.Types.PerUnit Iql1 = -1 "Lower limit on reactive current injection Iqinj (-1.1 - 1 pu)";
-  parameter OpenIPSL.Types.PerUnit vref0 = 1 "User defined voltage reference (0.95 - 1.05 pu)";
-  parameter OpenIPSL.Types.Time Tp = 0.01 "Filter time constant for electrical power (0.01 - 0.1 s)";
-  parameter OpenIPSL.Types.PerUnit Qmax = 1 "Upper limits of the limit for reactive power regulator (0.4 - 1.0 pu)";
-  parameter OpenIPSL.Types.PerUnit Qmin = -1 "Lower limits of the  limit for reactive power regulator (-1.0 - -0.4 pu)";
-  parameter OpenIPSL.Types.PerUnit Vmax = 1.1 "Maximum limit for voltage control (1.05 - 1.1 pu)";
-  parameter OpenIPSL.Types.PerUnit Vmin = 0.9 "Lower limits of input signals (0.9 - 0.95 pu)";
+  parameter OpenIPSL.Types.PerUnit Iqh1 = 1 "Upper limit on reactive current injection Iqinj (1 - 1.1)";
+  parameter OpenIPSL.Types.PerUnit Iql1 = -1 "Lower limit on reactive current injection Iqinj (-1.1 - 1)";
+  parameter OpenIPSL.Types.PerUnit vref0 = 1 "User defined voltage reference (0.95 - 1.05)";
+  parameter OpenIPSL.Types.Time Tp = 0.01 "Filter time constant for electrical power (0.01 - 0.1)";
+  parameter OpenIPSL.Types.PerUnit Qmax = 1 "Upper limits of the limit for reactive power regulator (0.4 - 1.0)";
+  parameter OpenIPSL.Types.PerUnit Qmin = -1 "Lower limits of the  limit for reactive power regulator (-1.0 - -0.4)";
+  parameter OpenIPSL.Types.PerUnit Vmax = 1.1 "Maximum limit for voltage control (1.05 - 1.1)";
+  parameter OpenIPSL.Types.PerUnit Vmin = 0.9 "Lower limits of input signals (0.9 - 0.95)";
   parameter Real Kqp = 0 "Reactive power regulator proportional gain (No predefined range)";
   parameter Real Kqi = 0.1 "Reactive power regulator integral gain (No predefined range)";
   parameter Real Kvp = 0 "Voltage regulator proportional gain (No predefined range)";
   parameter Real Kvi = 40 "Voltage regulator integral gain (No predefined range)";
-  parameter OpenIPSL.Types.Time Tiq = 0.01 "Time constant on lag delay (0.01 - 0.02 s)";
-  parameter Real dPmax = 99 "Power reference maximum ramp rate (No predefined range pu/s)";
-  parameter Real dPmin = -99 "Lower limits of input signals (No predefined range pu/s)";
-  parameter OpenIPSL.Types.PerUnit Pmax = 1 "Maximum power limit (1 pu)";
-  parameter OpenIPSL.Types.PerUnit Pmin = 0 "Minimum power limit (0 pu)";
-  parameter OpenIPSL.Types.PerUnit Imax = 1.1 "Maximum limit on total converter current (1.1 - 1.3 pu)";
-  parameter OpenIPSL.Types.Time Tpord = 0.02 "Power filter time constant (0.01 - 0.02 s) ";
+  parameter OpenIPSL.Types.Time Tiq = 0.01 "Time constant on lag delay (0.01 - 0.02)";
+  parameter Real dPmax = 99 "Power reference maximum ramp rate (No predefined range)";
+  parameter Real dPmin = -99 "Lower limits of input signals (No predefined range)";
+  parameter OpenIPSL.Types.PerUnit Pmax = 1 "Maximum power limit";
+  parameter OpenIPSL.Types.PerUnit Pmin = 0 "Minimum power limit";
+  parameter OpenIPSL.Types.PerUnit Imax = 1.1 "Maximum limit on total converter current (1.1 - 1.3)";
+  parameter OpenIPSL.Types.Time Tpord = 0.02 "Power filter time constant (0.01 - 0.02) ";
   parameter OpenIPSL.Types.PerUnit Vq1 = 0.2 "Reactive Power V-I pair, voltage (user defined)";
   parameter OpenIPSL.Types.PerUnit Iq1 = 0.75 "Reactive Power V-I pair, current (user defined)";
   parameter OpenIPSL.Types.PerUnit Vq2 = 0.5 "Reactive Power V-I pair, voltage (user defined)";
@@ -46,7 +46,7 @@ model REECCU1
   parameter OpenIPSL.Types.PerUnit Ip3 = 1.11 "Real Power V-I pair, current (user defined)";
   parameter OpenIPSL.Types.PerUnit Vp4 = 1 "Real Power V-I pair, voltage (user defined)";
   parameter OpenIPSL.Types.PerUnit Ip4 = 1.11 "Real Power V-I pair, current (user defined)";
-  parameter Modelica.Units.SI.Time T = 999 "Battery discharge time (s)";
+  parameter Modelica.Units.SI.Time T = 999 "Battery discharge time";
   parameter OpenIPSL.Types.PerUnit SOCini = 0.5 "Initial state of charge";
   parameter OpenIPSL.Types.PerUnit SOCmax = 0.8 "Maximum allowable state of charge";
   parameter OpenIPSL.Types.PerUnit SOCmin = 0.2 "Minimum allowable state of charge";
@@ -71,27 +71,27 @@ model REECCU1
   Modelica.Blocks.Math.Add add7(k1=+1, k2=+1)
     annotation (Placement(transformation(extent={{-18,-140},{2,-120}})));
   Modelica.Blocks.Nonlinear.VariableLimiter variableLimiter2
-    annotation (Placement(transformation(extent={{230,-140},{250,-120}})));
+    annotation (Placement(transformation(extent={{228,-170},{248,-150}})));
   Modelica.Blocks.Sources.RealExpression IPMAX(y=ccl_reecc.Ipmax) annotation (
       Placement(transformation(
         extent={{-10,10},{10,-10}},
         rotation=180,
-        origin={242,-90})));
+        origin={240,-120})));
   Modelica.Blocks.Sources.RealExpression IPMIN(y=ccl_reecc.Ipmin) annotation (
       Placement(transformation(
         extent={{-10,10},{10,-10}},
         rotation=180,
-        origin={242,-154})));
+        origin={240,-184})));
   Modelica.Blocks.Math.Product product2
-    annotation (Placement(transformation(extent={{226,-106},{206,-86}})));
+    annotation (Placement(transformation(extent={{224,-136},{204,-116}})));
   Modelica.Blocks.Math.Product product3
     annotation (Placement(transformation(extent={{-10,-10},{10,10}},
         rotation=180,
-        origin={216,-160})));
+        origin={214,-190})));
   Modelica.Blocks.Sources.RealExpression SOC_ipmax(y=sOC_logic.ipmax_SOC)
-    annotation (Placement(transformation(extent={{252,-92},{232,-112}})));
+    annotation (Placement(transformation(extent={{250,-122},{230,-142}})));
   Modelica.Blocks.Sources.RealExpression SOC_ipmin(y=sOC_logic.ipmin_SOC)
-    annotation (Placement(transformation(extent={{252,-156},{232,-176}})));
+    annotation (Placement(transformation(extent={{250,-186},{230,-206}})));
   Modelica.Blocks.Sources.RealExpression PELEC(y=Pe)
     annotation (Placement(transformation(extent={{-164,-226},{-144,-206}})));
   Modelica.Blocks.Continuous.Integrator integrator1(k=1/T,
@@ -180,13 +180,13 @@ model REECCU1
   Modelica.Blocks.Sources.BooleanConstant QFLAG(k=qflag)
     annotation (Placement(transformation(extent={{158,66},{178,86}})));
   Modelica.Blocks.Math.Add add9(k2=+1)
-    annotation (Placement(transformation(extent={{234,70},{254,90}})));
+    annotation (Placement(transformation(extent={{232,150},{252,170}})));
   Modelica.Blocks.Nonlinear.VariableLimiter variableLimiter
-    annotation (Placement(transformation(extent={{268,70},{288,90}})));
+    annotation (Placement(transformation(extent={{266,150},{286,170}})));
   Modelica.Blocks.Sources.RealExpression IQMIN(y=ccl_reecc.Iqmin)
-    annotation (Placement(transformation(extent={{288,70},{268,50}})));
+    annotation (Placement(transformation(extent={{286,150},{266,130}})));
   Modelica.Blocks.Sources.RealExpression IQMAX(y=ccl_reecc.Iqmax)
-    annotation (Placement(transformation(extent={{288,94},{268,114}})));
+    annotation (Placement(transformation(extent={{286,174},{266,194}})));
   Modelica.Blocks.Math.Add add10(k2=-1)
     annotation (Placement(transformation(extent={{52,-6},{72,14}})));
   Modelica.Blocks.Continuous.Integrator integrator4(k=1/Tiq,
@@ -306,24 +306,23 @@ equation
   connect(Paux, add7.u2) annotation (Line(points={{-320,-160},{-26,-160},{-26,-136},
           {-20,-136}}, color={0,0,127}));
   connect(variableLimiter2.y, Ipcmd)
-    annotation (Line(points={{251,-130},{292,-130},{292,-80},{310,-80}},
-                                                     color={0,0,127}));
-  connect(add7.y,variableLimiter2. u) annotation (Line(points={{3,-130},{228,-130}},
-                                                        color={0,0,127}));
-  connect(product2.y,variableLimiter2. limit1) annotation (Line(points={{205,-96},
-          {182,-96},{182,-122},{228,-122}},
+    annotation (Line(points={{249,-160},{310,-160}}, color={0,0,127}));
+  connect(add7.y,variableLimiter2. u) annotation (Line(points={{3,-130},{114,-130},
+          {114,-160},{226,-160}},                       color={0,0,127}));
+  connect(product2.y,variableLimiter2. limit1) annotation (Line(points={{203,-126},
+          {180,-126},{180,-152},{226,-152}},
                                   color={0,0,127}));
   connect(IPMAX.y,product2. u1)
-    annotation (Line(points={{231,-90},{228,-90}},           color={0,0,127}));
+    annotation (Line(points={{229,-120},{226,-120}},         color={0,0,127}));
   connect(product3.u2,IPMIN. y)
-    annotation (Line(points={{228,-154},{231,-154}}, color={0,0,127}));
-  connect(variableLimiter2.limit2,product3. y) annotation (Line(points={{228,-138},
-          {182,-138},{182,-160},{205,-160}}, color={0,0,127}));
+    annotation (Line(points={{226,-184},{229,-184}}, color={0,0,127}));
+  connect(variableLimiter2.limit2,product3. y) annotation (Line(points={{226,-168},
+          {180,-168},{180,-190},{203,-190}}, color={0,0,127}));
   connect(product2.u2,SOC_ipmax. y)
-    annotation (Line(points={{228,-102},{231,-102}},
+    annotation (Line(points={{226,-132},{229,-132}},
                                                    color={0,0,127}));
   connect(product3.u1,SOC_ipmin. y)
-    annotation (Line(points={{228,-166},{231,-166}}, color={0,0,127}));
+    annotation (Line(points={{226,-196},{229,-196}}, color={0,0,127}));
   connect(PELEC.y,integrator1. u)
     annotation (Line(points={{-143,-216},{-136,-216}},
                                                      color={0,0,127}));
@@ -410,13 +409,16 @@ equation
           {152,104},{152,122},{156,122}},
                                         color={0,0,127}));
   connect(add9.y,variableLimiter. u)
-    annotation (Line(points={{255,80},{266,80}}, color={0,0,127}));
-  connect(IQMIN.y,variableLimiter. limit2) annotation (Line(points={{267,60},{260,
-          60},{260,72},{266,72}}, color={0,0,127}));
-  connect(IQMAX.y,variableLimiter. limit1) annotation (Line(points={{267,104},{260,
-          104},{260,88},{266,88}}, color={0,0,127}));
-  connect(QFlag.y,add9. u2) annotation (Line(points={{219,94},{220,94},{220,74},
-          {232,74}}, color={0,0,127}));
+    annotation (Line(points={{253,160},{264,160}},
+                                                 color={0,0,127}));
+  connect(IQMIN.y,variableLimiter. limit2) annotation (Line(points={{265,140},{258,
+          140},{258,152},{264,152}},
+                                  color={0,0,127}));
+  connect(IQMAX.y,variableLimiter. limit1) annotation (Line(points={{265,184},{258,
+          184},{258,168},{264,168}},
+                                   color={0,0,127}));
+  connect(QFlag.y,add9. u2) annotation (Line(points={{219,94},{230,94},{230,154}},
+                     color={0,0,127}));
   connect(add10.y, product5.u2)
     annotation (Line(points={{73,4},{94,4}}, color={0,0,127}));
   connect(Vt_filt1.y,limiter6. u)
@@ -450,9 +452,10 @@ equation
   connect(IPCMD.y, ccl_reecc.Ipcmd) annotation (Line(points={{147,-82},{132,-82},
           {132,-69.6},{127.2,-69.6}}, color={0,0,127}));
   connect(limiter.y, add9.u1)
-    annotation (Line(points={{-107,234},{232,234},{232,86}}, color={0,0,127}));
+    annotation (Line(points={{-107,234},{230,234},{230,166}},color={0,0,127}));
   connect(variableLimiter.y, Iqcmd)
-    annotation (Line(points={{289,80},{310,80}}, color={0,0,127}));
+    annotation (Line(points={{287,160},{310,160}},
+                                                 color={0,0,127}));
   connect(Vt, simpleLag.u)
     annotation (Line(points={{-320,240},{-290,240}}, color={0,0,127}));
   connect(product1.u1, add2.y) annotation (Line(points={{-126,106},{-130,106},{-130,
@@ -481,7 +484,7 @@ plant controller (REPCA1). This electrical controller provides real (Ipcmd) and 
 of this component. 
 </p>
 <p>
-For initialization purposes, there are 5 inputs that are derived from the inverter component: initial real and reactive injection currents (IP0 and IQ0), initial terminal voltage (V_0), and initial active and reactive power 
+For initialization purposes, there are 5 inputs that are derived from the inverter component: initial real and reactive injection currents (IP0 and IQ0), initial terminal voltage (v_0), and initial active and reactive power 
 injections (p_0 and q_0).
 </p>
 <p>
@@ -492,8 +495,10 @@ are Vt, Pgen, and Qgen while the two inputs that could potentially be constant v
 </p>
 <p>The modelling of such devices is based, mainly, on the following references:</p>
 <ul>
-<li><em>Siemens PTI, PSS®E 34.2.0 model library</em>, by Siemens Power Technologies International, Schenectady, NY (2017), and</li>
-<li><em>WECC Battery Storage Dynamic Modeling Guideline</em>, by WECC Renewable Energy Modeling Task Force.</li>
+<li>Siemens: \"PSS®E Model Library\" 
+<a href=\"modelica://OpenIPSL.UsersGuide.References\">[PSSE-MODELS]</a>,</li>
+<li>WECC: \"Battery Storage Dynamic Modeling Guideline\"
+<a href=\"modelica://OpenIPSL.UsersGuide.References\">[WECCBattery]</a>.</li>
 </ul>
 
 </html>"));
