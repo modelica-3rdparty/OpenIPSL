@@ -37,7 +37,7 @@ These blocks represent logic associated with the dynamic model and the limit in 
 <ul>
 <li><p>Siemens: \"PSS®E Model Library\" 
 <a href=\"modelica://OpenIPSL.UsersGuide.References\">[PSSE-MODELS]</a>.</p>
-<blockquote></li>
+</li>
 </ul>
 </html>"));
 end LVPL;

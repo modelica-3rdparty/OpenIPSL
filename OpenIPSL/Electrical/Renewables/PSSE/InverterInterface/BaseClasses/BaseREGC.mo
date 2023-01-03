@@ -173,7 +173,7 @@ This component is the base class for the inverter components from the InverterIn
 <ul>
 <li><p>Siemens: \"PSS®E Model Library\" 
 <a href=\"modelica://OpenIPSL.UsersGuide.References\">[PSSE-MODELS]</a>.</p>
-<blockquote></li>
+</li>
 </ul>
 </html>"));
 end BaseREGC;

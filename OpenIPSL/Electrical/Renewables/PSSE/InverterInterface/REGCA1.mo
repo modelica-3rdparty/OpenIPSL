@@ -155,7 +155,7 @@ injections (p_0 and q_0). This method reduces repetitiveness of initialization c
 <ul>
 <li><p>Siemens: \"PSS®E Model Library\" 
 <a href=\"modelica://OpenIPSL.UsersGuide.References\">[PSSE-MODELS]</a>.</p>
-<blockquote></li>
+</li>
 </ul>
 </html>"));
 end REGCA1;
