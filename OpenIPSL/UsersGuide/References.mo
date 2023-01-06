@@ -1,4 +1,4 @@
-within OpenIPSL.UsersGuide;
+﻿within OpenIPSL.UsersGuide;
 model References "References"
   extends Modelica.Icons.References;
   annotation (Documentation(info="<html>
@@ -126,7 +126,7 @@ model References "References"
 <td>WECC:
         &quot;Battery Storage Dynamic Modeling Guideline&quot;,
 	November 2016,
-        (<a href=\"https://www.wecc.org/Reliability/WECC%20Battery%20Storage%20Guideline%20updates_%20Bo%204-5-17%20SLT%204-7-17%20XX%20SC.docx\">Home page</a>)
+        (<a href=\"https://www.wecc.org/Reliability/WECC%20Battery%20Storage%20Guideline%20updates_%20Bo%204-5-17%20SLT%204-7-17%20XX%20SC.docx\">document</a>)
 </td>
 </tr>
 <tr>
@@ -134,7 +134,7 @@ model References "References"
 <td>WECC:
         &quot;Solar Photovoltaic Power Plant Modeling and Validation Guideline&quot;,
 	December 2019,
-        (<a href=\"https://www.wecc.org/Reliability/Solar%20PV%20Plant%20Modeling%20and%20Validation%20Guidline.pdf\">Home page</a>)
+        (<a href=\"https://www.wecc.org/Reliability/Solar%20PV%20Plant%20Modeling%20and%20Validation%20Guidline.pdf\">document</a>)
 </td>
 </tr>
 <tr>
@@ -142,7 +142,7 @@ model References "References"
 <td>WECC:
         &quot;Wind Power Plant Dynamic Modeling Guideline&quot;,
 	April 2014,
-        (<a href=\"https://www.wecc.org/Reliability/WECC%20Wind%20Plant%20Dynamic%20Modeling%20Guidelines.pdf\">Home page</a>)
+        (<a href=\"https://www.wecc.org/Reliability/WECC%20Wind%20Plant%20Dynamic%20Modeling%20Guidelines.pdf\">document</a>)
 </td>
 </tr>
 </table>
