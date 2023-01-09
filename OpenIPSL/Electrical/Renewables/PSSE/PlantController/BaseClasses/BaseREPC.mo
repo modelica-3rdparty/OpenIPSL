@@ -34,7 +34,7 @@ partial model BaseREPC
   Modelica.Blocks.Interfaces.RealInput Freq "Connection Point Frequency" annotation (Placement(
         transformation(extent={{-240,-60},{-200,-20}}), iconTransformation(
           extent={{-240,-60},{-200,-20}})));
-  Modelica.Blocks.Interfaces.RealInput Freq_ref "Frequency ReferenceConnector of Real input signal 2"
+  Modelica.Blocks.Interfaces.RealInput Freq_ref "Plant Controller Frequency Reference"
                                        annotation (Placement(
         transformation(extent={{-240,-140},{-200,-100}}),
         iconTransformation(extent={{-240,-140},{-200,-100}})));
