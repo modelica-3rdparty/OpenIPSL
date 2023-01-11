@@ -180,7 +180,7 @@ equation
                                    Ellipse(
           extent={{-100,100},{100,-100}},
           lineColor={0,0,0},
-          fillColor={170,255,170},
+          fillColor={255,170,85},
           fillPattern=FillPattern.Solid),
                          Text(
           extent={{-40,20},{40,-20}},
