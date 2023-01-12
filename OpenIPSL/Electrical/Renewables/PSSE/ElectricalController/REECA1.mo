@@ -1,4 +1,4 @@
-﻿within OpenIPSL.Electrical.Renewables.PSSE.ElectricalController;
+within OpenIPSL.Electrical.Renewables.PSSE.ElectricalController;
 model REECA1 "Electrical control model for large scale wind"
   extends OpenIPSL.Electrical.Renewables.PSSE.ElectricalController.BaseClasses.BaseREECA(
      Iqcmd(start=Iq0), Ipcmd(start=Ip0));
@@ -376,25 +376,25 @@ equation
   connect(VLogic.y, pI_No_Windup_notVariable.voltage_dip) annotation (Line(points={{2,160},{20,160},{20,140},{-100,140},{-100,128},{-90,128}}, color={255,0,255}));
   annotation (Documentation(info="<html>
 <p>
-The REECA1 component used to represent the electrical controls of wind turbine generation. The electrical controller actuates on the active and reactive power 
-reference from either the plant controller component or from power flow power reference values (in the case where there is no plant controller), 
-with feedback variables that original from the inverter interface component, specifically terminal voltage and generator power output, 
+The REECA1 component used to represent the electrical controls of wind turbine generation. The electrical controller actuates on the active and reactive power
+reference from either the plant controller component or from power flow power reference values (in the case where there is no plant controller),
+with feedback variables that original from the inverter interface component, specifically terminal voltage and generator power output,
 and provides real (Ipcmd) and reactive current (Iqcmd) commands to the REGC type modules.
 </p>
 <p>
-For initialization purposes, there are 5 inputs that are derived from the inverter component: initial real and reactive injection currents (IP0 and IQ0), initial terminal voltage (v_0), and initial active and reactive power 
+For initialization purposes, there are 5 inputs that are derived from the inverter component: initial real and reactive injection currents (IP0 and IQ0), initial terminal voltage (v_0), and initial active and reactive power
 injections (p_0 and q_0).
 </p>
 <p>
 In terms of connectivity with other components to form the renewable source, the REECA1 component has six inputs, three of which are connected to the inverter component
-(for instance REGCA1), two more that can either be constant values from the power flow initialization or come from the connection to the plant controller, and 
-an input (wg) that allows modeling the torscional frequencies on the turbine shaft originated from disturbances. 
-The three REECA1 inputs that take in values from the output of the inverter model 
+(for instance REGCA1), two more that can either be constant values from the power flow initialization or come from the connection to the plant controller, and
+an input (wg) that allows modeling the torscional frequencies on the turbine shaft originated from disturbances.
+The three REECA1 inputs that take in values from the output of the inverter model
 are Vt, Pgen, and Qgen while the two inputs that could potentially be constant valued or come from the plant controller are Pref, and Qext.
 </p>
 <p>The modelling of such devices is based, mainly, on the following references:</p>
 <ul>
-<li>Siemens: \"PSS®E Model Library\" 
+<li>Siemens: \"PSS®E Model Library\"
 <a href=\"modelica://OpenIPSL.UsersGuide.References\">[PSSE-MODELS]</a>,</li>
 <li>WECC: \"Wind Power Plant Dynamic Modeling Guideline\"
 <a href=\"modelica://OpenIPSL.UsersGuide.References\">[WECCWind]</a>.</li>

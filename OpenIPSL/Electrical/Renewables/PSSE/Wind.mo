@@ -217,7 +217,7 @@ This model is meant as a simple framework to create a wind power plant that cons
 </ul>
 <p>
 The type of each can be selected via a drop down list where also
- a deactivation is provided (normally via feed through). 
+ a deactivation is provided (normally via feed through).
 </p>
 <p>
 The type of control configuration can also be selected via drop down list, with or without

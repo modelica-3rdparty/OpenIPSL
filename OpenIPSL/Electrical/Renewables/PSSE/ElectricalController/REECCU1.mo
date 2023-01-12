@@ -1,4 +1,4 @@
-﻿within OpenIPSL.Electrical.Renewables.PSSE.ElectricalController;
+within OpenIPSL.Electrical.Renewables.PSSE.ElectricalController;
 model REECCU1
   "Electrical control model for utility scale battery energy storage"
   extends
@@ -479,24 +479,24 @@ equation
           -240},{-106,-240}}, color={0,0,127}));
   annotation (Documentation(info="<html>
 <p>
-The REECCU1 component is an augmented version of the existing renewable energy electrical control (REECA1) model, and can be utilized to represent 
-both type 3 and type 4 wind turbine electrical controllers as well as photovoltaic electrical controllers. The REECCU1 component can be connected to the 
+The REECCU1 component is an augmented version of the existing renewable energy electrical control (REECA1) model, and can be utilized to represent
+both type 3 and type 4 wind turbine electrical controllers as well as photovoltaic electrical controllers. The REECCU1 component can be connected to the
 plant controller (REPCA1). This electrical controller provides real (Ipcmd) and reactive (Iqcmd) current commands to the REGCA1 component, which are the outputs
-of this component. 
+of this component.
 </p>
 <p>
-For initialization purposes, there are 5 inputs that are derived from the inverter component: initial real and reactive injection currents (IP0 and IQ0), initial terminal voltage (v_0), and initial active and reactive power 
+For initialization purposes, there are 5 inputs that are derived from the inverter component: initial real and reactive injection currents (IP0 and IQ0), initial terminal voltage (v_0), and initial active and reactive power
 injections (p_0 and q_0).
 </p>
 <p>
 In terms of connectivity with other components to form the renewable source, the REECCU1 component has six inputs, three of which are connected to the inverter component
-(for instance REGCA1), two more that can either be constant values from the power flow initialization or come from the connection to the plant controller, and 
-an auxiliary input variable that is rarely used (usually constant and zero). The three REECCU1 inputs that take in values from the output of the inverter model 
+(for instance REGCA1), two more that can either be constant values from the power flow initialization or come from the connection to the plant controller, and
+an auxiliary input variable that is rarely used (usually constant and zero). The three REECCU1 inputs that take in values from the output of the inverter model
 are Vt, Pgen, and Qgen while the two inputs that could potentially be constant valued or come from the plant controller are Pref, and Qext.
 </p>
 <p>The modelling of such devices is based, mainly, on the following references:</p>
 <ul>
-<li>Siemens: \"PSS®E Model Library\" 
+<li>Siemens: \"PSS®E Model Library\"
 <a href=\"modelica://OpenIPSL.UsersGuide.References\">[PSSE-MODELS]</a>,</li>
 <li>WECC: \"Battery Storage Dynamic Modeling Guideline\"
 <a href=\"modelica://OpenIPSL.UsersGuide.References\">[WECCBattery]</a>.</li>

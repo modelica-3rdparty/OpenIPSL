@@ -114,8 +114,8 @@ equation
           fillPattern=FillPattern.Solid,
           textString="IQMAX")}), Documentation(info="<html>
 The pseudo-code for the current limit logic in the REECC electrical controller detailed below:
-<pre> 
-<code> 
+<pre>
+<code>
 if Pqflag = true:
    Ipmax = min(VDL2_out, Imax);
    Ipmin = -Ipmax;
@@ -133,7 +133,7 @@ end
 </pre>
 <p>The modelling of the current limit logic for the REECB electrical controller is based on the following references:</p>
 <ul>
-<li>Siemens: \"PSS®E Model Library\" 
+<li>Siemens: \"PSS®E Model Library\"
 <a href=\"modelica://OpenIPSL.UsersGuide.References\">[PSSE-MODELS]</a>,</li>
 <li>WECC: \"Battery Storage Dynamic Modeling Guideline\"
 <a href=\"modelica://OpenIPSL.UsersGuide.References\">[WECCBattery]</a>.</li>

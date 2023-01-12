@@ -9,7 +9,7 @@ in this package are based on the second generation renewable energy models.</p>
 <p>The package contains a subpackage called PSS®E, from where four different subpackages contains the components for different parts of the renewable sources.</p>
 <p>The modelling of such devices is based, mainly, on the following references:</p>
 <ul>
-<li>Siemens: \"PSS®E Model Library\" 
+<li>Siemens: \"PSS®E Model Library\"
 <a href=\"modelica://OpenIPSL.UsersGuide.References\">[PSSE-MODELS]</a>,</li>
 <li>WECC: \"Battery Storage Dynamic Modeling Guideline\"
 <a href=\"modelica://OpenIPSL.UsersGuide.References\">[WECCBattery]</a>,</li>

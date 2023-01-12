@@ -1,4 +1,4 @@
-﻿within OpenIPSL.Electrical.Renewables.PSSE.PlantController;
+within OpenIPSL.Electrical.Renewables.PSSE.PlantController;
 model REPCA1 "Renewable energy plant controller model A"
 
   parameter Modelica.Units.SI.Time Tfltr=0.02 "Voltage or reactive power measurement filter time constant";
@@ -277,7 +277,7 @@ provides active reactive power command references to the electrical controller c
 </p>
 <p>The modelling of such devices is based, mainly, on the following reference:</p>
 <ul>
-<li>Siemens: \"PSS®E Model Library\" 
+<li>Siemens: \"PSS®E Model Library\"
 <a href=\"modelica://OpenIPSL.UsersGuide.References\">[PSSE-MODELS]</a>,</li>
 </ul>
 </html>"));

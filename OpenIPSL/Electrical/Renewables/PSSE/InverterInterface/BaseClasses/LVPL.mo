@@ -1,4 +1,4 @@
-﻿within OpenIPSL.Electrical.Renewables.PSSE.InverterInterface.BaseClasses;
+within OpenIPSL.Electrical.Renewables.PSSE.InverterInterface.BaseClasses;
 model LVPL "Low Voltage Power Logic"
   Modelica.Blocks.Interfaces.RealOutput y
     annotation (Placement(transformation(extent={{100,-10},{120,10}}),
@@ -30,12 +30,12 @@ equation
             100,100}})),
     Documentation(info="<html>
 <p>
-In the inverter inteface model block diagram there are two blocks labeled, \"high-voltage reactive current management\"  and \"low-voltage power logic\". 
+In the inverter inteface model block diagram there are two blocks labeled, \"high-voltage reactive current management\"  and \"low-voltage power logic\".
 These blocks represent logic associated with the dynamic model and the limit in active power injection into the system.
 </p>
 <p>The modelling of such devices is based, mainly, on the following reference:</p>
 <ul>
-<li><p>Siemens: \"PSS®E Model Library\" 
+<li><p>Siemens: \"PSS®E Model Library\"
 <a href=\"modelica://OpenIPSL.UsersGuide.References\">[PSSE-MODELS]</a>.</p>
 </li>
 </ul>

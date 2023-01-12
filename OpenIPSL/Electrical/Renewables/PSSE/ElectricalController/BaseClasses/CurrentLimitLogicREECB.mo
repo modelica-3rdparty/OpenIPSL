@@ -112,8 +112,8 @@ equation
         coordinateSystem(preserveAspectRatio=false)),
     Documentation(info="<html>
 The pseudo-code for the current limit logic in the REECB electrical controller detailed below:
-<pre> 
-<code> 
+<pre>
+<code>
 if Pqflag = true:
    Ipmax = Imax;
    Ipmin = 0;
@@ -131,7 +131,7 @@ end
 </pre>
 <p>The modelling of the current limit logic for the REECB electrical controller is based on the following references:</p>
 <ul>
-<li>Siemens: \"PSS®E Model Library\" 
+<li>Siemens: \"PSS®E Model Library\"
 <a href=\"modelica://OpenIPSL.UsersGuide.References\">[PSSE-MODELS]</a>,</li>
 <li>WECC: \"Solar Photovoltaic Power Plant Modeling and Validation Guideline\"
 <a href=\"modelica://OpenIPSL.UsersGuide.References\">[WECCPhotovoltaic]</a>.</li>

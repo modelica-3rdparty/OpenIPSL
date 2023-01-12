@@ -39,8 +39,8 @@ equation
         coordinateSystem(preserveAspectRatio=false)),
     Documentation(info="<html>
 The pseudo-code for the state of charge current limit in batteries is as follows:
-<pre> 
-<code> 
+<pre>
+<code>
 If SOC greater of equal to SOCmax:
    Ipmin = 0;
 else:
@@ -50,7 +50,7 @@ end
 </pre>
 <p>The modelling of the state of charge for the REECC electrical controller is based on the following references:</p>
 <ul>
-<li>Siemens: \"PSS®E Model Library\" 
+<li>Siemens: \"PSS®E Model Library\"
 <a href=\"modelica://OpenIPSL.UsersGuide.References\">[PSSE-MODELS]</a>,</li>
 <li>WECC: \"Battery Storage Dynamic Modeling Guideline\"
 <a href=\"modelica://OpenIPSL.UsersGuide.References\">[WECCBattery]</a>.</li>

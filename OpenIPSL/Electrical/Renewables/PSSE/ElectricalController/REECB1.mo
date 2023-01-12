@@ -1,4 +1,4 @@
-﻿within OpenIPSL.Electrical.Renewables.PSSE.ElectricalController;
+within OpenIPSL.Electrical.Renewables.PSSE.ElectricalController;
 model REECB1 "Electrical control model for large scale photovoltaic"
   extends
     OpenIPSL.Electrical.Renewables.PSSE.ElectricalController.BaseClasses.BaseREECB(
@@ -367,24 +367,24 @@ equation
           -64},{-170,-64},{-170,66},{-164,66}}, color={0,0,127}));
   annotation (Documentation(info="<html>
 <p>
-The REECB1 component used to represent the electrical controls of photovoltaic generation. The electrical controller actuates on the active and reactive power 
-reference from either the plant controller component or from power flow power reference values (in the case where there is no plant controller), 
-with feedback variables that original from the inverter interface component, specifically terminal voltage and generator power output, 
+The REECB1 component used to represent the electrical controls of photovoltaic generation. The electrical controller actuates on the active and reactive power
+reference from either the plant controller component or from power flow power reference values (in the case where there is no plant controller),
+with feedback variables that original from the inverter interface component, specifically terminal voltage and generator power output,
 and provides real (Ipcmd) and reactive current (Iqcmd) commands to the REGC types module.
 </p>
 <p>
-For initialization purposes, there are 5 inputs that are derived from the inverter component: initial real and reactive injection currents (IP0 and IQ0), initial terminal voltage (v_0), and initial active and reactive power 
+For initialization purposes, there are 5 inputs that are derived from the inverter component: initial real and reactive injection currents (IP0 and IQ0), initial terminal voltage (v_0), and initial active and reactive power
 injections (p_0 and q_0).
 </p>
 <p>
 In terms of connectivity with other components to form the renewable source, the REECB1 component has five inputs, three of which are connected to the inverter component
-(for instance REGCA1), and two more that can either be constant values from the power flow initialization or come from the connection to the plant controller. 
-The three REECB1 inputs that take in values from the output of the inverter model 
+(for instance REGCA1), and two more that can either be constant values from the power flow initialization or come from the connection to the plant controller.
+The three REECB1 inputs that take in values from the output of the inverter model
 are Vt, Pgen, and Qgen while the two inputs that could potentially be constant valued or come from the plant controller are Pref, and Qext.
 </p>
 <p>The modelling of such devices is based, mainly, on the following references:</p>
 <ul>
-<li>Siemens: \"PSS®E Model Library\" 
+<li>Siemens: \"PSS®E Model Library\"
 <a href=\"modelica://OpenIPSL.UsersGuide.References\">[PSSE-MODELS]</a>,</li>
 <li>WECC: \"Solar Photovoltaic Power Plant Modeling and Validation Guideline\"
 <a href=\"modelica://OpenIPSL.UsersGuide.References\">[WECCPhotovoltaic]</a>.</li>
