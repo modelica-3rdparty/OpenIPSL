@@ -1,7 +1,7 @@
 within OpenIPSL.Electrical.Renewables.PSSE.ElectricalController.BaseClasses;
 model PIwithVariableLimiter "PI with variable limiter controller for WECC electrical controllers"
-  import Modelica.Units.SI;
-  parameter SI.PerUnit K_P "Voltage regulator proportional gain";
+  
+  parameter Real K_P "Voltage regulator proportional gain";
   parameter SI.TimeAging K_I "Voltage regulator integral gain";
   parameter Real y_start "Starting output value for the integrator";
   Modelica.Blocks.Continuous.Integrator    integral(

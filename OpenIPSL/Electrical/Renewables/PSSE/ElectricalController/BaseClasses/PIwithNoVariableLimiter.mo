@@ -1,7 +1,7 @@
 within OpenIPSL.Electrical.Renewables.PSSE.ElectricalController.BaseClasses;
 model PIwithNoVariableLimiter "PI with no variable limiter controller for WECC electrical controllers"
-  import Modelica.Units.SI;
-  parameter SI.PerUnit K_P "Voltage regulator proportional gain";
+  
+  parameter Real K_P "Voltage regulator proportional gain";
   parameter SI.TimeAging K_I "Voltage regulator integral gain";
   parameter SI.PerUnit V_RMAX "Maximum regulator output";
   parameter SI.PerUnit V_RMIN "Minimum regulator output";
