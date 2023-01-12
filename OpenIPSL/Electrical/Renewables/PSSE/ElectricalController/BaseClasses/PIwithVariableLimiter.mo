@@ -9,15 +9,15 @@ model PIwithVariableLimiter "PI with variable limiter controller for WECC electr
     use_reset=false,
     initType=Modelica.Blocks.Types.Init.InitialOutput,
     y_start=y_start)
-    annotation (Placement(transformation(extent={{4,30},{24,50}})));
+    annotation (Placement(transformation(extent={{0,30},{20,50}})));
   Modelica.Blocks.Math.Gain proportional(k=K_P)
-    annotation (Placement(transformation(extent={{-26,-50},{-6,-30}})));
+    annotation (Placement(transformation(extent={{0,-70},{20,-50}})));
   Modelica.Blocks.Math.Add PI_add
     annotation (Placement(transformation(extent={{38,-10},{58,10}})));
   Modelica.Blocks.Logical.Switch reset_switch
-    annotation (Placement(transformation(extent={{-56,30},{-36,50}})));
+    annotation (Placement(transformation(extent={{-40,30},{-20,50}})));
   Modelica.Blocks.Sources.RealExpression realExpression
-    annotation (Placement(transformation(extent={{-88,70},{-68,90}})));
+    annotation (Placement(transformation(extent={{-80,70},{-60,90}})));
   Modelica.Blocks.Interfaces.RealInput u
     annotation (Placement(transformation(extent={{-140,-80},{-100,-40}}),
         iconTransformation(extent={{-140,-80},{-100,-40}})));
@@ -48,35 +48,34 @@ equation
   if (abs(variableLimiter1.limit1 - y) <= Modelica.Constants.eps and der(integral.y)>0) then true
   else if (abs(variableLimiter1.limit2 - y) <= Modelica.Constants.eps and der(integral.y)<0) then true
   else false;
-  connect(proportional.y, PI_add.u2) annotation (Line(points={{-5,-40},{30,-40},
-          {30,-6},{36,-6}}, color={0,0,127}));
+  connect(proportional.y, PI_add.u2) annotation (Line(points={{21,-60},{30,-60},{30,-6},{36,-6}},
+                            color={0,0,127}));
   connect(reset_switch.u1,realExpression. y)
-    annotation (Line(points={{-58,48},{-58,80},{-67,80}},
+    annotation (Line(points={{-42,48},{-54,48},{-54,80},{-59,80}},
                                                  color={0,0,127}));
-  connect(reset_switch.u3,u)  annotation (Line(points={{-58,32},{-70,32},{-70,
-          -60},{-120,-60}},
+  connect(reset_switch.u3,u)  annotation (Line(points={{-42,32},{-60,32},{-60,-60},{-120,-60}},
                      color={0,0,127}));
   connect(reset_switch.y,integral. u)
-    annotation (Line(points={{-35,40},{2,40}},   color={0,0,127}));
+    annotation (Line(points={{-19,40},{-2,40}},  color={0,0,127}));
   connect(proportional.u,u)
-    annotation (Line(points={{-28,-40},{-70,-40},{-70,-60},{-120,-60}},
+    annotation (Line(points={{-2,-60},{-120,-60}},
                                                 color={0,0,127}));
   connect(PI_add.y, variableLimiter1.u)
     annotation (Line(points={{59,0},{68,0}}, color={0,0,127}));
   connect(variableLimiter1.y, y)
     annotation (Line(points={{91,0},{110,0}}, color={0,0,127}));
   connect(variableLimiter1.limit1, limit1)
-    annotation (Line(points={{68,8},{68,120},{60,120}},
+    annotation (Line(points={{68,8},{60,8},{60,120}},
                                                color={0,0,127}));
   connect(variableLimiter1.limit2, limit2)
-    annotation (Line(points={{68,-8},{68,-120},{60,-120}},
+    annotation (Line(points={{68,-8},{60,-8},{60,-120}},
                                                  color={0,0,127}));
   connect(integral.y, PI_add.u1)
-    annotation (Line(points={{25,40},{30,40},{30,6},{36,6}}, color={0,0,127}));
+    annotation (Line(points={{21,40},{30,40},{30,6},{36,6}}, color={0,0,127}));
   connect(or1.y, reset_switch.u2)
-    annotation (Line(points={{-71,40},{-58,40}}, color={255,0,255}));
+    annotation (Line(points={{-71,40},{-42,40}}, color={255,0,255}));
   connect(or1.u1, voltage_dip)
-    annotation (Line(points={{-94,40},{-108,40},{-108,60},{-120,60}},
+    annotation (Line(points={{-94,40},{-98,40},{-98,60},{-120,60}},
                                                   color={255,0,255}));
   annotation (
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}),

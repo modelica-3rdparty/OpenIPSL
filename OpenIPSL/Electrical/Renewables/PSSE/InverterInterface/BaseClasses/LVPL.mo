@@ -1,11 +1,11 @@
-within OpenIPSL.Electrical.Renewables.PSSE.InverterInterface.BaseClasses;
+﻿within OpenIPSL.Electrical.Renewables.PSSE.InverterInterface.BaseClasses;
 model LVPL "Low Voltage Power Logic"
   Modelica.Blocks.Interfaces.RealOutput y
-    annotation (Placement(transformation(extent={{100,-20},{140,20}}),
-        iconTransformation(extent={{100,-10},{120,10}})));
+    annotation (Placement(transformation(extent={{100,-10},{120,10}}),
+        iconTransformation(extent={{102,-8},{120,10}})));
   Modelica.Blocks.Interfaces.RealInput V
-    annotation (Placement(transformation(extent={{-120,-10},{-100,10}}),
-        iconTransformation(extent={{-120,-10},{-100,10}})));
+    annotation (Placement(transformation(extent={{-140,-20},{-100,20}}),
+        iconTransformation(extent={{-140,-20},{-100,20}})));
         parameter OpenIPSL.Types.PerUnit Brkpt "LVPL characteristic voltage 2";
         parameter OpenIPSL.Types.PerUnit Lvpl1 "LVPL gain ";
         parameter OpenIPSL.Types.PerUnit Zerox "LVPL characteristic voltage 1";

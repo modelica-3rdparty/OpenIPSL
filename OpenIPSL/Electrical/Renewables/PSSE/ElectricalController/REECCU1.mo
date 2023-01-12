@@ -1,4 +1,4 @@
-within OpenIPSL.Electrical.Renewables.PSSE.ElectricalController;
+﻿within OpenIPSL.Electrical.Renewables.PSSE.ElectricalController;
 model REECCU1
   "Electrical control model for utility scale battery energy storage"
   extends
@@ -306,7 +306,8 @@ equation
   connect(Paux, add7.u2) annotation (Line(points={{-320,-160},{-26,-160},{-26,-136},
           {-20,-136}}, color={0,0,127}));
   connect(variableLimiter2.y, Ipcmd)
-    annotation (Line(points={{249,-160},{310,-160}}, color={0,0,127}));
+    annotation (Line(points={{249,-160},{288,-160},{288,-140},{310,-140}},
+                                                     color={0,0,127}));
   connect(add7.y,variableLimiter2. u) annotation (Line(points={{3,-130},{114,-130},
           {114,-160},{226,-160}},                       color={0,0,127}));
   connect(product2.y,variableLimiter2. limit1) annotation (Line(points={{203,-126},
@@ -447,14 +448,14 @@ equation
           {88.8,-50.4}}, color={0,0,127}));
   connect(PQFLAG.y, ccl_reecc.pqflag)
     annotation (Line(points={{147,-60},{127.2,-60}}, color={255,0,255}));
-  connect(IQCMD.y, ccl_reecc.Iqcmd) annotation (Line(points={{147,-38},{132,-38},
-          {132,-50.4},{127.2,-50.4}}, color={0,0,127}));
-  connect(IPCMD.y, ccl_reecc.Ipcmd) annotation (Line(points={{147,-82},{132,-82},
-          {132,-69.6},{127.2,-69.6}}, color={0,0,127}));
+  connect(IQCMD.y, ccl_reecc.Iqcmd) annotation (Line(points={{147,-38},{132,-38},{132,-50.4},{127.2,-50.4}},
+                                      color={0,0,127}));
+  connect(IPCMD.y, ccl_reecc.Ipcmd) annotation (Line(points={{147,-82},{132,-82},{132,-69.6},{127.2,-69.6}},
+                                      color={0,0,127}));
   connect(limiter.y, add9.u1)
     annotation (Line(points={{-107,234},{230,234},{230,166}},color={0,0,127}));
   connect(variableLimiter.y, Iqcmd)
-    annotation (Line(points={{287,160},{310,160}},
+    annotation (Line(points={{287,160},{294,160},{294,140},{310,140}},
                                                  color={0,0,127}));
   connect(Vt, simpleLag.u)
     annotation (Line(points={{-320,240},{-290,240}}, color={0,0,127}));

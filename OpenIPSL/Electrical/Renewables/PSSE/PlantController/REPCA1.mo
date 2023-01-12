@@ -1,4 +1,4 @@
-within OpenIPSL.Electrical.Renewables.PSSE.PlantController;
+﻿within OpenIPSL.Electrical.Renewables.PSSE.PlantController;
 model REPCA1 "Renewable energy plant controller model A"
 
   parameter Modelica.Units.SI.Time Tfltr=0.02 "Voltage or reactive power measurement filter time constant";
@@ -242,10 +242,10 @@ equation
   connect(DUP.u,DDN. u)
     annotation (Line(points={{-130,-160},{-130,-124}},
                                                     color={0,0,127}));
-  connect(Freq_ref, add.u2) annotation (Line(points={{-220,-120},{-224,-120},{-224,
-          -112},{-208,-112},{-208,-150},{-190,-150}}, color={0,0,127}));
-  connect(Freq, add.u1) annotation (Line(points={{-220,-40},{-198,-40},{-198,-138},
-          {-190,-138}}, color={0,0,127}));
+  connect(Freq_ref, add.u2) annotation (Line(points={{-220,-120},{-198,-120},{-198,-150},{-190,-150}},
+                                                      color={0,0,127}));
+  connect(Freq, add.u1) annotation (Line(points={{-220,-40},{-194,-40},{-194,-138},{-190,-138}},
+                        color={0,0,127}));
   connect(leadLag.y, Qext)
     annotation (Line(points={{149,90},{194,90},{194,100},{210,100}},
                                                    color={0,0,127}));
@@ -257,8 +257,8 @@ equation
           {-140,100},{-140,112},{-130,112}}, color={0,0,127}));
   connect(add5.y, REFFLAG.u1) annotation (Line(points={{-49,126},{-44,126},{-44,
           98},{-38,98}}, color={0,0,127}));
-  connect(p0, FREQ_FLAG.u3) annotation (Line(points={{-120,-220},{-122,-220},{-122,
-          -188},{152,-188},{152,-134}}, color={0,0,127}));
+  connect(p0, FREQ_FLAG.u3) annotation (Line(points={{-120,-220},{-120,-188},{148,-188},{148,-134},{152,-134}},
+                                        color={0,0,127}));
   connect(deadZone.y, limiter4.u)
     annotation (Line(points={{13,90},{22,90}}, color={0,0,127}));
   connect(limiter4.y, pI_No_Windup_notVariable.u)

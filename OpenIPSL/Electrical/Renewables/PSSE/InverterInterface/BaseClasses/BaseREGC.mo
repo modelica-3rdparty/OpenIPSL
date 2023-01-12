@@ -1,4 +1,4 @@
-within OpenIPSL.Electrical.Renewables.PSSE.InverterInterface.BaseClasses;
+﻿within OpenIPSL.Electrical.Renewables.PSSE.InverterInterface.BaseClasses;
 partial model BaseREGC "Base renewable generator/converter for PSSE models"
   import Complex;
   import Modelica.ComplexMath.arg;
@@ -41,24 +41,17 @@ partial model BaseREGC "Base renewable generator/converter for PSSE models"
     ii(start=-ii0*CoB)) annotation (Placement(transformation(extent={{130,-10},{150,10}}),
                           iconTransformation(extent={{130,-10},{150,10}})));
   Modelica.Blocks.Interfaces.RealInput Iqcmd(start=-Iq0) "Imaginary Command Current"
-    annotation (Placement(transformation(extent={{-180,40},{-140,80}}),
-        iconTransformation(extent={{-180,50},{-140,90}})));
+    annotation (Placement(transformation(extent={{-180,60},{-140,100}})));
   Modelica.Blocks.Interfaces.RealInput Ipcmd(start=Ip0) "Real Command Current"
-    annotation (Placement(transformation(extent={{-180,-80},{-140,-40}}),
-        iconTransformation(extent={{-180,-90},{-140,-50}})));
+    annotation (Placement(transformation(extent={{-180,-100},{-140,-60}}),
+        iconTransformation(extent={{-180,-100},{-140,-60}})));
   Modelica.Blocks.Interfaces.RealOutput IQ0 "Initial Reactive Power" annotation (Placement(
         transformation(
-        extent={{-10,-10},{10,10}},
-        rotation=270,
-        origin={-120,-150}),iconTransformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-120,-150})));
   Modelica.Blocks.Interfaces.RealOutput IP0 "Initial Active Power" annotation (Placement(
         transformation(
-        extent={{-10,-10},{10,10}},
-        rotation=270,
-        origin={-60,-150}), iconTransformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-60,-150})));
@@ -81,22 +74,14 @@ partial model BaseREGC "Base renewable generator/converter for PSSE models"
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
-        origin={-80,150}), iconTransformation(extent={{-10,-10},{10,10}},
-          origin={-80,150},
-        rotation=90)));
+        origin={-80,150})));
   Modelica.Blocks.Interfaces.RealOutput Pgen "Active Power injection"
     annotation (Placement(transformation(
-        extent={{-10,-10},{10,10}},
-        rotation=90,
-        origin={0,150}),   iconTransformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={0,150})));
   Modelica.Blocks.Interfaces.RealOutput Qgen "Reactive Power injection"
     annotation (Placement(transformation(
-        extent={{-10,-10},{10,10}},
-        rotation=90,
-        origin={80,150}),  iconTransformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={80,150})));

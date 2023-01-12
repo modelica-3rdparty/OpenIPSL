@@ -21,11 +21,11 @@ partial model BaseREECC "Base renewable energy electrical controller model C"
         rotation=90,
         origin={240,-320})));
   Modelica.Blocks.Interfaces.RealOutput Iqcmd "Reactive Command Current"
-    annotation (Placement(transformation(extent={{300,150},{320,170}}),
-        iconTransformation(extent={{300,140},{320,160}})));
+    annotation (Placement(transformation(extent={{300,162},{320,182}}),
+        iconTransformation(extent={{300,162},{320,182}})));
   Modelica.Blocks.Interfaces.RealOutput Ipcmd "Active Command Current"
-    annotation (Placement(transformation(extent={{300,-170},{320,-150}}),
-        iconTransformation(extent={{300,-160},{320,-140}})));
+    annotation (Placement(transformation(extent={{300,-182},{320,-162}}),
+        iconTransformation(extent={{300,-182},{320,-162}})));
 
   Modelica.Blocks.Interfaces.RealInput v0 "Initial Terminal Voltage Magnitude" annotation (Placement(transformation(
         extent={{-20,-20},{20,20}},
@@ -66,7 +66,7 @@ partial model BaseREECC "Base renewable energy electrical controller model C"
   Modelica.Blocks.Interfaces.RealInput Paux "Auxiliary Signal for Active Power" annotation (Placement(
         transformation(extent={{-340,-180},{-300,-140}}), iconTransformation(
           extent={{-340,-180},{-300,-140}})));
-  annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-300,-300},
+  annotation (Icon(coordinateSystem(extent={{-300,-300},
             {300,300}}), graphics={Rectangle(extent={{-300,300},{300,-300}},
             lineColor={0,0,255}),
         Text(
@@ -124,8 +124,8 @@ partial model BaseREECC "Base renewable energy electrical controller model C"
         Text(
           extent={{-280,-142},{-168,-182}},
           textColor={0,0,255},
-          textString="PAUX")}),        Diagram(coordinateSystem(
-          preserveAspectRatio=false, extent={{-300,-300},{300,300}})),
+          textString="PAUX")}),
+        Diagram(coordinateSystem(extent={{-300,-300},{300,300}})),
     Documentation(info="<html>
 <p>
 The BaseREECC model is the base class that is extended to create the <a href=\"modelica://OpenIPSL.Electrical.Renewables.PSSE.ElectricalController.REECCU1\">REECCU1</a> component.

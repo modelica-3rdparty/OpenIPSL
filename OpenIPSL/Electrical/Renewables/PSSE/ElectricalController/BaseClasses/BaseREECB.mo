@@ -37,11 +37,11 @@ partial model BaseREECB "Base renewable energy electrical controller model B"
         rotation=90,
         origin={240,-320})));
   Modelica.Blocks.Interfaces.RealOutput Iqcmd "Command Reactive Current"
-    annotation (Placement(transformation(extent={{300,150},{320,170}}),
-        iconTransformation(extent={{300,150},{320,170}})));
+    annotation (Placement(transformation(extent={{300,160},{320,180}}),
+        iconTransformation(extent={{300,160},{320,180}})));
   Modelica.Blocks.Interfaces.RealOutput Ipcmd "Command Active Current"
-    annotation (Placement(transformation(extent={{300,-170},{320,-150}}),
-        iconTransformation(extent={{300,-170},{320,-150}})));
+    annotation (Placement(transformation(extent={{300,-180},{320,-160}}),
+        iconTransformation(extent={{300,-180},{320,-160}})));
 
   Modelica.Blocks.Interfaces.RealInput v0 "Initial Terminal Voltage Magnitude" annotation (Placement(transformation(
         extent={{-20,-20},{20,20}},
@@ -64,7 +64,7 @@ partial model BaseREECB "Base renewable energy electrical controller model B"
         extent={{-20,-20},{20,20}},
         rotation=90,
         origin={-120,-320})));
-  annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-300,-300},
+  annotation (Icon(coordinateSystem(extent={{-300,-300},
             {300,300}}), graphics={Rectangle(extent={{-300,300},{300,-300}},
             lineColor={0,0,255}),
         Text(
@@ -118,8 +118,8 @@ partial model BaseREECB "Base renewable energy electrical controller model B"
         Text(
           extent={{178,-132},{290,-172}},
           textColor={0,0,255},
-          textString="IPCMD")}),       Diagram(coordinateSystem(
-          preserveAspectRatio=false, extent={{-300,-300},{300,300}})),
+          textString="IPCMD")}),
+        Diagram(coordinateSystem(extent={{-300,-300},{300,300}})),
     Documentation(info="<html>
 <p>
 The BaseREECB model is the base class that is extended to create the <a href=\"modelica://OpenIPSL.Electrical.Renewables.PSSE.ElectricalController.REECB1\">REECB1</a> component.

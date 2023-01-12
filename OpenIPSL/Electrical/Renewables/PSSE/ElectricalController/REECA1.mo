@@ -1,7 +1,6 @@
-within OpenIPSL.Electrical.Renewables.PSSE.ElectricalController;
+﻿within OpenIPSL.Electrical.Renewables.PSSE.ElectricalController;
 model REECA1 "Electrical control model for large scale wind"
-  extends
-    OpenIPSL.Electrical.Renewables.PSSE.ElectricalController.BaseClasses.BaseREECA(
+  extends OpenIPSL.Electrical.Renewables.PSSE.ElectricalController.BaseClasses.BaseREECA(
      Iqcmd(start=Iq0), Ipcmd(start=Ip0));
 
   parameter OpenIPSL.Types.PerUnit Vdip = -99 "Low voltage threshold to activate reactive current injection logic (0.85 - 0.9)";
@@ -64,43 +63,43 @@ model REECA1 "Electrical control model for large scale wind"
     annotation (Placement(transformation(extent={{-80,80},{-60,100}})));
   Modelica.Blocks.Logical.Switch VFlag
     "Constant Q (False) or PF (True) local control."
-    annotation (Placement(transformation(extent={{4,104},{24,124}})));
+    annotation (Placement(transformation(extent={{-10,104},{10,124}})));
   Modelica.Blocks.Nonlinear.Limiter limiter3(uMax=Vmax, uMin=Vmin)
-    annotation (Placement(transformation(extent={{34,104},{54,124}})));
+    annotation (Placement(transformation(extent={{20,104},{40,124}})));
   Modelica.Blocks.Math.Add add4(k2=-1)
-    annotation (Placement(transformation(extent={{66,104},{86,124}})));
+    annotation (Placement(transformation(extent={{52,104},{72,124}})));
   Modelica.Blocks.Sources.RealExpression Vt_filt2(y=VFilter.y)
-    annotation (Placement(transformation(extent={{86,104},{66,84}})));
+    annotation (Placement(transformation(extent={{72,104},{52,84}})));
   Modelica.Blocks.Sources.RealExpression IQMAX_(y=CCL_REECA.Iqmax)
                                                              annotation (
       Placement(transformation(
-        extent={{-10,10},{10,-10}},
+        extent={{40,20},{-40,-20}},
         rotation=180,
-        origin={178,134})));
+        origin={60,200})));
   Modelica.Blocks.Sources.RealExpression IQMIN_(y=CCL_REECA.Iqmin)
                                                              annotation (
       Placement(transformation(
-        extent={{-10,-10},{10,10}},
+        extent={{40,-20},{-40,20}},
         rotation=180,
-        origin={178,84})));
+        origin={60,60})));
   Modelica.Blocks.Logical.Switch QFlag
-    annotation (Placement(transformation(extent={{206,64},{226,84}})));
+    annotation (Placement(transformation(extent={{192,64},{212,84}})));
   Modelica.Blocks.Sources.BooleanConstant QFLAG(k=qflag)
-    annotation (Placement(transformation(extent={{166,46},{186,66}})));
+    annotation (Placement(transformation(extent={{152,46},{172,66}})));
   Modelica.Blocks.Math.Add add6(k2=+1)
-    annotation (Placement(transformation(extent={{240,70},{260,90}})));
+    annotation (Placement(transformation(extent={{226,70},{246,90}})));
   Modelica.Blocks.Nonlinear.VariableLimiter variableLimiter
-    annotation (Placement(transformation(extent={{274,70},{294,90}})));
+    annotation (Placement(transformation(extent={{260,70},{280,90}})));
   Modelica.Blocks.Sources.RealExpression IQMIN(y=CCL_REECA.Iqmin)
-    annotation (Placement(transformation(extent={{294,70},{274,50}})));
+    annotation (Placement(transformation(extent={{280,70},{260,50}})));
   Modelica.Blocks.Sources.RealExpression IQMAX(y=CCL_REECA.Iqmax)
-    annotation (Placement(transformation(extent={{294,94},{274,114}})));
+    annotation (Placement(transformation(extent={{280,94},{260,114}})));
   Modelica.Blocks.Math.Add add7(k2=-1)
     annotation (Placement(transformation(extent={{60,-26},{80,-6}})));
   Modelica.Blocks.Continuous.Integrator integrator2(k=1/Tiq,
     initType=Modelica.Blocks.Types.Init.InitialState,        y_start=-Iq0
          - (-V0 + Vref0)*Kqv)
-    annotation (Placement(transformation(extent={{140,-20},{160,0}})));
+    annotation (Placement(transformation(extent={{140,-26},{160,-6}})));
   Modelica.Blocks.Sources.RealExpression Vt_filt1(y=VFilter.y)
     annotation (Placement(transformation(extent={{-60,-40},{-40,-20}})));
   Modelica.Blocks.Nonlinear.Limiter limiter4(uMax=Modelica.Constants.inf, uMin=0.01)
@@ -167,12 +166,12 @@ model REECA1 "Electrical control model for large scale wind"
   Modelica.Blocks.Math.Gain gain2(k=Kqv)
     annotation (Placement(transformation(extent={{-160,204},{-140,224}})));
   Modelica.Blocks.Logical.Switch StateTransitionSwitch
-    annotation (Placement(transformation(extent={{-4,212},{16,232}})));
+    annotation (Placement(transformation(extent={{-12,212},{8,232}})));
   Modelica.Blocks.Sources.Constant State0(k=0)
-    annotation (Placement(transformation(extent={{-44,260},{-24,280}})));
+    annotation (Placement(transformation(extent={{-52,260},{-32,280}})));
   Modelica.Blocks.Sources.BooleanExpression StateTransitionLogic(y=if
         Voltage_dip == true then true else false)
-    annotation (Placement(transformation(extent={{-60,220},{-40,240}})));
+    annotation (Placement(transformation(extent={{-68,220},{-48,240}})));
   OpenIPSL.NonElectrical.Continuous.SimpleLag simpleLag1(
     K=1,
     T=Tp,
@@ -195,7 +194,7 @@ model REECA1 "Electrical control model for large scale wind"
     K_P=Kvp,
     K_I=Kvi,
     y_start=-Iq0 - (-V0 + Vref0)*Kqv)
-    annotation (Placement(transformation(extent={{100,94},{140,134}})));
+    annotation (Placement(transformation(extent={{86,106},{126,146}})));
   BaseClasses.PIwithNoVariableLimiter pI_No_Windup_notVariable(
     K_P=Kqp,
     K_I=Kqi,
@@ -204,7 +203,7 @@ model REECA1 "Electrical control model for large scale wind"
     y_start=V0)
     annotation (Placement(transformation(extent={{-88,112},{-68,132}})));
   Modelica.Blocks.Sources.BooleanExpression VLogic(y=Voltage_dip)
-    annotation (Placement(transformation(extent={{64,142},{84,162}})));
+    annotation (Placement(transformation(extent={{-40,146},{0,174}})));
   NonElectrical.Continuous.SimpleLag VFilter(
     K=1,
     T=Trv,
@@ -243,11 +242,11 @@ equation
     annotation (Line(points={{-139,214},{-122,214}},
                                                  color={0,0,127}));
   connect(limiter.y, StateTransitionSwitch.u3)
-    annotation (Line(points={{-99,214},{-6,214}},  color={0,0,127}));
-  connect(State0.y, StateTransitionSwitch.u1) annotation (Line(points={{-23,270},
-          {-16,270},{-16,230},{-6,230}},  color={0,0,127}));
+    annotation (Line(points={{-99,214},{-14,214}}, color={0,0,127}));
+  connect(State0.y, StateTransitionSwitch.u1) annotation (Line(points={{-31,270},{-24,270},{-24,230},{-14,230}},
+                                          color={0,0,127}));
   connect(StateTransitionLogic.y, StateTransitionSwitch.u2) annotation (Line(
-        points={{-39,230},{-26,230},{-26,222},{-6,222}},  color={255,0,255}));
+        points={{-47,230},{-28,230},{-28,222},{-14,222}}, color={255,0,255}));
   connect(simpleLag1.y, product1.u1)
     annotation (Line(points={{-239,140},{-232,140}}, color={0,0,127}));
   connect(tan1.y, product1.u2) annotation (Line(points={{-239,110},{-232,110},{-232,
@@ -271,29 +270,26 @@ equation
     annotation (Line(points={{-135,126},{-128,126}}, color={0,0,127}));
   connect(Qgen, add1.u2) annotation (Line(points={{-320,40},{-128,40},{-128,114}},
         color={0,0,127}));
-  connect(Vflag_logic.y, VFlag.u2) annotation (Line(points={{-59,90},{-4,90},{-4,
-          114},{2,114}}, color={255,0,255}));
-  connect(limiter3.y,add4. u1) annotation (Line(points={{55,114},{60,114},{60,120},
-          {64,120}}, color={0,0,127}));
-  connect(Vt_filt2.y,add4. u2) annotation (Line(points={{65,94},{60,94},{60,108},
-          {64,108}},           color={0,0,127}));
+  connect(Vflag_logic.y, VFlag.u2) annotation (Line(points={{-59,90},{-28,90},{-28,114},{-12,114}},
+                         color={255,0,255}));
+  connect(limiter3.y,add4. u1) annotation (Line(points={{41,114},{46,114},{46,120},{50,120}},
+                     color={0,0,127}));
+  connect(Vt_filt2.y,add4. u2) annotation (Line(points={{51,94},{46,94},{46,108},{50,108}},
+                               color={0,0,127}));
   connect(VFlag.y, limiter3.u)
-    annotation (Line(points={{25,114},{32,114}}, color={0,0,127}));
-  connect(QFLAG.y, QFlag.u2) annotation (Line(points={{187,56},{192,56},{192,74},
-          {204,74}},                   color={255,0,255}));
-  connect(variableLimiter.y, Iqcmd)
-    annotation (Line(points={{295,80},{302,80},{302,160},{310,160}},
-                                                 color={0,0,127}));
+    annotation (Line(points={{11,114},{18,114}}, color={0,0,127}));
+  connect(QFLAG.y, QFlag.u2) annotation (Line(points={{173,56},{178,56},{178,74},{190,74}},
+                                       color={255,0,255}));
   connect(add6.y, variableLimiter.u)
-    annotation (Line(points={{261,80},{272,80}}, color={0,0,127}));
-  connect(IQMIN.y, variableLimiter.limit2) annotation (Line(points={{273,60},{266,
-          60},{266,72},{272,72}}, color={0,0,127}));
-  connect(IQMAX.y, variableLimiter.limit1) annotation (Line(points={{273,104},{266,
-          104},{266,88},{272,88}}, color={0,0,127}));
-  connect(QFlag.y, add6.u2) annotation (Line(points={{227,74},{232,74},{232,74},
-          {238,74}}, color={0,0,127}));
-  connect(add6.u1, StateTransitionSwitch.y) annotation (Line(points={{238,86},{236,
-          86},{236,222},{17,222}},  color={0,0,127}));
+    annotation (Line(points={{247,80},{258,80}}, color={0,0,127}));
+  connect(IQMIN.y, variableLimiter.limit2) annotation (Line(points={{259,60},{252,60},{252,72},{258,72}},
+                                  color={0,0,127}));
+  connect(IQMAX.y, variableLimiter.limit1) annotation (Line(points={{259,104},{252,104},{252,88},{258,88}},
+                                   color={0,0,127}));
+  connect(QFlag.y, add6.u2) annotation (Line(points={{213,74},{224,74}},
+                     color={0,0,127}));
+  connect(add6.u1, StateTransitionSwitch.y) annotation (Line(points={{224,86},{222,86},{222,222},{9,222}},
+                                    color={0,0,127}));
   connect(Vt_filt1.y, limiter4.u)
     annotation (Line(points={{-39,-30},{-22,-30}}, color={0,0,127}));
   connect(limiter4.y, division.u2) annotation (Line(points={{1,-30},{8,-30},{8,-16},
@@ -302,10 +298,10 @@ equation
           126},{-158,126}}, color={0,0,127}));
   connect(division.y, add7.u1)
     annotation (Line(points={{41,-10},{58,-10}}, color={0,0,127}));
-  connect(integrator2.y, QFlag.u3) annotation (Line(points={{161,-10},{196,-10},
-          {196,66},{204,66}}, color={0,0,127}));
-  connect(add7.u2, QFlag.u3) annotation (Line(points={{58,-22},{48,-22},{48,-32},
-          {196,-32},{196,66},{204,66}}, color={0,0,127}));
+  connect(integrator2.y, QFlag.u3) annotation (Line(points={{161,-16},{182,-16},{182,66},{190,66}},
+                              color={0,0,127}));
+  connect(add7.u2, QFlag.u3) annotation (Line(points={{58,-22},{52,-22},{52,-36},{182,-36},{182,66},{190,66}},
+                                        color={0,0,127}));
   connect(VDL2.u, limiter4.u) annotation (Line(points={{62,-90},{-28,-90},{-28,-30},
           {-22,-30}},                        color={0,0,127}));
   connect(VDL1.u, limiter4.u) annotation (Line(points={{62,-70},{-28,-70},{-28,-30},
@@ -339,22 +335,18 @@ equation
           {96.8,-70.4}}, color={0,0,127}));
   connect(PQFLAG.y, CCL_REECA.pqflag)
     annotation (Line(points={{155,-80},{135.2,-80}}, color={255,0,255}));
-  connect(IQCMD.y,CCL_REECA.Iqcmd)  annotation (Line(points={{155,-58},{140,-58},
-          {140,-70.4},{135.2,-70.4}}, color={0,0,127}));
-  connect(IPCMD.y,CCL_REECA.Ipcmd)  annotation (Line(points={{155,-102},{140,
-          -102},{140,-89.6},{135.2,-89.6}},
+  connect(IQCMD.y,CCL_REECA.Iqcmd)  annotation (Line(points={{155,-58},{140,-58},{140,-70.4},{135.2,-70.4}},
                                       color={0,0,127}));
-  connect(variableLimiter1.y, Ipcmd) annotation (Line(points={{81,-172},{260,-172},
-          {260,-160},{310,-160}},
-                                color={0,0,127}));
-  connect(add3.y, VFlag.u3) annotation (Line(points={{-5,26},{0,26},{0,106},{2,106}},
+  connect(IPCMD.y,CCL_REECA.Ipcmd)  annotation (Line(points={{155,-102},{140,-102},{140,-89.6},{135.2,-89.6}},
+                                      color={0,0,127}));
+  connect(add3.y, VFlag.u3) annotation (Line(points={{-5,26},{0,26},{0,96},{-24,96},{-24,106},{-12,106}},
         color={0,0,127}));
   connect(add3.u2, limiter1.u) annotation (Line(points={{-28,20},{-164,20},{-164,
           126},{-158,126}}, color={0,0,127}));
   connect(VBIAS.y, add3.u1)
     annotation (Line(points={{-39,32},{-28,32}}, color={0,0,127}));
-  connect(add7.y, integrator2.u) annotation (Line(points={{81,-16},{124,-16},{124,
-          -10},{138,-10}}, color={0,0,127}));
+  connect(add7.y, integrator2.u) annotation (Line(points={{81,-16},{138,-16}},
+                           color={0,0,127}));
   connect(limiter5.y, integrator3.u)
     annotation (Line(points={{-149,-166},{-142,-166}}, color={0,0,127}));
   connect(product5.y, add8.u1)
@@ -362,28 +354,26 @@ equation
   connect(product5.u2, Pref) annotation (Line(points={{-240,-166},{-292,-166},
           {-292,-120},{-320,-120}}, color={0,0,127}));
   connect(add4.y, pI_No_Windup.u)
-    annotation (Line(points={{87,114},{92,114},{92,102},{96,102}},
-                                                 color={0,0,127}));
-  connect(IQMAX_.y, pI_No_Windup.limit1) annotation (Line(points={{167,134},{156,
-          134},{156,150},{132,150},{132,138}},     color={0,0,127}));
-  connect(IQMIN_.y, pI_No_Windup.limit2) annotation (Line(points={{167,84},{156,
-          84},{156,72},{132,72},{132,90}},     color={0,0,127}));
+    annotation (Line(points={{73,114},{82,114}}, color={0,0,127}));
+  connect(IQMAX_.y, pI_No_Windup.limit1) annotation (Line(points={{104,200},{118,200},{118,150}},
+                                                   color={0,0,127}));
+  connect(IQMIN_.y, pI_No_Windup.limit2) annotation (Line(points={{104,60},{118,60},{118,102}},
+                                               color={0,0,127}));
   connect(pI_No_Windup.y, QFlag.u1)
-    annotation (Line(points={{142,114},{204,114},{204,82}}, color={0,0,127}));
+    annotation (Line(points={{128,126},{190,126},{190,82}}, color={0,0,127}));
   connect(add1.y, pI_No_Windup_notVariable.u)
     annotation (Line(points={{-105,120},{-98,120},{-98,116},{-90,116}},
                                                     color={0,0,127}));
-  connect(pI_No_Windup_notVariable.y, VFlag.u1) annotation (Line(points={{-67,122},
-          {2,122}},                   color={0,0,127}));
-  connect(VLogic.y, pI_No_Windup.voltage_dip)
-    annotation (Line(points={{85,152},{96,152},{96,126}}, color={255,0,255}));
-  connect(pI_No_Windup_notVariable.voltage_dip, pI_No_Windup.voltage_dip)
-    annotation (Line(points={{-90,128},{-98,128},{-98,140},{96,140},{96,126}},
-        color={255,0,255}));
+  connect(pI_No_Windup_notVariable.y, VFlag.u1) annotation (Line(points={{-67,122},{-12,122}},
+                                      color={0,0,127}));
   connect(VFilter.y, add.u1)
     annotation (Line(points={{-261,220},{-242,220}}, color={0,0,127}));
   connect(VFilter.u, Vt) annotation (Line(points={{-284,220},{-290,220},{-290,200},
           {-320,200}}, color={0,0,127}));
+  connect(variableLimiter1.y, Ipcmd) annotation (Line(points={{81,-172},{288,-172},{288,-140},{310,-140}}, color={0,0,127}));
+  connect(variableLimiter.y, Iqcmd) annotation (Line(points={{281,80},{290,80},{290,140},{310,140}}, color={0,0,127}));
+  connect(VLogic.y, pI_No_Windup.voltage_dip) annotation (Line(points={{2,160},{20,160},{20,138},{82,138}}, color={255,0,255}));
+  connect(VLogic.y, pI_No_Windup_notVariable.voltage_dip) annotation (Line(points={{2,160},{20,160},{20,140},{-100,140},{-100,128},{-90,128}}, color={255,0,255}));
   annotation (Documentation(info="<html>
 <p>
 The REECA1 component used to represent the electrical controls of wind turbine generation. The electrical controller actuates on the active and reactive power 

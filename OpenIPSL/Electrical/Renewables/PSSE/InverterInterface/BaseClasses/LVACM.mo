@@ -1,13 +1,13 @@
-within OpenIPSL.Electrical.Renewables.PSSE.InverterInterface.BaseClasses;
+﻿within OpenIPSL.Electrical.Renewables.PSSE.InverterInterface.BaseClasses;
 model LVACM "Low Voltage Active Control Management"
         parameter OpenIPSL.Types.PerUnit lvpnt0 "Low voltage point for low voltage active current management";
         parameter OpenIPSL.Types.PerUnit lvpnt1 "High voltage point for low voltage active current management";
   Modelica.Blocks.Interfaces.RealOutput y
-    annotation (Placement(transformation(extent={{100,-20},{140,20}}),
+    annotation (Placement(transformation(extent={{100,-10},{120,10}}),
         iconTransformation(extent={{100,-10},{120,10}})));
   Modelica.Blocks.Interfaces.RealInput Vt
-    annotation (Placement(transformation(extent={{-120,-10},{-100,10}}),
-        iconTransformation(extent={{-120,-10},{-100,10}})));
+    annotation (Placement(transformation(extent={{-140,-20},{-100,20}}),
+        iconTransformation(extent={{-140,-20},{-100,20}})));
 
 equation
   y = smooth(1,noEvent(if Vt <= lvpnt0 then 0 elseif Vt >= lvpnt1 then 1 else (1/(lvpnt1-lvpnt0))*(Vt-lvpnt0)));

@@ -1,4 +1,4 @@
-within OpenIPSL.Electrical.Renewables.PSSE.InverterInterface;
+﻿within OpenIPSL.Electrical.Renewables.PSSE.InverterInterface;
 model REGCA1 "Renewable energy generator/converter model A"
   extends BaseClasses.BaseREGC;
   Modelica.Blocks.Sources.RealExpression Vt(y=VT)
@@ -28,7 +28,7 @@ model REGCA1 "Renewable energy generator/converter model A"
     Zerox=Zerox)
     annotation (Placement(transformation(extent={{10,-80},{-10,-60}})));
   Modelica.Blocks.Math.Product IP
-    annotation (Placement(transformation(extent={{100,-20},{120,0}})));
+    annotation (Placement(transformation(extent={{100,-26},{120,-6}})));
 public
   Modelica.Blocks.Math.Gain KHV(k=Khv)
     annotation (Placement(transformation(extent={{-60,20},{-40,40}})));
@@ -85,11 +85,11 @@ equation
     annotation (Line(points={{-69,30},{-62,30}},
                                               color={0,0,127}));
   connect(LVPL.V,simpleLag. y)
-    annotation (Line(points={{11,-70},{23,-70}}, color={0,0,127}));
-  connect(LVACM.y,IP. u2) annotation (Line(points={{83,-70},{92,-70},{92,-16},
-          {98,-16}},         color={0,0,127}));
+    annotation (Line(points={{12,-70},{23,-70}}, color={0,0,127}));
+  connect(LVACM.y,IP. u2) annotation (Line(points={{83,-70},{92,-70},{92,-22},{98,-22}},
+                             color={0,0,127}));
   connect(switch1.u1,LVPL. y)
-    annotation (Line(points={{-68,-82},{-56,-82},{-56,-70},{-11,-70}},
+    annotation (Line(points={{-68,-82},{-56,-82},{-56,-69.9},{-11.1,-69.9}},
                                                            color={0,0,127}));
   connect(Lvplsw_logic.y,switch1. u2) annotation (Line(points={{-51,-90},{-68,-90}},
                                 color={255,0,255}));
@@ -98,14 +98,14 @@ equation
                                                color={0,0,127}));
   connect(Vt.y,add. u1) annotation (Line(points={{-109,50},{-94,50},{-94,36},{-92,
           36}},      color={0,0,127}));
-  connect(simpleLag.u,LVACM. Vt) annotation (Line(points={{46,-70},{61,-70}},
+  connect(simpleLag.u,LVACM. Vt) annotation (Line(points={{46,-70},{60,-70}},
                                                            color={0,0,127}));
   connect(Vo_limit.y,add. u2)
     annotation (Line(points={{-109,24},{-92,24}},color={0,0,127}));
   connect(add2.y,limiter4. u)
     annotation (Line(points={{-89,-30},{-84,-30}}, color={0,0,127}));
-  connect(Terminal_Voltage1.y,LVACM. Vt) annotation (Line(points={{45,-100},{54,
-          -100},{54,-70},{61,-70}},  color={0,0,127}));
+  connect(Terminal_Voltage1.y,LVACM. Vt) annotation (Line(points={{45,-100},{54,-100},{54,-70},{60,-70}},
+                                     color={0,0,127}));
   connect(add3.y,limiter1. u)
     annotation (Line(points={{-65,74},{-60,74}},color={0,0,127}));
   connect(limiter1.y,integrator. u)
@@ -115,10 +115,10 @@ equation
           {-92,56},{-92,68},{-88,68}},     color={0,0,127}));
   connect(gain.y,add3. u1) annotation (Line(points={{-99,80},{-88,80}},
                                color={0,0,127}));
-  connect(gain.u, Iqcmd) annotation (Line(points={{-122,80},{-142,80},{-142,60},
-          {-160,60}}, color={0,0,127}));
-  connect(Ipcmd,add2. u1) annotation (Line(points={{-160,-60},{-130,-60},{-130,-24},
-          {-112,-24}},          color={0,0,127}));
+  connect(gain.u, Iqcmd) annotation (Line(points={{-122,80},{-134,80},{-134,60},{-160,60}},
+                      color={0,0,127}));
+  connect(Ipcmd,add2. u1) annotation (Line(points={{-160,-60},{-122,-60},{-122,-24},{-112,-24}},
+                                color={0,0,127}));
   connect(Constant.y, switch1.u3) annotation (Line(points={{-51,-114},{-62,-114},
           {-62,-98},{-68,-98}}, color={0,0,127}));
   connect(limiter4.y, integrator1.u)
@@ -131,8 +131,7 @@ equation
           {-26,-22},{-26,-4},{-124,-4},{-124,-90},{-91,-90}}, color={0,0,127}));
   connect(variableLimiter.y, add2.u2) annotation (Line(points={{1,-30},{26,-30},
           {26,-10},{-118,-10},{-118,-36},{-112,-36}}, color={0,0,127}));
-  connect(IP.u1, add2.u2) annotation (Line(points={{98,-4},{-24,-4},{-24,-10},
-          {-118,-10},{-118,-36},{-112,-36}},
+  connect(IP.u1, add2.u2) annotation (Line(points={{98,-10},{-118,-10},{-118,-36},{-112,-36}},
                             color={0,0,127}));
   connect(add1.y, IOLIM.u)
     annotation (Line(points={{99,88},{110,88}}, color={0,0,127}));
