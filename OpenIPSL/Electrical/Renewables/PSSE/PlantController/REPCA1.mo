@@ -2,22 +2,22 @@ within OpenIPSL.Electrical.Renewables.PSSE.PlantController;
 model REPCA1 "Renewable energy plant controller model A"
 
   parameter Modelica.Units.SI.Time Tfltr=0.02 "Voltage or reactive power measurement filter time constant";
-  parameter OpenIPSL.Types.PerUnit Kp=18 "Reactive power PI control proportional gain";
-  parameter OpenIPSL.Types.PerUnit Ki=5 "Reactive power PI control integral gain";
+  parameter Real Kp=18 "Reactive power PI control proportional gain";
+  parameter Real Ki=5 "Reactive power PI control integral gain";
   parameter Modelica.Units.SI.Time Tft=0 "Lead time constant";
   parameter Modelica.Units.SI.Time Tfv=0.075 "Lag time constant";
   parameter OpenIPSL.Types.PerUnit Vfrz=0 "Voltage below which State s2 is frozen";
   parameter OpenIPSL.Types.PerUnit Rc=0.0025 "Line drop compensation resistance";
   parameter OpenIPSL.Types.PerUnit Xc=0.0025 "Line drop compensation reactance";
-  parameter OpenIPSL.Types.PerUnit Kc=0.02 "Reactive current compensation gain";
+  parameter Real Kc=0.02 "Reactive current compensation gain";
   parameter OpenIPSL.Types.PerUnit emax=0.1 "Upper limit on deadband output";
   parameter OpenIPSL.Types.PerUnit emin=-0.1 "Lower limit on deadband output";
   parameter OpenIPSL.Types.PerUnit dbd1=0 "Lower threshold for reactive power control deadband (<=0)";
   parameter OpenIPSL.Types.PerUnit dbd2=0 "Upper threshold for reactive power control deadband (>=0)";
   parameter OpenIPSL.Types.PerUnit Qmax=0.4360 "Upper limit on output of V/Q control";
   parameter OpenIPSL.Types.PerUnit Qmin=-0.4360 "Lower limit on output of V/Q control";
-  parameter OpenIPSL.Types.PerUnit Kpg=0.1 "Proportional gain for power control";
-  parameter OpenIPSL.Types.PerUnit Kig=0.05 "Proportional gain for power control";
+  parameter Real Kpg=0.1 "Proportional gain for power control";
+  parameter Real Kig=0.05 "Proportional gain for power control";
   parameter Modelica.Units.SI.Time Tp=0.25 "Real power measurement filter time constant";
   parameter OpenIPSL.Types.PerUnit fdbd1=0 "Deadband for frequency control, lower threshold (<=0)";
   parameter OpenIPSL.Types.PerUnit fdbd2=0 "Deadband for frequency control, upper threshold (>=0)";
