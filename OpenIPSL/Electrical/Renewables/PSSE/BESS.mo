@@ -58,8 +58,7 @@ extends OpenIPSL.Electrical.Essentials.pfComponent(
   Modelica.Blocks.Sources.Constant freq_ref(k=SysData.fn) if QFunctionality >= 4
     annotation (Placement(transformation(extent={{-70,-60},{-80,-50}})));
   Modelica.Blocks.Interfaces.RealInput FREQ if QFunctionality >= 4 "Connection Point Frequency"
-    annotation (Placement(transformation(extent={{-140,-20},{-100,20}}),
-        iconTransformation(extent={{-140,-20},{-100,20}})));
+    annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
 
   Modelica.Blocks.Sources.Constant PAUX(k=0)
     annotation (Placement(transformation(extent={{-80,-80},{-70,-70}})));

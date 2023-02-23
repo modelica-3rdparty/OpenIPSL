@@ -6,26 +6,11 @@ model CurrentLimitLogicREECB "Current Limit Logic for REECB"
   parameter OpenIPSL.Types.PerUnit Imax "Maximum limit on total converter current";
 
   Modelica.Blocks.Interfaces.RealInput Iqcmd(start = -start_ii) annotation (Placement(
-        transformation(
-        extent={{-20,-20},{20,20}},
-        rotation=270,
-        origin={60,120}), iconTransformation(
-        extent={{-20,-20},{20,20}},
-        rotation=180,
-        origin={120,50})));
+        transformation(extent={{140,30},{100,70}})));
   Modelica.Blocks.Interfaces.RealInput Ipcmd(start = start_ir) annotation (Placement(
-        transformation(
-        extent={{-20,-20},{20,20}},
-        rotation=90,
-        origin={60,-120}), iconTransformation(
-        extent={{-20,-20},{20,20}},
-        rotation=180,
-        origin={120,-50})));
+        transformation( extent={{140,-70},{100,-30}})));
   Modelica.Blocks.Interfaces.RealOutput Iqmin annotation (Placement(
         transformation(
-        extent={{-10,-10},{10,10}},
-        rotation=90,
-        origin={-60,110}), iconTransformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-60,110})));
@@ -33,15 +18,9 @@ model CurrentLimitLogicREECB "Current Limit Logic for REECB"
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
-        origin={-20,110}), iconTransformation(
-        extent={{-10,-10},{10,10}},
-        rotation=90,
         origin={60,110})));
   Modelica.Blocks.Interfaces.RealOutput Ipmin annotation (Placement(
         transformation(
-        extent={{-10,-10},{10,10}},
-        rotation=270,
-        origin={-60,-110}), iconTransformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-60,-110})));
@@ -49,12 +28,8 @@ model CurrentLimitLogicREECB "Current Limit Logic for REECB"
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
-        origin={-20,-110}), iconTransformation(
-        extent={{-10,-10},{10,10}},
-        rotation=270,
         origin={60,-110})));
-  Modelica.Blocks.Interfaces.BooleanInput Pqflag "Priority to reactive current (false) or active current (true)." annotation (Placement(transformation(extent={{-140,
-            -20},{-100,20}})));
+  Modelica.Blocks.Interfaces.BooleanInput Pqflag "Priority to reactive current (false) or active current (true)." annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
 
 equation
 

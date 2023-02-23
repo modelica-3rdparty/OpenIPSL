@@ -3,11 +3,9 @@ model StateOfChargeLogic "State of charge logic for REECC"
   Modelica.Blocks.Interfaces.RealInput SOC "State of Charge of the Battery"
     annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
   Modelica.Blocks.Interfaces.RealOutput ipmax_SOC "Maximum Battery Charge"
-    annotation (Placement(transformation(extent={{100,-70},{120,-50}}),
-        iconTransformation(extent={{100,-70},{120,-50}})));
+    annotation (Placement(transformation(extent={{100,-70},{120,-50}})));
   Modelica.Blocks.Interfaces.RealOutput ipmin_SOC "Minimum Battery Charge"
-    annotation (Placement(transformation(extent={{100,50},{120,70}}),
-        iconTransformation(extent={{100,50},{120,70}})));
+    annotation (Placement(transformation(extent={{100,50},{120,70}})));
         parameter OpenIPSL.Types.PerUnit SOCmin "Minimum allowable state of charge";
         parameter OpenIPSL.Types.PerUnit SOCmax "Maximum allowable state of charge";
 equation

@@ -8,63 +8,40 @@ partial model BaseREECA "Base renewable energy electrical controller model A"
   parameter Boolean pflag=true "Constant output value" annotation (Dialog(tab="Control"));
 
   Modelica.Blocks.Interfaces.RealInput Vt "Terminal Voltage Magnitude"
-    annotation (Placement(transformation(extent={{-340,180},{-300,220}}),
-        iconTransformation(extent={{-340,180},{-300,220}})));
+    annotation (Placement(transformation(extent={{-340,180},{-300,220}})));
   Modelica.Blocks.Interfaces.RealInput Pe "Active Power Generated"
-    annotation (Placement(transformation(extent={{-340,100},{-300,140}}),
-        iconTransformation(extent={{-340,100},{-300,140}})));
+    annotation (Placement(transformation(extent={{-340,100},{-300,140}})));
   Modelica.Blocks.Interfaces.RealInput Qext
     "Reactive Power Reference"
-    annotation (Placement(transformation(extent={{-340,-60},{-300,-20}}),
-        iconTransformation(extent={{-340,-60},{-300,-20}})));
+    annotation (Placement(transformation(extent={{-340,-60},{-300,-20}})));
   Modelica.Blocks.Interfaces.RealInput Qgen "Reactive Power Generated"
-    annotation (Placement(transformation(extent={{-340,20},{-300,60}}),
-        iconTransformation(extent={{-340,20},{-300,60}})));
+    annotation (Placement(transformation(extent={{-340,20},{-300,60}})));
   Modelica.Blocks.Interfaces.RealInput Pref "Active Power Reference" annotation (Placement(
-        transformation(extent={{-340,-140},{-300,-100}}),
-        iconTransformation(extent={{-340,-140},{-300,-100}})));
+        transformation(extent={{-340,-140},{-300,-100}})));
   Modelica.Blocks.Interfaces.RealInput ip0 "Initial Real Current" annotation (Placement(transformation(
-        extent={{-20,-20},{20,20}},
-        rotation=90,
-        origin={120,-320}), iconTransformation(
         extent={{-20,-20},{20,20}},
         rotation=90,
         origin={120,-320})));
   Modelica.Blocks.Interfaces.RealInput iq0 "Initial Imaginary Current" annotation (Placement(transformation(
         extent={{-20,-20},{20,20}},
         rotation=90,
-        origin={240,-320}), iconTransformation(
-        extent={{-20,-20},{20,20}},
-        rotation=90,
         origin={240,-320})));
   Modelica.Blocks.Interfaces.RealOutput Iqcmd "Reactice Command Current"
-    annotation (Placement(transformation(extent={{300,160},{320,180}}),
-        iconTransformation(extent={{300,160},{320,180}})));
+    annotation (Placement(transformation(extent={{300,160},{320,180}})));
   Modelica.Blocks.Interfaces.RealOutput Ipcmd "Real Command Current"
-    annotation (Placement(transformation(extent={{300,-180},{320,-160}}),
-        iconTransformation(extent={{300,-180},{320,-160}})));
+    annotation (Placement(transformation(extent={{300,-180},{320,-160}})));
   Modelica.Blocks.Interfaces.RealInput Wg "Rotational Speed Generator" annotation (Placement(
-        transformation(extent={{-340,-220},{-300,-180}}), iconTransformation(
-          extent={{-340,-220},{-300,-180}})));
+        transformation(extent={{-340,-220},{-300,-180}})));
 
   Modelica.Blocks.Interfaces.RealInput v0 "Initial Terminal Voltage Magnitude" annotation (Placement(transformation(
-        extent={{-20,-20},{20,20}},
-        rotation=90,
-        origin={0,-320}), iconTransformation(
         extent={{-20,-20},{20,20}},
         rotation=90,
         origin={0,-320})));
   Modelica.Blocks.Interfaces.RealInput p0 "Initial Active Power" annotation (Placement(transformation(
         extent={{-20,-20},{20,20}},
         rotation=90,
-        origin={-240,-320}),iconTransformation(
-        extent={{-20,-20},{20,20}},
-        rotation=90,
         origin={-240,-320})));
   Modelica.Blocks.Interfaces.RealInput q0 "Initial Reactive Power" annotation (Placement(transformation(
-        extent={{-20,-20},{20,20}},
-        rotation=90,
-        origin={-120,-320}),iconTransformation(
         extent={{-20,-20},{20,20}},
         rotation=90,
         origin={-120,-320})));

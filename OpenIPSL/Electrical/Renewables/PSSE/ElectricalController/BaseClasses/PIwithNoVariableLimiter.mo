@@ -21,8 +21,7 @@ model PIwithNoVariableLimiter "PI with no variable limiter controller for WECC e
   Modelica.Blocks.Sources.RealExpression realExpression
     annotation (Placement(transformation(extent={{-80,70},{-60,90}})));
   Modelica.Blocks.Interfaces.RealInput u
-    annotation (Placement(transformation(extent={{-140,-80},{-100,-40}}),
-        iconTransformation(extent={{-140,-80},{-100,-40}})));
+    annotation (Placement(transformation(extent={{-140,-80},{-100,-40}})));
   Modelica.Blocks.Interfaces.RealOutput y
     annotation (Placement(transformation(extent={{100,-10},{120,10}})));
   Modelica.Blocks.Nonlinear.Limiter limiter(uMax=V_RMAX, uMin=V_RMIN)
@@ -31,8 +30,7 @@ model PIwithNoVariableLimiter "PI with no variable limiter controller for WECC e
     annotation (Placement(transformation(extent={{-92,30},{-72,50}})));
   Modelica.Blocks.Interfaces.BooleanInput voltage_dip
     "Connector of first Boolean input signal"
-    annotation (Placement(transformation(extent={{-140,40},{-100,80}}),
-        iconTransformation(extent={{-140,40},{-100,80}})));
+    annotation (Placement(transformation(extent={{-140,40},{-100,80}})));
 equation
   or1.u2 =
   if (abs(V_RMAX - y) <= Modelica.Constants.eps and der(integral.y)>0) then true
@@ -67,7 +65,6 @@ equation
           extent={{-80,40},{80,-40}},
           textColor={0,0,255},
           textString="PI WECC Renewables")}),
-
     Documentation(info="<html>
 <p>
 Specific PI with no variable limiter component for the WECC-based renewable energy controller models.

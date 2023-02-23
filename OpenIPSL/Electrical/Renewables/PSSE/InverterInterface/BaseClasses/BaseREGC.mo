@@ -38,13 +38,11 @@ partial model BaseREGC "Base renewable generator/converter for PSSE models"
     vr(start=vr0),
     vi(start=vi0),
     ir(start=-ir0*CoB),
-    ii(start=-ii0*CoB)) annotation (Placement(transformation(extent={{130,-10},{150,10}}),
-                          iconTransformation(extent={{130,-10},{150,10}})));
+    ii(start=-ii0*CoB)) annotation (Placement(transformation(extent={{130,-10},{150,10}})));
   Modelica.Blocks.Interfaces.RealInput Iqcmd(start=-Iq0) "Imaginary Command Current"
     annotation (Placement(transformation(extent={{-180,60},{-140,100}})));
   Modelica.Blocks.Interfaces.RealInput Ipcmd(start=Ip0) "Real Command Current"
-    annotation (Placement(transformation(extent={{-180,-100},{-140,-60}}),
-        iconTransformation(extent={{-180,-100},{-140,-60}})));
+    annotation (Placement(transformation(extent={{-180,-100},{-140,-60}})));
   Modelica.Blocks.Interfaces.RealOutput IQ0 "Initial Reactive Power" annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},

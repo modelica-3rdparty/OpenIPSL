@@ -6,37 +6,15 @@ model CurrentLimitLogicREECC "Current limit logic for REECC"
   parameter OpenIPSL.Types.PerUnit Imax "Maximum limit on total converter current";
 
   Modelica.Blocks.Interfaces.RealInput VDL1_out annotation (Placement(
-        transformation(
-        extent={{-20,-20},{20,20}},
-        origin={-120,60}), iconTransformation(extent={{-140,80},{-100,40}})));
+        transformation(extent={{-140,40},{-100,80}})));
   Modelica.Blocks.Interfaces.BooleanInput pqflag annotation (Placement(
-        transformation(
-        extent={{-20,-20},{20,20}},
-        rotation=180,
-        origin={120,0}), iconTransformation(
-        extent={{0,0},{40,40}},
-        rotation=180,
-        origin={140,20})));
+        transformation(extent={{-140,-20},{-100,20}})));
   Modelica.Blocks.Interfaces.RealInput VDL2_out annotation (Placement(
-        transformation(
-        extent={{-20,-20},{20,20}},
-        origin={-120,-60}), iconTransformation(extent={{-140,-40},{-100,-80}})));
+        transformation(extent={{-140,-80},{-100,-40}})));
   Modelica.Blocks.Interfaces.RealInput Iqcmd(start = -start_ii) annotation (Placement(
-        transformation(
-        extent={{-20,-20},{20,20}},
-        rotation=180,
-        origin={120,60}), iconTransformation(
-        extent={{-13.3335,-13.3336},{26.6673,26.6664}},
-        rotation=180,
-        origin={126.667,66.6664})));
+        transformation(extent={{140,40},{100,80}})));
   Modelica.Blocks.Interfaces.RealInput Ipcmd(start = start_ir) annotation (Placement(
-        transformation(
-        extent={{-20,-20},{20,20}},
-        rotation=180,
-        origin={120,-60}), iconTransformation(
-        extent={{-3.63659,79.9998},{36.3659,39.9999}},
-        rotation=180,
-        origin={136.363,-0.0002})));
+        transformation(extent={{140,-80},{100,-40}})));
   Modelica.Blocks.Interfaces.RealOutput Iqmax annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},

@@ -312,7 +312,7 @@ equation
           34,-200},{34,-178},{52,-178}}, color={0,0,127}));
   connect(IPMAX.y,variableLimiter1. limit1) annotation (Line(points={{53,-140},{
           34,-140},{34,-162},{52,-162}}, color={0,0,127}));
-  connect(variableLimiter1.y, Ipcmd) annotation (Line(points={{75,-170},{254,-170},{254,-140},{310,-140}},
+  connect(variableLimiter1.y, Ipcmd) annotation (Line(points={{75,-170},{254,-170},{254,-170},{310,-170}},
                                 color={0,0,127}));
   connect(Vt, simpleLag.u)
     annotation (Line(points={{-320,160},{-288,160}}, color={0,0,127}));
@@ -338,13 +338,13 @@ equation
   connect(division1.y, variableLimiter1.u)
     annotation (Line(points={{-51,-170},{52,-170}}, color={0,0,127}));
   connect(variableLimiter.y, Iqcmd)
-    annotation (Line(points={{285,80},{292,80},{292,140},{310,140}},
+    annotation (Line(points={{285,80},{292,80},{292,170},{310,170}},
                                                  color={0,0,127}));
   connect(Pqflag_logic.y, ccl.Pqflag)
     annotation (Line(points={{241,-30},{258,-30}}, color={255,0,255}));
-  connect(ccl.Iqcmd, Iqcmd) annotation (Line(points={{282,-25},{292,-25},{292,140},{310,140}},
+  connect(ccl.Iqcmd, Iqcmd) annotation (Line(points={{282,-25},{292,-25},{292,170},{310,170}},
                      color={0,0,127}));
-  connect(ccl.Ipcmd, Ipcmd) annotation (Line(points={{282,-35},{292,-35},{292,-140},{310,-140}},
+  connect(ccl.Ipcmd, Ipcmd) annotation (Line(points={{282,-35},{292,-35},{292,-170},{310,-170}},
                       color={0,0,127}));
   connect(product2.u1, add1.y) annotation (Line(points={{-124,26},{-128,26},{-128,
           40},{-111,40},{-111,60}}, color={0,0,127}));
