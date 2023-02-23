@@ -175,7 +175,7 @@ equation
                                              color={0,0,127}));
   connect(PlantController.regulate_vi, regulate_vi) annotation (Line(points={{-44,22},{-44,92},{80,92},{80,120}},
                                              color={0,0,127}));
-  annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
+  annotation (Icon(graphics={
                                    Ellipse(
           extent={{-100,100},{100,-100}},
           lineColor={0,0,0},

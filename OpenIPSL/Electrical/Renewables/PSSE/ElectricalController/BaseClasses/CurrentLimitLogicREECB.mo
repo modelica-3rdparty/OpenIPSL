@@ -63,7 +63,7 @@ equation
   Iqmax = if Pqflag == true then sqrt(Imax^2 - Ipcmd^2) else Imax;
   Iqmin = -Iqmax;
 
-  annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
+  annotation (Icon(graphics={
           Rectangle(
           extent={{-100,100},{100,-100}},
           lineColor={28,108,200}), Text(

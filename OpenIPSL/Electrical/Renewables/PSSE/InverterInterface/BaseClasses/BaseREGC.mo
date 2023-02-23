@@ -106,7 +106,7 @@ equation
   VT = sqrt(p.vr*p.vr + p.vi*p.vi);
   delta = anglev;
 
- annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-140,-140},
+ annotation (Icon(coordinateSystem(extent={{-140,-140},
             {140,140}}), graphics={
         Rectangle(extent={{-140,140},{140,-140}}, lineColor={28,108,200}),
         Text(
@@ -149,7 +149,7 @@ equation
           extent={{106,-104},{134,-136}},
           textColor={0,0,255},
           textString="P0")}), Diagram(
-        coordinateSystem(preserveAspectRatio=false, extent={{-140,-140},{140,140}})),
+        coordinateSystem(extent={{-140,-140},{140,140}})),
     Documentation(info="<html>
 <p>
 This component is the base class for the inverter components from the InverterInterface sub-package.

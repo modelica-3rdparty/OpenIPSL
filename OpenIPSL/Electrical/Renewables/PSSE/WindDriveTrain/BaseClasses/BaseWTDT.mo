@@ -28,7 +28,7 @@ partial model BaseWTDT
         extent={{-20,-20},{20,20}},
         rotation=90,
         origin={60,-140})));
-  annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{
+  annotation (Icon(coordinateSystem(extent={{
             -120,-120},{120,120}}), graphics={Rectangle(
           extent={{-120,120},{120,-120}},
           lineColor={28,108,200},
@@ -61,7 +61,7 @@ partial model BaseWTDT
           extent={{64,72},{114,46}},
           textColor={0,0,255},
           textString="WT")}), Diagram(coordinateSystem(
-          preserveAspectRatio=false, extent={{-120,-120},{120,120}})),
+          extent={{-120,-120},{120,120}})),
     Documentation(info="<html>
 <p>
 The BaseWTDT model is the base class that is extended to create the <a href=\"modelica://OpenIPSL.Electrical.Renewables.PSSE.WindDriveTrain.WTDTA1\">WTDTA1</a> component.

@@ -167,7 +167,7 @@ equation
   connect(PlantController.regulate_vi, regulate_vi) annotation (Line(points={{-44,22},{-44,92},{80,92},{80,120}},
                                          color={0,0,127}));
   connect(RenewableController.Ipcmd, RenewableGenerator.Ipcmd) annotation (Line(points={{20.6667,-11.3333},{23.9048,-11.3333},{23.9048,-11.4286},{27.1429,-11.4286}}, color={0,0,127}));
-  annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
+  annotation (Icon(graphics={
                                    Ellipse(
           extent={{-100,100},{100,-100}},
           lineColor={0,0,0},

@@ -19,9 +19,7 @@ equation
         iconTransformation(extent={{-20,-20},{20,20}},
         rotation=90,
         origin={66,-102})),
-              Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-            -100},{100,100}}),
-                         graphics={
+              Icon(graphics={
         Rectangle(
           extent={{-100,100},{100,-100}},
           lineColor={0,0,0}),

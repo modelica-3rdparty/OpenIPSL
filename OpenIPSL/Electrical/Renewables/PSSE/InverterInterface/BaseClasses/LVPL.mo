@@ -16,8 +16,7 @@ equation
     annotation (Placement(transformation(extent={{-140,0},{-100,40}})),
                 Placement(transformation(extent={{-140,-40},{-100,0}})),
                 Placement(transformation(extent={{-140,-80},{-100,-40}})),
-              Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-            -100},{100,100}}), graphics={
+              Icon(graphics={
         Rectangle(
           extent={{-100,100},{100,-100}},
           lineColor={0,0,0}),

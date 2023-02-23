@@ -62,7 +62,7 @@ equation
   connect(or1.y, reset_switch.u2)
     annotation (Line(points={{-71,40},{-42,40}}, color={255,0,255}));
   annotation (
-    Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+    Icon(coordinateSystem(extent={{-100,-100},{100,100}}),
         graphics={Rectangle(extent={{-100,100},{100,-100}}, lineColor={28,108,200}), Text(
           extent={{-80,40},{80,-40}},
           textColor={0,0,255},

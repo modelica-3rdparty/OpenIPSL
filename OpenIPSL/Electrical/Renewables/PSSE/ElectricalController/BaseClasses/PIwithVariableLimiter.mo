@@ -78,7 +78,7 @@ equation
     annotation (Line(points={{-94,40},{-98,40},{-98,60},{-120,60}},
                                                   color={255,0,255}));
   annotation (
-    Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+    Icon(coordinateSystem(extent={{-100,-100},{100,100}}),
         graphics={Rectangle(extent={{-100,100},{100,-100}}, lineColor={28,108,200}), Text(
           extent={{-80,40},{80,-40}},
           textColor={0,0,255},

@@ -88,7 +88,7 @@ protected
 
 equation
 
-  annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-200,-200},
+  annotation (Icon(coordinateSystem(extent={{-200,-200},
             {200,200}}), graphics={
         Rectangle(
           extent={{-200,200},{200,-200}},
@@ -151,7 +151,7 @@ equation
           extent={{110,206},{182,154}},
           textColor={0,0,255},
           textString="REG BUS VR")}), Diagram(coordinateSystem(
-          preserveAspectRatio=false, extent={{-200,-200},{200,200}})),
+          extent={{-200,-200},{200,200}})),
     Documentation(info="<html>
 <p>
 The BaseREPC model is the base class that is extended to create the <a href=\"modelica://OpenIPSL.Electrical.Renewables.PSSE.PlantController.REPCA1\">REPCA1</a> component.

@@ -14,7 +14,7 @@ equation
   ipmax_SOC = if SOC <= SOCmin then 0 else 1;
   ipmin_SOC = if SOC >= SOCmax then 0 else 1;
 
-  annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
+  annotation (Icon(graphics={
           Rectangle(
           extent={{-100,100},{100,-100}},
           lineColor={28,108,200},
