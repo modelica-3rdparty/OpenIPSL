@@ -134,7 +134,6 @@ if Ipre is less than 0:
 else:
    Ipost = sqrt(Ipre);
 
-
 if Pqflag = true:
    Ipmax = min(VDL2_out, Imax);
    Ipmin = 0;

@@ -60,7 +60,6 @@ extends OpenIPSL.Electrical.Essentials.pfComponent(
     annotation (Placement(transformation(extent={{-140,-20},{-100,20}}),
         iconTransformation(extent={{-140,-20},{-100,20}})));
 
-
   replaceable WindDriveTrain.BaseClasses.BaseWTDT DriveTrain annotation (
       choicesAllMatching=true, Placement(transformation(extent={{-72,-80},{-52,
             -60}})));
