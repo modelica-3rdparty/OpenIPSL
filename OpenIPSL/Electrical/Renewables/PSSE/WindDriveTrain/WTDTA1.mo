@@ -5,7 +5,7 @@ model WTDTA1 "Generic Drive Train Model for Type 3 and Type 4 Wind Machines"
 
   import Modelica.Constants.pi;
 
-  parameter Modelica.Units.SI.Frequency fn = SysData.fn  "System nominal frequency (50 or 60 Hz)";
+  parameter Modelica.Units.SI.Frequency fn = SysData.fn "System nominal frequency (50 or 60 Hz)";
   parameter Modelica.Units.SI.Time H = 5.3 "Total inertia constant (No predefined range)";
   parameter OpenIPSL.Types.PerUnit DAMP = 0 "Machine damping factor (No predefined range)";
   parameter Real Htfrac = 0.92 "Turbine inertia fraction, Ht/H (No predefined range)";
@@ -130,7 +130,7 @@ equation
   connect(add1.y, integrator1.u) annotation (Line(points={{-27,-60},{-18,-60}},
                            color={0,0,127}));
   connect(add2.u2, add.u2) annotation (Line(points={{22,-88},{12,-88},{12,-6},{18,
-          -6}},     color={0,0,127}));
+          -6}}, color={0,0,127}));
   connect(add2.y, w0_.u)
     annotation (Line(points={{45,-94},{52,-94}}, color={0,0,127}));
   connect(W0_.y, add2.u1) annotation (Line(points={{13,-110},{20,-110},{20,-100},

@@ -26,14 +26,14 @@ partial model BaseREECA "Base renewable energy electrical controller model A"
   Modelica.Blocks.Interfaces.RealInput ip0 "Initial Real Current" annotation (Placement(transformation(
         extent={{-20,-20},{20,20}},
         rotation=90,
-        origin={120,-320}),  iconTransformation(
+        origin={120,-320}), iconTransformation(
         extent={{-20,-20},{20,20}},
         rotation=90,
         origin={120,-320})));
   Modelica.Blocks.Interfaces.RealInput iq0 "Initial Imaginary Current" annotation (Placement(transformation(
         extent={{-20,-20},{20,20}},
         rotation=90,
-        origin={240,-320}),  iconTransformation(
+        origin={240,-320}), iconTransformation(
         extent={{-20,-20},{20,20}},
         rotation=90,
         origin={240,-320})));

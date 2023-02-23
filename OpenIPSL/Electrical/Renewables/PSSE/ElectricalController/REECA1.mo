@@ -16,7 +16,7 @@ model REECA1 "Electrical control model for large scale wind"
   parameter OpenIPSL.Types.Time Thld = 0 "Time for which Iqinj is held at Iqfrz after voltage dip returns to zero";
   parameter OpenIPSL.Types.Time Tp = 0.05 "Filter time constant for electrical power (0.01 - 0.1)";
   parameter OpenIPSL.Types.PerUnit Qmax = 0.4 "Upper limits of the limit for reactive power regulator (0.4 - 1.0)";
-  parameter OpenIPSL.Types.PerUnit Qmin = -0.4 "Lower limits of the  limit for reactive power regulator (-1.0 - -0.4)";
+  parameter OpenIPSL.Types.PerUnit Qmin = -0.4 "Lower limits of the limit for reactive power regulator (-1.0 - -0.4)";
   parameter OpenIPSL.Types.PerUnit Vmax = 1.1 "Maximum limit for voltage control (1.05 - 1.1)";
   parameter OpenIPSL.Types.PerUnit Vmin = 0.9 "Lower limits of input signals (0.9 - 0.95)";
   parameter Real Kqp = 0 "Reactive power regulator proportional gain (No predefined range)";
@@ -34,7 +34,7 @@ model REECA1 "Electrical control model for large scale wind"
   parameter OpenIPSL.Types.PerUnit Vq1 = 0.29 "Reactive Power V-I pair, voltage (user defined)";
   parameter OpenIPSL.Types.PerUnit Iq1 = 1.25 "Reactive Power V-I pair, current (user defined)";
   parameter OpenIPSL.Types.PerUnit Vq2 = 1.33 "Reactive Power V-I pair, voltage (user defined)";
-  parameter OpenIPSL.Types.PerUnit Iq2 = 0.00    "Reactive Power V-I pair, current (user defined)";
+  parameter OpenIPSL.Types.PerUnit Iq2 = 0.00 "Reactive Power V-I pair, current (user defined)";
   parameter OpenIPSL.Types.PerUnit Vq3 = 1.33 "Reactive Power V-I pair, voltage (user defined)";
   parameter OpenIPSL.Types.PerUnit Iq3 = 0.00 "Reactive Power V-I pair, current (user defined)";
   parameter OpenIPSL.Types.PerUnit Vq4 = 1.33 "Reactive Power V-I pair, voltage (user defined)";
@@ -97,7 +97,7 @@ model REECA1 "Electrical control model for large scale wind"
   Modelica.Blocks.Math.Add add7(k2=-1)
     annotation (Placement(transformation(extent={{60,-26},{80,-6}})));
   Modelica.Blocks.Continuous.Integrator integrator2(k=1/Tiq,
-    initType=Modelica.Blocks.Types.Init.InitialState,        y_start=-Iq0
+    initType=Modelica.Blocks.Types.Init.InitialState, y_start=-Iq0
          - (-V0 + Vref0)*Kqv)
     annotation (Placement(transformation(extent={{140,-26},{160,-6}})));
   Modelica.Blocks.Sources.RealExpression Vt_filt1(y=VFilter.y)
@@ -249,7 +249,7 @@ equation
   connect(simpleLag1.y, product1.u1)
     annotation (Line(points={{-239,140},{-232,140}}, color={0,0,127}));
   connect(tan1.y, product1.u2) annotation (Line(points={{-239,110},{-232,110},{-232,
-          128}},            color={0,0,127}));
+          128}}, color={0,0,127}));
   connect(Pe, simpleLag1.u)
     annotation (Line(points={{-320,120},{-280,120},{-280,140},{-262,140}},
                                                      color={0,0,127}));
@@ -302,9 +302,9 @@ equation
   connect(add7.u2, QFlag.u3) annotation (Line(points={{58,-22},{52,-22},{52,-36},{182,-36},{182,66},{190,66}},
                                         color={0,0,127}));
   connect(VDL2.u, limiter4.u) annotation (Line(points={{62,-90},{-28,-90},{-28,-30},
-          {-22,-30}},                        color={0,0,127}));
+          {-22,-30}}, color={0,0,127}));
   connect(VDL1.u, limiter4.u) annotation (Line(points={{62,-70},{-28,-70},{-28,-30},
-          {-22,-30}},                   color={0,0,127}));
+          {-22,-30}}, color={0,0,127}));
   connect(add8.y,limiter5. u)
     annotation (Line(points={{-181,-166},{-172,-166}},
                                                      color={0,0,127}));
@@ -315,7 +315,7 @@ equation
     annotation (Line(points={{-119,-166},{-62,-166}},
                                                    color={0,0,127}));
   connect(GeneratorSpeed.y, product5.u1) annotation (Line(points={{-251,-178},
-          {-240,-178}},                   color={0,0,127}));
+          {-240,-178}}, color={0,0,127}));
   connect(limiter6.y, division1.u1)
     annotation (Line(points={{-39,-166},{-22,-166}}, color={0,0,127}));
   connect(limiter7.y, division1.u2) annotation (Line(points={{-39,-210},{-30,-210},
@@ -334,9 +334,9 @@ equation
           {96.8,-70.4}}, color={0,0,127}));
   connect(PQFLAG.y, CCL_REECA.pqflag)
     annotation (Line(points={{155,-80},{135.2,-80}}, color={255,0,255}));
-  connect(IQCMD.y,CCL_REECA.Iqcmd)  annotation (Line(points={{155,-58},{140,-58},{140,-70.4},{135.2,-70.4}},
+  connect(IQCMD.y,CCL_REECA.Iqcmd) annotation (Line(points={{155,-58},{140,-58},{140,-70.4},{135.2,-70.4}},
                                       color={0,0,127}));
-  connect(IPCMD.y,CCL_REECA.Ipcmd)  annotation (Line(points={{155,-102},{140,-102},{140,-89.6},{135.2,-89.6}},
+  connect(IPCMD.y,CCL_REECA.Ipcmd) annotation (Line(points={{155,-102},{140,-102},{140,-89.6},{135.2,-89.6}},
                                       color={0,0,127}));
   connect(add3.y, VFlag.u3) annotation (Line(points={{-5,26},{0,26},{0,96},{-24,96},{-24,106},{-12,106}},
         color={0,0,127}));

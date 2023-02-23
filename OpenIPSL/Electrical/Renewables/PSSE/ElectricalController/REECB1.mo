@@ -15,7 +15,7 @@ model REECB1 "Electrical control model for large scale photovoltaic"
   parameter OpenIPSL.Types.PerUnit vref0 = 1 "User defined voltage reference (0.95 - 1.05)";
   parameter OpenIPSL.Types.Time Tp = 0.05 "Filter time constant for electrical power (0.01 - 0.1)";
   parameter OpenIPSL.Types.PerUnit Qmax = 0.4360 "Upper limits of the limit for reactive power regulator (0.4 - 1.0)";
-  parameter OpenIPSL.Types.PerUnit Qmin = -0.4360 "Lower limits of the  limit for reactive power regulator (-1.0 - -0.4)";
+  parameter OpenIPSL.Types.PerUnit Qmin = -0.4360 "Lower limits of the limit for reactive power regulator (-1.0 - -0.4)";
   parameter OpenIPSL.Types.PerUnit Vmax = 1.1 "Maximum limit for voltage control (1.05 - 1.1)";
   parameter OpenIPSL.Types.PerUnit Vmin = 0.9 "Lower limits of input signals (0.9 - 0.95)";
   parameter Real Kqp = 0 "Reactive power regulator proportional gain (No predefined range)";
@@ -130,7 +130,7 @@ model REECB1 "Electrical control model for large scale photovoltaic"
         origin={64,-140})));
   Modelica.Blocks.Sources.RealExpression IPMIN(y=ccl.Ipmin)
     annotation (Placement(transformation(extent={{74,-210},{54,-190}})));
-  NonElectrical.Continuous.SimpleLag          simpleLag(
+  NonElectrical.Continuous.SimpleLag simpleLag(
     K=1,
     T=Trv,
     y_start=V0)
@@ -145,7 +145,7 @@ model REECB1 "Electrical control model for large scale photovoltaic"
     annotation (Placement(transformation(extent={{-206,144},{-186,164}})));
   Modelica.Blocks.Math.Gain gain2(k=Kqv)
     annotation (Placement(transformation(extent={{-166,144},{-146,164}})));
-  NonElectrical.Continuous.SimpleLag          simpleLag1(
+  NonElectrical.Continuous.SimpleLag simpleLag1(
     K=1,
     T=Tp,
     y_start=p00)
@@ -220,65 +220,65 @@ equation
     annotation (Line(points={{-145,154},{-128,154}},
                                                  color={0,0,127}));
   connect(simpleLag1.y,product1. u1)
-    annotation (Line(points={{-245,80},{-238,80}},   color={0,0,127}));
+    annotation (Line(points={{-245,80},{-238,80}}, color={0,0,127}));
   connect(tan1.y,product1. u2) annotation (Line(points={{-245,50},{-238,50},{-238,
-          68}},             color={0,0,127}));
+          68}}, color={0,0,127}));
   connect(Pe,simpleLag1. u)
-    annotation (Line(points={{-320,80},{-268,80}},   color={0,0,127}));
+    annotation (Line(points={{-320,80},{-268,80}}, color={0,0,127}));
   connect(PFAREF.y,tan1. u)
     annotation (Line(points={{-275,50},{-268,50}}, color={0,0,127}));
   connect(Qext,PfFlag. u3) annotation (Line(points={{-320,-80},{-202,-80},{-202,
           58},{-198,58}},
                        color={0,0,127}));
   connect(product1.y,PfFlag. u1)
-    annotation (Line(points={{-215,74},{-198,74}},   color={0,0,127}));
+    annotation (Line(points={{-215,74},{-198,74}}, color={0,0,127}));
   connect(PfFlag_logic.y,PfFlag. u2) annotation (Line(points={{-215,30},{-206,30},
-          {-206,66},{-198,66}},   color={255,0,255}));
+          {-206,66},{-198,66}}, color={255,0,255}));
   connect(PfFlag.y,limiter1. u)
-    annotation (Line(points={{-175,66},{-164,66}},   color={0,0,127}));
+    annotation (Line(points={{-175,66},{-164,66}}, color={0,0,127}));
   connect(limiter1.y,add1. u1)
-    annotation (Line(points={{-141,66},{-134,66}},   color={0,0,127}));
+    annotation (Line(points={{-141,66},{-134,66}}, color={0,0,127}));
   connect(Qgen,add1. u2) annotation (Line(points={{-320,0},{-134,0},{-134,54}},
         color={0,0,127}));
   connect(gain.y,add2. u1)
-    annotation (Line(points={{-71,60},{-68,60}},          color={0,0,127}));
+    annotation (Line(points={{-71,60},{-68,60}}, color={0,0,127}));
   connect(integrator.y,add2. u2)
     annotation (Line(points={{-73,20},{-70,20},{-70,48},{-68,48}},
                                                         color={0,0,127}));
   connect(product2.y,integrator. u)
     annotation (Line(points={{-101,20},{-96,20}},color={0,0,127}));
   connect(frzState.y,product2. u2) annotation (Line(points={{-123,2},{-128,2},{-128,
-          14},{-124,14}},       color={0,0,127}));
+          14},{-124,14}}, color={0,0,127}));
   connect(add2.y,limiter2. u)
-    annotation (Line(points={{-45,54},{-40,54}},   color={0,0,127}));
+    annotation (Line(points={{-45,54},{-40,54}}, color={0,0,127}));
   connect(limiter2.y,VFlag. u1) annotation (Line(points={{-17,54},{-16,54},{-16,
-          62},{-4,62}},  color={0,0,127}));
+          62},{-4,62}}, color={0,0,127}));
   connect(Vflag_logic.y,VFlag. u2) annotation (Line(points={{-37,0},{-14,0},{-14,
-          54},{-4,54}},  color={255,0,255}));
+          54},{-4,54}}, color={255,0,255}));
   connect(limiter3.y,add4. u1) annotation (Line(points={{49,54},{54,54},{54,60},
-          {58,60}},  color={0,0,127}));
+          {58,60}}, color={0,0,127}));
   connect(Vt_filt2.y,add4. u2) annotation (Line(points={{59,34},{54,34},{54,48},
-          {58,48}},            color={0,0,127}));
+          {58,48}}, color={0,0,127}));
   connect(VFlag.y,limiter3. u)
-    annotation (Line(points={{19,54},{26,54}},   color={0,0,127}));
+    annotation (Line(points={{19,54},{26,54}}, color={0,0,127}));
   connect(gain1.y,add5. u1) annotation (Line(points={{121,54},{126,54}},
                 color={0,0,127}));
   connect(integrator1.y,add5. u2) annotation (Line(points={{121,20},{126,20},{126,
-          42}},          color={0,0,127}));
+          42}}, color={0,0,127}));
   connect(frzState1.y,product3. u2) annotation (Line(points={{41,-6},{52,-6}},
                         color={0,0,127}));
   connect(product3.y,integrator1. u) annotation (Line(points={{75,0},{90,0},{90,
           20},{98,20}}, color={0,0,127}));
   connect(add5.y,variableLimiter2. u)
-    annotation (Line(points={{149,48},{160,48}},   color={0,0,127}));
+    annotation (Line(points={{149,48},{160,48}}, color={0,0,127}));
   connect(IQMAX_.y,variableLimiter2. limit1) annotation (Line(points={{161,74},{
-          154,74},{154,56},{160,56}},     color={0,0,127}));
+          154,74},{154,56},{160,56}}, color={0,0,127}));
   connect(variableLimiter2.y,QFlag. u1)
-    annotation (Line(points={{183,48},{198,48},{198,22}},   color={0,0,127}));
+    annotation (Line(points={{183,48},{198,48},{198,22}}, color={0,0,127}));
   connect(QFLAG.y,QFlag. u2) annotation (Line(points={{181,-4},{186,-4},{186,14},
-          {198,14}},                   color={255,0,255}));
+          {198,14}}, color={255,0,255}));
   connect(IQMIN_.y,variableLimiter2. limit2) annotation (Line(points={{161,24},{
-          154,24},{154,40},{160,40}},   color={0,0,127}));
+          154,24},{154,40},{160,40}}, color={0,0,127}));
   connect(add6.y,variableLimiter. u)
     annotation (Line(points={{251,80},{262,80}}, color={0,0,127}));
   connect(IQMIN.y,variableLimiter. limit2) annotation (Line(points={{263,60},{256,
@@ -288,7 +288,7 @@ equation
   connect(QFlag.y,add6. u2) annotation (Line(points={{221,14},{228,14},{228,74}},
                      color={0,0,127}));
   connect(add7.y,product4. u2)
-    annotation (Line(points={{75,-76},{96,-76}},  color={0,0,127}));
+    annotation (Line(points={{75,-76},{96,-76}}, color={0,0,127}));
   connect(Vt_filt1.y,limiter4. u)
     annotation (Line(points={{-45,-90},{-28,-90}}, color={0,0,127}));
   connect(limiter4.y,division. u2) annotation (Line(points={{-5,-90},{2,-90},{2,
@@ -300,9 +300,9 @@ equation
   connect(division.y,add7. u1)
     annotation (Line(points={{35,-70},{52,-70}}, color={0,0,127}));
   connect(integrator2.y,QFlag. u3) annotation (Line(points={{155,-70},{190,-70},
-          {190,6},{198,6}},   color={0,0,127}));
+          {190,6},{198,6}}, color={0,0,127}));
   connect(add7.u2,QFlag. u3) annotation (Line(points={{52,-82},{42,-82},{42,-92},
-          {190,-92},{190,6},{198,6}},   color={0,0,127}));
+          {190,-92},{190,6},{198,6}}, color={0,0,127}));
   connect(product4.y,integrator2. u)
     annotation (Line(points={{119,-70},{132,-70}}, color={0,0,127}));
   connect(product4.u1,product3. u2) annotation (Line(points={{96,-64},{84,-64},{
@@ -327,7 +327,7 @@ equation
     annotation (Line(points={{-131,-166},{-114,-166}},
                                                      color={0,0,127}));
   connect(add8.u2,limiter8. u) annotation (Line(points={{-278,-172},{-278,-188},
-          {-124,-188},{-124,-166},{-114,-166}},    color={0,0,127}));
+          {-124,-188},{-124,-166},{-114,-166}}, color={0,0,127}));
   connect(limiter8.y,division1. u1) annotation (Line(points={{-91,-166},{-82,-166},
           {-82,-164},{-74,-164}}, color={0,0,127}));
   connect(Vt_filt3.y,limiter5. u)

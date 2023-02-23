@@ -33,7 +33,7 @@ partial model BaseWTDT
           extent={{-120,120},{120,-120}},
           lineColor={28,108,200},
           fillColor={255,255,255},
-          fillPattern=FillPattern.None),                            Text(
+          fillPattern=FillPattern.None), Text(
           extent={{-80,40},{80,-40}},
           textColor={0,0,255},
           textString="WTDTA1"),
@@ -60,7 +60,7 @@ partial model BaseWTDT
         Text(
           extent={{64,72},{114,46}},
           textColor={0,0,255},
-          textString="WT")}),              Diagram(coordinateSystem(
+          textString="WT")}), Diagram(coordinateSystem(
           preserveAspectRatio=false, extent={{-120,-120},{120,120}})),
     Documentation(info="<html>
 <p>

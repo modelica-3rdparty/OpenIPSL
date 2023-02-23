@@ -69,7 +69,7 @@ public
   Modelica.Blocks.Nonlinear.VariableLimiter variableLimiter
     annotation (Placement(transformation(extent={{-20,-40},{0,-20}})));
 equation
-  [IP.y;  IOLIM.y] = -[cos(delta), sin(delta); -sin(delta), cos(delta)]*[p.ir/CoB; p.ii/CoB];
+  [IP.y; IOLIM.y] = -[cos(delta), sin(delta); -sin(delta), cos(delta)]*[p.ir/CoB; p.ii/CoB];
   V_t = VT;
   Pgen = -(1/CoB)*(p.vr*p.ir + p.vi*p.ii);
   Qgen = -(1/CoB)*(p.vi*p.ir - p.vr*p.ii);
@@ -95,7 +95,7 @@ equation
     annotation (Line(points={{-39,30},{-32,30}},
                                                color={0,0,127}));
   connect(Vt.y,add. u1) annotation (Line(points={{-109,50},{-94,50},{-94,36},{-92,
-          36}},      color={0,0,127}));
+          36}}, color={0,0,127}));
   connect(simpleLag.u,LVACM. Vt) annotation (Line(points={{46,-70},{60,-70}},
                                                            color={0,0,127}));
   connect(Vo_limit.y,add. u2)
@@ -110,7 +110,7 @@ equation
     annotation (Line(points={{-37,74},{-20,74}},
                                                color={0,0,127}));
   connect(integrator.y,add3. u2) annotation (Line(points={{3,74},{8,74},{8,56},
-          {-92,56},{-92,68},{-88,68}},     color={0,0,127}));
+          {-92,56},{-92,68},{-88,68}}, color={0,0,127}));
   connect(gain.y,add3. u1) annotation (Line(points={{-99,80},{-88,80}},
                                color={0,0,127}));
   connect(gain.u, Iqcmd) annotation (Line(points={{-122,80},{-134,80},{-134,60},{-160,60}},

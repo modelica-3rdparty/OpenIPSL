@@ -30,7 +30,7 @@ model REPCA1 "Renewable energy plant controller model A"
   parameter OpenIPSL.Types.PerUnit Dup=0 "Reciprocal of droop for under-frequency conditions";
   parameter Real Vref=v_0 "Regulated bus initial voltage";
 
-  extends BaseClasses.BaseREPC(                          Qext(start = q00), Pref(start = p00));
+  extends BaseClasses.BaseREPC( Qext(start = q00), Pref(start = p00));
 
   OpenIPSL.Types.PerUnit voltage_diff;
   OpenIPSL.Types.PerUnit vreg;
@@ -52,7 +52,7 @@ model REPCA1 "Renewable energy plant controller model A"
     annotation (Placement(transformation(extent={{-68,-154},{-48,-134}})));
   Modelica.Blocks.Math.Add3 add3_1(k2=-1)
     annotation (Placement(transformation(extent={{-36,-146},{-16,-126}})));
-  NonElectrical.Continuous.SimpleLag          simpleLag(
+  NonElectrical.Continuous.SimpleLag simpleLag(
     K=1,
     T=Tp,
     y_start=p00)
@@ -67,7 +67,7 @@ model REPCA1 "Renewable energy plant controller model A"
     annotation (Placement(transformation(extent={{54,-146},{74,-126}})));
   Modelica.Blocks.Nonlinear.Limiter limiter3(uMax=Pmax, uMin=Pmin)
     annotation (Placement(transformation(extent={{82,-146},{102,-126}})));
-  NonElectrical.Continuous.SimpleLag          simpleLag1(
+  NonElectrical.Continuous.SimpleLag simpleLag1(
     K=1,
     T=Tg,
     y_start=p00)
@@ -92,7 +92,7 @@ model REPCA1 "Renewable energy plant controller model A"
     annotation (Placement(transformation(extent={{-150,50},{-130,70}})));
   Modelica.Blocks.Sources.BooleanConstant VCFLAG_logic(k=vcflag)
     annotation (Placement(transformation(extent={{-180,126},{-160,146}})));
-  NonElectrical.Continuous.SimpleLag          simpleLag2(
+  NonElectrical.Continuous.SimpleLag simpleLag2(
     K=1,
     T=Tfltr,
     y_start=q00)
@@ -103,7 +103,7 @@ model REPCA1 "Renewable energy plant controller model A"
     annotation (Placement(transformation(extent={{-36,80},{-16,100}})));
   Modelica.Blocks.Sources.BooleanConstant REFFLAG_logic(k=refflag)
     annotation (Placement(transformation(extent={{-82,80},{-62,100}})));
-  NonElectrical.Continuous.SimpleLag          simpleLag3(
+  NonElectrical.Continuous.SimpleLag simpleLag3(
     K=1,
     T=Tfltr,
     y_start=Vref)
@@ -114,7 +114,7 @@ model REPCA1 "Renewable energy plant controller model A"
     annotation (Placement(transformation(extent={{24,80},{44,100}})));
   Modelica.Blocks.Sources.Constant VREF(k=Vref)
     annotation (Placement(transformation(extent={{-100,146},{-80,166}})));
-  NonElectrical.Continuous.LeadLag          leadLag(
+  NonElectrical.Continuous.LeadLag leadLag(
     K=1,
     T1=Tft,
     T2=Tfv,
@@ -174,14 +174,14 @@ equation
     annotation (Line(points={{-107,-96},{-44,-96},{-44,-136},{-38,-136}},
                                                   color={0,0,127}));
   connect(Plant_pref,add3_1. u1) annotation (Line(points={{-220,40},{-194,40},
-          {-194,-20},{-38,-20},{-38,-128}},  color={0,0,127}));
+          {-194,-20},{-38,-20},{-38,-128}}, color={0,0,127}));
   connect(add3_1.y,limiter2. u)
     annotation (Line(points={{-15,-136},{-6,-136}},
                                                  color={0,0,127}));
   connect(limiter2.y,KIG. u) annotation (Line(points={{17,-136},{18,-136},{18,-152},
-          {22,-152}},          color={0,0,127}));
+          {22,-152}}, color={0,0,127}));
   connect(KPG.u,limiter2. y) annotation (Line(points={{22,-120},{18,-120},{18,-136},
-          {17,-136}},      color={0,0,127}));
+          {17,-136}}, color={0,0,127}));
   connect(KIG.y,add2. u2) annotation (Line(points={{45,-152},{52,-152},{52,-142}},
                  color={0,0,127}));
   connect(KPG.y,add2. u1) annotation (Line(points={{45,-120},{52,-120},{52,-130}},
@@ -197,7 +197,7 @@ equation
   connect(FREQ_FLAG_logic.y,FREQ_FLAG. u2) annotation (Line(points={{103,-168},{
           114,-168},{114,-142},{142,-142},{142,-126},{152,-126}},
                                           color={255,0,255}));
-  connect(FREQ_FLAG.y,Pref)  annotation (Line(points={{175,-126},{198,-126},{198,
+  connect(FREQ_FLAG.y,Pref) annotation (Line(points={{175,-126},{198,-126},{198,
           -100},{210,-100}},
                       color={0,0,127}));
   connect(Pbranch.y,simpleLag. u)
@@ -215,7 +215,7 @@ equation
           60},{-152,60}},
                       color={0,0,127}));
   connect(simpleLag2.y,add4. u1)
-    annotation (Line(points={{-123,22},{-112,22}},    color={0,0,127}));
+    annotation (Line(points={{-123,22},{-112,22}}, color={0,0,127}));
   connect(add4.y,REFFLAG. u3)
     annotation (Line(points={{-89,16},{-60,16},{-60,72},{-42,72},{-42,82},{-38,82}},
                                                          color={0,0,127}));

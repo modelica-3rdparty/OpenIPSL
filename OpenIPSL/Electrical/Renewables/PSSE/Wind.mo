@@ -12,8 +12,8 @@ extends OpenIPSL.Electrical.Essentials.pfComponent(
 
   // Parameters for selection
   parameter Integer QFunctionality = 0 "BESS Reactive Power Control Options" annotation (Dialog(group= "Reactive Power Control Options"), choices(choice=0 "Constant local PF control", choice=1 "Constant local Q control", choice=2 "Local V control", choice=3 "Local coordinated V/Q control", choice=4 "Plant level Q control", choice=5 "Plant level V control", choice=6 "Plant level Q control + local coordinated V/Q control", choice=7 "Plant level V control + local coordinated V/Q control"));
-  parameter Integer PFunctionality = 0 "BESS Real Power Control Options" annotation (Dialog(group= "Active Power Control Options", enable=(QFunctionality >=4)), choices(choice=0 "No governor response",  choice=1 "Governor response with up and down regulation"));
-  parameter Integer TOscillation = 0  "Wind Torque Oscillation Option"   annotation (Dialog(group= "Torsional Oscillation"), choices(choice=0 "Do not Emulate torsional oscillation", choice=1 "Emulated torsional oscillations in power output"));
+  parameter Integer PFunctionality = 0 "BESS Real Power Control Options" annotation (Dialog(group= "Active Power Control Options", enable=(QFunctionality >=4)), choices(choice=0 "No governor response", choice=1 "Governor response with up and down regulation"));
+  parameter Integer TOscillation = 0 "Wind Torque Oscillation Option" annotation (Dialog(group= "Torsional Oscillation"), choices(choice=0 "Do not Emulate torsional oscillation", choice=1 "Emulated torsional oscillations in power output"));
   replaceable
     OpenIPSL.Electrical.Renewables.PSSE.InverterInterface.BaseClasses.BaseREGC
     RenewableGenerator(
@@ -100,12 +100,12 @@ extends OpenIPSL.Electrical.Essentials.pfComponent(
         rotation=270,
         origin={60,100})));
 protected
-      parameter Boolean pfflag =  (if QFunctionality == 0 then true else false);
-      parameter Boolean vflag =   (if QFunctionality == 3 or QFunctionality == 6 or QFunctionality == 7 then true else false);
-      parameter Boolean qflag =   (if QFunctionality == 2 or QFunctionality == 3 or QFunctionality == 6 or QFunctionality == 7 then true else false);
+      parameter Boolean pfflag = (if QFunctionality == 0 then true else false);
+      parameter Boolean vflag = (if QFunctionality == 3 or QFunctionality == 6 or QFunctionality == 7 then true else false);
+      parameter Boolean qflag = (if QFunctionality == 2 or QFunctionality == 3 or QFunctionality == 6 or QFunctionality == 7 then true else false);
       parameter Boolean refflag = (if QFunctionality == 5 or QFunctionality == 7 then true else false);
-      parameter Boolean fflag =   (if PFunctionality == 1 then true else false);
-      parameter Boolean pflag =   (if TOscillation == 1 then true else false);
+      parameter Boolean fflag = (if PFunctionality == 1 then true else false);
+      parameter Boolean pflag = (if TOscillation == 1 then true else false);
 
 equation
   connect(gain1.u, RenewableGenerator.q_0) annotation (Line(points={{51.2,-64},{58.5714,-64},{58.5714,-21.4286}},
@@ -146,7 +146,7 @@ equation
         points={{41.4286,-21.4286},{41.4286,-28},{8,-28},{8,-21.3333}}, color={0,
           0,127}));
   connect(RenewableGenerator.V_0, RenewableController.v0) annotation (Line(
-        points={{50,-21.4286},{50,-30},{0,-30},{0,-21.3333}},   color={0,0,127}));
+        points={{50,-21.4286},{50,-30},{0,-30},{0,-21.3333}}, color={0,0,127}));
   connect(RenewableController.q0, RenewableGenerator.q_0) annotation (Line(
         points={{-8,-21.3333},{-8,-32},{58.5714,-32},{58.5714,-21.4286}},
         color={0,0,127}));
@@ -196,7 +196,7 @@ equation
                          Text(
           extent={{-40,20},{40,-20}},
           lineColor={0,0,0},
-          textString="%name"),           Line(
+          textString="%name"), Line(
           points={{-20,20},{-44,42},{-66,32},{-80,0}},
           color={0,0,0},
           smooth=Smooth.Bezier), Line(

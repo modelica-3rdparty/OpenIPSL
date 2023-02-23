@@ -17,7 +17,7 @@ equation
                 Placement(transformation(extent={{-140,-40},{-100,0}})),
                 Placement(transformation(extent={{-140,-80},{-100,-40}})),
               Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-            -100},{100,100}}),                                  graphics={
+            -100},{100,100}}), graphics={
         Rectangle(
           extent={{-100,100},{100,-100}},
           lineColor={0,0,0}),
@@ -28,7 +28,7 @@ equation
           textString="%name")}),
     Documentation(info="<html>
 <p>
-In the inverter inteface model block diagram there are two blocks labeled, \"high-voltage reactive current management\"  and \"low-voltage power logic\".
+In the inverter inteface model block diagram there are two blocks labeled, \"high-voltage reactive current management\" and \"low-voltage power logic\".
 These blocks represent logic associated with the dynamic model and the limit in active power injection into the system.
 </p>
 <p>The modelling of such devices is based, mainly, on the following reference:</p>

@@ -150,7 +150,7 @@ equation
         Text(
           extent={{110,206},{182,154}},
           textColor={0,0,255},
-          textString="REG BUS VR")}),   Diagram(coordinateSystem(
+          textString="REG BUS VR")}), Diagram(coordinateSystem(
           preserveAspectRatio=false, extent={{-200,-200},{200,200}})),
     Documentation(info="<html>
 <p>

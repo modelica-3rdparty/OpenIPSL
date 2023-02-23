@@ -4,7 +4,7 @@ model PIwithVariableLimiter "PI with variable limiter controller for WECC electr
   parameter Real K_P "Voltage regulator proportional gain";
   parameter Real K_I "Voltage regulator integral gain";
   parameter Real y_start "Starting output value for the integrator";
-  Modelica.Blocks.Continuous.Integrator    integral(
+  Modelica.Blocks.Continuous.Integrator integral(
     k=K_I,
     use_reset=false,
     initType=Modelica.Blocks.Types.Init.InitialOutput,
@@ -53,10 +53,10 @@ equation
   connect(reset_switch.u1,realExpression. y)
     annotation (Line(points={{-42,48},{-54,48},{-54,80},{-59,80}},
                                                  color={0,0,127}));
-  connect(reset_switch.u3,u)  annotation (Line(points={{-42,32},{-60,32},{-60,-60},{-120,-60}},
+  connect(reset_switch.u3,u) annotation (Line(points={{-42,32},{-60,32},{-60,-60},{-120,-60}},
                      color={0,0,127}));
   connect(reset_switch.y,integral. u)
-    annotation (Line(points={{-19,40},{-2,40}},  color={0,0,127}));
+    annotation (Line(points={{-19,40},{-2,40}}, color={0,0,127}));
   connect(proportional.u,u)
     annotation (Line(points={{-2,-60},{-120,-60}},
                                                 color={0,0,127}));

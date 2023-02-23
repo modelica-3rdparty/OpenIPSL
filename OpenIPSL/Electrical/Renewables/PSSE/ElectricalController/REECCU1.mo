@@ -16,7 +16,7 @@ model REECCU1
   parameter OpenIPSL.Types.PerUnit vref0 = 1 "User defined voltage reference (0.95 - 1.05)";
   parameter OpenIPSL.Types.Time Tp = 0.01 "Filter time constant for electrical power (0.01 - 0.1)";
   parameter OpenIPSL.Types.PerUnit Qmax = 1 "Upper limits of the limit for reactive power regulator (0.4 - 1.0)";
-  parameter OpenIPSL.Types.PerUnit Qmin = -1 "Lower limits of the  limit for reactive power regulator (-1.0 - -0.4)";
+  parameter OpenIPSL.Types.PerUnit Qmin = -1 "Lower limits of the limit for reactive power regulator (-1.0 - -0.4)";
   parameter OpenIPSL.Types.PerUnit Vmax = 1.1 "Maximum limit for voltage control (1.05 - 1.1)";
   parameter OpenIPSL.Types.PerUnit Vmin = 0.9 "Lower limits of input signals (0.9 - 0.95)";
   parameter Real Kqp = 0 "Reactive power regulator proportional gain (No predefined range)";
@@ -62,7 +62,7 @@ model REECCU1
   Modelica.Blocks.Nonlinear.Limiter limiter7(uMax=dPmax, uMin=dPmin)
     annotation (Placement(transformation(extent={{-208,-136},{-188,-116}})));
   Modelica.Blocks.Continuous.Integrator integrator3(k=1/Tpord,
-    initType=Modelica.Blocks.Types.Init.InitialState,          y_start=Ip0*V0)
+    initType=Modelica.Blocks.Types.Init.InitialState, y_start=Ip0*V0)
     annotation (Placement(transformation(extent={{-142,-136},{-122,-116}})));
   Modelica.Blocks.Nonlinear.Limiter limiter8(uMax=Pmax, uMin=Pmin)
     annotation (Placement(transformation(extent={{-102,-136},{-82,-116}})));
@@ -95,7 +95,7 @@ model REECCU1
   Modelica.Blocks.Sources.RealExpression PELEC(y=Pe)
     annotation (Placement(transformation(extent={{-164,-226},{-144,-206}})));
   Modelica.Blocks.Continuous.Integrator integrator1(k=1/T,
-    initType=Modelica.Blocks.Types.Init.InitialState,      y_start=p00)
+    initType=Modelica.Blocks.Types.Init.InitialState, y_start=p00)
     annotation (Placement(transformation(extent={{-134,-226},{-114,-206}})));
   Modelica.Blocks.Math.Add add1(k1=-1, k2=+1)
     annotation (Placement(transformation(extent={{-104,-244},{-84,-224}})));
@@ -188,7 +188,7 @@ model REECCU1
   Modelica.Blocks.Math.Add add10(k2=-1)
     annotation (Placement(transformation(extent={{52,-6},{72,14}})));
   Modelica.Blocks.Continuous.Integrator integrator4(k=1/Tiq,
-    initType=Modelica.Blocks.Types.Init.InitialState,        y_start=-Iq0 - (-
+    initType=Modelica.Blocks.Types.Init.InitialState, y_start=-Iq0 - (-
         V0 + Vref0)*Kqv)
     annotation (Placement(transformation(extent={{132,0},{152,20}})));
   Modelica.Blocks.Math.Product product5
@@ -221,7 +221,7 @@ model REECCU1
     annotation (Placement(transformation(extent={{168,-50},{148,-70}})));
   Modelica.Blocks.Sources.RealExpression IPCMD(y=Ipcmd)
     annotation (Placement(transformation(extent={{168,-72},{148,-92}})));
-  NonElectrical.Continuous.SimpleLag          simpleLag(
+  NonElectrical.Continuous.SimpleLag simpleLag(
     K=1,
     T=Trv,
     y_start=V0)
@@ -236,7 +236,7 @@ model REECCU1
     annotation (Placement(transformation(extent={{-208,224},{-188,244}})));
   Modelica.Blocks.Math.Gain gain2(k=Kqv)
     annotation (Placement(transformation(extent={{-168,224},{-148,244}})));
-  NonElectrical.Continuous.SimpleLag          simpleLag1(
+  NonElectrical.Continuous.SimpleLag simpleLag1(
     K=1,
     T=Tp,
     y_start=p00)
@@ -306,12 +306,12 @@ equation
     annotation (Line(points={{249,-160},{288,-160},{288,-140},{310,-140}},
                                                      color={0,0,127}));
   connect(add7.y,variableLimiter2. u) annotation (Line(points={{3,-130},{114,-130},
-          {114,-160},{226,-160}},                       color={0,0,127}));
+          {114,-160},{226,-160}}, color={0,0,127}));
   connect(product2.y,variableLimiter2. limit1) annotation (Line(points={{203,-126},
           {180,-126},{180,-152},{226,-152}},
                                   color={0,0,127}));
   connect(IPMAX.y,product2. u1)
-    annotation (Line(points={{229,-120},{226,-120}},         color={0,0,127}));
+    annotation (Line(points={{229,-120},{226,-120}}, color={0,0,127}));
   connect(product3.u2,IPMIN. y)
     annotation (Line(points={{226,-184},{229,-184}}, color={0,0,127}));
   connect(variableLimiter2.limit2,product3. y) annotation (Line(points={{226,-168},
@@ -344,7 +344,7 @@ equation
   connect(simpleLag1.y,product6. u1)
     annotation (Line(points={{-247,160},{-240,160}}, color={0,0,127}));
   connect(tan1.y,product6. u2) annotation (Line(points={{-247,130},{-240,130},{-240,
-          148}},            color={0,0,127}));
+          148}}, color={0,0,127}));
   connect(Pe,simpleLag1. u)
     annotation (Line(points={{-320,160},{-270,160}}, color={0,0,127}));
   connect(PFAREF.y,tan1. u)
@@ -364,7 +364,7 @@ equation
   connect(Qgen,add2. u2) annotation (Line(points={{-320,80},{-136,80},{-136,134}},
         color={0,0,127}));
   connect(gain.y,add3. u1)
-    annotation (Line(points={{-73,140},{-70,140}},        color={0,0,127}));
+    annotation (Line(points={{-73,140},{-70,140}}, color={0,0,127}));
   connect(integrator.y,add3. u2)
     annotation (Line(points={{-73,100},{-72,100},{-72,128},{-70,128}},
                                                         color={0,0,127}));
@@ -382,13 +382,13 @@ equation
   connect(limiter4.y,add5. u1) annotation (Line(points={{47,134},{52,134},{52,140},
           {56,140}}, color={0,0,127}));
   connect(Vt_filt2.y,add5. u2) annotation (Line(points={{57,114},{52,114},{52,128},
-          {56,128}},           color={0,0,127}));
+          {56,128}}, color={0,0,127}));
   connect(VFlag.y,limiter4. u)
     annotation (Line(points={{17,134},{24,134}}, color={0,0,127}));
   connect(gain1.y,add6. u1) annotation (Line(points={{121,134},{124,134}},
                 color={0,0,127}));
   connect(integrator2.y,add6. u2) annotation (Line(points={{121,104},{124,104},{
-          124,122}},     color={0,0,127}));
+          124,122}}, color={0,0,127}));
   connect(frzState1.y,product4. u2) annotation (Line(points={{39,74},{50,74}},
                         color={0,0,127}));
   connect(product4.y,integrator2. u) annotation (Line(points={{73,80},{88,80},{88,
@@ -402,7 +402,7 @@ equation
   connect(variableLimiter1.y,QFlag. u1)
     annotation (Line(points={{179,130},{196,130},{196,102}},color={0,0,127}));
   connect(QFLAG.y,QFlag. u2) annotation (Line(points={{179,76},{184,76},{184,94},
-          {196,94}},                   color={255,0,255}));
+          {196,94}}, color={255,0,255}));
   connect(IQMIN_.y,variableLimiter1. limit2) annotation (Line(points={{159,104},
           {152,104},{152,122},{156,122}},
                                         color={0,0,127}));
@@ -428,17 +428,17 @@ equation
   connect(division.y, add10.u1)
     annotation (Line(points={{33,10},{50,10}}, color={0,0,127}));
   connect(integrator4.y,QFlag. u3) annotation (Line(points={{153,10},{188,10},{188,
-          86},{196,86}},      color={0,0,127}));
+          86},{196,86}}, color={0,0,127}));
   connect(add10.u2, QFlag.u3) annotation (Line(points={{50,-2},{40,-2},{40,-12},
           {188,-12},{188,86},{196,86}}, color={0,0,127}));
   connect(product5.y,integrator4. u)
-    annotation (Line(points={{117,10},{130,10}},   color={0,0,127}));
+    annotation (Line(points={{117,10},{130,10}}, color={0,0,127}));
   connect(product5.u1,product4. u2) annotation (Line(points={{94,16},{82,16},{82,
           46},{44,46},{44,74},{50,74}}, color={0,0,127}));
   connect(VDL2.u,limiter6. u) annotation (Line(points={{54,-70},{-36,-70},{-36,-10},
-          {-30,-10}},                        color={0,0,127}));
+          {-30,-10}}, color={0,0,127}));
   connect(VDL1.u,limiter6. u) annotation (Line(points={{54,-50},{-36,-50},{-36,-10},
-          {-30,-10}},                   color={0,0,127}));
+          {-30,-10}}, color={0,0,127}));
   connect(VDL2.y[1], ccl_reecc.VDL2_out)
     annotation (Line(points={{77,-70},{88.8,-69.6}}, color={0,0,127}));
   connect(VDL1.y[1], ccl_reecc.VDL1_out) annotation (Line(points={{77,-50},{77,-50.4},
