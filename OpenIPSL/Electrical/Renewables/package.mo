@@ -3,13 +3,13 @@ package Renewables "Models that can be used to represent wind, solar, and batter
 
 annotation (Documentation(info="<html>
 <p>This package contains models that can be used to create renewable energy sources, such as Photovoltaic, Wind, and Battery Energy Storage Systems.
- The models implemented are found in standard power system dynamic tools, such as Siemens PTI PSS®E, PowerWorld, General Electric PSLF,
+ The models implemented are found in standard power system dynamic tools, such as Siemens PTI PSS&reg;E, PowerWorld, General Electric PSLF,
  and are based on the Western Electricity Coordinating Council (WECC) renewable energy guidelines. It is worth mentioning that the components implemented
 in this package are based on the second generation renewable energy models.</p>
-<p>The package contains a subpackage called PSS®E, from where four different subpackages contains the components for different parts of the renewable sources.</p>
+<p>The package contains a subpackage called PSS&reg;E, from where four different subpackages contains the components for different parts of the renewable sources.</p>
 <p>The modelling of such devices is based, mainly, on the following references:</p>
 <ul>
-<li>Siemens: \"PSS®E Model Library\"
+<li>Siemens: \"PSS&reg;E Model Library\"
 <a href=\"modelica://OpenIPSL.UsersGuide.References\">[PSSE-MODELS]</a>,</li>
 <li>WECC: \"Battery Storage Dynamic Modeling Guideline\"
 <a href=\"modelica://OpenIPSL.UsersGuide.References\">[WECCBattery]</a>,</li>

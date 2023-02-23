@@ -394,7 +394,7 @@ are Vt, Pgen, and Qgen while the two inputs that could potentially be constant v
 </p>
 <p>The modelling of such devices is based, mainly, on the following references:</p>
 <ul>
-<li>Siemens: \"PSS®E Model Library\"
+<li>Siemens: \"PSS&reg;E Model Library\"
 <a href=\"modelica://OpenIPSL.UsersGuide.References\">[PSSE-MODELS]</a>,</li>
 <li>WECC: \"Wind Power Plant Dynamic Modeling Guideline\"
 <a href=\"modelica://OpenIPSL.UsersGuide.References\">[WECCWind]</a>.</li>

@@ -277,7 +277,7 @@ provides active reactive power command references to the electrical controller c
 </p>
 <p>The modelling of such devices is based, mainly, on the following reference:</p>
 <ul>
-<li>Siemens: \"PSS®E Model Library\"
+<li>Siemens: \"PSS&reg;E Model Library\"
 <a href=\"modelica://OpenIPSL.UsersGuide.References\">[PSSE-MODELS]</a>,</li>
 </ul>
 </html>"));

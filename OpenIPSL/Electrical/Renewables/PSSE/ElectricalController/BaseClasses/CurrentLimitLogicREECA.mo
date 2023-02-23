@@ -152,7 +152,7 @@ end
 </pre>
 <p>The modelling of the current limit logic for the REECA electrical controller is based on the following references:</p>
 <ul>
-<li>Siemens: \"PSS®E Model Library\"
+<li>Siemens: \"PSS&reg;E Model Library\"
 <a href=\"modelica://OpenIPSL.UsersGuide.References\">[PSSE-MODELS]</a>,</li>
 <li>WECC: \"Wind Power Plant Dynamic Modeling Guideline\"
 <a href=\"modelica://OpenIPSL.UsersGuide.References\">[WECCWind]</a>.</li>

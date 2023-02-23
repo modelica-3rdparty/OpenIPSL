@@ -156,7 +156,7 @@ This component is the base class for the inverter components from the InverterIn
 </p>
 <p>The modelling of such devices is based, mainly, on the following reference:</p>
 <ul>
-<li><p>Siemens: \"PSS®E Model Library\"
+<li><p>Siemens: \"PSS&reg;E Model Library\"
 <a href=\"modelica://OpenIPSL.UsersGuide.References\">[PSSE-MODELS]</a>.</p>
 </li>
 </ul>

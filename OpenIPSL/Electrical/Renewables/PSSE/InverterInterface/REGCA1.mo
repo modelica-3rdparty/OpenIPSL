@@ -152,7 +152,7 @@ injections (p_0 and q_0). This method reduces repetitiveness of initialization c
 <p>The connection with other components requires a closed loop through terminal voltage variable (V_t), and active and reactive power generation (Pgen and Qgen).</p>
 <p>The modelling of such devices is based, mainly, on the following reference:</p>
 <ul>
-<li><p>Siemens: \"PSS®E Model Library\"
+<li><p>Siemens: \"PSS&reg;E Model Library\"
 <a href=\"modelica://OpenIPSL.UsersGuide.References\">[PSSE-MODELS]</a>.</p>
 </li>
 </ul>
