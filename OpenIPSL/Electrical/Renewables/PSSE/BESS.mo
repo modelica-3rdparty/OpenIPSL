@@ -190,8 +190,7 @@ equation
           smooth=Smooth.Bezier), Line(
           points={{20,-20},{44,-42},{66,-32},{80,0}},
           color={0,0,0},
-          smooth=Smooth.Bezier)}),                               Diagram(
-        coordinateSystem(preserveAspectRatio=false)),
+          smooth=Smooth.Bezier)}),
     Documentation(info="<html>
 <p>
 This model is meant as a simple framework to create a battery energy storage system plant that consists of:

@@ -29,7 +29,6 @@ partial model BaseREPC
   Modelica.Blocks.Interfaces.RealInput Plant_pref "Active Power Reference" annotation (Placement(
         transformation(extent={{-240,20},{-200,60}}), iconTransformation(
           extent={{-20,-20},{20,20}},
-        rotation=0,
         origin={-220,40})));
   Modelica.Blocks.Interfaces.RealInput Freq "Connection Point Frequency" annotation (Placement(
         transformation(extent={{-240,-60},{-200,-20}}), iconTransformation(

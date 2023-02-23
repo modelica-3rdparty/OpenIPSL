@@ -45,7 +45,6 @@ model WTDTA1 "Generic Drive Train Model for Type 3 and Type 4 Wind Machines"
     annotation (Placement(transformation(extent={{-48,-70},{-28,-50}})));
   Modelica.Blocks.Math.Gain w0__(k=w0) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
-        rotation=0,
         origin={60,0})));
   Modelica.Blocks.Math.Add add2(k1=-1)
     annotation (Placement(transformation(extent={{24,-84},{44,-104}})));
@@ -72,7 +71,6 @@ model WTDTA1 "Generic Drive Train Model for Type 3 and Type 4 Wind Machines"
         origin={-70,-84})));
   Modelica.Blocks.Math.Gain w0_(k=w0) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
-        rotation=0,
         origin={64,-94})));
   Modelica.Blocks.Continuous.Integrator integrator3(k=1, y_start=0)
     annotation (Placement(transformation(extent={{84,-104},{104,-84}})));

@@ -84,7 +84,6 @@ model REECB1 "Electrical control model for large scale photovoltaic"
   Modelica.Blocks.Sources.RealExpression frzState1(y=if Voltage_dip == 1 then 0
          else 1) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
-        rotation=0,
         origin={30,-6})));
   Modelica.Blocks.Nonlinear.VariableLimiter variableLimiter2
     annotation (Placement(transformation(extent={{162,38},{182,58}})));
@@ -128,7 +127,6 @@ model REECB1 "Electrical control model for large scale photovoltaic"
   Modelica.Blocks.Sources.RealExpression IPMAX(y=ccl.Ipmax) annotation (
       Placement(transformation(
         extent={{10,-10},{-10,10}},
-        rotation=0,
         origin={64,-140})));
   Modelica.Blocks.Sources.RealExpression IPMIN(y=ccl.Ipmin)
     annotation (Placement(transformation(extent={{74,-210},{54,-190}})));
@@ -186,7 +184,6 @@ model REECB1 "Electrical control model for large scale photovoltaic"
   Modelica.Blocks.Sources.RealExpression frzState2(y=if Voltage_dip == 1 then 0
          else 1) annotation (Placement(transformation(
         extent={{-10,10},{10,-10}},
-        rotation=0,
         origin={-230,-130})));
   Modelica.Blocks.Math.Product product6
     annotation (Placement(transformation(extent={{-190,-176},{-170,-156}})));

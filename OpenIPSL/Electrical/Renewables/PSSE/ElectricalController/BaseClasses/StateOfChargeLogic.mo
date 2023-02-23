@@ -35,8 +35,7 @@ equation
         Text(
           extent={{14,-10},{94,-90}},
           textColor={28,108,200},
-          textString="IPMAX SOC")}),                             Diagram(
-        coordinateSystem(preserveAspectRatio=false)),
+          textString="IPMAX SOC")}),
     Documentation(info="<html>
 The pseudo-code for the state of charge current limit in batteries is as follows:
 <pre>

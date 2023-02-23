@@ -35,7 +35,6 @@ public
   Modelica.Blocks.Logical.Switch switch1 annotation (Placement(
         transformation(
         extent={{10,-10},{-10,10}},
-        rotation=0,
         origin={-80,-90})));
   Modelica.Blocks.Sources.BooleanConstant Lvplsw_logic(k=Lvplsw)
     annotation (Placement(transformation(extent={{-30,-100},{-50,-80}})));
@@ -46,7 +45,6 @@ public
   Modelica.Blocks.Sources.RealExpression Terminal_Voltage1(y=Vt.y) annotation (
       Placement(transformation(
         extent={{-10,-10},{10,10}},
-        rotation=0,
         origin={34,-100})));
   Modelica.Blocks.Sources.RealExpression LowerLimit(y=-Modelica.Constants.inf)
     annotation (Placement(transformation(extent={{-80,-70},{-60,-50}})));

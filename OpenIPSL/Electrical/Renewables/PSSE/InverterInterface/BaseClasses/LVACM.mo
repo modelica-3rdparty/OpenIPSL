@@ -30,9 +30,7 @@ equation
           lineColor={28,108,200},
           textStyle={TextStyle.Bold},
           textString="%name"),
-        Line(points={{-32,66}}, color={28,108,200})}),           Diagram(
-        coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-            100,100}})),
+        Line(points={{-32,66}}, color={28,108,200})}),
     Documentation(info="<html>
 <p>
 In the inverter inteface model block diagram there are two blocks labeled, \"high-voltage reactive current management\"  and \"low-voltage power logic\".

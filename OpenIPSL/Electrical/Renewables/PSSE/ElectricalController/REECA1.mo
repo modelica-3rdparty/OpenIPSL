@@ -139,7 +139,6 @@ model REECA1 "Electrical control model for large scale wind"
   Modelica.Blocks.Sources.RealExpression IPMAX(y=CCL_REECA.Ipmax)
     annotation (Placement(transformation(
         extent={{10,-10},{-10,10}},
-        rotation=0,
         origin={70,-142})));
   Modelica.Blocks.Sources.RealExpression IPMIN(y=CCL_REECA.Ipmin)
     annotation (Placement(transformation(extent={{78,-212},{58,-192}})));

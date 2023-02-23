@@ -139,7 +139,6 @@ model REECCU1
   Modelica.Blocks.Sources.RealExpression VReF0(y=Vref0) annotation (Placement(
         transformation(
         extent={{-10,10},{10,-10}},
-        rotation=0,
         origin={-38,50})));
   Modelica.Blocks.Nonlinear.Limiter limiter4(uMax=Vmax, uMin=Vmin)
     annotation (Placement(transformation(extent={{26,124},{46,144}})));
@@ -161,7 +160,6 @@ model REECCU1
   Modelica.Blocks.Sources.RealExpression frzState1(y=if Voltage_dip == 1 then 0
          else 1) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
-        rotation=0,
         origin={28,74})));
   Modelica.Blocks.Nonlinear.VariableLimiter variableLimiter1
     annotation (Placement(transformation(extent={{158,120},{178,140}})));
@@ -257,7 +255,6 @@ model REECCU1
   Modelica.Blocks.Sources.RealExpression frzState2(y=if Voltage_dip == 1 then 0
          else 1) annotation (Placement(transformation(
         extent={{-10,10},{10,-10}},
-        rotation=0,
         origin={-196,-96})));
   Modelica.Blocks.Sources.Constant SOC(k=SOCini)
     annotation (Placement(transformation(extent={{-200,-260},{-180,-240}})));

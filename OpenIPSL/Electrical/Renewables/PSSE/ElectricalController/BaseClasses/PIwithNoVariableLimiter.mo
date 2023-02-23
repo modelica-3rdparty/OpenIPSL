@@ -67,8 +67,7 @@ equation
           extent={{-80,40},{80,-40}},
           textColor={0,0,255},
           textString="PI WECC Renewables")}),
-    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-            100}})),
+
     Documentation(info="<html>
 <p>
 Specific PI with no variable limiter component for the WECC-based renewable energy controller models.

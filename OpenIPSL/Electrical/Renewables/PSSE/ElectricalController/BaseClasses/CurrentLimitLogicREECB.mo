@@ -108,8 +108,7 @@ equation
           lineThickness=0.5,
           fillColor={28,108,200},
           fillPattern=FillPattern.Solid,
-          textString="IPCMD")}),                                 Diagram(
-        coordinateSystem(preserveAspectRatio=false)),
+          textString="IPCMD")}),
     Documentation(info="<html>
 The pseudo-code for the current limit logic in the REECB electrical controller detailed below:
 <pre>
