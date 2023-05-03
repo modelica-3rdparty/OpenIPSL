@@ -145,7 +145,11 @@ equation
         Text(
           extent={{106,-104},{134,-136}},
           textColor={0,0,255},
-          textString="P0")}), Diagram(
+          textString="P0"),  Text(
+          extent={{-82,70},{98,-70}},
+          textColor={0,0,255},
+          textString="REGCA")}),
+                              Diagram(
         coordinateSystem(extent={{-140,-140},{140,140}})),
     Documentation(info="<html>
 <p>

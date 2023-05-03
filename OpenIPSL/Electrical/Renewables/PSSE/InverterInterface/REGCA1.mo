@@ -138,7 +138,7 @@ equation
   connect(min_limiter.y, add1.u2) annotation (Line(points={{-9,30},{68,30},{
           68,82},{76,82}}, color={0,0,127}));
   annotation (Icon(graphics={Text(
-          extent={{-90,70},{90,-70}},
+          extent={{-82,70},{98,-70}},
           textColor={0,0,255},
           textString="REGCA")}), Documentation(info="<html>
 <p>The REGCA1 component is used to represent the renewable source (inverter) interface with the grid. It takes in as input the real current command
