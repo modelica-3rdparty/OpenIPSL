@@ -12,9 +12,6 @@ model WTDTA1 "Generic Drive Train Model for Type 3 and Type 4 Wind Machines"
   parameter Modelica.Units.SI.Frequency Freq1 = 2.132 "First shaft torsional resonancy frequency (No predefined range)";
   parameter OpenIPSL.Types.PerUnit Dshaft = 1 "Shaft damping factor (No predefined range)";
 
-  Modelica.Blocks.Sources.RealExpression W0_(y=W0)
-    annotation (Placement(transformation(extent={{-8,-120},{12,-100}})));
-
   Modelica.Blocks.Math.Gain Coef1(k=Dshaft) annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
@@ -92,14 +89,12 @@ protected
   parameter OpenIPSL.Types.PerUnit Hg = H - Ht;
   parameter OpenIPSL.Types.PerUnit Kshaft = 2*Ht*Hg*(2*pi*Freq1)^2/(H*w0);
   parameter Modelica.Units.SI.AngularVelocity w0 = 2*pi*fn;
-  parameter OpenIPSL.Types.PerUnit p00(fixed=false);
   parameter OpenIPSL.Types.PerUnit W0(fixed=false);
-  parameter OpenIPSL.Types.PerUnit T0 = p00;
+  parameter OpenIPSL.Types.PerUnit T0(fixed=false);
 
 initial equation
 
-   p00 = P0;
-   W0 = W_0;
+   T0 = P0;
 
 equation
   connect(add3_1.y, integrator.u)
@@ -133,8 +128,6 @@ equation
           -6}}, color={0,0,127}));
   connect(add2.y, w0_.u)
     annotation (Line(points={{45,-94},{52,-94}}, color={0,0,127}));
-  connect(W0_.y, add2.u1) annotation (Line(points={{13,-110},{20,-110},{20,-100},
-          {22,-100}}, color={0,0,127}));
   connect(w0_.y, integrator3.u)
     annotation (Line(points={{75,-94},{82,-94}}, color={0,0,127}));
   connect(integrator.y, wt)
@@ -163,6 +156,8 @@ equation
           {110,-116},{110,-46},{85,-46}}, color={0,0,127}));
   connect(wg, add4.y) annotation (Line(points={{130,-60},{110,-60},{110,-46},
           {85,-46}}, color={0,0,127}));
+  connect(add2.u1, W_0) annotation (Line(points={{22,-100},{-60,-100},{-60,-140}},
+        color={0,0,127}));
   annotation (Diagram(coordinateSystem(extent={{-120,-120},{120,120}})), Icon(
         coordinateSystem(extent={{-120,-120},{120,120}})),
     Documentation(info="<html>

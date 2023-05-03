@@ -30,7 +30,7 @@ model REPCA1 "Renewable energy plant controller model A"
   parameter OpenIPSL.Types.PerUnit Dup=0 "Reciprocal of droop for under-frequency conditions";
   parameter Real Vref=v_0 "Regulated bus initial voltage";
 
-  extends BaseClasses.BaseREPC( Qext(start = q00), Pref(start = p00));
+  extends BaseClasses.BaseREPC(Qext, Pref);
 
   OpenIPSL.Types.PerUnit voltage_diff;
   OpenIPSL.Types.PerUnit vreg;

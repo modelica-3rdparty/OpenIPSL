@@ -11,10 +11,8 @@ model CurrentLimitLogicREECC "Current limit logic for REECC"
         transformation(extent={{-140,-20},{-100,20}})));
   Modelica.Blocks.Interfaces.RealInput VDL2_out annotation (Placement(
         transformation(extent={{-140,-80},{-100,-40}})));
-  Modelica.Blocks.Interfaces.RealInput Iqcmd(start = -start_ii) annotation (Placement(
-        transformation(extent={{140,40},{100,80}})));
-  Modelica.Blocks.Interfaces.RealInput Ipcmd(start = start_ir) annotation (Placement(
-        transformation(extent={{140,-80},{100,-40}})));
+  Modelica.Blocks.Interfaces.RealInput Iqcmd annotation (Placement(transformation(extent={{140,40},{100,80}})));
+  Modelica.Blocks.Interfaces.RealInput Ipcmd annotation (Placement(transformation(extent={{140,-80},{100,-40}})));
   Modelica.Blocks.Interfaces.RealOutput Iqmax annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},

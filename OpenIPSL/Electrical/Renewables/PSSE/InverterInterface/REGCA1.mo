@@ -87,7 +87,7 @@ equation
   connect(LVACM.y,IP. u2) annotation (Line(points={{83,-70},{92,-70},{92,-22},{98,-22}},
                              color={0,0,127}));
   connect(switch1.u1,LVPL. y)
-    annotation (Line(points={{-68,-82},{-56,-82},{-56,-69.9},{-11.1,-69.9}},
+    annotation (Line(points={{-68,-82},{-56,-82},{-56,-70},{-11,-70}},
                                                            color={0,0,127}));
   connect(Lvplsw_logic.y,switch1. u2) annotation (Line(points={{-51,-90},{-68,-90}},
                                 color={255,0,255}));
@@ -113,10 +113,10 @@ equation
           {-92,56},{-92,68},{-88,68}}, color={0,0,127}));
   connect(gain.y,add3. u1) annotation (Line(points={{-99,80},{-88,80}},
                                color={0,0,127}));
-  connect(gain.u, Iqcmd) annotation (Line(points={{-122,80},{-134,80},{-134,60},{-160,60}},
-                      color={0,0,127}));
-  connect(Ipcmd,add2. u1) annotation (Line(points={{-160,-60},{-122,-60},{-122,-24},{-112,-24}},
-                                color={0,0,127}));
+  connect(gain.u, Iqcmd) annotation (Line(points={{-122,80},{-134,80},{-134,80},
+          {-160,80}}, color={0,0,127}));
+  connect(Ipcmd,add2. u1) annotation (Line(points={{-160,-80},{-122,-80},{-122,
+          -24},{-112,-24}},     color={0,0,127}));
   connect(Constant.y, switch1.u3) annotation (Line(points={{-51,-114},{-62,-114},
           {-62,-98},{-68,-98}}, color={0,0,127}));
   connect(limiter4.y, integrator1.u)

@@ -1,7 +1,8 @@
 within OpenIPSL.Electrical.Renewables.PSSE.ElectricalController;
 model REECA1 "Electrical control model for large scale wind"
-  extends OpenIPSL.Electrical.Renewables.PSSE.ElectricalController.BaseClasses.BaseREECA(
-     Iqcmd(start=Iq0), Ipcmd(start=Ip0));
+  extends
+    OpenIPSL.Electrical.Renewables.PSSE.ElectricalController.BaseClasses.BaseREECA(
+     Iqcmd, Ipcmd);
 
   parameter OpenIPSL.Types.PerUnit Vdip = -99 "Low voltage threshold to activate reactive current injection logic (0.85 - 0.9)";
   parameter OpenIPSL.Types.PerUnit Vup = 99 "Voltage above which reactive current injection logic is activated (>1.1)";
@@ -369,8 +370,10 @@ equation
     annotation (Line(points={{-261,220},{-242,220}}, color={0,0,127}));
   connect(VFilter.u, Vt) annotation (Line(points={{-284,220},{-290,220},{-290,200},
           {-320,200}}, color={0,0,127}));
-  connect(variableLimiter1.y, Ipcmd) annotation (Line(points={{81,-172},{288,-172},{288,-140},{310,-140}}, color={0,0,127}));
-  connect(variableLimiter.y, Iqcmd) annotation (Line(points={{281,80},{290,80},{290,140},{310,140}}, color={0,0,127}));
+  connect(variableLimiter1.y, Ipcmd) annotation (Line(points={{81,-172},{288,-172},
+          {288,-170},{310,-170}},                                                                          color={0,0,127}));
+  connect(variableLimiter.y, Iqcmd) annotation (Line(points={{281,80},{290,80},{
+          290,170},{310,170}},                                                                       color={0,0,127}));
   connect(VLogic.y, pI_No_Windup.voltage_dip) annotation (Line(points={{2,160},{20,160},{20,138},{82,138}}, color={255,0,255}));
   connect(VLogic.y, pI_No_Windup_notVariable.voltage_dip) annotation (Line(points={{2,160},{20,160},{20,140},{-100,140},{-100,128},{-90,128}}, color={255,0,255}));
   annotation (Documentation(info="<html>

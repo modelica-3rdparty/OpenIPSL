@@ -32,9 +32,9 @@ partial model BaseREPC
   Modelica.Blocks.Interfaces.RealInput Freq_ref "Plant Controller Frequency Reference"
                                        annotation (Placement(
         transformation(extent={{-240,-140},{-200,-100}})));
-  Modelica.Blocks.Interfaces.RealOutput Qext(start=q0) "Reactive Power output signal"
+  Modelica.Blocks.Interfaces.RealOutput Qext "Reactive Power output signal"
     annotation (Placement(transformation(extent={{200,90},{220,110}})));
-  Modelica.Blocks.Interfaces.RealOutput Pref(start=p0) "Real Power output signal"
+  Modelica.Blocks.Interfaces.RealOutput Pref "Real Power output signal"
     annotation (Placement(transformation(extent={{200,-110},{220,-90}})));
 
   Modelica.Blocks.Interfaces.RealInput p0 "Initial Active Power" annotation (Placement(transformation(

@@ -2,7 +2,7 @@ within OpenIPSL.Electrical.Renewables.PSSE.ElectricalController;
 model REECB1 "Electrical control model for large scale photovoltaic"
   extends
     OpenIPSL.Electrical.Renewables.PSSE.ElectricalController.BaseClasses.BaseREECB(
-     Iqcmd(start=Iq0), Ipcmd(start=Ip0));
+     Iqcmd, Ipcmd);
 
   parameter OpenIPSL.Types.PerUnit Vdip = -99 "Low voltage threshold to activate reactive current injection logic (0.85 - 0.9)";
   parameter OpenIPSL.Types.PerUnit Vup = 99 "Voltage above which reactive current injection logic is activated (>1.1)";
@@ -187,6 +187,10 @@ model REECB1 "Electrical control model for large scale photovoltaic"
         origin={-230,-130})));
   Modelica.Blocks.Math.Product product6
     annotation (Placement(transformation(extent={{-190,-176},{-170,-156}})));
+  Modelica.Blocks.Sources.RealExpression VReF0(y=Vref0) annotation (Placement(
+        transformation(
+        extent={{-10,10},{10,-10}},
+        origin={-44,-32})));
 protected
   parameter Real pfaref = p00/sqrt(p00^2 +q00^2) "Power Factor of choice.";
   parameter OpenIPSL.Types.Angle pfangle = if q00 > 0 then acos(pfaref) else -acos(pfaref);
@@ -360,8 +364,8 @@ equation
           {-212,-172},{-192,-172}}, color={0,0,127}));
   connect(product6.y, integrator3.u)
     annotation (Line(points={{-169,-166},{-154,-166}}, color={0,0,127}));
-  connect(VFlag.u3, limiter1.u) annotation (Line(points={{-4,46},{-8,46},{-8,
-          -64},{-170,-64},{-170,66},{-164,66}}, color={0,0,127}));
+  connect(VReF0.y, VFlag.u3)
+    annotation (Line(points={{-33,-32},{-4,-32},{-4,46}}, color={0,0,127}));
   annotation (Documentation(info="<html>
 <p>
 The REECB1 component used to represent the electrical controls of photovoltaic generation. The electrical controller actuates on the active and reactive power

@@ -10,36 +10,25 @@ model PVPlant
     QFunctionality=4,
     PFunctionality=0,
     redeclare OpenIPSL.Electrical.Renewables.PSSE.InverterInterface.REGCA1
-      RenewableGenerator(Lvplsw=true),
+      RenewableGenerator,
     redeclare OpenIPSL.Electrical.Renewables.PSSE.ElectricalController.REECB1
-      RenewableController(
-      pfflag=false,
-      vflag=false,
-      qflag=false,
-      pqflag=false,
-      vref0=1),
+      RenewableController(vref0=1),
     redeclare OpenIPSL.Electrical.Renewables.PSSE.PlantController.REPCA1
-      PlantController(
-      Rc=0,
-      Xc=0,
-      Vref=0,
-      vcflag=false,
-      refflag=false,
-      fflag=false))
+      PlantController)
     annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
 equation
   connect(pV.pwPin, GEN1.p)
     annotation (Line(points={{-40,0},{-30,0}}, color={0,0,255}));
-  connect(pwCurrent.ir, pV.branch_ir) annotation (Line(points={{-17.6,-6.6},{
-          -17.6,-16},{-44,-16},{-44,-8.6}}, color={0,0,127}));
-  connect(pwCurrent.ii, pV.branch_ii) annotation (Line(points={{-14,-6.6},{-14,
-          -20},{-56,-20},{-56,-8.6}}, color={0,0,127}));
   connect(freq.y, pV.FREQ)
-    annotation (Line(points={{-75,0},{-60.6,0}}, color={0,0,127}));
-  connect(pwVoltage.vr, pV.regulate_vr) annotation (Line(points={{-36.6,33.6},{
-          -56,33.6},{-56,8.6}}, color={0,0,127}));
+    annotation (Line(points={{-75,0},{-62,0}}, color={0,0,127}));
   connect(pwVoltage.vi, pV.regulate_vi)
-    annotation (Line(points={{-36.6,30},{-44,30},{-44,8.6}}, color={0,0,127}));
+    annotation (Line(points={{-36.6,30},{-44,30},{-44,10}}, color={0,0,127}));
+  connect(pwVoltage.vr, pV.regulate_vr) annotation (Line(points={{-36.6,33.6},{
+          -56,33.6},{-56,10}}, color={0,0,127}));
+  connect(pV.branch_ir, pwCurrent.ir) annotation (Line(points={{-44,-10},{-44,
+          -16},{-17.6,-16},{-17.6,-6.6}}, color={0,0,127}));
+  connect(pwCurrent.ii, pV.branch_ii) annotation (Line(points={{-14,-6.6},{-14,
+          -20},{-56,-20},{-56,-10}}, color={0,0,127}));
   annotation (experiment(
       StopTime=5,
       __Dymola_NumberOfIntervals=5000,
