@@ -81,8 +81,6 @@ package AddOnBlocks
           Text(
             extent={{-80,80},{80,-80}},
             textColor={0,0,255},
-            textString="Irradiance
-to
-Power")}),   Diagram(coordinateSystem(preserveAspectRatio=false)));
+            textString="Irradiance to Power")}));
   end IrradianceToPower;
 end AddOnBlocks;

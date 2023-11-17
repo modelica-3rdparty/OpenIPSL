@@ -498,6 +498,5 @@ are Vt, Pgen, and Qgen while the two inputs that could potentially be constant v
 <li>WECC: \"Battery Storage Dynamic Modeling Guideline\"
 <a href=\"modelica://OpenIPSL.UsersGuide.References\">[WECCBattery]</a>.</li>
 </ul>
-
 </html>"));
 end REECCU1;
