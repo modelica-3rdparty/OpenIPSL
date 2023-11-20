@@ -1,5 +1,6 @@
 within OpenIPSL.Electrical.Renewables.PSSE;
 model PV "Framework for a photovoltaic plant including controllers"
+parameter Types.ApparentPower M_b=RenewableGenerator.SysData.S_b "Machine base power" annotation(Dialog(group= "Power flow data"));
 extends OpenIPSL.Electrical.Essentials.pfComponent(
     final enablefn=false,
     final enableV_b=false,
@@ -17,6 +18,7 @@ extends OpenIPSL.Electrical.Essentials.pfComponent(
   replaceable
     OpenIPSL.Electrical.Renewables.PSSE.InverterInterface.BaseClasses.BaseREGC
     RenewableGenerator(
+    M_b=M_b,
     P_0=P_0,
     Q_0=Q_0,
     v_0=v_0,
@@ -35,6 +37,7 @@ extends OpenIPSL.Electrical.Essentials.pfComponent(
   replaceable
     OpenIPSL.Electrical.Renewables.PSSE.PlantController.BaseClasses.BaseREPC
     PlantController(
+    M_b=M_b,
     P_0=P_0,
     Q_0=Q_0,
     v_0=v_0,

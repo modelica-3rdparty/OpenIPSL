@@ -12,6 +12,9 @@ partial model BaseWTDT
     final enableP_0=false,
     final enableS_b=false);
 
+    parameter OpenIPSL.Types.PerUnit W0=0;
+
+
   Modelica.Blocks.Interfaces.RealInput Pm "Mechanical Power"
     annotation (Placement(transformation(extent={{-160,40},{-120,80}})));
   Modelica.Blocks.Interfaces.RealInput Pe "Electrical Power"

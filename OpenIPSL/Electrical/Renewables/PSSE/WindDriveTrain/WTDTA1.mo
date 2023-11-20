@@ -89,7 +89,6 @@ protected
   parameter OpenIPSL.Types.PerUnit Hg = H - Ht;
   parameter OpenIPSL.Types.PerUnit Kshaft = 2*Ht*Hg*(2*pi*Freq1)^2/(H*w0);
   parameter Modelica.Units.SI.AngularVelocity w0 = 2*pi*fn;
-  parameter OpenIPSL.Types.PerUnit W0(fixed=false);
   parameter OpenIPSL.Types.PerUnit T0(fixed=false);
 
 initial equation
