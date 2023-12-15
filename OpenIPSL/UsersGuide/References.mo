@@ -113,7 +113,6 @@ model References "References"
         (<a href=\"https://www.powerworld.com/WebHelp/Content/TransientModels_HTML/Load%20Characteristic.htm?tocpath=Transient%20Stability%20Add-On%20(TS)%7CTransient%20Models%7CLoad%7CCharacteristic%7C_____0\">Home page</a>)
 </td>
 </tr>
-</tr>
 <tr>
 <td>[PSSE-AGV1]</td>
 <td>Siemens:
