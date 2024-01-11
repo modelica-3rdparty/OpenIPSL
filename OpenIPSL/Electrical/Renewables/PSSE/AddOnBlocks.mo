@@ -3,6 +3,7 @@ package AddOnBlocks
   "This package contains additional add ons that can be added to the original renewable models."
   model IrradianceToPower "PV Array Power Output from Irradiance."
 
+    parameter Modelica.Units.SI.ApparentPower M_b = 100000000;
     parameter Modelica.Units.SI.ActivePower Ypv = 1000 "Rated capacity of the PV array";
     parameter Modelica.Units.SI.Temperature Tcstc = 25 "PV cell temperature under standard test conditions";
     parameter Real fpv = 0.9 "PV derating factor";
@@ -14,17 +15,23 @@ package AddOnBlocks
 
     Modelica.Blocks.Interfaces.RealOutput Ppv
       annotation (Placement(transformation(extent={{100,-10},{120,10}})));
-    Modelica.Blocks.Sources.CombiTimeTable SolarRadiation
+    Modelica.Blocks.Sources.CombiTimeTable SolarRadiation(table=
+          SolarRadiationTable)
       annotation (Placement(transformation(extent={{-80,40},{-60,60}})));
-    Modelica.Blocks.Sources.CombiTimeTable SolarArrayTemperature
+    Modelica.Blocks.Sources.CombiTimeTable SolarArrayTemperature(table=
+          SolarArrayTemperatureTable)
       annotation (Placement(transformation(extent={{-80,-60},{-60,-40}})));
 
 
 
 
+    parameter Real SolarRadiationTable[:,:]=fill(0.0, 0, 2)
+      "Table matrix (time = first column; e.g., table=[0, 0; 1, 1; 2, 4])";
+    parameter Real SolarArrayTemperatureTable[:,:]=fill(0.0, 0, 2)
+      "Table matrix (time = first column; e.g., table=[0, 0; 1, 1; 2, 4])";
   equation
 
-    Ppv = Ypv*fpv*(SolarRadiation.y[1]/Gtstc)*(1 + ap*(SolarArrayTemperature.y[1] - Tcstc));
+    Ppv = (Ypv/M_b)*fpv*(SolarRadiation.y[1]/Gtstc)*(1 + ap*(SolarArrayTemperature.y[1] - Tcstc));
 
     annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
           Rectangle(extent={{-100,100},{100,-100}}, lineColor={28,108,200}),
