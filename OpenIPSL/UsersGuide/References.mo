@@ -1,4 +1,4 @@
-within OpenIPSL.UsersGuide;
+﻿within OpenIPSL.UsersGuide;
 model References "References"
   extends Modelica.Icons.References;
   annotation (Documentation(info="<html>
@@ -104,6 +104,15 @@ model References "References"
 	In: IFAC-PapersOnLine,
         November 2016,
         <a href=\"https://www.sciencedirect.com/science/article/pii/S240589631632403X\">DOI: https://doi.org/10.1016/j.ifacol.2016.10.774</a>
+</td>
+</tr>
+<tr>
+<td>[PES-TR 66]</td>
+<td>IEEE PES Power System Dynamic Performance Committee, and IEEE PES Task Force on Microgrid Stability Analysis and Modeling:
+        &quot;Microgrid Stability Definitions, Analysis, and Modeling&quot;.
+	In: IEEE Power & Energy Society,
+        April 2018,
+        <a href=\"https://ieeexplore.ieee.org/document/8750828\">DOI: 10.1109/TPWRS.2019.2925703</a>
 </td>
 </tr>
 <tr>

@@ -1,5 +1,5 @@
 within OpenIPSL.Examples.Microgrids.IEEEMicrogrid.GeneratorGroups;
-model DieselGeneratorUnit
+model DieselGeneratorUnit "Diesel Generation Unit"
   extends OpenIPSL.Interfaces.Generator(V_b = 400);
   Electrical.Machines.PSSE.GENROE gENROE(
     V_b=400,
@@ -51,8 +51,8 @@ equation
     annotation (Line(points={{-59.4,-16},{-21,-16}}, color={0,0,127}));
   connect(sEXS.XADIFD, gENROE.XADIFD) annotation (Line(points={{-2,-31},{-2,-40},
           {70,-40},{70,-18},{62,-18}}, color={0,0,127}));
-  connect(sEXS.EFD0, gENROE.EFD0) annotation (Line(points={{-21,-24},{-26,-24},
-          {-26,-44},{74,-44},{74,-10},{62,-10}}, color={0,0,127}));
+  connect(sEXS.EFD0, gENROE.EFD0) annotation (Line(points={{-21,-24},{-26,-24},{
+          -26,-44},{74,-44},{74,-10},{62,-10}}, color={0,0,127}));
   connect(sEXS.ECOMP, gENROE.ETERM) annotation (Line(points={{-21,-20},{-30,-20},
           {-30,-48},{78,-48},{78,-6},{62,-6}}, color={0,0,127}));
   connect(dEGOV.PMECH,gENROE. PMECH)
@@ -61,10 +61,10 @@ equation
           70,28},{-24,28},{-24,18},{-18,18}}, color={0,0,127}));
   connect(gENROE.PMECH0, dEGOV.PMECH0) annotation (Line(points={{62,10},{74,10},
           {74,32},{-28,32},{-28,6},{-18,6}}, color={0,0,127}));
-  connect(sEXS.VUEL, zero.y) annotation (Line(points={{-14,-31},{-14,-38},{-36,
-          -38},{-36,-16},{-59.4,-16}}, color={0,0,127}));
-  connect(sEXS.VOEL, zero.y) annotation (Line(points={{-10,-31},{-10,-38},{-36,
-          -38},{-36,-16},{-59.4,-16}}, color={0,0,127}));
+  connect(sEXS.VUEL, zero.y) annotation (Line(points={{-14,-31},{-14,-38},{-36,-38},
+          {-36,-16},{-59.4,-16}}, color={0,0,127}));
+  connect(sEXS.VOEL, zero.y) annotation (Line(points={{-10,-31},{-10,-38},{-36,-38},
+          {-36,-16},{-59.4,-16}}, color={0,0,127}));
   annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(
         coordinateSystem(preserveAspectRatio=false)));
 end DieselGeneratorUnit;

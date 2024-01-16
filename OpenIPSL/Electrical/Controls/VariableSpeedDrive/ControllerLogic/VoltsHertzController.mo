@@ -24,7 +24,7 @@ model VoltsHertzController "Volts/Hertz controller model"
         rotation=180,
         origin={120,40})));
   OpenIPSL.NonElectrical.Continuous.SimpleLag Speed_Sensor(K=1, T=Tr,
-    y_start=1.9*Modelica.Constants.pi*SysData.fn)
+    y_start=0.1*1.9*Modelica.Constants.pi*SysData.fn)
     annotation (Placement(transformation(extent={{-38,-22},{-18,-2}})));
   parameter OpenIPSL.Types.Time Tr=0.01 "Time constant for speed sensor filter"
     annotation (Dialog(group="Control Parameters"));

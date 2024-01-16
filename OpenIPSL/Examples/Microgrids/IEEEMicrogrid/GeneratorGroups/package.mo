@@ -1,4 +1,4 @@
 within OpenIPSL.Examples.Microgrids.IEEEMicrogrid;
-package GeneratorGroups
+package GeneratorGroups "Synchronous Generator Group"
   extends Modelica.Icons.ExamplesPackage;
 end GeneratorGroups;

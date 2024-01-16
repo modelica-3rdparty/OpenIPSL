@@ -58,9 +58,9 @@ model AC2DCandDC2AC "Phasor based voltage source converter model."
   Modelica.Blocks.Sources.RealExpression Qmotor(y=n.vr*n.ii - n.vi*n.ir) "Reactive power for drawn motor current"
     annotation (Placement(transformation(extent={{24,54},{44,74}})));
   OpenIPSL.Types.PerUnit P "Active Power";
-  Modelica.Units.SI.ActivePower Pdc;
+  Modelica.Units.SI.ActivePower Pdc "DC Circuit Active Power";
   OpenIPSL.Types.PerUnit Q "Reactive Power";
-  OpenIPSL.Types.PerUnit S "Motor Slip";
+  OpenIPSL.Types.PerUnit S "Apparent Power";
 
   Modelica.Blocks.Sources.RealExpression Vmotor(y=Capacitor.v*m_input/(2*sqrt(2)
         *V_b)) "Motor terminal voltage"

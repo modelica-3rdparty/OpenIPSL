@@ -41,6 +41,8 @@ partial model baseMotor "Base model for the PSSE three-phase induction motor mod
   OpenIPSL.Types.PerUnit Ir "Real part of terminal current";
   OpenIPSL.Types.PerUnit Ii "Imaginary part of terminal current";
   OpenIPSL.Types.PerUnit Imag "Terminal current magnitude";
+  OpenIPSL.Types.PerUnit Te_motor "Electromagnetic torque in motor base";
+  OpenIPSL.Types.PerUnit Te_sys "Electromagnetic torque in system base";
 
   Modelica.Blocks.Math.Gain we_fix(k=1) "Necessary gain for controllable synchronous speed functionality"
     annotation (Placement(transformation(extent={{80,-88},{90,-78}})));
@@ -94,8 +96,12 @@ equation
   v = sqrt(p.vr^2 + p.vi^2);
   anglev = atan2(p.vi, p.vr);
   delta = anglev;
-  P = if Ctrl == true then (p.vr*p.ir + p.vi*p.ii)*(we_fix.y/w_b) else (p.vr*p.ir + p.vi*p.ii);
-  Q = if Ctrl == true then ((-p.vr*p.ii) + p.vi*p.ir)*(we_fix.y/w_b) else ((-p.vr*p.ii) + p.vi*p.ir);
+  //P = if Ctrl == true then (p.vr*p.ir + p.vi*p.ii)*(we_fix.y/w_b) else (p.vr*p.ir + p.vi*p.ii);
+  //Q = if Ctrl == true then ((-p.vr*p.ii) + p.vi*p.ir)*(we_fix.y/w_b) else ((-p.vr*p.ii) + p.vi*p.ir);
+  //P = (p.vr*p.ir + p.vi*p.ii);
+  P = if Ctrl == true then Te_sys*nr/w_b else Te_sys;
+  Q = (-p.vr*p.ii) + p.vi*p.ir;
+
   P_motor = P/CoB;
   Q_motor = Q/CoB;
   ns = w_sync/N;
