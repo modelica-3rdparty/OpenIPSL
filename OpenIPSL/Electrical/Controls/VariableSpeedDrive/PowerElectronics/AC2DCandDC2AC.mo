@@ -27,7 +27,7 @@ model AC2DCandDC2AC "Phasor based voltage source converter model."
             {-64,-4}})));
   Modelica.Electrical.Analog.Basic.Resistor Resistor(R=Rdc) "DC link resistor"
     annotation (Placement(transformation(extent={{-42,-10},{-22,10}})));
-  Modelica.Electrical.Analog.Basic.Inductor Inductor(i(start=Il0, fixed=true),
+  Modelica.Electrical.Analog.Basic.Inductor Inductor(i(start=Il0, fixed=false),
                                                      L=Ldc) "DC link inductor"
     annotation (Placement(transformation(extent={{-16,-10},{4,10}})));
   Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch switch(Ron=1e-5, Goff=1e-5) "Switch enforcing no inverse current flow in DC link"
@@ -58,6 +58,7 @@ model AC2DCandDC2AC "Phasor based voltage source converter model."
   Modelica.Blocks.Sources.RealExpression Qmotor(y=n.vr*n.ii - n.vi*n.ir) "Reactive power for drawn motor current"
     annotation (Placement(transformation(extent={{24,54},{44,74}})));
   OpenIPSL.Types.PerUnit P "Active Power";
+  Modelica.Units.SI.ActivePower Pdc;
   OpenIPSL.Types.PerUnit Q "Reactive Power";
   OpenIPSL.Types.PerUnit S "Motor Slip";
 
@@ -131,7 +132,8 @@ equation
     Q = (-p.vr*p.ii) + p.vi*p.ir;
     Q = 0;
     S = sqrt(P^2 + Q^2);
-    Resistor.i = smooth(0,(P*S_b)/Vd0.y);
+    Pdc = Vd0.y*Resistor.i;
+    P*S_b = Pdc;
 
     n.vr = vr_m.y;
     n.vi = vi_m.y;

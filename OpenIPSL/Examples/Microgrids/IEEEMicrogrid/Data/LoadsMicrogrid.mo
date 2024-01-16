@@ -4,7 +4,7 @@ record LoadsMicrogrid "Data record for load power consumption"
 
   // Load 1
   parameter Real P1=0.02e6;
-  parameter Real Q1=0.005e6;
+  parameter Real Q1=0.0123e6;
 
 
   annotation (Documentation(info="<html>

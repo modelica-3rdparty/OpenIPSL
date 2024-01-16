@@ -94,8 +94,8 @@ equation
   v = sqrt(p.vr^2 + p.vi^2);
   anglev = atan2(p.vi, p.vr);
   delta = anglev;
-  P = p.vr*p.ir + p.vi*p.ii;
-  Q = (-p.vr*p.ii) + p.vi*p.ir;
+  P = if Ctrl == true then (p.vr*p.ir + p.vi*p.ii)*(we_fix.y/w_b) else (p.vr*p.ir + p.vi*p.ii);
+  Q = if Ctrl == true then ((-p.vr*p.ii) + p.vi*p.ir)*(we_fix.y/w_b) else ((-p.vr*p.ii) + p.vi*p.ir);
   P_motor = P/CoB;
   Q_motor = Q/CoB;
   ns = w_sync/N;

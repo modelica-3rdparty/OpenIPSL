@@ -1,7 +1,7 @@
 within OpenIPSL.Examples.Microgrids.IEEEMicrogrid;
-model IEEEMicrogrid
+model IEEEMicrogrid_2
   extends Modelica.Icons.Example;
-  OpenIPSL.Electrical.Buses.Bus CentralBus(
+  OpenIPSL.Electrical.Buses.Bus Bus4(
     V_b=400,
     v_0=PF_results.voltages.V4,
     angle_0=PF_results.voltages.A4,
@@ -18,7 +18,7 @@ model IEEEMicrogrid
         extent={{-12,-12},{12,12}},
         rotation=180,
         origin={90,120})));
-  OpenIPSL.Electrical.Buses.Bus SubBus(
+  OpenIPSL.Electrical.Buses.Bus Bus3(
     V_b=400,
     v_0=PF_results.voltages.V3,
     angle_0=PF_results.voltages.A3,
@@ -35,10 +35,10 @@ model IEEEMicrogrid
         extent={{-12,-12},{12,12}},
         rotation=180,
         origin={-10,120})));
-  OpenIPSL.Electrical.Buses.Bus LVBus(
+  OpenIPSL.Electrical.Buses.Bus Bus2(
     V_b=400,
-    v_0=PF_results.voltages.V3,
-    angle_0=PF_results.voltages.A3,
+    v_0=PF_results.voltages.V2,
+    angle_0=PF_results.voltages.A2,
     displayPF=false) annotation (Placement(transformation(
         extent={{-16,-16},{16,16}},
         rotation=0,
@@ -54,35 +54,29 @@ model IEEEMicrogrid
     VB2=400)
           annotation (Placement(transformation(
         extent={{-20,-20},{20,20}},
-        rotation=180,
+        rotation=0,
         origin={-100,100})));
-  OpenIPSL.Electrical.Buses.Bus HVBus(
+  OpenIPSL.Electrical.Buses.Bus Bus1(
     V_b=11000,
-    v_0=PF_results.voltages.V2,
-    angle_0=PF_results.voltages.A2,
+    v_0=PF_results.voltages.V1,
+    angle_0=PF_results.voltages.A1,
     displayPF=false) annotation (Placement(transformation(
         extent={{-16,-16},{16,16}},
         rotation=0,
         origin={-140,100})));
   OpenIPSL.Electrical.Machines.PSSE.GENCLS GRID(
     V_b=11000,
-    v_0=PF_results.voltages.V1,
-    angle_0=PF_results.voltages.A1,
-    P_0=PF_results.machines.PInf,
-    Q_0=PF_results.machines.QInf,
     R_a=0,
     X_d=1)
-    annotation (Placement(transformation(extent={{-240,80},{-200,120}})));
+    annotation (Placement(transformation(extent={{-250,80},{-210,120}})));
 
   inner OpenIPSL.Electrical.SystemBase SysData(fn=60)
     annotation (Placement(transformation(extent={{-208,160},{-168,180}})));
-    //Q_0=pf_results.machines.Q1_1,
-    //P_0=pf_results.machines.P1_1,
   OpenIPSL.Electrical.Events.PwFault Fault1(
     R=0.01,
     X=0.1,
-    t1=10,
-    t2=10.3) annotation (Placement(transformation(extent={{-20,140},{0,160}})));
+    t1=1000,
+    t2=1001) annotation (Placement(transformation(extent={{-20,140},{0,160}})));
   OpenIPSL.Electrical.Events.PwFault Fault2(
     R=0.5,
     X=0.5,
@@ -119,34 +113,18 @@ model IEEEMicrogrid
     annotation (Placement(transformation(extent={{-10,-10},{10,10}},
         rotation=0,
         origin={-190,-150})));
-  OpenIPSL.Electrical.Events.Breaker breaker(enableTrigger=false)
-    annotation (Placement(transformation(extent={{-10,-10},{10,10}},
-        rotation=90,
-        origin={-190,-120})));
   OpenIPSL.Electrical.Banks.PSSE.Shunt capacitor_bank1(G=0, B=0.02/4)
     annotation (Placement(transformation(extent={{-10,-10},{10,10}},
         rotation=0,
         origin={-150,-150})));
-  OpenIPSL.Electrical.Events.Breaker breaker1(enableTrigger=false)
-    annotation (Placement(transformation(extent={{-10,-10},{10,10}},
-        rotation=90,
-        origin={-150,-120})));
   OpenIPSL.Electrical.Banks.PSSE.Shunt capacitor_bank2(G=0, B=0.02/4)
     annotation (Placement(transformation(extent={{-10,-10},{10,10}},
         rotation=0,
         origin={-110,-150})));
-  OpenIPSL.Electrical.Events.Breaker breaker2(enableTrigger=false)
-    annotation (Placement(transformation(extent={{-10,-10},{10,10}},
-        rotation=90,
-        origin={-110,-120})));
   OpenIPSL.Electrical.Banks.PSSE.Shunt capacitor_bank3(G=0, B=0.02/4)
     annotation (Placement(transformation(extent={{-10,-10},{10,10}},
         rotation=0,
         origin={-70,-150})));
-  OpenIPSL.Electrical.Events.Breaker breaker3(enableTrigger=false)
-    annotation (Placement(transformation(extent={{-10,-10},{10,10}},
-        rotation=90,
-        origin={-70,-120})));
   GeneratorGroups.DieselGeneratorUnit Diesel(
     P_0(displayUnit="kW") = PF_results.machines.PDT,
     Q_0=PF_results.machines.QDT,
@@ -155,7 +133,7 @@ model IEEEMicrogrid
         extent={{-10,-10},{10,10}},
         rotation=180,
         origin={230,100})));
-  Electrical.Buses.Bus CapBus(
+  Electrical.Buses.Bus Bus5(
     V_b=400,
     v_0=PF_results.voltages.V5,
     angle_0=PF_results.voltages.A5,
@@ -163,7 +141,7 @@ model IEEEMicrogrid
         extent={{-16,-16},{16,16}},
         rotation=90,
         origin={-130,-70})));
-  Electrical.Buses.Bus LoadBus(
+  Electrical.Buses.Bus Bus6(
     V_b=400,
     v_0=PF_results.voltages.V6,
     angle_0=PF_results.voltages.A6,
@@ -200,7 +178,7 @@ model IEEEMicrogrid
         extent={{-12,-12},{12,12}},
         rotation=270,
         origin={140,-2})));
-  Electrical.Buses.Bus MotorBus(
+  Electrical.Buses.Bus Bus7(
     V_b=400,
     v_0=PF_results.voltages.V7,
     angle_0=PF_results.voltages.A7,
@@ -211,34 +189,39 @@ model IEEEMicrogrid
   Electrical.Controls.VariableSpeedDrive.PowerElectronics.AC2DCandDC2AC
     aC2DCandDC2AC(
     V_b=400,
+    v_0=PF_results.voltages.V7,
+    angle_0=PF_results.voltages.A7,
     Cdc=0.000001,
-    m0=0.9)
+    m0=1)
     annotation (Placement(transformation(extent={{100,-126},{80,-106}})));
   Electrical.Controls.VariableSpeedDrive.ControllerLogic.VoltsHertzController
     voltsHertzController(
     V_b=400,
     f_max=60,
     f_min=0,
-    m0=0.9,
-    Kp=0.5,
+    m0=1,
+    Kp=0.2,
     Ki=0.2)
     annotation (Placement(transformation(extent={{100,-166},{80,-146}})));
   Electrical.Machines.PSSE.CIM5 Motor1(
     V_b=400,
     M_b=50000,
-    Sup=false)
+    Sup=true,
+    T_nom=0.4,
+    D=1)
     annotation (Placement(transformation(extent={{40,-126},{60,-106}})));
-  Electrical.Machines.PSSE.CIM5 Motor2(
-    V_b=400,
-    M_b=50000,                         Sup=false, Ctrl=false)
-    annotation (Placement(transformation(extent={{220,-126},{200,-106}})));
-  Modelica.Blocks.Sources.Ramp Sync_Speed(
-    height=0*(2*Modelica.Constants.pi*SysData.fn),
-    duration=5,
-    offset=0.9*(1.9*Modelica.Constants.pi*SysData.fn),
-    startTime=0)
+  Modelica.Blocks.Sources.Constant
+                               Sync_Speed(k=1*(1.9*Modelica.Constants.pi*
+        SysData.fn))
     annotation (Placement(transformation(extent={{140,-166},{120,-146}})));
   Electrical.Renewables.PSSE.PV PV(
+    M_b(displayUnit="V.A") = 80000,
+    V_b=400,
+    P_0=PF_results.machines.PPV,
+    Q_0=PF_results.machines.QPV,
+    v_0=PF_results.voltages.V4,
+    angle_0=PF_results.voltages.A4,
+    QFunctionality=0,
     redeclare OpenIPSL.Electrical.Renewables.PSSE.InverterInterface.REGCA1
       RenewableGenerator,
     redeclare OpenIPSL.Electrical.Renewables.PSSE.ElectricalController.REECB1
@@ -247,6 +230,13 @@ model IEEEMicrogrid
       PlantController)
     annotation (Placement(transformation(extent={{240,120},{220,140}})));
   Electrical.Renewables.PSSE.BESS BESS(
+    M_b(displayUnit="V.A") = 50000,
+    V_b=400,
+    P_0=PF_results.machines.PBESS,
+    Q_0=PF_results.machines.QBESS,
+    v_0=PF_results.voltages.V4,
+    angle_0=PF_results.voltages.A4,
+    QFunctionality=0,
     redeclare OpenIPSL.Electrical.Renewables.PSSE.InverterInterface.REGCA1
       RenewableGenerator,
     redeclare OpenIPSL.Electrical.Renewables.PSSE.ElectricalController.REECCU1
@@ -254,68 +244,75 @@ model IEEEMicrogrid
     redeclare OpenIPSL.Electrical.Renewables.PSSE.PlantController.REPCA1
       PlantController)
     annotation (Placement(transformation(extent={{240,60},{220,80}})));
+  Electrical.Buses.Bus BusGrid(
+    V_b=11000,
+    v_0=PF_results.voltages.V1,
+    angle_0=PF_results.voltages.A1,
+    displayPF=false) annotation (Placement(transformation(
+        extent={{-16,-16},{16,16}},
+        rotation=0,
+        origin={-196,100})));
+  Electrical.Machines.PSSE.CIM5 Motor2(
+    V_b=400,
+    M_b=50000,
+    Sup=true,
+    Ctrl=false,
+    T_nom=0.4,
+    D=1)
+    annotation (Placement(transformation(extent={{240,-126},{220,-106}})));
+  Electrical.Buses.Bus Bus8(
+    V_b=400,
+    v_0=PF_results.voltages.V7,
+    angle_0=PF_results.voltages.A7,
+    displayPF=false) annotation (Placement(transformation(
+        extent={{-16,-16},{16,16}},
+        rotation=180,
+        origin={200,-116})));
+  Electrical.Branches.PwLine LoadLine2(
+    R=0.0001,
+    X=0.00001,
+    G=0,
+    B=0) annotation (Placement(transformation(
+        extent={{-12,-12},{12,12}},
+        rotation=0,
+        origin={178,-116})));
 equation
-  connect(Transformer.p, LVBus.p)
-    annotation (Line(points={{-78,100},{-60,100}}, color={0,0,255}));
-  connect(Transformer.n, HVBus.p)
-    annotation (Line(points={{-122,100},{-140,100}}, color={0,0,255}));
-  connect(substation_line_2.p, CentralBus.p) annotation (Line(points={{100.8,
-          120},{118,120},{118,100},{140,100}}, color={0,0,255}));
-  connect(substation_line_3.p, CentralBus.p) annotation (Line(points={{100.8,80},
-          {118,80},{118,100},{140,100}}, color={0,0,255}));
-  connect(substation_line_2.n, SubBus.p) annotation (Line(points={{79.2,120},{
-          62,120},{62,100},{40,100}}, color={0,0,255}));
-  connect(substation_line_3.n, SubBus.p) annotation (Line(points={{79.2,80},{62,
+  connect(substation_line_2.p, Bus4.p) annotation (Line(points={{100.8,120},{
+          118,120},{118,100},{140,100}}, color={0,0,255}));
+  connect(substation_line_3.p, Bus4.p) annotation (Line(points={{100.8,80},{118,
+          80},{118,100},{140,100}}, color={0,0,255}));
+  connect(substation_line_2.n, Bus3.p) annotation (Line(points={{79.2,120},{62,
+          120},{62,100},{40,100}}, color={0,0,255}));
+  connect(substation_line_3.n, Bus3.p) annotation (Line(points={{79.2,80},{62,
           80},{62,100},{40,100}}, color={0,0,255}));
-  connect(Fault2.p, SubBus.p) annotation (Line(points={{78.3333,150},{56,150},{
-          56,100},{40,100}}, color={0,0,255}));
-  connect(substation_line_1.p, SubBus.p) annotation (Line(points={{0.8,120},{18,
+  connect(Fault2.p, Bus3.p) annotation (Line(points={{78.3333,150},{56,150},{56,
+          100},{40,100}}, color={0,0,255}));
+  connect(substation_line_1.p, Bus3.p) annotation (Line(points={{0.8,120},{18,
           120},{18,100},{40,100}}, color={0,0,255}));
-  connect(substation_line_4.p, SubBus.p) annotation (Line(points={{0.8,80},{18,
-          80},{18,100},{40,100}}, color={0,0,255}));
-  connect(substation_line_1.n, LVBus.p) annotation (Line(points={{-20.8,120},{
-          -38,120},{-38,100},{-60,100}}, color={0,0,255}));
-  connect(substation_line_4.n, LVBus.p) annotation (Line(points={{-20.8,80},{
-          -38,80},{-38,100},{-60,100}}, color={0,0,255}));
-  connect(Fault1.p, LVBus.p) annotation (Line(points={{-21.6667,150},{-46,150},
-          {-46,100},{-60,100}}, color={0,0,255}));
-  connect(Diesel.pwPin, CentralBus.p)
+  connect(substation_line_4.p, Bus3.p) annotation (Line(points={{0.8,80},{18,80},
+          {18,100},{40,100}}, color={0,0,255}));
+  connect(substation_line_1.n, Bus2.p) annotation (Line(points={{-20.8,120},{-38,
+          120},{-38,100},{-60,100}}, color={0,0,255}));
+  connect(substation_line_4.n, Bus2.p) annotation (Line(points={{-20.8,80},{-38,
+          80},{-38,100},{-60,100}}, color={0,0,255}));
+  connect(Fault1.p, Bus2.p) annotation (Line(points={{-21.6667,150},{-46,150},{
+          -46,100},{-60,100}}, color={0,0,255}));
+  connect(Diesel.pwPin, Bus4.p)
     annotation (Line(points={{219,100},{140,100}}, color={0,0,255}));
-  connect(capacitor_bank.p, breaker.s)
-    annotation (Line(points={{-190,-140},{-190,-130}}, color={0,0,255}));
-  connect(capacitor_bank1.p, breaker1.s)
-    annotation (Line(points={{-150,-140},{-150,-130}}, color={0,0,255}));
-  connect(capacitor_bank2.p, breaker2.s)
-    annotation (Line(points={{-110,-140},{-110,-130}}, color={0,0,255}));
-  connect(capacitor_bank3.p, breaker3.s)
-    annotation (Line(points={{-70,-140},{-70,-130}}, color={0,0,255}));
-  connect(breaker.r, CapBus.p) annotation (Line(points={{-190,-110},{-190,-92},
-          {-130,-92},{-130,-70}}, color={0,0,255}));
-  connect(breaker1.r, CapBus.p) annotation (Line(points={{-150,-110},{-150,-92},
-          {-130,-92},{-130,-70}}, color={0,0,255}));
-  connect(breaker2.r, CapBus.p) annotation (Line(points={{-110,-110},{-110,-92},
-          {-130,-92},{-130,-70}}, color={0,0,255}));
-  connect(breaker3.r, CapBus.p) annotation (Line(points={{-70,-110},{-70,-92},{
-          -130,-92},{-130,-70}}, color={0,0,255}));
-  connect(CapBus.p, CentralBus.p) annotation (Line(points={{-130,-70},{-130,60},
-          {140,60},{140,100}}, color={0,0,255}));
-  connect(load.p, LoadBus.p)
-    annotation (Line(points={{-10,-140},{-10,-70}},  color={0,0,255}));
-  connect(LoadBus.p, LoadLine.n)
-    annotation (Line(points={{-10,-70},{-10,-10.8}},  color={0,0,255}));
-  connect(BreakerGrid.r, HVBus.p)
+  connect(Bus5.p, Bus4.p) annotation (Line(points={{-130,-70},{-130,60},{140,60},
+          {140,100}}, color={0,0,255}));
+  connect(load.p, Bus6.p)
+    annotation (Line(points={{-10,-140},{-10,-70}}, color={0,0,255}));
+  connect(Bus6.p, LoadLine.n)
+    annotation (Line(points={{-10,-70},{-10,-10.8}}, color={0,0,255}));
+  connect(BreakerGrid.r, Bus1.p)
     annotation (Line(points={{-160,100},{-140,100}}, color={0,0,255}));
-  connect(BreakerGrid.s, GRID.p)
-    annotation (Line(points={{-180,100},{-200,100}}, color={0,0,255}));
-  connect(LoadLine.p, CentralBus.p) annotation (Line(points={{-10,10.8},{-10,60},
-          {140,60},{140,100}},                           color={0,0,255}));
-  connect(LoadLine1.p, CentralBus.p)
-    annotation (Line(points={{140,8.8},{140,100}},  color={0,0,255}));
-  connect(LoadLine1.n, MotorBus.p)
-    annotation (Line(points={{140,-12.8},{140,-70}},        color={0,0,255}));
-  connect(Motor2.p, MotorBus.p)
-    annotation (Line(points={{200,-116},{140,-116},{140,-70}},
-                                                           color={0,0,255}));
+  connect(LoadLine.p, Bus4.p) annotation (Line(points={{-10,10.8},{-10,60},{140,
+          60},{140,100}}, color={0,0,255}));
+  connect(LoadLine1.p, Bus4.p)
+    annotation (Line(points={{140,8.8},{140,100}}, color={0,0,255}));
+  connect(LoadLine1.n, Bus7.p)
+    annotation (Line(points={{140,-12.8},{140,-70}}, color={0,0,255}));
   connect(voltsHertzController.Vc, aC2DCandDC2AC.Vc)
     annotation (Line(points={{96,-144},{96,-128}}, color={0,0,127}));
   connect(voltsHertzController.m, aC2DCandDC2AC.m_input)
@@ -326,14 +323,36 @@ equation
     annotation (Line(points={{78,-160},{44,-160},{44,-128}}, color={0,0,127}));
   connect(Motor1.p, aC2DCandDC2AC.n)
     annotation (Line(points={{60,-116},{80,-116}}, color={0,0,255}));
-  connect(aC2DCandDC2AC.p, MotorBus.p) annotation (Line(points={{100,-116},{140,
-          -116},{140,-70}}, color={0,0,255}));
   connect(Sync_Speed.y, voltsHertzController.W_ref)
     annotation (Line(points={{119,-156},{102,-156}}, color={0,0,127}));
-  connect(BESS.pwPin, CentralBus.p) annotation (Line(points={{220,70},{180,70},
-          {180,100},{140,100}}, color={0,0,255}));
-  connect(PV.pwPin, CentralBus.p) annotation (Line(points={{220,130},{180,130},
-          {180,100},{140,100}}, color={0,0,255}));
+  connect(BESS.pwPin, Bus4.p) annotation (Line(points={{220,70},{180,70},{180,
+          100},{140,100}}, color={0,0,255}));
+  connect(PV.pwPin, Bus4.p) annotation (Line(points={{220,130},{180,130},{180,
+          100},{140,100}}, color={0,0,255}));
+  connect(Bus1.p, Transformer.p)
+    annotation (Line(points={{-140,100},{-122,100}}, color={0,0,255}));
+  connect(Transformer.n, Bus2.p)
+    annotation (Line(points={{-78,100},{-60,100}}, color={0,0,255}));
+  connect(BusGrid.p, BreakerGrid.s)
+    annotation (Line(points={{-196,100},{-180,100}}, color={0,0,255}));
+  connect(BusGrid.p, GRID.p)
+    annotation (Line(points={{-196,100},{-210,100}}, color={0,0,255}));
+  connect(capacitor_bank.p, Bus5.p) annotation (Line(points={{-190,-140},{-190,
+          -96},{-130,-96},{-130,-70}}, color={0,0,255}));
+  connect(capacitor_bank1.p, Bus5.p) annotation (Line(points={{-150,-140},{-150,
+          -110},{-130,-110},{-130,-70}}, color={0,0,255}));
+  connect(capacitor_bank2.p, Bus5.p) annotation (Line(points={{-110,-140},{-110,
+          -110},{-130,-110},{-130,-70}}, color={0,0,255}));
+  connect(capacitor_bank3.p, Bus5.p) annotation (Line(points={{-70,-140},{-70,
+          -96},{-130,-96},{-130,-70}}, color={0,0,255}));
+  connect(aC2DCandDC2AC.p, Bus7.p) annotation (Line(points={{100,-116},{140,
+          -116},{140,-70}}, color={0,0,255}));
+  connect(Bus8.p, Motor2.p)
+    annotation (Line(points={{200,-116},{220,-116}}, color={0,0,255}));
+  connect(LoadLine2.n, Bus8.p)
+    annotation (Line(points={{188.8,-116},{200,-116}}, color={0,0,255}));
+  connect(LoadLine2.p, Bus7.p) annotation (Line(points={{167.2,-116},{140,-116},
+          {140,-70}}, color={0,0,255}));
   annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-260,
             -200},{260,200}})),
                           Diagram(coordinateSystem(preserveAspectRatio=false,
@@ -367,7 +386,7 @@ equation
           textColor={28,108,200},
           textString="(7)")}),
     experiment(
-      StopTime=20,
-      __Dymola_NumberOfIntervals=1000,
+      StopTime=50,
+      __Dymola_NumberOfIntervals=200,
       __Dymola_Algorithm="Dassl"));
-end IEEEMicrogrid;
+end IEEEMicrogrid_2;
