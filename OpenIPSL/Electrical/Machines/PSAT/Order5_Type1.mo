@@ -23,7 +23,6 @@ protected
   parameter Types.PerUnit e1d0=vd0 + ra*id0 - x1q*iq0 "Initialization*";
   parameter Types.PerUnit e2d0=vd0 + ra*id0 - x1q*iq0 "Initialization";
 initial equation
-  der(delta) = 0;
   der(e1q) = 0;
   der(e1d) = 0;
   der(e2d) = 0;
