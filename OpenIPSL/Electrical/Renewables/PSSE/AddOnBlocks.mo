@@ -86,8 +86,10 @@ package AddOnBlocks
             fillColor={255,255,170},
             fillPattern=FillPattern.Solid),
           Text(
-            extent={{-80,80},{80,-80}},
+            extent={{-100,100},{100,-100}},
             textColor={0,0,255},
-            textString="Irradiance to Power")}));
+            textString="Irradiance
+to
+Power")}));
   end IrradianceToPower;
 end AddOnBlocks;

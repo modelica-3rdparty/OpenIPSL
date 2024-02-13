@@ -6,58 +6,61 @@ partial model SMIBAddOn
     R=2.50000E-2,
     X=2.50000E-2,
     G=0,
-    B=0.05000/2) annotation (Placement(transformation(extent={{34,10},{54,30}})));
+    B=0.05000/2) annotation (Placement(transformation(extent={{40,-4},{60,16}})));
   OpenIPSL.Electrical.Branches.PwLine pwLine1(
     R=2.50000E-2,
     X=2.50000E-2,
     G=0,
-    B=0.05000/2) annotation (Placement(transformation(extent={{34,-30},{54,-10}})));
-  OpenIPSL.Electrical.Machines.PSSE.GENCLS gENCLS2_1(
-    angle_0=-1.570655e-05,
-    R_a=0,
-    X_d=2.00000E-1,
-    M_b=100000000,
-    V_b=100000,
-    P_0=-1498800,
-    Q_0=-4334000,
-    v_0=1.00000) annotation (Placement(transformation(extent={{98,-12},{86,12}})));
+    B=0.05000/2) annotation (Placement(transformation(extent={{40,-16},{60,4}})));
   OpenIPSL.Electrical.Branches.PwLine pwLine2(
     G=0,
     B=0,
     R=2.50000E-3,
     X=2.50000E-3)
-    annotation (Placement(transformation(extent={{-6,-10},{14,10}})));
+    annotation (Placement(transformation(extent={{4,-10},{24,10}})));
   OpenIPSL.Electrical.Events.PwFault pwFault(
     R=0.5,
     X=0.5,
     t1=2.00,
     t2=2.15)
-            annotation (Placement(transformation(extent={{32,-60},{52,-40}})));
+            annotation (Placement(transformation(extent={{42,-36},{58,-20}})));
   inner OpenIPSL.Electrical.SystemBase SysData(fn=50, S_b=100000000) annotation (Placement(transformation(extent={{-100,80},
             {-60,100}})));
-  OpenIPSL.Electrical.Buses.Bus GEN1
-    annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
+  OpenIPSL.Electrical.Buses.Bus PV_BUS
+    annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
   OpenIPSL.Electrical.Buses.Bus FAULT
-    annotation (Placement(transformation(extent={{6,-10},{26,10}})));
+    annotation (Placement(transformation(extent={{18,-10},{38,10}})));
   OpenIPSL.Electrical.Buses.Bus GEN2
-    annotation (Placement(transformation(extent={{64,-10},{84,10}})));
+    annotation (Placement(transformation(extent={{60,-10},{80,10}})));
+  Electrical.Sources.VoltageSourceReImInput voltageSourceReImInput
+    annotation (Placement(transformation(extent={{96,-10},{76,10}})));
+  Modelica.Blocks.Sources.RealExpression realExpression
+    annotation (Placement(transformation(extent={{130,-14},{110,6}})));
+  Modelica.Blocks.Sources.RealExpression realExpression1(y=if time <= 50000
+         then 1 else 0.99)
+    annotation (Placement(transformation(extent={{130,10},{110,30}})));
 equation
   connect(FAULT.p,pwLine. p)
-    annotation (Line(points={{16,0},{24,0},{24,20},{35,20}}, color={0,0,255}));
-  connect(pwLine1.p,pwLine. p) annotation (Line(points={{35,-20},{24,-20},{24,20},
-          {35,20}},              color={0,0,255}));
-  connect(pwFault.p,FAULT. p) annotation (Line(points={{30.3333,-50},{20,-50},{
-          20,0},{16,0}}, color={0,0,255}));
+    annotation (Line(points={{28,0},{36,0},{36,6},{41,6}},   color={0,0,255}));
+  connect(pwLine1.p,pwLine. p) annotation (Line(points={{41,-6},{36,-6},{36,6},
+          {41,6}},               color={0,0,255}));
+  connect(pwFault.p,FAULT. p) annotation (Line(points={{40.6667,-28},{32,-28},{
+          32,0},{28,0}}, color={0,0,255}));
   connect(pwLine.n,GEN2. p)
-    annotation (Line(points={{53,20},{64,20},{64,0},{74,0}}, color={0,0,255}));
-  connect(pwLine1.n,GEN2. p) annotation (Line(points={{53,-20},{64,-20},{64,0},{
-          74,0}},  color={0,0,255}));
-  connect(GEN2.p,gENCLS2_1. p)
-    annotation (Line(points={{74,0},{86,0}},        color={0,0,255}));
+    annotation (Line(points={{59,6},{64,6},{64,0},{70,0}},   color={0,0,255}));
+  connect(pwLine1.n,GEN2. p) annotation (Line(points={{59,-6},{64,-6},{64,0},{
+          70,0}},  color={0,0,255}));
   connect(pwLine2.n, FAULT.p)
-    annotation (Line(points={{13,0},{16,0}}, color={0,0,255}));
-  connect(GEN1.p, pwLine2.p)
-    annotation (Line(points={{-30,0},{-5,0}}, color={0,0,255}));
+    annotation (Line(points={{23,0},{28,0}}, color={0,0,255}));
+  connect(PV_BUS.p, pwLine2.p)
+    annotation (Line(points={{0,0},{5,0}}, color={0,0,255}));
+  connect(voltageSourceReImInput.p, GEN2.p)
+    annotation (Line(points={{75,0},{70,0}}, color={0,0,255}));
+  connect(voltageSourceReImInput.vIm, realExpression.y)
+    annotation (Line(points={{98,-4},{109,-4}}, color={0,0,127}));
+  connect(realExpression1.y, voltageSourceReImInput.vRe) annotation (Line(
+        points={{109,20},{104,20},{104,12},{106,12},{106,4},{98,4}}, color={0,0,
+          127}));
   annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
             -100},{120,100}})),                                  Diagram(
         coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
