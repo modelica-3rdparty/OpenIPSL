@@ -3,12 +3,12 @@ package AddOnBlocks
   "This package contains additional add ons that can be added to the original renewable models."
   model IrradianceToPower "PV Array Power Output from Irradiance."
 
-    parameter Modelica.Units.SI.ApparentPower M_b = 100000000;
+    parameter Modelica.Units.SI.ApparentPower M_b = 100000000 "Equipment apparent power";
     parameter Modelica.Units.SI.ActivePower Ypv = 1000 "Rated capacity of the PV array";
     parameter Modelica.Units.SI.Temperature Tcstc = 25 "PV cell temperature under standard test conditions";
     parameter Real fpv = 0.9 "PV derating factor";
     parameter Real ap = -0.48 "Temperature coefficient of power";
-    parameter Modelica.Units.SI.RadiantEnergyFluenceRate Gtstc = 1000;
+    parameter Modelica.Units.SI.RadiantEnergyFluenceRate Gtstc = 1000 "Radiant energy fluence rate of PV array";
 
 
 

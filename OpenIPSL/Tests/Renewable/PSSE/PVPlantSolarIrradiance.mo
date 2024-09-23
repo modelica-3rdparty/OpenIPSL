@@ -141,9 +141,7 @@ equation
   connect(limiter.y, add.u2) annotation (Line(points={{-63.4,-24},{-54,-24},{
           -54,-8},{-66,-8},{-66,0.4},{-57.2,0.4}}, color={0,0,127}));
   annotation (experiment(
-      StopTime=86400,
-      __Dymola_NumberOfIntervals=5000,
-      __Dymola_Algorithm="Dassl"), Documentation(info="<html>
+      StopTime=86400), Documentation(info="<html>
 <p>
 Simulate for 5 seconds.
 </p>

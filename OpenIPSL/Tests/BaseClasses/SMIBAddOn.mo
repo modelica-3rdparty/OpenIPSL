@@ -61,8 +61,4 @@ equation
   connect(realExpression1.y, voltageSourceReImInput.vRe) annotation (Line(
         points={{109,20},{104,20},{104,12},{106,12},{106,4},{98,4}}, color={0,0,
           127}));
-  annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-            -100},{120,100}})),                                  Diagram(
-        coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-            100}})));
 end SMIBAddOn;
