@@ -142,8 +142,7 @@ equation
                      color={0,0,255}));
   connect(Capacitor_Voltage.y, Vc) annotation (Line(points={{-63,-74},{-50,-74},
           {-50,-110}}, color={0,0,127}));
-  annotation (preferredView = "info",Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-            {100,100}}),
+  annotation (preferredView = "info",Icon(
         graphics={Rectangle(
           extent={{-100,100},{100,-100}},
           lineColor={28,108,200}),
@@ -155,8 +154,7 @@ equation
         Text(
           extent={{-30,-20},{90,-80}},
           textColor={28,108,200},
-          textString="DC/AC")}),                                                                 Diagram(
-        coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={Rectangle(
+          textString="DC/AC")}),                                                                 Diagram( graphics={Rectangle(
           extent={{14,90},{94,40}},
           lineColor={0,0,255},
           pattern=LinePattern.Dash), Text(

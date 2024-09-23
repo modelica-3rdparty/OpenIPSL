@@ -108,7 +108,7 @@ equation
   nr = (1-s)*ns;
   wr = nr;
 
-  annotation (preferredView = "info",Icon(coordinateSystem(preserveAspectRatio=false), graphics={
+  annotation (preferredView = "info",Icon(graphics={
           Rectangle(extent={{-100,100},{100,-100}}, lineColor={28,108,200}),
                                           Ellipse(
           fillColor={255,255,255},
@@ -120,7 +120,7 @@ equation
           extent={{-100,-20},{100,20}},
           fontName="Arial",
           lineColor={0,0,0},
-          textString="%name")}), Diagram(coordinateSystem(preserveAspectRatio=false)),
+          textString="%name")}),
     Documentation(info="<html>
 <p>
 This component is the base class for the PSSE induction motor models from the Machines.PSSE sub-package.

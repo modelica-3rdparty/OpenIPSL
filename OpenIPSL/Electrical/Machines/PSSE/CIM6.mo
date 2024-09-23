@@ -1,7 +1,6 @@
 within OpenIPSL.Electrical.Machines.PSSE;
 model CIM6 "PSSE CIM6 three-phase induction motor model"
   extends OpenIPSL.Electrical.Machines.PSSE.BaseClasses.baseMotor;
-  import Modelica.Constants.eps;
   import OpenIPSL.NonElectrical.Functions.SE;
 
   parameter Integer Mtype = 1 "1- Motor Type A; 2- Motor Type B" annotation (Dialog(group=
@@ -95,7 +94,7 @@ initial equation
     der(Epi) = 0;
 
   else
-    s = (1 - Modelica.Constants.eps);
+    s = (1 - C.eps);
 
   end if;
 
@@ -132,7 +131,7 @@ equation
   EQ11 = Epi*(Tp0*w_b*s);
   EQ12 = EQ10 + EQ11 - Epr - EQ9;
   EQ12 = Tp0*der(Epr);
-  EQC = NUM/(Epp + eps);
+  EQC = NUM/(Epp + C.eps);
   NUM = SE(Epp,SE1,SE2,1,1.2);
   Epp = sqrt(Eppr^2 + Eppi^2);
   EQ13 = EQC*Eppr;

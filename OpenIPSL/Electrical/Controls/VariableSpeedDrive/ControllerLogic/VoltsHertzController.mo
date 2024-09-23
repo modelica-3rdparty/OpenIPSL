@@ -139,16 +139,14 @@ equation
           96},{60,120}}, color={0,0,127}));
   connect(product1.y, limiter1.u) annotation (Line(points={{-9,40},{6,40}},
                         color={0,0,127}));
-  annotation (preferredView = "info", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-            {100,100}}),                                         graphics={
+  annotation (preferredView = "info", Icon(                                         graphics={
         Rectangle(
           extent={{-100,100},{100,-100}},
           lineColor={28,108,200}),        Text(
           extent={{-80,80},{80,-80}},
           lineColor={28,108,200},
           textString="V/f
-Control")}),                                                     Diagram(
-        coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}})),
+Control")}),
     Documentation(info="<html>
 <p>The VoltsHertzController component represents the controller logic for the variable speed drive. The volts hertz control is a simple and widely used method for controlling the speed of an AC induction motor by adjusting the voltage and frequency supplied to the motor at a constant ratio.</p>
 <p>The model has three inputs and two output connectors. The W_ref input connector represents the reference synchronous speed that is user defined,
