@@ -34,18 +34,15 @@ partial model SMIBAddOn
     annotation (Placement(transformation(extent={{60,-10},{80,10}})));
   Electrical.Sources.VoltageSourceReImInput voltageSourceReImInput
     annotation (Placement(transformation(extent={{96,-10},{76,10}})));
-  Modelica.Blocks.Sources.RealExpression realExpression
-    annotation (Placement(transformation(extent={{130,-14},{110,6}})));
-  Modelica.Blocks.Sources.RealExpression realExpression1(y=if time <= 50000
-         then 1 else 0.99)
-    annotation (Placement(transformation(extent={{130,10},{110,30}})));
+  Modelica.Blocks.Sources.RealExpression imagPart annotation (Placement(transformation(extent={{80,-30},{100,-10}})));
+  Modelica.Blocks.Sources.RealExpression realPart(y=if time <= 50000 then 1 else 0.99) annotation (Placement(transformation(extent={{80,10},{100,30}})));
 equation
   connect(FAULT.p,pwLine. p)
     annotation (Line(points={{28,0},{36,0},{36,6},{41,6}},   color={0,0,255}));
   connect(pwLine1.p,pwLine. p) annotation (Line(points={{41,-6},{36,-6},{36,6},
           {41,6}},               color={0,0,255}));
-  connect(pwFault.p,FAULT. p) annotation (Line(points={{40.6667,-28},{32,-28},{
-          32,0},{28,0}}, color={0,0,255}));
+  connect(pwFault.p,FAULT. p) annotation (Line(points={{40.6667,-28},{32,-28},{32,0},{28,0}},
+                         color={0,0,255}));
   connect(pwLine.n,GEN2. p)
     annotation (Line(points={{59,6},{64,6},{64,0},{70,0}},   color={0,0,255}));
   connect(pwLine1.n,GEN2. p) annotation (Line(points={{59,-6},{64,-6},{64,0},{
@@ -56,9 +53,6 @@ equation
     annotation (Line(points={{0,0},{5,0}}, color={0,0,255}));
   connect(voltageSourceReImInput.p, GEN2.p)
     annotation (Line(points={{75,0},{70,0}}, color={0,0,255}));
-  connect(voltageSourceReImInput.vIm, realExpression.y)
-    annotation (Line(points={{98,-4},{109,-4}}, color={0,0,127}));
-  connect(realExpression1.y, voltageSourceReImInput.vRe) annotation (Line(
-        points={{109,20},{104,20},{104,12},{106,12},{106,4},{98,4}}, color={0,0,
-          127}));
+  connect(voltageSourceReImInput.vIm, imagPart.y) annotation (Line(points={{98,-4},{104,-4},{104,-20},{101,-20}}, color={0,0,127}));
+  connect(realPart.y, voltageSourceReImInput.vRe) annotation (Line(points={{101,20},{104,20},{104,4},{98,4}}, color={0,0,127}));
 end SMIBAddOn;

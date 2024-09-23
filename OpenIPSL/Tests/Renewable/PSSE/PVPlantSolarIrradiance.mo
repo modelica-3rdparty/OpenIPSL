@@ -140,8 +140,7 @@ equation
           -24.08},{-82,-24},{-77.2,-24}}, color={0,0,127}));
   connect(limiter.y, add.u2) annotation (Line(points={{-63.4,-24},{-54,-24},{
           -54,-8},{-66,-8},{-66,0.4},{-57.2,0.4}}, color={0,0,127}));
-  annotation (experiment(
-      StopTime=86400), Documentation(info="<html>
+  annotation (experiment(StopTime=86400), Documentation(info="<html>
 <p>
 Simulate for 5 seconds.
 </p>
@@ -154,12 +153,11 @@ This capability is not found in the original version of the WECC-based renewable
 <li><code>irradianceToPower.Ppv</code></li>
 </ul>
 </html>"),
-    Diagram(coordinateSystem(extent={{-180,-100},{140,100}}), graphics={Text(
+    Diagram(graphics={Text(
           extent={{-102,-8},{-78,-14}},
           textColor={0,0,0},
           textString="Noise"), Text(
           extent={{-40,12},{-24,6}},
           textColor={0,0,0},
-          textString="Pinput")}),
-    Icon(coordinateSystem(extent={{-180,-100},{140,100}})));
+          textString="Pinput")}));
 end PVPlantSolarIrradiance;
