@@ -3,3 +3,4 @@ VoltageSourceReImInputVaryReal
 VoltageSourceReImInputVaryImag
 VoltageSourceReImInputVaryRealAndImag
 CurrentSourceReImInputConstant
+SourcesBehindImpedance
