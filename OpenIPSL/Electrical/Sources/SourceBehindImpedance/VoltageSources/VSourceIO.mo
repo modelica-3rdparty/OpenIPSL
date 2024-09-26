@@ -106,12 +106,12 @@ The initial values of the internal voltage source magnitude and angle are calcul
 It is based on [Du2021], with the difference that the internal impedance includes a resistance and not only a reactance. 
 
 The purpose of this model is to support the development of Grid-Forming Inverter models as described in [Du2021].
-
 </p>
 
 
 <p>
 [Du2021] W. Du, Y. Liu, F.K. Tuffner, R. Huang and Z. Huang: &quot;Model Specification of Droop-Controlled Grid-Forming Inverters (REGFM_A1)&quot;, Richland, WA, USA: Pacific Northwest National Laboratory, September 2021. <a href=\"https://www.pnnl.gov/main/publications/external/technical_reports/PNNL-32278.pdf\">document</a> 
+</p>
 
 </html>"));
 end VSourceIO;
