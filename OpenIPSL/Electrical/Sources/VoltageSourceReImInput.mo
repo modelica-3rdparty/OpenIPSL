@@ -1,4 +1,4 @@
-within OpenIPSL.Electrical.Sources.SourcesWithRealInputs;
+within OpenIPSL.Electrical.Sources;
 model VoltageSourceReImInput
   "Ideal voltage source with user defined real and imaginary parts of the voltage phasor"
   extends OpenIPSL.Electrical.Essentials.pfComponent(enableS_b=true);

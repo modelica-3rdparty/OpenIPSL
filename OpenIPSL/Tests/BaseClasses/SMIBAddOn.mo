@@ -32,8 +32,7 @@ partial model SMIBAddOn
     annotation (Placement(transformation(extent={{18,-10},{38,10}})));
   OpenIPSL.Electrical.Buses.Bus GEN2
     annotation (Placement(transformation(extent={{60,-10},{80,10}})));
-  Electrical.Sources.SourcesWithRealInputs.VoltageSourceReImInput
-    voltageSourceReImInput
+  Electrical.Sources.VoltageSourceReImInput voltageSourceReImInput
     annotation (Placement(transformation(extent={{96,-10},{76,10}})));
   Modelica.Blocks.Sources.RealExpression imagPart annotation (Placement(transformation(extent={{80,-30},{100,-10}})));
   Modelica.Blocks.Sources.RealExpression realPart(y=if time <= 50000 then 1 else 0.99) annotation (Placement(transformation(extent={{80,10},{100,30}})));
