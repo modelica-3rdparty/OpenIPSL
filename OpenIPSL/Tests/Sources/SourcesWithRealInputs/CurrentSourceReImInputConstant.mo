@@ -1,4 +1,4 @@
-within OpenIPSL.Tests.Sources;
+within OpenIPSL.Tests.Sources.SourcesWithRealInputs;
 model CurrentSourceReImInputConstant
   "Test model for the VoltageSourceReImInput model with constant input"
   extends BaseClasses.SMIB;
@@ -6,7 +6,7 @@ model CurrentSourceReImInputConstant
     annotation (Placement(transformation(extent={{-96,14},{-84,26}})));
   Modelica.Blocks.Sources.Constant vIm(k=0)
     annotation (Placement(transformation(extent={{-96,-26},{-84,-14}})));
-  Electrical.Sources.CurrentSourceReImInput iSource
+  Electrical.Sources.SourcesWithRealInputs.CurrentSourceReImInput iSource
     annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
 equation
   connect(iSource.p, GEN1.p)

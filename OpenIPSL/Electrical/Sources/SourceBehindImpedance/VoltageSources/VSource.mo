@@ -35,17 +35,7 @@ equation
           extent={{-100,140},{100,100}},
           textColor={0,0,0},
           textString="%name")}), Documentation(info="<html>
-<p>
-This model provides a voltage source with an internal (constant) voltage source and internal impedance. 
-
-The internal voltage source magnitude and angle are calculated based on the impedance and power flow data. 
-
-It is based on [Du2021], with the difference that the internal impedance includes a resistance and not only a reactance. 
-</p>
-
-<p>
-[Du2021] W. Du, Y. Liu, F.K. Tuffner, R. Huang and Z. Huang: &quot;Model Specification of Droop-Controlled Grid-Forming Inverters (REGFM_A1)&quot;, Richland, WA, USA: Pacific Northwest National Laboratory, September 2021. <a href=\"https://www.pnnl.gov/main/publications/external/technical_reports/PNNL-32278.pdf\">document</a> 
-</p>
-
+<p>This model provides a voltage source with an internal (constant) voltage source and internal impedance.</p>
+<p>See the documentation of <a href=\"Modelica://OpenIPSL.Electrical.Sources.SourceBehindImpedance.BaseClasses.baseVoltageSource\">BaseClasses.baseVoltageSource</a> for more information.</p>
 </html>"));
 end VSource;

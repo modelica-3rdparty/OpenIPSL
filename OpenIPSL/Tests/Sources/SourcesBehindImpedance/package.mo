@@ -3,5 +3,4 @@ package SourcesBehindImpedance
   "Tests models of sources behind impedances with the grid template"
   extends Modelica.Icons.ExamplesPackage;
 
-  annotation();
 end SourcesBehindImpedance;

@@ -30,7 +30,6 @@ equation
           {-62,6}}, color={0,0,127}));
   connect(DEang.y, VSIO.uDEang) annotation (Line(points={{-79,-30},{-72,-30},{
           -72,-6},{-62,-6}}, color={0,0,127}));
-annotation(preferredView="diagram", experiment(StopTime=10,
-        __Dymola_Algorithm="Dassl"));
+annotation(preferredView="diagram", experiment(StopTime=10));
 
 end VSourceIO;

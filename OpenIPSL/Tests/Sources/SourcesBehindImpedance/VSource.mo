@@ -17,5 +17,5 @@ equation
   connect(VS.p, GEN1.p)
     annotation (Line(points={{-39,0},{-30,0}}, color={0,0,255}));
 annotation(preferredView="diagram", Documentation(info="<html>
-</html>"));
+</html>"),experiment(StopTime=10));
 end VSource;

@@ -1,4 +1,4 @@
-within OpenIPSL.Electrical.Sources;
+within OpenIPSL.Electrical.Sources.SourcesWithRealInputs;
 model CurrentSourceReImInput
   "Ideal current source with user defined real and imaginary parts of the current phasor"
   extends OpenIPSL.Electrical.Essentials.pfComponent(enableS_b = true);

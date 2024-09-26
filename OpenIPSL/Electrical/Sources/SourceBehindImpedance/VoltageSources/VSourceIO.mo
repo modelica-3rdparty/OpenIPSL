@@ -3,7 +3,6 @@ model VSourceIO
   "Generic voltage source behind an internal impedance with inputs that vary the internal source magnitude and angle from steady state"
   extends BaseClasses.baseVoltageSource;
   // Input ports and polar to rectangular conversion
-public
   Modelica.Blocks.Interfaces.RealInput uDEmag(start=0)
     "Input to vary the voltage magnitude of the voltage source"
     annotation (Placement(transformation(extent={{-140,40},{-100,80}})));
@@ -99,19 +98,8 @@ which are the real and imaginary input
           textString="%name")}),
     Documentation(info="<html>
 <p>
-This model provides a voltage source with an internal voltage source and internal impedance whose magnitude and angle can be varied via inputs starting from their initial values. 
-
-The initial values of the internal voltage source magnitude and angle are calculated based on the impedance and power flow data. 
-
-It is based on [Du2021], with the difference that the internal impedance includes a resistance and not only a reactance. 
-
-The purpose of this model is to support the development of Grid-Forming Inverter models as described in [Du2021].
+The purpose of this model is to support the development of Grid-Forming Inverter models as described in [Du2021]. The model provides a voltage source with an internal voltage source and internal impedance whose magnitude and angle can be varied via inputs starting from their initial values.
 </p>
-
-
-<p>
-[Du2021] W. Du, Y. Liu, F.K. Tuffner, R. Huang and Z. Huang: &quot;Model Specification of Droop-Controlled Grid-Forming Inverters (REGFM_A1)&quot;, Richland, WA, USA: Pacific Northwest National Laboratory, September 2021. <a href=\"https://www.pnnl.gov/main/publications/external/technical_reports/PNNL-32278.pdf\">document</a> 
-</p>
-
+<p>See the documentation of <a href=\"Modelica://OpenIPSL.Electrical.Sources.SourceBehindImpedance.BaseClasses.baseVoltageSource\">BaseClasses.baseVoltageSource</a> for more information.</p>
 </html>"));
 end VSourceIO;
