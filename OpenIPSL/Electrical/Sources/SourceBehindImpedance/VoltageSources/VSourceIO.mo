@@ -98,8 +98,15 @@ which are the real and imaginary input
           textString="%name")}),
     Documentation(info="<html>
 <p>
-The purpose of this model is to support the development of Grid-Forming Inverter models as described in <a href=\"modelica://OpenIPSL.UsersGuide.References\">[Du2021]</a>. The model provides a voltage source with an internal voltage source and internal impedance whose magnitude and angle can be varied via inputs starting from their initial values.
+The purpose of this model is to support the development of Grid-Forming Inverter models as described in
+<a href=\"modelica://OpenIPSL.UsersGuide.References\">[Du2021]</a>.
+The model provides a voltage source with an internal voltage source and internal impedance
+whose magnitude and angle can be varied via inputs starting from their initial values.
 </p>
-<p>See the documentation of <a href=\"Modelica://OpenIPSL.Electrical.Sources.SourceBehindImpedance.BaseClasses.baseVoltageSource\">BaseClasses.baseVoltageSource</a> for more information.</p>
+<p>
+See the documentation of
+<a href=\"Modelica://OpenIPSL.Electrical.Sources.SourceBehindImpedance.BaseClasses.baseVoltageSource\">BaseClasses.baseVoltageSource</a>
+for more information.
+</p>
 </html>"));
 end VSourceIO;

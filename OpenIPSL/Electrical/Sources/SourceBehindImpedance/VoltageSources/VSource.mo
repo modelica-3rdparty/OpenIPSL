@@ -35,7 +35,13 @@ equation
           extent={{-100,140},{100,100}},
           textColor={0,0,0},
           textString="%name")}), Documentation(info="<html>
-<p>This model provides a voltage source with an internal (constant) voltage source and internal impedance.</p>
-<p>See the documentation of <a href=\"Modelica://OpenIPSL.Electrical.Sources.SourceBehindImpedance.BaseClasses.baseVoltageSource\">BaseClasses.baseVoltageSource</a> for more information.</p>
+<p>
+This model provides a voltage source with an internal (constant) voltage source and internal impedance.
+</p>
+<p>
+See the documentation of
+<a href=\"Modelica://OpenIPSL.Electrical.Sources.SourceBehindImpedance.BaseClasses.baseVoltageSource\">BaseClasses.baseVoltageSource</a>
+for more information.
+</p>
 </html>"));
 end VSource;
