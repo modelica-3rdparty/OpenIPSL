@@ -8,7 +8,7 @@ model VoltageSourceReImInputConstant
   replaceable
   Modelica.Blocks.Sources.Constant vIm(k=0) constrainedby Modelica.Blocks.Interfaces.SO
     annotation (Placement(transformation(extent={{-96,-26},{-84,-14}})));
-  Electrical.Sources.SourcesWithRealInputs.VoltageSourceReImInput vSource
+  Electrical.Sources.VoltageSourceReImInput vSource
     annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
 equation
   connect(vSource.p, GEN1.p)

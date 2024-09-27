@@ -6,7 +6,7 @@ model CurrentSourceReImInputConstant
     annotation (Placement(transformation(extent={{-96,14},{-84,26}})));
   Modelica.Blocks.Sources.Constant vIm(k=0)
     annotation (Placement(transformation(extent={{-96,-26},{-84,-14}})));
-  Electrical.Sources.SourcesWithRealInputs.CurrentSourceReImInput iSource
+  Electrical.Sources.CurrentSourceReImInput iSource
     annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
 equation
   connect(iSource.p, GEN1.p)
