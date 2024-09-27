@@ -52,10 +52,10 @@ equation
 </tr>
 </table>
 </html>", info="<html>
-<p>This model allows the user to specify the voltage real and imaginary part 
+<p>This model allows the user to specify the voltage real and imaginary part
 of the voltage phasor of an ideal voltage source.</p>
-<p>The value of each part of the phasor have to be provided through sources from 
-<code>Modelica.Blocks.Sources</code> with Real valued interfaces to be connected to 
+<p>The value of each part of the phasor have to be provided through sources from
+<code>Modelica.Blocks.Sources</code> with Real valued interfaces to be connected to
 the <code>vRe</code> and <code>vIm</code> real interfaces.</p>
 </html>"));
 end VoltageSourceReImInput;

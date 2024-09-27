@@ -86,9 +86,9 @@ equation
            preferredView="text",
     Documentation(info="<html>
 <p>
-This partial model is used to develop variants of a voltage source with an internal voltage source and internal impedance whose magnitude and angle. 
+This partial model is used to develop variants of a voltage source with an internal voltage source and internal impedance whose magnitude and angle.
 
-The initial values of the internal voltage source magnitude and angle are calculated based on the impedance and power flow data. 
+The initial values of the internal voltage source magnitude and angle are calculated based on the impedance and power flow data.
 
 It is based on <a href=\"modelica://OpenIPSL.UsersGuide.References\">[Du2021]</a>, with the difference that the internal impedance includes a resistance and not only a reactance. </p>
 

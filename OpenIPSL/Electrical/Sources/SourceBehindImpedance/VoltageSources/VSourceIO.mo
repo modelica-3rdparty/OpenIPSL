@@ -30,7 +30,7 @@ equation
           radius=15), Text(
           extent={{-80,-18},{80,-98}},
           textColor={217,67,180},
-          textString="Text Layer assigns p2R.y_re and p2R.y_im to uvre and uvim, 
+          textString="Text Layer assigns p2R.y_re and p2R.y_im to uvre and uvim,
 which are the real and imaginary input
  voltage deviations from the initial value")}), Icon(graphics={
         Ellipse(extent={{-100,100},{100,-100}},
