@@ -22,7 +22,7 @@ equation
           -94,60},{-120,60}}, color={0,0,127}));
   connect(p2R.u_arg, uDEang) annotation (Line(points={{-46.2,-13.6},{-94,-13.6},
           {-94,-60},{-120,-60}}, color={0,0,127}));
-  annotation (Diagram(graphics={              Rectangle(
+  annotation (Diagram(graphics={ Rectangle(
           extent={{52,20},{80,-20}},
           lineColor={28,108,200},
           fillColor={217,67,180},

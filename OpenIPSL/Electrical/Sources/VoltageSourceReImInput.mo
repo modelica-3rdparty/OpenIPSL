@@ -20,14 +20,14 @@ equation
   P = -(p.vr*p.ir + p.vi*p.ii)*S_b;
   Q = -(p.vr*p.ii - p.vi*p.ir)*S_b;
   annotation(Icon(
-        graphics={                 Ellipse(
+        graphics={ Ellipse(
           extent={{-100,100},{100,-100}},
           lineColor={0,0,0},
           fillColor={213,255,170},
           fillPattern=FillPattern.Solid),Line(
           points={{-20,20},{-50,40},{-80,0}},
           color={0,0,0},
-          thickness=0.5),                Line(
+          thickness=0.5), Line(
           points={{20,-20},{50,-40},{80,0}},
           color={0,0,0},
           thickness=0.5),Text(
