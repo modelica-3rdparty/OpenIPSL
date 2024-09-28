@@ -1,4 +1,4 @@
-within OpenIPSL.UsersGuide;
+﻿within OpenIPSL.UsersGuide;
 model References "References"
   extends Modelica.Icons.References;
   annotation (Documentation(info="<html>
@@ -17,8 +17,8 @@ model References "References"
 <td>[Du2021]</td>
 <td>W. Du, Y. Liu, F.K. Tuffner, R. Huang and Z. Huang:
         &quot;Model Specification of Droop-Controlled Grid-Forming Inverters (REGFM_A1)&quot;.
-        Richland, WA, USA: Pacific Northwest National Laboratory, September 2021.
-         <a href=\"https://www.pnnl.gov/main/publications/external/technical_reports/PNNL-32278.pdf\">document</a>
+        Richland, WA, USA: Pacific Northwest National Laboratory, September 2021,
+         (<a href=\"https://www.osti.gov/biblio/1899301/\">Technical Report</a>).
 </td>
 </tr>
 
