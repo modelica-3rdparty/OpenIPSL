@@ -1,55 +1,75 @@
 within OpenIPSL.Electrical.Solar.PowerFactory.General;
-model StaVmea
-  parameter Types.Time Tfe = 3 / 50 annotation (
-    Dialog(enable = use_ref_machine_frequency));
-  parameter Types.Frequency fn = 50;
-  parameter Types.Angle angle_0;
-  parameter Boolean use_ref_machine_frequency = false;
-  OpenIPSL.Interfaces.PwPin p annotation (
-    Placement(transformation(origin = {-110, 0}, extent = {{-10, -10}, {10, 10}}), iconTransformation(origin = {-110, 0}, extent = {{-10, -10}, {10, 10}})));
-  Modelica.Blocks.Interfaces.RealOutput u annotation (
-    Placement(transformation(origin = {118, 58}, extent = {{-10, -10}, {10, 10}}), iconTransformation(origin = {110, 50}, extent = {{-10, -10}, {10, 10}})));
-  Modelica.Blocks.Interfaces.RealOutput fe annotation (
-    Placement(transformation(origin = {108, -30}, extent = {{-10, -10}, {10, 10}}), iconTransformation(origin = {110, -50}, extent = {{-10, -10}, {10, 10}})));
+model StaVmea "Voltage Measurement Device"
+  parameter Types.Time Tfe = 3 / 50 "Measurement delay"
+  annotation (Dialog(enable = use_ref_machine_frequency));
+  parameter Types.Frequency fn = 50 "Nominal frequency";
+  parameter Types.Angle angle_0 = 0 "Initial angle";
+  parameter Boolean use_ref_machine_frequency = false "Use reference machine frequency"
+    annotation(choices(checkBox=true));
+  OpenIPSL.Interfaces.PwPin p annotation (Placement(transformation(extent={{-120,-10},{-100,10}})));
   Real cosphi(start = cos(angle_0));
   Real sinphi(start = sin(angle_0));
-  Real df(start = 0);
-  Real phi if use_ref_machine_frequency;
-  Real vx;
-  Real vy;
-  Real local_df if not use_ref_machine_frequency;
-  Modelica.Blocks.Interfaces.RealInput omega if use_ref_machine_frequency annotation (
-    Placement(transformation(origin = {-100, 70}, extent = {{-20, -20}, {20, 20}}), iconTransformation(origin = {-94, 70}, extent = {{-20, -20}, {20, 20}})));
+  Types.Frequency df(start = 0) "Frequency difference";
+  Types.PerUnit vx "Voltage component";
+  Types.PerUnit vy "Voltage component";
+  Modelica.Blocks.Interfaces.RealOutput u "Voltage magnitude [pu]" annotation (Placement(transformation(extent={{100,50},{120,70}})));
+  Modelica.Blocks.Interfaces.RealOutput fe "Electrical frequency [Hz]" annotation (Placement(transformation(extent={{100,-70},{120,-50}})));
+  Modelica.Blocks.Interfaces.RealInput omega if use_ref_machine_frequency
+    "Reference machine frequency [Hz]"
+    annotation (Placement(transformation(extent={{-140,40},{-100,80}})));
+
+protected
+  Modelica.Blocks.Interfaces.RealInput omega_internal "Helping variable/connector";
+  Modelica.Blocks.Interfaces.RealInput phi if use_ref_machine_frequency "Conditional angle";
+  Modelica.Blocks.Interfaces.RealInput phi_internal "Helping variable/connector";
+  Modelica.Blocks.Interfaces.RealInput local_df if not use_ref_machine_frequency "Conditional frequency difference";
+  Modelica.Blocks.Interfaces.RealInput local_df_internal "Helping variable/connector";
 equation
   u = sqrt(p.vr ^ 2 + p.vi ^ 2);
+  connect(omega,omega_internal);
+  connect(phi,phi_internal);
+  connect(local_df,local_df_internal);
   if use_ref_machine_frequency then
-// First this has to be transformed to the rotating reference frame (w.r.t. the frequency of the reference machine) to correspond to PowerFactory implementation
-    der(phi) = 2 * Modelica.Constants.pi * 50 * (omega - 1);
-    vx = p.vr * cos(phi) + p.vi * sin(phi);
-    vy = (-p.vr * sin(phi)) + p.vi * cos(phi);
+    der(phi_internal) = 2 * C.pi * 50 * (omega_internal - 1)
+    "First this has to be transformed to the rotating reference frame (w.r.t. the frequency of the reference machine) to correspond to PowerFactory implementation
+";
+    vx = p.vr * cos(phi_internal) + p.vi * sin(phi_internal);
+    vy = (-p.vr * sin(phi_internal)) + p.vi * cos(phi_internal);
     der(cosphi) = (vx / u - cosphi) / Tfe;
     der(sinphi) = (vy / u - sinphi) / Tfe;
-    fe = omega + df;
+    fe = omega_internal + df;
   else
     cosphi = vx/u;
     sinphi = vy/u;
-    der(local_df) = (df - local_df) /Tfe;
+    der(local_df_internal) = (df - local_df_internal) /Tfe;
     vx = p.vr;
     vy = p.vi;
-    fe = 1 + local_df;
+    fe = 1 + local_df_internal;
+    omega_internal = 0 "Balance equation";
+    phi_internal = 0 "Balance equation";
   end if;
   if abs(cosphi) > abs(sinphi) then
-    df = der(sinphi) / cosphi / (2 * Modelica.Constants.pi * fn);
+    df = der(sinphi) / cosphi / (2 * C.pi * fn);
   else
-    df = -der(cosphi) / sinphi / (2 * Modelica.Constants.pi * fn);
+    df = -der(cosphi) / sinphi / (2 * C.pi * fn);
   end if;
   p.ii = 0;
   p.ir = 0;
   annotation (
-    Icon(graphics = {Rectangle(fillColor = {255, 255, 255}, fillPattern = FillPattern.Solid, extent = {{-100, 100}, {100, -100}}), Text(origin = {0, 90}, extent = {{-100, 10}, {100, -10}}, textString = "StaVmeas"), Text(origin = {0, 50}, extent = {{62, 8}, {100, -10}}, textString = "u"), Text(origin = {0, -50}, extent = {{62, 8}, {100, -10}}, textString = "fe")}, coordinateSystem()),
+    Icon(graphics={  Rectangle(fillColor = {255, 255, 255}, fillPattern = FillPattern.Solid, extent = {{-100, 100}, {100, -100}}), Text(extent={{-80,90},{80,70}}, textString="StaVmeas"),                             Text(extent={{70,70},{90,50}}, textString="u"),                           Text(extent={{70,-50},{90,-70}}, textString="fe"),
+                         Text(
+          extent={{-100,20},{100,-20}},
+          lineColor={0,0,0},
+          textString="%name")},                                                                                                                                                                                                        coordinateSystem),
     Documentation(info="<html>
 <p>
-StaVmea model in PowerFactory measures voltage and frequency. Frequency in PowerFactory is computed with respect to the frame rorating with frequency equal to the synchronous machine. This is supported via the input omega here. Most of the OpenIPSL examples do not provide omega of the reference machine and thus, if the input is not connected the frequency is computed with respect to the 50Hz reference frame and filtered to simulate the measurement delay.
+StaVmea model in PowerFactory measures voltage and frequency. 
+The frequency in PowerFactory is computed with respect to the frame rotating with frequency 
+equal to the synchronous machine. 
+This is supported via the input <code>omega</code> here. 
+Most of the OpenIPSL examples do not provide <code>omega</code> of the reference machine and thus,
+if the input is not connected the frequency is computed with respect to the 50&nbsp;Hz reference frame
+and filtered to simulate the measurement delay.
 </p>
 </html>", revisions="<html>
 <table cellspacing=\"1\" cellpadding=\"1\" border=\"1\"><tr>
