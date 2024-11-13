@@ -26,10 +26,7 @@ model PQPriority
   Modelica.Blocks.Sources.BooleanExpression PqFlag_(y=PqFlag) annotation (Placement(transformation(extent={{-100,-10},{-80,10}})));
   Modelica.Blocks.Math.Product Imax2 annotation (Placement(transformation(extent={{60,-10},{40,10}})));
   Modelica.Blocks.Sources.RealExpression zero(y=0) annotation (Placement(transformation(extent={{-16,34},{0,50}})));
-  Modelica.Blocks.Math.Gain neg(k=-1) annotation (Placement(transformation(
-        extent={{-4,-4},{4,4}},
-        rotation=0,
-        origin={-4,-58})));
+  Modelica.Blocks.Math.Gain neg(k=-1) annotation (Placement(transformation(extent={{-10,-62},{-2,-54}})));
   Modelica.Blocks.Math.Feedback diffP annotation (Placement(transformation(extent={{20,20},{0,0}})));
 equation
   connect(IqLimiter.y, Iqcmd) annotation (
@@ -57,8 +54,8 @@ equation
   connect(Ipcmd2.u2, Ipcmd2.u1) annotation (Line(points={{62,24},{68,24},{68,36},{62,36}}, color={0,0,127}));
   connect(Imax_.y, Iqmax_.u3) annotation (Line(points={{81,0},{74,0},{74,-80},{-60,-80},{-60,-38},{-50,-38}}, color={0,0,127}));
   connect(Iqmax_.y, IqLimiter.limit1) annotation (Line(points={{-27,-30},{-20,-30},{-20,-42},{8,-42}}, color={0,0,127}));
-  connect(IqLimiter.limit2, neg.y) annotation (Line(points={{8,-58},{0.4,-58}}, color={0,0,127}));
-  connect(neg.u, Iqmax_.y) annotation (Line(points={{-8.8,-58},{-20,-58},{-20,-30},{-27,-30}}, color={0,0,127}));
+  connect(IqLimiter.limit2, neg.y) annotation (Line(points={{8,-58},{-1.6,-58}},color={0,0,127}));
+  connect(neg.u, Iqmax_.y) annotation (Line(points={{-10.8,-58},{-20,-58},{-20,-30},{-27,-30}},color={0,0,127}));
   connect(diffP.u1, Imax2.y) annotation (Line(points={{18,10},{30,10},{30,0},{39,0}}, color={0,0,127}));
   connect(diffP.u2, Ipcmd2.y) annotation (Line(points={{10,18},{10,30},{39,30}}, color={0,0,127}));
   connect(diffP.y, Iqmax_.u1) annotation (Line(points={{1,10},{-20,10},{-20,0},{-56,0},{-56,-22},{-50,-22}}, color={0,0,127}));
