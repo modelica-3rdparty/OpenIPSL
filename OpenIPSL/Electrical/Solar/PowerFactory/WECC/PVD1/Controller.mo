@@ -34,7 +34,7 @@ model Controller
         extent={{-10,-10},{10,10}})));
   Modelica.Blocks.Math.Division division annotation (
     Placement(transformation(origin = {90, -30}, extent = {{-10, -10}, {10, 10}})));
-  OpenIPSL.Electrical.Solar.PowerFactory.WECC.PVD1.QPPriority qppriority(Imax = Imax, PqFlag = PqFlag) annotation (
+  OpenIPSL.Electrical.Solar.PowerFactory.WECC.PVD1.PQPriority qppriority(Imax = Imax, PqFlag = PqFlag) annotation (
     Placement(transformation(origin = {130, 0}, extent = {{-10, -10}, {10, 10}})));
   Modelica.Blocks.Math.Division division1 annotation (
     Placement(transformation(origin = {90, 30}, extent = {{-10, -10}, {10, 10}})));
@@ -102,11 +102,11 @@ equation
   connect(numerical_limit.y, division.u2) annotation (
     Line(points = {{-59, -10}, {-8, -10}, {-8, -36}, {78, -36}}, color = {0, 0, 127}));
   connect(division.y, qppriority.Iq) annotation (
-    Line(points = {{101, -30}, {106, -30}, {106, -5}, {120, -5}}, color = {0, 0, 127}));
+    Line(points={{101,-30},{106,-30},{106,-5},{118,-5}},          color = {0, 0, 127}));
   connect(division1.u2, numerical_limit.y) annotation (
     Line(points = {{78, 24}, {-8, 24}, {-8, -10}, {-59, -10}}, color = {0, 0, 127}));
   connect(division1.y, qppriority.Ip) annotation (
-    Line(points = {{101, 30}, {106, 30}, {106, 5}, {120, 5}}, color = {0, 0, 127}));
+    Line(points={{101,30},{106,30},{106,5},{118,5}},          color = {0, 0, 127}));
   connect(freq, add2.u1) annotation (
     Line(points = {{-200, 150}, {-142, 150}}, color = {0, 0, 127}));
   connect(deadZone.y, frequency_droop.u) annotation (
@@ -132,42 +132,50 @@ equation
   connect(PCurrentController.y, Ip) annotation (
     Line(points = {{193, 90}, {210, 90}}, color = {0, 0, 127}));
   connect(active_power_reference.y, add4.u2) annotation (
-    Line(points = {{-138, 30}, {-80, 30}, {-80, 44}, {-62, 44}, {-62, 44}}, color = {0, 0, 127}));
+    Line(points={{-139,30},{-80,30},{-80,44},{-62,44},{-62,44}},            color = {0, 0, 127}));
   connect(frequency_droop.y, add4.u1) annotation (
     Line(points = {{-39, 144}, {-34, 144}, {-34, 104}, {-80, 104}, {-80, 56}, {-62, 56}}, color = {0, 0, 127}));
   connect(add4.y, division1.u1) annotation (
-    Line(points = {{-38, 50}, {52, 50}, {52, 36}, {78, 36}, {78, 36}}, color = {0, 0, 127}));
+    Line(points={{-39,50},{52,50},{52,36},{78,36},{78,36}},            color = {0, 0, 127}));
   connect(product1.y, PCurrentController.u) annotation (
-    Line(points = {{162, 90}, {170, 90}, {170, 90}, {170, 90}}, color = {0, 0, 127}));
+    Line(points={{161,90},{170,90},{170,90},{170,90}},          color = {0, 0, 127}));
   connect(product1.u2, qppriority.Ipcmd) annotation (
-    Line(points = {{138, 84}, {126, 84}, {126, 20}, {144, 20}, {144, 6}, {142, 6}, {142, 6}}, color = {0, 0, 127}));
+    Line(points={{138,84},{126,84},{126,20},{144,20},{144,6},{141,6},{141,5}},                color = {0, 0, 127}));
   connect(frequency_tripping.TrpLow, product.u1) annotation (
-    Line(points = {{42, 156}, {58, 156}, {58, 156}, {58, 156}}, color = {0, 0, 127}));
+    Line(points={{41,155},{58,155},{58,156},{58,156}},          color = {0, 0, 127}));
   connect(frequency_tripping.TrpHigh, product.u2) annotation (
-    Line(points = {{42, 144}, {58, 144}, {58, 144}, {58, 144}}, color = {0, 0, 127}));
+    Line(points={{41,145},{58,145},{58,144},{58,144}},          color = {0, 0, 127}));
   connect(frequency_tripping.u, freq) annotation (
     Line(points = {{20, 150}, {0, 150}, {0, 184}, {-188, 184}, {-188, 150}, {-200, 150}}, color = {0, 0, 127}));
   connect(voltage_tripping.u, Vt) annotation (
     Line(points = {{20, 110}, {-128, 110}, {-128, -10}, {-200, -10}}, color = {0, 0, 127}));
   connect(voltage_tripping.TrpLow, product2.u1) annotation (
-    Line(points = {{42, 116}, {58, 116}, {58, 116}, {58, 116}}, color = {0, 0, 127}));
+    Line(points={{41,115},{58,115},{58,116},{58,116}},          color = {0, 0, 127}));
   connect(voltage_tripping.TrpHigh, product2.u2) annotation (
-    Line(points = {{42, 106}, {56, 106}, {56, 104}, {58, 104}}, color = {0, 0, 127}));
+    Line(points={{41,105},{56,105},{56,104},{58,104}},          color = {0, 0, 127}));
   connect(product.y, product3.u1) annotation (
-    Line(points = {{82, 150}, {90, 150}, {90, 136}, {98, 136}, {98, 136}}, color = {0, 0, 127}));
+    Line(points={{81,150},{90,150},{90,136},{98,136},{98,136}},            color = {0, 0, 127}));
   connect(product2.y, product3.u2) annotation (
-    Line(points = {{82, 110}, {90, 110}, {90, 124}, {98, 124}, {98, 124}}, color = {0, 0, 127}));
+    Line(points={{81,110},{90,110},{90,124},{98,124},{98,124}},            color = {0, 0, 127}));
   connect(product3.y, product1.u1) annotation (
-    Line(points = {{122, 130}, {128, 130}, {128, 96}, {138, 96}, {138, 96}}, color = {0, 0, 127}));
+    Line(points={{121,130},{128,130},{128,96},{138,96},{138,96}},            color = {0, 0, 127}));
   connect(product4.y, QCurrentController.u) annotation (
-    Line(points = {{162, -70}, {168, -70}, {168, -70}, {170, -70}}, color = {0, 0, 127}));
+    Line(points={{161,-70},{168,-70},{168,-70},{170,-70}},          color = {0, 0, 127}));
   connect(qppriority.Iqcmd, product4.u1) annotation (
-    Line(points = {{142, -4}, {144, -4}, {144, -52}, {130, -52}, {130, -64}, {138, -64}, {138, -64}}, color = {0, 0, 127}));
+    Line(points={{141,-5},{144,-5},{144,-52},{130,-52},{130,-64},{138,-64},{138,-64}},                color = {0, 0, 127}));
   connect(product4.u2, product3.y) annotation (
-    Line(points = {{138, -76}, {112, -76}, {112, 100}, {128, 100}, {128, 130}, {122, 130}, {122, 130}}, color = {0, 0, 127}));
+    Line(points={{138,-76},{112,-76},{112,100},{128,100},{128,130},{121,130},{121,130}},                color = {0, 0, 127}));
   annotation (
-    Diagram(coordinateSystem(extent = {{-200, -200}, {200, 200}}, initialScale = 0.05), graphics = {Text(origin = {-186, 179}, lineColor = {255, 0, 0}, extent = {{-8, 3}, {76, -9}}, textString = "Frequency filtering has to be done outside of this block", horizontalAlignment = TextAlignment.Left), Rectangle(origin = {-67, 141}, lineColor = {0, 170, 0}, pattern = LinePattern.Dash, lineThickness = 1, extent = {{-85, 21}, {51, -45}}), Text(origin = {-186, 179}, lineColor = {255, 0, 0}, extent = {{-8, 3}, {76, -9}}, textString = "Frequency filtering has to be done outside of this block", horizontalAlignment = TextAlignment.Left), Text(origin = {-186, 179}, lineColor = {255, 0, 0}, extent = {{-8, 3}, {76, -9}}, textString = "Frequency filtering has to be done outside of this block", horizontalAlignment = TextAlignment.Left), Text(origin = {-92, 171}, lineColor = {0, 170, 0}, lineThickness = 1, extent = {{-8, 3}, {76, -9}}, textString = "Underfrequency Droop Control", horizontalAlignment = TextAlignment.Left), Rectangle(origin = {-67, 141}, lineColor = {0, 170, 0}, pattern = LinePattern.Dash, lineThickness = 1, extent = {{-85, 21}, {51, -45}}), Rectangle(origin = {-5, -71}, lineColor = {0, 170, 0}, pattern = LinePattern.Dash, lineThickness = 1, extent = {{-85, 21}, {79, -57}}), Text(origin = {-120, -41}, lineColor = {0, 170, 0}, lineThickness = 1, extent = {{30, -1}, {76, -9}}, textString = "Volt/Var Control", horizontalAlignment = TextAlignment.Left)}),
-    Icon(coordinateSystem(extent = {{-200, -200}, {200, 200}}, initialScale = 0.05), graphics = {Rectangle(origin = {-52, 50}, fillColor = {255, 255, 255}, fillPattern = FillPattern.Solid, extent = {{-150, 150}, {252, -250}}), Text(origin = {26, 194}, extent = {{-228, -34}, {174, 6}}, textString = "PVD1")}),
+    Diagram(coordinateSystem(extent = {{-200, -200}, {200, 200}}, initialScale = 0.05), graphics={  Text(origin = {-186, 179}, lineColor = {255, 0, 0}, extent = {{-8, 3}, {76, -9}}, textString = "Frequency filtering has to be done outside of this block", horizontalAlignment = TextAlignment.Left), Rectangle(origin = {-67, 141}, lineColor = {0, 170, 0}, pattern = LinePattern.Dash, lineThickness = 1, extent = {{-85, 21}, {51, -45}}), Text(origin = {-186, 179}, lineColor = {255, 0, 0}, extent = {{-8, 3}, {76, -9}}, textString = "Frequency filtering has to be done outside of this block",
+            horizontalAlignment =                                                                                                                                                                                                        TextAlignment.Left), Text(origin = {-186, 179}, lineColor = {255, 0, 0}, extent = {{-8, 3}, {76, -9}}, textString = "Frequency filtering has to be done outside of this block",
+            horizontalAlignment =                                                                                                                                                                                                        TextAlignment.Left), Text(origin = {-92, 171}, lineColor = {0, 170, 0},
+            lineThickness =                                                                                                                                                                                                        1, extent = {{-8, 3}, {76, -9}}, textString = "Underfrequency Droop Control",
+            horizontalAlignment =                                                                                                                                                                                                        TextAlignment.Left), Rectangle(origin = {-67, 141}, lineColor = {0, 170, 0}, pattern = LinePattern.Dash,
+            lineThickness =                                                                                                                                                                                                        1, extent = {{-85, 21}, {51, -45}}), Rectangle(origin = {-5, -71}, lineColor = {0, 170, 0}, pattern = LinePattern.Dash,
+            lineThickness =                                                                                                                                                                                                        1, extent = {{-85, 21}, {79, -57}}), Text(origin = {-120, -41}, lineColor = {0, 170, 0},
+            lineThickness =                                                                                                                                                                                                        1, extent = {{30, -1}, {76, -9}}, textString = "Volt/Var Control",
+            horizontalAlignment =                                                                                                                                                                                                        TextAlignment.Left)}),
+    Icon(coordinateSystem(extent = {{-200, -200}, {200, 200}}, initialScale = 0.05), graphics={  Rectangle(origin = {-52, 50}, fillColor = {255, 255, 255}, fillPattern = FillPattern.Solid, extent = {{-150, 150}, {252, -250}}), Text(origin = {26, 194}, extent = {{-228, -34}, {174, 6}}, textString = "PVD1")}),
     experiment(StartTime = 0, StopTime = 1, Tolerance = 1e-6, Interval = 0.002),
     __OpenModelica_simulationFlags(lv = "LOG_STATS", outputFormat = "mat", s = "dassl"));
 end Controller;

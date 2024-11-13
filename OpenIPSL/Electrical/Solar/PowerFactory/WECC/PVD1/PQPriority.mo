@@ -1,5 +1,5 @@
 within OpenIPSL.Electrical.Solar.PowerFactory.WECC.PVD1;
-model QPPriority
+model PQPriority
   parameter Boolean PqFlag;
   parameter Types.PerUnit Imax;
   Modelica.Blocks.Interfaces.RealInput Ip annotation (
@@ -67,4 +67,4 @@ equation
           textString="%name",
           lineColor={0,0,0}),                                                                                                                                                                                            Text(extent={{-100,60},{-60,40}}, textString="Ipref"),                           Text(extent={{-100,-40},{-60,-60}}, textString="Iqref"),                          Text(extent={{58,60},{98,40}}, textString="Ipcmd"),                               Text(extent={{58,-40},{98,-60}},
             textString="Iqcmd")}));
-end QPPriority;
+end PQPriority;
