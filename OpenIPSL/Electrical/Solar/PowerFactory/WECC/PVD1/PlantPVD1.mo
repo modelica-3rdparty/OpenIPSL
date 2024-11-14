@@ -1,5 +1,5 @@
 within OpenIPSL.Electrical.Solar.PowerFactory.WECC.PVD1;
-model Plant_PVD1
+model PlantPVD1
   extends OpenIPSL.Electrical.Essentials.pfComponent(
     final enabledisplayPF=false,
     final enablefn=true,
@@ -86,4 +86,4 @@ equation
           lineColor={0,0,255},
           extent={{-100,150},{100,110}},
           textString="%name")}));
-end Plant_PVD1;
+end PlantPVD1;

@@ -19,7 +19,7 @@ model PVD1
         origin={30,0},
         extent={{10,-10},{-10,10}},
         rotation=0)));
-  Electrical.Solar.PowerFactory.WECC.PVD1.Plant_PVD1 pvd1_plant(
+  Electrical.Solar.PowerFactory.WECC.PVD1.PlantPVD1 plantPVD1(
     M_b(displayUnit="V.A") = 0.5e6,
     P_0=300000,
     Q_0=100000) annotation (Placement(visible=true, transformation(
@@ -33,7 +33,7 @@ model PVD1
 equation
   connect(voltage.y, elmVac.v) annotation (Line(points={{59,-20},{50,-20},{50,-6},{40.4,-6},{40.4,-4}}, color={0,0,127}));
   connect(frequency.y, elmVac.f0) annotation (Line(points={{59,30},{50,30},{50,6},{40.4,6},{40.4,4}}, color={0,0,127}));
-  connect(pvd1_plant.p, elmVac.p) annotation (Line(points={{-19,0},{18,0},{18,0},{19,0}}, color={0,0,255}));
+  connect(plantPVD1.p, elmVac.p) annotation (Line(points={{-19,0},{18,0},{18,0},{19,0}}, color={0,0,255}));
   annotation (experiment(
       StartTime=0,
       StopTime=2,
