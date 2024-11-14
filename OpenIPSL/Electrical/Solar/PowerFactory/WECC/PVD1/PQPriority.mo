@@ -1,7 +1,7 @@
 within OpenIPSL.Electrical.Solar.PowerFactory.WECC.PVD1;
-model PQPriority
-  parameter Boolean PqFlag;
-  parameter Types.PerUnit Imax;
+model PQPriority "P-Q priority module"
+  parameter Boolean PqFlag "Priority on current limit flag: 1=P prio.; 0 = Q prio.";
+  parameter Types.PerUnit Imax "Maximum allowable total converter current";
   Modelica.Blocks.Interfaces.RealInput Ip annotation (
     Placement(transformation(origin={-120,50},    extent = {{-20, -20}, {20, 20}}), iconTransformation(origin={-120,50},    extent = {{-20, -20}, {20, 20}})));
   Modelica.Blocks.Interfaces.RealInput Iq annotation (

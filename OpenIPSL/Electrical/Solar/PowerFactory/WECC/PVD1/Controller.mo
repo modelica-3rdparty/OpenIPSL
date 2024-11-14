@@ -21,10 +21,8 @@ model Controller
   parameter Types.PerUnit Vt1 = 0.9 "Voltage tripping repose curve point 1";
   parameter Types.PerUnit Vt2 = 1.1 "Voltage tripping repose curve point 2";
   parameter Types.PerUnit Vt3 = 1.2 "Voltage tripping repose curve point 3";
-  Modelica.Blocks.Interfaces.RealInput Vt annotation (
-    Placement(transformation(origin = {-200, -10}, extent = {{-20, -20}, {20, 20}}), iconTransformation(origin = {-200, 140}, extent = {{-20, -20}, {20, 20}})));
-  Modelica.Blocks.Interfaces.RealInput It annotation (
-    Placement(transformation(origin = {-200, -70}, extent = {{-20, -20}, {20, 20}}), iconTransformation(origin = {-200, 60}, extent = {{-20, -20}, {20, 20}})));
+  Modelica.Blocks.Interfaces.RealInput Vt annotation (Placement(transformation(extent={{-240,-30},{-200,10}}), iconTransformation(extent={{-140,40},{-100,80}})));
+  Modelica.Blocks.Interfaces.RealInput It annotation (Placement(transformation(extent={{-240,-90},{-200,-50}}), iconTransformation(origin={-120,0}, extent={{-20,-20},{20,20}})));
   Modelica.Blocks.Math.Gain compensation(k = Xc) annotation (
     Placement(transformation(origin = {-150, -70}, extent = {{-10, -10}, {10, 10}})));
   Modelica.Blocks.Math.Add add annotation (
@@ -42,8 +40,7 @@ model Controller
     Placement(transformation(origin = {182, 90}, extent = {{-10, -10}, {10, 10}})));
   Modelica.Blocks.Continuous.FirstOrder QCurrentController(T = Tg, initType = Modelica.Blocks.Types.Init.InitialOutput, k = -1, y_start = -Qref / u_0) annotation (
     Placement(transformation(origin = {182, -70}, extent = {{-10, -10}, {10, 10}})));
-  Modelica.Blocks.Interfaces.RealInput freq annotation (
-    Placement(transformation(origin = {-200, 150}, extent = {{-20, -20}, {20, 20}}), iconTransformation(origin = {-200, -60}, extent = {{-20, -20}, {20, 20}})));
+  Modelica.Blocks.Interfaces.RealInput freq annotation (Placement(transformation(extent={{-240,130},{-200,170}}), iconTransformation(origin={-120,-60},  extent={{-20,-20},{20,20}})));
   Modelica.Blocks.Sources.Constant freq_ref(k = 1) annotation (
     Placement(transformation(origin = {-182, 110}, extent = {{-10, -10}, {10, 10}})));
   Modelica.Blocks.Math.Add add2(k1 = -1) annotation (
@@ -68,9 +65,9 @@ model Controller
   Modelica.Blocks.Sources.Constant reactive_power_reference(k = Qref) annotation (
     Placement(transformation(origin = {-70, -110}, extent = {{-10, -10}, {10, 10}})));
   Modelica.Blocks.Interfaces.RealOutput Ip annotation (
-    Placement(transformation(origin = {210, 90}, extent = {{-10, -10}, {10, 10}}), iconTransformation(origin = {210, 110}, extent = {{-10, -10}, {10, 10}})));
+    Placement(transformation(origin = {210, 90}, extent = {{-10, -10}, {10, 10}}), iconTransformation(origin={110,60},     extent = {{-10, -10}, {10, 10}})));
   Modelica.Blocks.Interfaces.RealOutput Iq annotation (
-    Placement(transformation(origin = {210, -70}, extent = {{-10, -10}, {10, 10}}), iconTransformation(origin = {210, -90}, extent = {{-10, -10}, {10, 10}})));
+    Placement(transformation(origin = {210, -70}, extent = {{-10, -10}, {10, 10}}), iconTransformation(origin={110,-60},    extent = {{-10, -10}, {10, 10}})));
   Modelica.Blocks.Math.Add add4 annotation (
     Placement(transformation(origin = {-50, 50}, extent = {{-10, -10}, {10, 10}})));
   parameter Types.PerUnit Qref;
@@ -92,13 +89,13 @@ model Controller
     Placement(transformation(origin = {150, -70}, extent = {{-10, -10}, {10, 10}})));
 equation
   connect(It, compensation.u) annotation (
-    Line(points = {{-200, -70}, {-162, -70}}, color = {0, 0, 127}));
+    Line(points={{-220,-70},{-162,-70}},      color = {0, 0, 127}));
   connect(compensation.y, add.u2) annotation (
     Line(points = {{-139, -70}, {-130.5, -70}, {-130.5, -76}, {-122, -76}}, color = {0, 0, 127}));
   connect(Vt, add.u1) annotation (
-    Line(points = {{-200, -10}, {-128, -10}, {-128, -63}, {-122, -63}, {-122, -64}}, color = {0, 0, 127}));
+    Line(points={{-220,-10},{-128,-10},{-128,-63},{-122,-63},{-122,-64}},            color = {0, 0, 127}));
   connect(numerical_limit.u, Vt) annotation (
-    Line(points = {{-82, -10}, {-200, -10}}, color = {0, 0, 127}));
+    Line(points={{-82,-10},{-220,-10}},      color = {0, 0, 127}));
   connect(numerical_limit.y, division.u2) annotation (
     Line(points = {{-59, -10}, {-8, -10}, {-8, -36}, {78, -36}}, color = {0, 0, 127}));
   connect(division.y, qppriority.Iq) annotation (
@@ -108,7 +105,7 @@ equation
   connect(division1.y, qppriority.Ip) annotation (
     Line(points={{101,30},{106,30},{106,5},{118,5}},          color = {0, 0, 127}));
   connect(freq, add2.u1) annotation (
-    Line(points = {{-200, 150}, {-142, 150}}, color = {0, 0, 127}));
+    Line(points={{-220,150},{-142,150}},      color = {0, 0, 127}));
   connect(deadZone.y, frequency_droop.u) annotation (
     Line(points = {{-79, 144}, {-62, 144}}, color = {0, 0, 127}));
   connect(freq_ref.y, add2.u2) annotation (
@@ -146,9 +143,9 @@ equation
   connect(frequency_tripping.TrpHigh, product.u2) annotation (
     Line(points={{41,145},{58,145},{58,144},{58,144}},          color = {0, 0, 127}));
   connect(frequency_tripping.u, freq) annotation (
-    Line(points = {{20, 150}, {0, 150}, {0, 184}, {-188, 184}, {-188, 150}, {-200, 150}}, color = {0, 0, 127}));
+    Line(points={{18,150},{0,150},{0,184},{-188,184},{-188,150},{-220,150}},              color = {0, 0, 127}));
   connect(voltage_tripping.u, Vt) annotation (
-    Line(points = {{20, 110}, {-128, 110}, {-128, -10}, {-200, -10}}, color = {0, 0, 127}));
+    Line(points={{18,110},{-128,110},{-128,-10},{-220,-10}},          color = {0, 0, 127}));
   connect(voltage_tripping.TrpLow, product2.u1) annotation (
     Line(points={{41,115},{58,115},{58,116},{58,116}},          color = {0, 0, 127}));
   connect(voltage_tripping.TrpHigh, product2.u2) annotation (
@@ -175,7 +172,26 @@ equation
             lineThickness =                                                                                                                                                                                                        1, extent = {{-85, 21}, {79, -57}}), Text(origin = {-120, -41}, lineColor = {0, 170, 0},
             lineThickness =                                                                                                                                                                                                        1, extent = {{30, -1}, {76, -9}}, textString = "Volt/Var Control",
             horizontalAlignment =                                                                                                                                                                                                        TextAlignment.Left)}),
-    Icon(coordinateSystem(extent = {{-200, -200}, {200, 200}}, initialScale = 0.05), graphics={  Rectangle(origin = {-52, 50}, fillColor = {255, 255, 255}, fillPattern = FillPattern.Solid, extent = {{-150, 150}, {252, -250}}), Text(origin = {26, 194}, extent = {{-228, -34}, {174, 6}}, textString = "PVD1")}),
+    Icon(graphics={  Rectangle(origin={-24.9099,25},                                                                           fillColor = {255, 255, 255}, fillPattern = FillPattern.Solid, extent={{-74.3452,75},{124.91,-125}}),
+                                                                                                                                                                                                        Text(
+          extent={{-100,100},{100,70}},
+          textString="%name",
+          lineColor={0,0,0}),                                                                                                                                                                                                      Text(
+          extent={{-96,66},{-78,48}},
+          lineColor={0,0,0},
+          textString="Vt"),                                                                                                                                                                                                        Text(
+          extent={{-98,8},{-78,-12}},
+          lineColor={0,0,0},
+          textString="It"),                                                                                                                                                                                                        Text(
+          extent={{-96,-52},{-76,-72}},
+          lineColor={0,0,0},
+          textString="freq"),                                                                                                                                                                                                      Text(
+          extent={{70,70},{90,50}},
+          lineColor={0,0,0},
+          textString="Ip"),                                                                                                                                                                                                        Text(
+          extent={{70,-52},{90,-72}},
+          lineColor={0,0,0},
+          textString="Iq")}),
     experiment(StartTime = 0, StopTime = 1, Tolerance = 1e-6, Interval = 0.002),
     __OpenModelica_simulationFlags(lv = "LOG_STATS", outputFormat = "mat", s = "dassl"));
 end Controller;

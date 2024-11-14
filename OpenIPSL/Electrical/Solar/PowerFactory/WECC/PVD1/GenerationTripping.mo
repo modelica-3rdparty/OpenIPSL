@@ -6,12 +6,9 @@ model GenerationTripping
   parameter Real Lv3;
   parameter Real recov;
   parameter Real Tfilter = 1e-2 "Best to set about the time step value for fixed-step solvers";
-  Modelica.Blocks.Interfaces.RealInput u annotation (
-    Placement(transformation(origin = {-100, 0}, extent = {{-20, -20}, {20, 20}}), iconTransformation(origin = {-100, 0}, extent = {{-20, -20}, {20, 20}})));
-  Modelica.Blocks.Interfaces.RealOutput TrpLow annotation (
-    Placement(transformation(origin = {110, 50}, extent = {{-10, -10}, {10, 10}}), iconTransformation(origin = {110, 50}, extent = {{-10, -10}, {10, 10}})));
-  Modelica.Blocks.Interfaces.RealOutput TrpHigh annotation (
-    Placement(transformation(origin = {110, -50}, extent = {{-10, -10}, {10, 10}}), iconTransformation(origin = {110, -50}, extent = {{-10, -10}, {10, 10}})));
+  Modelica.Blocks.Interfaces.RealInput u annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
+  Modelica.Blocks.Interfaces.RealOutput TrpLow annotation (Placement(transformation(origin={110,50}, extent={{-10,-10},{10,10}})));
+  Modelica.Blocks.Interfaces.RealOutput TrpHigh annotation (Placement(transformation(origin={110,-50}, extent={{-10,-10},{10,10}})));
   Real umin;
   Real umax;
 initial equation
@@ -46,5 +43,7 @@ equation
     reinit(umax, Lv2);
   end when;
   annotation (
-    Icon(graphics={ Rectangle(fillColor = {255, 255, 255}, fillPattern = FillPattern.Solid, extent = {{-100, 100}, {100, -100}}), Text(origin = {32, 93}, extent = {{-132, 7}, {68, -13}}, textString = "Generation Tripping"), Text(origin = {144, 53}, extent = {{-132, 7}, {-44, -13}}, textString = "TripLow"), Text(origin = {144, -47}, extent = {{-132, 7}, {-44, -13}}, textString = "TripHigh"), Text(origin = {36, 3}, extent = {{-132, 7}, {-44, -13}}, textString = "Input")}));
+    Icon(graphics={ Rectangle(fillColor = {255, 255, 255}, fillPattern = FillPattern.Solid, extent={{-100,100},{100,-100}}),      Text(origin={32,83},    extent = {{-132, 7}, {68, -13}},
+          textString="%name",
+          lineColor={0,0,0}),                                                                                                                                                                                                   Text(extent={{38,59},{98,40}}, textString="TripLow"),                               Text(extent={{38,-40},{98,-60}}, textString="TripHigh"),                              Text(extent={{-96,9},{-56,-10}}, textString="Input")}));
 end GenerationTripping;
