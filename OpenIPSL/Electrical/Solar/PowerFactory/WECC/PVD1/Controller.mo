@@ -40,7 +40,7 @@ model Controller
     Placement(transformation(origin = {182, 90}, extent = {{-10, -10}, {10, 10}})));
   Modelica.Blocks.Continuous.FirstOrder QCurrentController(T = Tg, initType = Modelica.Blocks.Types.Init.InitialOutput, k = -1, y_start = -Qref / u_0) annotation (
     Placement(transformation(origin = {182, -70}, extent = {{-10, -10}, {10, 10}})));
-  Modelica.Blocks.Interfaces.RealInput freq annotation (Placement(transformation(extent={{-240,130},{-200,170}}), iconTransformation(origin={-120,-60},  extent={{-20,-20},{20,20}})));
+  Modelica.Blocks.Interfaces.RealInput freq annotation (Placement(transformation(extent={{-240,130},{-200,170}}), iconTransformation(origin={-120,-60}, extent={{-20,-20},{20,20}})));
   Modelica.Blocks.Sources.Constant freq_ref(k = 1) annotation (
     Placement(transformation(origin = {-182, 110}, extent = {{-10, -10}, {10, 10}})));
   Modelica.Blocks.Math.Add add2(k1 = -1) annotation (
@@ -65,9 +65,9 @@ model Controller
   Modelica.Blocks.Sources.Constant reactive_power_reference(k = Qref) annotation (
     Placement(transformation(origin = {-70, -110}, extent = {{-10, -10}, {10, 10}})));
   Modelica.Blocks.Interfaces.RealOutput Ip annotation (
-    Placement(transformation(origin = {210, 90}, extent = {{-10, -10}, {10, 10}}), iconTransformation(origin={110,60},     extent = {{-10, -10}, {10, 10}})));
+    Placement(transformation(origin = {210, 90}, extent = {{-10, -10}, {10, 10}}), iconTransformation(origin={110,60}, extent = {{-10, -10}, {10, 10}})));
   Modelica.Blocks.Interfaces.RealOutput Iq annotation (
-    Placement(transformation(origin = {210, -70}, extent = {{-10, -10}, {10, 10}}), iconTransformation(origin={110,-60},    extent = {{-10, -10}, {10, 10}})));
+    Placement(transformation(origin = {210, -70}, extent = {{-10, -10}, {10, 10}}), iconTransformation(origin={110,-60}, extent = {{-10, -10}, {10, 10}})));
   Modelica.Blocks.Math.Add add4 annotation (
     Placement(transformation(origin = {-50, 50}, extent = {{-10, -10}, {10, 10}})));
   parameter Types.PerUnit Qref;
@@ -89,23 +89,23 @@ model Controller
     Placement(transformation(origin = {150, -70}, extent = {{-10, -10}, {10, 10}})));
 equation
   connect(It, compensation.u) annotation (
-    Line(points={{-220,-70},{-162,-70}},      color = {0, 0, 127}));
+    Line(points={{-220,-70},{-162,-70}}, color = {0, 0, 127}));
   connect(compensation.y, add.u2) annotation (
     Line(points = {{-139, -70}, {-130.5, -70}, {-130.5, -76}, {-122, -76}}, color = {0, 0, 127}));
   connect(Vt, add.u1) annotation (
-    Line(points={{-220,-10},{-128,-10},{-128,-63},{-122,-63},{-122,-64}},            color = {0, 0, 127}));
+    Line(points={{-220,-10},{-128,-10},{-128,-63},{-122,-63},{-122,-64}}, color = {0, 0, 127}));
   connect(numerical_limit.u, Vt) annotation (
-    Line(points={{-82,-10},{-220,-10}},      color = {0, 0, 127}));
+    Line(points={{-82,-10},{-220,-10}}, color = {0, 0, 127}));
   connect(numerical_limit.y, division.u2) annotation (
     Line(points = {{-59, -10}, {-8, -10}, {-8, -36}, {78, -36}}, color = {0, 0, 127}));
   connect(division.y, qppriority.Iq) annotation (
-    Line(points={{101,-30},{106,-30},{106,-5},{118,-5}},          color = {0, 0, 127}));
+    Line(points={{101,-30},{106,-30},{106,-5},{118,-5}}, color = {0, 0, 127}));
   connect(division1.u2, numerical_limit.y) annotation (
     Line(points = {{78, 24}, {-8, 24}, {-8, -10}, {-59, -10}}, color = {0, 0, 127}));
   connect(division1.y, qppriority.Ip) annotation (
-    Line(points={{101,30},{106,30},{106,5},{118,5}},          color = {0, 0, 127}));
+    Line(points={{101,30},{106,30},{106,5},{118,5}}, color = {0, 0, 127}));
   connect(freq, add2.u1) annotation (
-    Line(points={{-220,150},{-142,150}},      color = {0, 0, 127}));
+    Line(points={{-220,150},{-142,150}}, color = {0, 0, 127}));
   connect(deadZone.y, frequency_droop.u) annotation (
     Line(points = {{-79, 144}, {-62, 144}}, color = {0, 0, 127}));
   connect(freq_ref.y, add2.u2) annotation (
@@ -129,66 +129,66 @@ equation
   connect(PCurrentController.y, Ip) annotation (
     Line(points = {{193, 90}, {210, 90}}, color = {0, 0, 127}));
   connect(active_power_reference.y, add4.u2) annotation (
-    Line(points={{-139,30},{-80,30},{-80,44},{-62,44},{-62,44}},            color = {0, 0, 127}));
+    Line(points={{-139,30},{-80,30},{-80,44},{-62,44},{-62,44}}, color = {0, 0, 127}));
   connect(frequency_droop.y, add4.u1) annotation (
     Line(points = {{-39, 144}, {-34, 144}, {-34, 104}, {-80, 104}, {-80, 56}, {-62, 56}}, color = {0, 0, 127}));
   connect(add4.y, division1.u1) annotation (
-    Line(points={{-39,50},{52,50},{52,36},{78,36},{78,36}},            color = {0, 0, 127}));
+    Line(points={{-39,50},{52,50},{52,36},{78,36},{78,36}}, color = {0, 0, 127}));
   connect(product1.y, PCurrentController.u) annotation (
-    Line(points={{161,90},{170,90},{170,90},{170,90}},          color = {0, 0, 127}));
+    Line(points={{161,90},{170,90},{170,90},{170,90}}, color = {0, 0, 127}));
   connect(product1.u2, qppriority.Ipcmd) annotation (
-    Line(points={{138,84},{126,84},{126,20},{144,20},{144,6},{141,6},{141,5}},                color = {0, 0, 127}));
+    Line(points={{138,84},{126,84},{126,20},{144,20},{144,6},{141,6},{141,5}}, color = {0, 0, 127}));
   connect(frequency_tripping.TrpLow, product.u1) annotation (
-    Line(points={{41,155},{58,155},{58,156},{58,156}},          color = {0, 0, 127}));
+    Line(points={{41,155},{58,155},{58,156},{58,156}}, color = {0, 0, 127}));
   connect(frequency_tripping.TrpHigh, product.u2) annotation (
-    Line(points={{41,145},{58,145},{58,144},{58,144}},          color = {0, 0, 127}));
+    Line(points={{41,145},{58,145},{58,144},{58,144}}, color = {0, 0, 127}));
   connect(frequency_tripping.u, freq) annotation (
-    Line(points={{18,150},{0,150},{0,184},{-188,184},{-188,150},{-220,150}},              color = {0, 0, 127}));
+    Line(points={{18,150},{0,150},{0,184},{-188,184},{-188,150},{-220,150}}, color = {0, 0, 127}));
   connect(voltage_tripping.u, Vt) annotation (
-    Line(points={{18,110},{-128,110},{-128,-10},{-220,-10}},          color = {0, 0, 127}));
+    Line(points={{18,110},{-128,110},{-128,-10},{-220,-10}}, color = {0, 0, 127}));
   connect(voltage_tripping.TrpLow, product2.u1) annotation (
-    Line(points={{41,115},{58,115},{58,116},{58,116}},          color = {0, 0, 127}));
+    Line(points={{41,115},{58,115},{58,116},{58,116}}, color = {0, 0, 127}));
   connect(voltage_tripping.TrpHigh, product2.u2) annotation (
-    Line(points={{41,105},{56,105},{56,104},{58,104}},          color = {0, 0, 127}));
+    Line(points={{41,105},{56,105},{56,104},{58,104}}, color = {0, 0, 127}));
   connect(product.y, product3.u1) annotation (
-    Line(points={{81,150},{90,150},{90,136},{98,136},{98,136}},            color = {0, 0, 127}));
+    Line(points={{81,150},{90,150},{90,136},{98,136},{98,136}}, color = {0, 0, 127}));
   connect(product2.y, product3.u2) annotation (
-    Line(points={{81,110},{90,110},{90,124},{98,124},{98,124}},            color = {0, 0, 127}));
+    Line(points={{81,110},{90,110},{90,124},{98,124},{98,124}}, color = {0, 0, 127}));
   connect(product3.y, product1.u1) annotation (
-    Line(points={{121,130},{128,130},{128,96},{138,96},{138,96}},            color = {0, 0, 127}));
+    Line(points={{121,130},{128,130},{128,96},{138,96},{138,96}}, color = {0, 0, 127}));
   connect(product4.y, QCurrentController.u) annotation (
-    Line(points={{161,-70},{168,-70},{168,-70},{170,-70}},          color = {0, 0, 127}));
+    Line(points={{161,-70},{168,-70},{168,-70},{170,-70}}, color = {0, 0, 127}));
   connect(qppriority.Iqcmd, product4.u1) annotation (
-    Line(points={{141,-5},{144,-5},{144,-52},{130,-52},{130,-64},{138,-64},{138,-64}},                color = {0, 0, 127}));
+    Line(points={{141,-5},{144,-5},{144,-52},{130,-52},{130,-64},{138,-64},{138,-64}}, color = {0, 0, 127}));
   connect(product4.u2, product3.y) annotation (
-    Line(points={{138,-76},{112,-76},{112,100},{128,100},{128,130},{121,130},{121,130}},                color = {0, 0, 127}));
+    Line(points={{138,-76},{112,-76},{112,100},{128,100},{128,130},{121,130},{121,130}}, color = {0, 0, 127}));
   annotation (
-    Diagram(coordinateSystem(extent = {{-200, -200}, {200, 200}}, initialScale = 0.05), graphics={  Text(origin = {-186, 179}, lineColor = {255, 0, 0}, extent = {{-8, 3}, {76, -9}}, textString = "Frequency filtering has to be done outside of this block", horizontalAlignment = TextAlignment.Left), Rectangle(origin = {-67, 141}, lineColor = {0, 170, 0}, pattern = LinePattern.Dash, lineThickness = 1, extent = {{-85, 21}, {51, -45}}), Text(origin = {-186, 179}, lineColor = {255, 0, 0}, extent = {{-8, 3}, {76, -9}}, textString = "Frequency filtering has to be done outside of this block",
-            horizontalAlignment =                                                                                                                                                                                                        TextAlignment.Left), Text(origin = {-186, 179}, lineColor = {255, 0, 0}, extent = {{-8, 3}, {76, -9}}, textString = "Frequency filtering has to be done outside of this block",
-            horizontalAlignment =                                                                                                                                                                                                        TextAlignment.Left), Text(origin = {-92, 171}, lineColor = {0, 170, 0},
-            lineThickness =                                                                                                                                                                                                        1, extent = {{-8, 3}, {76, -9}}, textString = "Underfrequency Droop Control",
-            horizontalAlignment =                                                                                                                                                                                                        TextAlignment.Left), Rectangle(origin = {-67, 141}, lineColor = {0, 170, 0}, pattern = LinePattern.Dash,
-            lineThickness =                                                                                                                                                                                                        1, extent = {{-85, 21}, {51, -45}}), Rectangle(origin = {-5, -71}, lineColor = {0, 170, 0}, pattern = LinePattern.Dash,
-            lineThickness =                                                                                                                                                                                                        1, extent = {{-85, 21}, {79, -57}}), Text(origin = {-120, -41}, lineColor = {0, 170, 0},
-            lineThickness =                                                                                                                                                                                                        1, extent = {{30, -1}, {76, -9}}, textString = "Volt/Var Control",
-            horizontalAlignment =                                                                                                                                                                                                        TextAlignment.Left)}),
-    Icon(graphics={  Rectangle(origin={-24.9099,25},                                                                           fillColor = {255, 255, 255}, fillPattern = FillPattern.Solid, extent={{-74.3452,75},{124.91,-125}}),
+    Diagram(coordinateSystem(extent = {{-200, -200}, {200, 200}}, initialScale = 0.05), graphics={ Text(origin = {-186, 179}, lineColor = {255, 0, 0}, extent = {{-8, 3}, {76, -9}}, textString = "Frequency filtering has to be done outside of this block", horizontalAlignment = TextAlignment.Left), Rectangle(origin = {-67, 141}, lineColor = {0, 170, 0}, pattern = LinePattern.Dash, lineThickness = 1, extent = {{-85, 21}, {51, -45}}), Text(origin = {-186, 179}, lineColor = {255, 0, 0}, extent = {{-8, 3}, {76, -9}}, textString = "Frequency filtering has to be done outside of this block",
+            horizontalAlignment = TextAlignment.Left), Text(origin = {-186, 179}, lineColor = {255, 0, 0}, extent = {{-8, 3}, {76, -9}}, textString = "Frequency filtering has to be done outside of this block",
+            horizontalAlignment = TextAlignment.Left), Text(origin = {-92, 171}, lineColor = {0, 170, 0},
+            lineThickness = 1, extent = {{-8, 3}, {76, -9}}, textString = "Underfrequency Droop Control",
+            horizontalAlignment = TextAlignment.Left), Rectangle(origin = {-67, 141}, lineColor = {0, 170, 0}, pattern = LinePattern.Dash,
+            lineThickness = 1, extent = {{-85, 21}, {51, -45}}), Rectangle(origin = {-5, -71}, lineColor = {0, 170, 0}, pattern = LinePattern.Dash,
+            lineThickness = 1, extent = {{-85, 21}, {79, -57}}), Text(origin = {-120, -41}, lineColor = {0, 170, 0},
+            lineThickness = 1, extent = {{30, -1}, {76, -9}}, textString = "Volt/Var Control",
+            horizontalAlignment = TextAlignment.Left)}),
+    Icon(graphics={ Rectangle(origin={-24.9099,25}, fillColor = {255, 255, 255}, fillPattern = FillPattern.Solid, extent={{-74.3452,75},{124.91,-125}}),
                                                                                                                                                                                                         Text(
           extent={{-100,100},{100,70}},
           textString="%name",
-          lineColor={0,0,0}),                                                                                                                                                                                                      Text(
+          lineColor={0,0,0}), Text(
           extent={{-96,66},{-78,48}},
           lineColor={0,0,0},
-          textString="Vt"),                                                                                                                                                                                                        Text(
+          textString="Vt"), Text(
           extent={{-98,8},{-78,-12}},
           lineColor={0,0,0},
-          textString="It"),                                                                                                                                                                                                        Text(
+          textString="It"), Text(
           extent={{-96,-52},{-76,-72}},
           lineColor={0,0,0},
-          textString="freq"),                                                                                                                                                                                                      Text(
+          textString="freq"), Text(
           extent={{70,70},{90,50}},
           lineColor={0,0,0},
-          textString="Ip"),                                                                                                                                                                                                        Text(
+          textString="Ip"), Text(
           extent={{70,-52},{90,-72}},
           lineColor={0,0,0},
           textString="Iq")}),

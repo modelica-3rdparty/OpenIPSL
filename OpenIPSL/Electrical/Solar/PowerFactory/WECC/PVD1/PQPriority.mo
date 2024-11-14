@@ -3,17 +3,17 @@ model PQPriority "P-Q priority module"
   parameter Boolean PqFlag "Priority on current limit flag: 1=P prio.; 0 = Q prio.";
   parameter Types.PerUnit Imax "Maximum allowable total converter current";
   Modelica.Blocks.Interfaces.RealInput Ip annotation (
-    Placement(transformation(origin={-120,50},    extent = {{-20, -20}, {20, 20}}), iconTransformation(origin={-120,50},    extent = {{-20, -20}, {20, 20}})));
+    Placement(transformation(origin={-120,50}, extent = {{-20, -20}, {20, 20}}), iconTransformation(origin={-120,50}, extent = {{-20, -20}, {20, 20}})));
   Modelica.Blocks.Interfaces.RealInput Iq annotation (
-    Placement(transformation(origin={-120,-50},    extent = {{-20, -20}, {20, 20}}), iconTransformation(origin={-120,-50},    extent = {{-20, -20}, {20, 20}})));
+    Placement(transformation(origin={-120,-50}, extent = {{-20, -20}, {20, 20}}), iconTransformation(origin={-120,-50}, extent = {{-20, -20}, {20, 20}})));
   Modelica.Blocks.Interfaces.RealOutput Iqcmd annotation (
     Placement(transformation(origin = {110, -50}, extent = {{-10, -10}, {10, 10}}), iconTransformation(origin = {110, -50}, extent = {{-10, -10}, {10, 10}})));
   Modelica.Blocks.Interfaces.RealOutput Ipcmd annotation (
     Placement(transformation(origin = {110, 50}, extent = {{-10, -10}, {10, 10}}), iconTransformation(origin = {110, 50}, extent = {{-10, -10}, {10, 10}})));
   Modelica.Blocks.Nonlinear.VariableLimiter IpLimiter annotation (
-    Placement(transformation(origin={20,50},   extent = {{-10, -10}, {10, 10}})));
+    Placement(transformation(origin={20,50}, extent = {{-10, -10}, {10, 10}})));
   Modelica.Blocks.Nonlinear.VariableLimiter IqLimiter annotation (
-    Placement(transformation(origin={20,-50},   extent = {{-10, -10}, {10, 10}})));
+    Placement(transformation(origin={20,-50}, extent = {{-10, -10}, {10, 10}})));
   Modelica.Blocks.Sources.RealExpression Imax_(y=Imax) annotation (Placement(transformation(extent={{102,-10},{82,10}})));
   Modelica.Blocks.Math.Feedback diffQ annotation (Placement(transformation(extent={{20,-20},{0,0}})));
   Modelica.Blocks.Math.Product Ipcmd2 annotation (Placement(transformation(extent={{60,20},{40,40}})));
@@ -30,13 +30,13 @@ model PQPriority "P-Q priority module"
   Modelica.Blocks.Math.Feedback diffP annotation (Placement(transformation(extent={{20,20},{0,0}})));
 equation
   connect(IqLimiter.y, Iqcmd) annotation (
-    Line(points={{31,-50},{110,-50}},      color = {0, 0, 127}));
+    Line(points={{31,-50},{110,-50}}, color = {0, 0, 127}));
   connect(IpLimiter.y, Ipcmd) annotation (
-    Line(points={{31,50},{110,50}},      color = {0, 0, 127}));
+    Line(points={{31,50},{110,50}}, color = {0, 0, 127}));
   connect(Ip, IpLimiter.u) annotation (
-    Line(points={{-120,50},{8,50}},        color = {0, 0, 127}));
+    Line(points={{-120,50},{8,50}}, color = {0, 0, 127}));
   connect(Iq, IqLimiter.u) annotation (
-    Line(points={{-120,-50},{8,-50}},        color = {0, 0, 127}));
+    Line(points={{-120,-50},{8,-50}}, color = {0, 0, 127}));
 
   connect(IpLimiter.y, Ipcmd2.u2) annotation (Line(points={{31,50},{68,50},{68,24},{62,24}}, color={0,0,127}));
   connect(Iqcmd2.u1, IqLimiter.y) annotation (Line(points={{62,-36},{68,-36},{68,-50},{31,-50}}, color={0,0,127}));
@@ -60,8 +60,8 @@ equation
   connect(diffP.u2, Ipcmd2.y) annotation (Line(points={{10,18},{10,30},{39,30}}, color={0,0,127}));
   connect(diffP.y, Iqmax_.u1) annotation (Line(points={{1,10},{-20,10},{-20,0},{-56,0},{-56,-22},{-50,-22}}, color={0,0,127}));
   annotation (
-    Icon(graphics={ Rectangle(fillColor = {255, 255, 255}, fillPattern = FillPattern.Solid, extent = {{-100, 100}, {100, -100}}), Text(origin={20,90},     extent={{-120,0},{80,-20}},
+    Icon(graphics={ Rectangle(fillColor = {255, 255, 255}, fillPattern = FillPattern.Solid, extent = {{-100, 100}, {100, -100}}), Text(origin={20,90}, extent={{-120,0},{80,-20}},
           textString="%name",
-          lineColor={0,0,0}),                                                                                                                                                                                            Text(extent={{-100,60},{-60,40}}, textString="Ipref"),                           Text(extent={{-100,-40},{-60,-60}}, textString="Iqref"),                          Text(extent={{58,60},{98,40}}, textString="Ipcmd"),                               Text(extent={{58,-40},{98,-60}},
+          lineColor={0,0,0}), Text(extent={{-100,60},{-60,40}}, textString="Ipref"), Text(extent={{-100,-40},{-60,-60}}, textString="Iqref"), Text(extent={{58,60},{98,40}}, textString="Ipcmd"), Text(extent={{58,-40},{98,-60}},
             textString="Iqcmd")}));
 end PQPriority;

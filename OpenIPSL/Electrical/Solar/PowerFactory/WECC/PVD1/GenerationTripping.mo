@@ -43,7 +43,7 @@ equation
     reinit(umax, Lv2);
   end when;
   annotation (
-    Icon(graphics={ Rectangle(fillColor = {255, 255, 255}, fillPattern = FillPattern.Solid, extent={{-100,100},{100,-100}}),      Text(origin={32,83},    extent = {{-132, 7}, {68, -13}},
+    Icon(graphics={ Rectangle(fillColor = {255, 255, 255}, fillPattern = FillPattern.Solid, extent={{-100,100},{100,-100}}), Text(origin={32,83}, extent = {{-132, 7}, {68, -13}},
           textString="%name",
-          lineColor={0,0,0}),                                                                                                                                                                                                   Text(extent={{38,59},{98,40}}, textString="TripLow"),                               Text(extent={{38,-40},{98,-60}}, textString="TripHigh"),                              Text(extent={{-96,9},{-56,-10}}, textString="Input")}));
+          lineColor={0,0,0}), Text(extent={{38,59},{98,40}}, textString="TripLow"), Text(extent={{38,-40},{98,-60}}, textString="TripHigh"), Text(extent={{-96,9},{-56,-10}}, textString="Input")}));
 end GenerationTripping;
