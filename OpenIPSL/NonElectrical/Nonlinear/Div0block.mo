@@ -2,7 +2,7 @@ within OpenIPSL.NonElectrical.Nonlinear;
 block Div0block "Block that implements division by zero protection"
   extends Modelica.Blocks.Interfaces.SI2SO;
 equation
-   y =OpenIPSL.NonElectrical.Functions.div0protect(u1, u2)
+   y =OpenIPSL.NonElectrical.Functions.div0protect(u1, u2);
   annotation (Icon(graphics={
         Text(
           extent={{-150,150},{150,110}},
