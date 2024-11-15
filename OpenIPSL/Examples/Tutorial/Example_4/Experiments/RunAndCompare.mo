@@ -51,5 +51,5 @@ algorithm
     range={0.0, 10.0, -0.5, 2.0}, erase=false, grid=true, subPlot=103,
     colors={{238,46,47}}, displayUnits={"1"},
     axes={2});
-
+  annotation(__Dymola_interactive=true);
 end RunAndCompare;

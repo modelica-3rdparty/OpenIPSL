@@ -11,7 +11,8 @@ algorithm
   // Modelica.Utilities.Streams.print(String(ss));
   // Check eigenvalues of the open-loop
   Modelica.Math.Matrices.eigenValues(ss.A);
-  annotation (Documentation(info="<html>
+  annotation (__Dymola_interactive=true,
+    Documentation(info="<html>
 <p>This function linearizes the equations of the example system and extracts the eigenvalues from the state matrix A.</p>
 <p>The main goal of this function is to identify the unstable eigenvalues, or modes, which are going to be the focus of the next text system, in Example 2.</p>
 </html>"));

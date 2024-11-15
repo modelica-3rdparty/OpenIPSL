@@ -4,4 +4,5 @@ function saveTotalSMIBModel "Save the SMIB package as a total model"
   output Boolean ok "= true, if successful";
 algorithm
   ok := saveTotalModel("SMIBTotal.mo", "SMIB", true);
+  annotation(__Dymola_interactive=true);
 end saveTotalSMIBModel;

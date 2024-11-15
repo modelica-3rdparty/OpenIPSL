@@ -15,12 +15,13 @@ algorithm
   Modelica_LinearSystems2.Utilities.Plot.rootLocusOfModel(pathToPlantModel, {
     Modelica_LinearSystems2.Records.ParameterVariation(
     Name="G1.avr.K0",
-    grid=Modelica_LinearSystems2.Types.Grid.Equidistant,
+    grid=Modelica_LinearSystems2.Utilities.Types.Grid.Equidistant,
     Value=200,
     Min=0,
     Max=200,
     nPoints=50)});
-  annotation (Documentation(info="<html>
+  annotation (__Dymola_interactive=true,
+  Documentation(info="<html>
 <p>This function varies the AVR gain and, for each value, it linearizes the equations of the example system and extracts the eigenvalues from the state matrix A. By doing so, it stores all the poles of the system and how their loci change with the parametric variation corresponding to AVR gain.</p>
 <p>The main goal of this function is to identify for what values of the AVR gain, the system is stable and the poles have adequate damping.</p>
 </html>"));
