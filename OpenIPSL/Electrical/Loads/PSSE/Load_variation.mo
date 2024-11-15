@@ -8,7 +8,7 @@ protected
   parameter Real PF=if q0 <= C.eps then 1 else p0/q0 "Ration between active and reactive power; Not Power Factor";
   parameter Types.PerUnit d_Q=(p0 + d_P)/PF - q0;
 equation
-  if time >= t1 and time <= t1 + d_t then
+  if time >= t1 and time < t1 + d_t then
     kI*S_I.re*v + S_Y.re*v^2 + kP*(S_P.re + d_P) = p.vr*p.ir + p.vi*p.ii;
     kI*S_I.im*v + S_Y.im*v^2 + kP*(S_P.im + d_Q) = (-p.vr*p.ii) + p.vi*p.ir;
   else

@@ -35,7 +35,7 @@ partial model SMIBAddOn
   Electrical.Sources.VoltageSourceReImInput voltageSourceReImInput
     annotation (Placement(transformation(extent={{96,-10},{76,10}})));
   Modelica.Blocks.Sources.RealExpression imagPart annotation (Placement(transformation(extent={{80,-30},{100,-10}})));
-  Modelica.Blocks.Sources.RealExpression realPart(y=if time <= 50000 then 1 else 0.99) annotation (Placement(transformation(extent={{80,10},{100,30}})));
+  Modelica.Blocks.Sources.RealExpression realPart(y=if time < 50000 then 1 else 0.99)  annotation (Placement(transformation(extent={{80,10},{100,30}})));
 equation
   connect(FAULT.p,pwLine. p)
     annotation (Line(points={{28,0},{36,0},{36,6},{41,6}},   color={0,0,255}));
