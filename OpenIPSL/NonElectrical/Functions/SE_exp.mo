@@ -8,7 +8,7 @@ function SE_exp "Exponential Saturation Function (PTI PSS/E) "
   input Real E_2 "Second saturation point";
   output Real sys "Saturated Output";
 protected
-  parameter Real X=log(S_EE_2/S_EE_1)/log(E_2);
+  Real X=log(S_EE_2/S_EE_1)/log(E_2);
 algorithm
   sys := S_EE_1*u^X;
 end SE_exp;
