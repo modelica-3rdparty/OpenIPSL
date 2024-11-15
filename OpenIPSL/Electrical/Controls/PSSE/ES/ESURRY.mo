@@ -66,12 +66,6 @@ model ESURRY "AC1A Excitation System"
     E_2=E_2,
     S_EE_1=S_EE_1,
     S_EE_2=S_EE_2,
-    redeclare replaceable Modelica.Blocks.Continuous.LimIntegrator sISO(
-      outMin=0,
-      k=1/rotatingExciterWithDemagnetization.T_E,
-      initType=Modelica.Blocks.Types.Init.InitialOutput,
-      y_start=rotatingExciterWithDemagnetization.Efd0,
-      outMax=Modelica.Constants.inf),
     K_D=K_D,
     Efd0=VE0,
     Sum(k3=K_D))
