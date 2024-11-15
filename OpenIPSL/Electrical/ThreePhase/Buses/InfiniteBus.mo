@@ -50,6 +50,9 @@ model InfiniteBus "Three-phase infinite bus"
   Types.ReactivePower Qb "Reactive Power supplied by the Infinite bus (phase b)";
   Types.ActivePower Pc "Active Power supplied by the Infinite bus (phase c)";
   Types.ReactivePower Qc "Reactive Power supplied by the Infinite bus (phase c)";
+  Types.ActivePower P = Pa + Pb + Pc "Active Power for icon display";
+  Types.ReactivePower Q = Qa + Qb + Qc "Reactive Power for icon display";
+
 equation
   // Equations for Phase A
   p1.vr = V_A*cos(angle_A);

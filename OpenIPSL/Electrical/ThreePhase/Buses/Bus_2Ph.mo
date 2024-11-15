@@ -52,13 +52,13 @@ equation
           fillPattern=FillPattern.Solid,
           extent={{-39.0262,-16.7966},{39.0262,16.7966}},
           fontName="Arial",
-          textString=DynamicSelect("0.0", "%Va"),
+          textString=DynamicSelect("0.0", String(V1, significantDigits=3)),
           lineColor={238,46,47}),Text(
           origin={0.9738,-140.937},
           fillPattern=FillPattern.Solid,
           extent={{-39.0262,-16.7966},{39.0262,16.7966}},
           fontName="Arial",
-          textString=DynamicSelect("0.0", String(Vb, significantDigits=3)),
+          textString=DynamicSelect("0.0", String(V2, significantDigits=3)),
           lineColor={238,46,47})}),
           Documentation(info="<html>
 <p>This is a two-phase bus model.</p>

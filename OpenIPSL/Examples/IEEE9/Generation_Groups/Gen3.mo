@@ -52,11 +52,11 @@ model Gen3 "16.5kV/100MVA generation unit connected to bus 1"
     annotation (Placement(transformation(extent={{-72,12},{-62,22}})));
   OpenIPSL.Interfaces.PwPin pwPin
     annotation (Placement(transformation(extent={{100,-10},{120,10}})));
-  //Real P_MW;
-  //Real Q_MVA;
+  Real P_MW "For icon display";
+  Real Q_Mvar "For icon display";
 equation
-  //P_MW = gen.P*S_b;
-  //Q_MVA = gen.Q*S_b;
+  P_MW = gen.P*S_b;
+  Q_Mvar = gen.Q*S_b;
   connect(gen.v, AVR.v) annotation (Line(
       points={{39,17},{48,17},{48,-14},{-22,-14},{-22,4},{-18,4}},
       color={0,0,127},
@@ -97,7 +97,7 @@ equation
           lineColor={0,255,0},
           fillColor={0,0,255},
           fillPattern=FillPattern.Solid,
-          textString=DynamicSelect("0.0", String(Q_MVA, significantDigits=3)))}),
+          textString=DynamicSelect("0.0", String(Q_Mvar, significantDigits=3)))}),
     Documentation(info="<html>
 <p>16.5kV/100MVA Generation unit, identified as number 3, connected to bus 1, and composed of the following component models:</p>
 <ul>
