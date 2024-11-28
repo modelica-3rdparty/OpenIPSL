@@ -1,5 +1,5 @@
 within OpenIPSL.Electrical.Solar.PowerFactory.WECC.PVD1;
-model Controller
+model Controller "Plan Control"
   parameter Types.PerUnit Imax=1.1 "Maximum allowable total converter current";
   parameter Boolean PqFlag "Priority on current limit flag: 1=P prio.; 0 = Q prio.";
   parameter Types.Time Tg=0.02 "Inverter current regulator time constat";
@@ -53,9 +53,9 @@ model Controller
   Modelica.Blocks.Interfaces.RealOutput Ip annotation (Placement(transformation(origin={210,90}, extent={{-10,-10},{10,10}}), iconTransformation(origin={110,60}, extent={{-10,-10},{10,10}})));
   Modelica.Blocks.Interfaces.RealOutput Iq annotation (Placement(transformation(origin={210,-70}, extent={{-10,-10},{10,10}}), iconTransformation(origin={110,-60}, extent={{-10,-10},{10,10}})));
   Modelica.Blocks.Math.Add add4 annotation (Placement(transformation(origin={-50,50}, extent={{-10,-10},{10,10}})));
-  parameter Types.PerUnit Qref;
-  parameter Types.PerUnit Pref;
-  parameter Types.PerUnit u_0;
+  parameter Types.PerUnit Qref "Reactive power refrence";
+  parameter Types.PerUnit Pref "Reactive power refrence";
+  parameter Types.PerUnit u_0 "Initial voltage";
   Modelica.Blocks.Math.Product product1 annotation (Placement(transformation(origin={150,90}, extent={{-10,-10},{10,10}})));
   Modelica.Blocks.Math.Product product annotation (Placement(transformation(origin={70,150}, extent={{-10,-10},{10,10}})));
   OpenIPSL.Electrical.Solar.PowerFactory.WECC.PVD1.GenerationTripping frequency_tripping(

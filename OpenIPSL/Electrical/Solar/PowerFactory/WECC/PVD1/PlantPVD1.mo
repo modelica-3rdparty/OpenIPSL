@@ -1,5 +1,5 @@
 within OpenIPSL.Electrical.Solar.PowerFactory.WECC.PVD1;
-model PlantPVD1
+model PlantPVD1 "Simple representation of the basic control of a PV system"
   extends OpenIPSL.Electrical.Essentials.pfComponent(
     final enabledisplayPF=false,
     final enablefn=true,

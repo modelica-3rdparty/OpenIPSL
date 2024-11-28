@@ -1,10 +1,10 @@
 within OpenIPSL.Electrical.Solar.PowerFactory.WECC.PVD1;
-model GenerationTripping
-  parameter Real Lv0;
-  parameter Real Lv1;
-  parameter Real Lv2;
-  parameter Real Lv3;
-  parameter Real recov;
+model GenerationTripping "Calculating the tripping response"
+  parameter Real Lv0 "Tripping repose curve point 0";
+  parameter Real Lv1 "Tripping repose curve point 1";
+  parameter Real Lv2 "Tripping repose curve point 2";
+  parameter Real Lv3 "Tripping repose curve point 3";
+  parameter Real recov "Revovery amount for reconnection";
   parameter Real Tfilter=1e-2 "Best to set about the time step value for fixed-step solvers";
   Modelica.Blocks.Interfaces.RealInput u annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
   Modelica.Blocks.Interfaces.RealOutput TrpLow annotation (Placement(transformation(origin={110,50}, extent={{-10,-10},{10,10}})));
