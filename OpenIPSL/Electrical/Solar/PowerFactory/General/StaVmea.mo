@@ -60,12 +60,12 @@ equation
         Text(
           extent={{-100,20},{100,-20}},
           lineColor={0,0,0},
-          textString="%name")}, coordinateSystem), Documentation(info="<html>
+          textString="%name")}), Documentation(info="<html>
 <p>
-StaVmea model in PowerFactory measures voltage and frequency. 
-The frequency in PowerFactory is computed with respect to the frame rotating with frequency 
-equal to the synchronous machine. 
-This is supported via the input <code>omega</code> here. 
+StaVmea model in PowerFactory measures voltage and frequency.
+The frequency in PowerFactory is computed with respect to the frame rotating with frequency
+equal to the synchronous machine.
+This is supported via the input <code>omega</code> here.
 Most of the OpenIPSL examples do not provide <code>omega</code> of the reference machine and thus,
 if the input is not connected the frequency is computed with respect to the 50&nbsp;Hz reference frame
 and filtered to simulate the measurement delay.
