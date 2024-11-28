@@ -11,7 +11,7 @@ model PlantPVD1 "Simple representation of the basic control of a PV system"
     final enableS_b=true);
   parameter Types.ApparentPower M_b "PV plant base power" annotation (Dialog(group="Plant parameters"));
   parameter Types.PerUnit Imax=1.1 "Maximum allowable total converter current" annotation (Dialog(group="PVD1 Model Parameters"));
-  parameter Boolean PqFlag "Priority on current limit flag: 1=P prio.; 0 = Q prio." annotation (Dialog(group="PVD1 Model Parameters"));
+  parameter Boolean PqFlag=true "Priority on current limit flag; true: P prio., false: Q prio." annotation (Dialog(group="PVD1 Model Parameters"));
   parameter Types.Time Tg=0.02 "Inverter current regulator time constat" annotation (Dialog(group="PVD1 Model Parameters"));
   parameter Types.PerUnit Xc=0 "Line drop compensation reactance" annotation (Dialog(group="PVD1 Model Parameters"));
   parameter Types.PerUnit Qmx=0.328 "Maximum reactive power" annotation (Dialog(group="PVD1 Model Parameters"));
