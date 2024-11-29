@@ -11,8 +11,8 @@ model VoltsHertzController "Volts/Hertz controller model"
 
     import Modelica.Constants.pi;
 
-   parameter Real f_max = 80 "Maximum input voltage frequency" annotation (Dialog(group="VSD project specifics"));
-   parameter Real f_min = 40 "Minimum input voltage frequency" annotation (Dialog(group="VSD project specifics"));
+   parameter Modelica.Units.SI.Frequency f_max = 80 "Maximum input voltage frequency" annotation (Dialog(group="VSD project specifics"));
+   parameter Modelica.Units.SI.Frequency f_min = 40 "Minimum input voltage frequency" annotation (Dialog(group="VSD project specifics"));
    parameter Real m0= 0.1 "Initial PWM Modulation Value" annotation (Dialog(group="VSD project specifics"));
 
   Modelica.Blocks.Interfaces.RealInput motor_speed "Motor speed from motor model" annotation (Placement(
