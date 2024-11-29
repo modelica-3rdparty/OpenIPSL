@@ -65,6 +65,4 @@ equation
           {-36,-16},{-59.4,-16}}, color={0,0,127}));
   connect(sEXS.VOEL, zero.y) annotation (Line(points={{-10,-31},{-10,-38},{-36,-38},
           {-36,-16},{-59.4,-16}}, color={0,0,127}));
-  annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(
-        coordinateSystem(preserveAspectRatio=false)));
 end DieselGeneratorUnit;

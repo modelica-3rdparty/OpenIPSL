@@ -186,8 +186,7 @@ model IEEEMicrogrid "IEEE Microgrid Model"
         extent={{-16,-16},{16,16}},
         rotation=90,
         origin={140,-70})));
-  Electrical.Controls.VariableSpeedDrive.PowerElectronics.AC2DCandDC2AC
-    aC2DCandDC2AC(
+  Electrical.VSD.Generic.PowerElectronics.AC2DCandDC2AC aC2DCandDC2AC(
     V_b=400,
     v_0=PF_results.voltages.V7,
     angle_0=PF_results.voltages.A7,
@@ -195,7 +194,7 @@ model IEEEMicrogrid "IEEE Microgrid Model"
     Cdc=0.000001,
     m0=0.095)
     annotation (Placement(transformation(extent={{100,-120},{80,-100}})));
-  Electrical.Controls.VariableSpeedDrive.ControllerLogic.VoltsHertzController
+  Electrical.VSD.Generic.ControllerLogic.VoltsHertzController
     voltsHertzController(
     V_b=400,
     f_max=80,
@@ -255,8 +254,7 @@ model IEEEMicrogrid "IEEE Microgrid Model"
         extent={{-16,-16},{16,16}},
         rotation=0,
         origin={-196,100})));
-  Electrical.Controls.VariableSpeedDrive.PowerElectronics.AC2DCandDC2AC
-    aC2DCandDC2AC1(
+  Electrical.VSD.Generic.PowerElectronics.AC2DCandDC2AC aC2DCandDC2AC1(
     V_b=400,
     v_0=PF_results.voltages.V7,
     angle_0=PF_results.voltages.A7,
@@ -264,7 +262,7 @@ model IEEEMicrogrid "IEEE Microgrid Model"
     Cdc=0.000001,
     m0=0.095)
     annotation (Placement(transformation(extent={{214,-120},{194,-100}})));
-  Electrical.Controls.VariableSpeedDrive.ControllerLogic.VoltsHertzController
+  Electrical.VSD.Generic.ControllerLogic.VoltsHertzController
     voltsHertzController1(
     V_b=400,
     f_max=80,
@@ -406,8 +404,7 @@ equation
           textString="(7)")}),
     experiment(
       StopTime=20,
-      __Dymola_NumberOfIntervals=1000,
-      __Dymola_Algorithm="Dassl"),
+      Interval=1000),
     Documentation(info="<html>
 <p>The IEEEMicrogrid example model was developed based on an example from the IEEE Technical Report <a href=\"modelica://OpenIPSL.UsersGuide.References\">[PES-TR66]</a>.
 The microgrid has a total load of 60 kW, distributed equally among three load types: static, and two VSD (Variable Speed Drive) driven motors, 

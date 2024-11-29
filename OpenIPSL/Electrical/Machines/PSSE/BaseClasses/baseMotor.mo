@@ -13,9 +13,7 @@ partial model baseMotor "Base model for the PSSE three-phase induction motor mod
     final enableP_0=false,
     final enableS_b=true);
 
-    import Modelica.Constants.pi;
     import OpenIPSL.NonElectrical.Functions.SE;
-    import Modelica.Constants.eps;
 
   parameter Boolean Sup = true "True: Start-up process, False: Steady-state condition" annotation (Dialog(group="Motor Setup"));
   parameter Boolean Ctrl = true "True: Model for VSD control, False: Model not controllable"
@@ -74,7 +72,7 @@ partial model baseMotor "Base model for the PSSE three-phase induction motor mod
 protected
   parameter OpenIPSL.Types.PerUnit p0 = P_0/M_b "Initial active power";
   parameter OpenIPSL.Types.PerUnit q0 = Q_0/M_b "Initial reactive power";
-  parameter Modelica.Units.SI.AngularVelocity w_b=2*pi*fn/N "Base freq in rad/s";
+  parameter Modelica.Units.SI.AngularVelocity w_b=2*C.pi*fn/N "Base freq in rad/s";
   parameter OpenIPSL.Types.PerUnit vr0=v_0*cos(angle_0) "Initial real voltage";
   parameter OpenIPSL.Types.PerUnit vi0=v_0*sin(angle_0) "Initial imaginary voltage";
   parameter OpenIPSL.Types.PerUnit ir0=(p0*vr0 + q0*vi0)/(vr0^2 + vi0^2) "Initial real current in motor base";
