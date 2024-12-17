@@ -147,7 +147,8 @@ equation
           extent={{-74,148},{76,52}},
           textColor={28,108,200},
           textString="WEHGOV
-"), Text( extent={{-62,68},{-4,52}},
+"), Text(
+          extent={{-62,68},{-4,52}},
           textColor={28,108,200},
           textString="SPEED"),
         Text(
