@@ -140,7 +140,7 @@ protected
   parameter OpenIPSL.Types.PerUnit V0(fixed=false);
   parameter OpenIPSL.Types.PerUnit p00(fixed=false);
   parameter OpenIPSL.Types.PerUnit q00(fixed=false);
-  parameter OpenIPSL.Types.PerUnit Vref0 = if Vref == 0 then V0 else Vref;
+  parameter OpenIPSL.Types.PerUnit Vref0 = if (Vref > 0 or Vref < 0) then Vref else V0;
 
 initial equation
 
