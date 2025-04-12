@@ -67,8 +67,8 @@ model CTG1MachineESVC
   DynParamRecords.GUDynamics guData(redeclare record GUnitDynamics =
         DynParamRecords.CTG1)
     annotation (Placement(transformation(extent={{-80,-60},{-60,-40}})));
-  Electrical.Controls.PSSE.VC.IEEEVC iEEEVC(RC=0, XC=0.05)
-    annotation (Placement(transformation(extent={{44,-60},{18,-38}})));
+  Electrical.Controls.PSSE.COMP.IEEEVC iEEEVC(RC=0, XC=0.05)
+    annotation (Placement(transformation(extent={{20,-60},{40,-40}})));
 equation
   connect(pss.V_S2, governor.PMECH0) annotation (
     Line(points={{-90,-0.6},{-94,-0.6},{-94,30},{-40,30},{-40,44},{-28,44}},              color = {0, 0, 127}));
@@ -96,10 +96,10 @@ equation
 
   connect(exciter.Bus, pwPin) annotation (Line(points={{8.1,6.6},{20,6.6},{20,34},
           {86,34},{86,0},{110,0}}, color={0,0,255}));
-  connect(machine.p, iEEEVC.Gen_terminal) annotation (Line(points={{60,0},{74,0},
-          {74,-41.1429},{41.1111,-41.1429}}, color={0,0,255}));
-  connect(iEEEVC.Bus, exciter.Gen_terminal) annotation (Line(points={{20.8889,
-          -41.1429},{-38,-41.1429},{-38,6.6},{-26.1,6.6}}, color={0,0,255}));
-  connect(iEEEVC.VCT, exciter.ECOMP) annotation (Line(points={{15.6889,-50.5714},
-          {-42,-50.5714},{-42,-7},{-29.9,-7}}, color={0,0,127}));
+  connect(iEEEVC.Gen_terminal, exciter.Gen_terminal) annotation (Line(points={{
+          23,-43},{-36,-43},{-36,6.6},{-26.1,6.6}}, color={0,0,255}));
+  connect(iEEEVC.Bus, machine.p) annotation (Line(points={{37,-43},{80,-43},{80,
+          0},{60,0}}, color={0,0,255}));
+  connect(iEEEVC.VCT, exciter.ECOMP) annotation (Line(points={{41.6,-50},{50,
+          -50},{50,-90},{-42,-90},{-42,-7},{-29.9,-7}}, color={0,0,127}));
 end CTG1MachineESVC;
