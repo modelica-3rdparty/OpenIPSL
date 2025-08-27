@@ -404,7 +404,7 @@ equation
           textString="(7)")}),
     experiment(
       StopTime=20,
-      Interval=1000),
+      Interval=0.02),
     Documentation(info="<html>
 <p>The IEEEMicrogrid example model was developed based on an example from the IEEE Technical Report <a href=\"modelica://OpenIPSL.UsersGuide.References\">[PES-TR66]</a>.
 The microgrid has a total load of 60 kW, distributed equally among three load types: static, and two VSD (Variable Speed Drive) driven motors, 
