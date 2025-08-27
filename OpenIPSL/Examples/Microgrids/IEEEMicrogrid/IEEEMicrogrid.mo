@@ -405,8 +405,8 @@ equation
       Interval=0.02),
     Documentation(info="<html>
 <p>The IEEEMicrogrid example model was developed based on an example from the IEEE Technical Report <a href=\"modelica://OpenIPSL.UsersGuide.References\">[PES-TR66]</a>.
-The microgrid has a total load of 60 kW, distributed equally among three load types: static, and two VSD (Variable Speed Drive) driven motors, 
-each having a capacity of 20 kW. The static load follows a ZIP load model with a 0.85 lagging power factor, consisting of equal proportions of constant current, 
+The microgrid has a total load of 60 kW, distributed equally among three load types: static, and two VSD (Variable Speed Drive) driven motors,
+each having a capacity of 20 kW. The static load follows a ZIP load model with a 0.85 lagging power factor, consisting of equal proportions of constant current,
 power, and impedance load. The VSD motor load represents a pump while the static load represents common building electrical loads.
 The microgrid operates in grid-connected mode without exchanging active power with the main grid. The solar PV system generates 35 kW, the diesel generator produces 20 kW,
  and the battery energy storage system injects 5.5 kW to maintain power balance within the microgrid.</p>

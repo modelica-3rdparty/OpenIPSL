@@ -178,7 +178,7 @@ equation
           textString="DC Link Variables")}),
     Documentation(info="<html>
 <p>The AC2DCandDC2AC component represents the power electronics component of the variable speed drive.
-The model provides an interface between two terminals. Terminal pin p is related to the grid bus side and terminal pin n is related to the 
+The model provides an interface between two terminals. Terminal pin p is related to the grid bus side and terminal pin n is related to the
 motor terminal bus. The model is an average representation of the switching components of a real variable speed drive, thus being ideal for long simulation durations on phasor dynamic simulations.</p>
 <p>The model has one input and one output connectors. The m_input input connector represents the pwn modulation index, while the Vc output connector represents the capacitor voltage value used in the controller logic block.</p>
 <p>The modelling of such devices is based, mainly, on the following reference:</p>
