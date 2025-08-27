@@ -370,10 +370,8 @@ equation
     annotation (Line(points={{233,-150},{216,-150}}, color={0,0,127}));
   connect(aC2DCandDC2AC1.p, Bus7.p) annotation (Line(points={{214,-110},{240,-110},
           {240,-90},{140,-90},{140,-70}}, color={0,0,255}));
-  annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-260,
-            -200},{260,200}})),
-                          Diagram(coordinateSystem(preserveAspectRatio=false,
-          extent={{-260,-200},{260,200}}), graphics={
+  annotation (Diagram(coordinateSystem(extent={{-260,-200},{260,200}}),
+    graphics={
         Text(
           extent={{-152,142},{-130,130}},
           textColor={28,108,200},
