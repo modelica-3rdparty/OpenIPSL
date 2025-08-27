@@ -7,7 +7,6 @@ model IEEEMicrogrid "IEEE Microgrid Model"
     angle_0=PF_results.voltages.A4,
     displayPF=false) annotation (Placement(transformation(
         extent={{-16,-16},{16,16}},
-        rotation=0,
         origin={140,100})));
   OpenIPSL.Electrical.Branches.PwLine substation_line_2(
     R=0.0785/2,
@@ -24,7 +23,6 @@ model IEEEMicrogrid "IEEE Microgrid Model"
     angle_0=PF_results.voltages.A3,
     displayPF=false) annotation (Placement(transformation(
         extent={{-16,-16},{16,16}},
-        rotation=0,
         origin={40,100})));
   OpenIPSL.Electrical.Branches.PwLine substation_line_1(
     R=0.04257/2,
@@ -41,7 +39,6 @@ model IEEEMicrogrid "IEEE Microgrid Model"
     angle_0=PF_results.voltages.A2,
     displayPF=false) annotation (Placement(transformation(
         extent={{-16,-16},{16,16}},
-        rotation=0,
         origin={-60,100})));
   OpenIPSL.Electrical.Branches.PSSE.TwoWindingTransformer Transformer(
     CZ=1,
@@ -54,7 +51,6 @@ model IEEEMicrogrid "IEEE Microgrid Model"
     VB2=400)
           annotation (Placement(transformation(
         extent={{-20,-20},{20,20}},
-        rotation=0,
         origin={-100,100})));
   OpenIPSL.Electrical.Buses.Bus Bus1(
     V_b=11000,
@@ -62,7 +58,6 @@ model IEEEMicrogrid "IEEE Microgrid Model"
     angle_0=PF_results.voltages.A1,
     displayPF=false) annotation (Placement(transformation(
         extent={{-16,-16},{16,16}},
-        rotation=0,
         origin={-140,100})));
   OpenIPSL.Electrical.Machines.PSSE.GENCLS GRID(
     V_b=11000,
@@ -107,23 +102,18 @@ model IEEEMicrogrid "IEEE Microgrid Model"
     v_0=PF_results.voltages.V5,
     angle_0=PF_results.voltages.A5)
     annotation (Placement(transformation(extent={{-10,-10},{10,10}},
-        rotation=0,
         origin={-10,-150})));
   OpenIPSL.Electrical.Banks.PSSE.Shunt capacitor_bank(G=0, B=0.02/4)
     annotation (Placement(transformation(extent={{-10,-10},{10,10}},
-        rotation=0,
         origin={-190,-150})));
   OpenIPSL.Electrical.Banks.PSSE.Shunt capacitor_bank1(G=0, B=0.02/4)
     annotation (Placement(transformation(extent={{-10,-10},{10,10}},
-        rotation=0,
         origin={-150,-150})));
   OpenIPSL.Electrical.Banks.PSSE.Shunt capacitor_bank2(G=0, B=0.02/4)
     annotation (Placement(transformation(extent={{-10,-10},{10,10}},
-        rotation=0,
         origin={-110,-150})));
   OpenIPSL.Electrical.Banks.PSSE.Shunt capacitor_bank3(G=0, B=0.02/4)
     annotation (Placement(transformation(extent={{-10,-10},{10,10}},
-        rotation=0,
         origin={-70,-150})));
   GeneratorGroups.DieselGeneratorUnit Diesel(
     P_0(displayUnit="kW") = PF_results.machines.PDT,
@@ -160,7 +150,6 @@ model IEEEMicrogrid "IEEE Microgrid Model"
   Electrical.Events.Breaker BreakerGrid(enableTrigger=false) annotation (
       Placement(transformation(
         extent={{-10,-10},{10,10}},
-        rotation=0,
         origin={-170,100})));
   inner Data.PF_results PF_results(
     redeclare record Voltages =
@@ -252,7 +241,6 @@ model IEEEMicrogrid "IEEE Microgrid Model"
     angle_0=PF_results.voltages.A1,
     displayPF=false) annotation (Placement(transformation(
         extent={{-16,-16},{16,16}},
-        rotation=0,
         origin={-196,100})));
   Electrical.VSD.Generic.PowerElectronics.AC2DCandDC2AC aC2DCandDC2AC1(
     V_b=400,

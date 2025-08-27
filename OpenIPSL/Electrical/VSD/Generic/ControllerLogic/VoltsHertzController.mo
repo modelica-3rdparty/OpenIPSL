@@ -18,7 +18,6 @@ model VoltsHertzController "Volts/Hertz controller model"
   Modelica.Blocks.Interfaces.RealInput motor_speed "Motor speed from motor model" annotation (Placement(
         transformation(
         extent={{-20,-20},{20,20}},
-        rotation=0,
         origin={-120,70}),iconTransformation(
         extent={{-20,-20},{20,20}},
         rotation=180,
@@ -49,7 +48,6 @@ model VoltsHertzController "Volts/Hertz controller model"
         iconTransformation(extent={{100,-60},{140,-20}})));
   Modelica.Blocks.Math.Gain gain1(k=1)
     annotation (Placement(transformation(extent={{10,-10},{-10,10}},
-        rotation=0,
         origin={70,10})));
   Modelica.Blocks.Interfaces.RealOutput m "PWM modulation index"
     annotation (Placement(transformation(extent={{-20,-20},{20,20}},
@@ -81,7 +79,6 @@ model VoltsHertzController "Volts/Hertz controller model"
   Modelica.Blocks.Nonlinear.Limiter limiter1(uMax=1, uMin=0) annotation (
       Placement(transformation(
         extent={{-10,-10},{10,10}},
-        rotation=0,
         origin={18,40})));
   Modelica.Blocks.Math.Gain gain2(k=1/V_b)
     annotation (Placement(transformation(extent={{-32,70},{-12,90}})));
