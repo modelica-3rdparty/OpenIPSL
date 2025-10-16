@@ -126,7 +126,7 @@ equation
   EQ12 = EQ10 + EQ11 - Epr - EQ9;
   EQ12 = Tp0*der(Epr);
   EQC = NUM/(Epp + C.eps);
-  NUM = SE(Epp,SE1,SE2,1,1.2);
+  NUM = SE(Epp,SE1,SE2,E1,E2);
   Epp = sqrt(Eppr^2 + Eppi^2);
   EQ13 = EQC*Eppr;
   EQ14 = Epr*(Tp0*w_b*s);
