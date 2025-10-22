@@ -118,5 +118,10 @@ equation
 <td><p>see <a href=\"modelica://OpenIPSL.UsersGuide.Contact\">UsersGuide.Contact</a></p></td>
 </tr>
 </table>
+</html>", info="<html>
+
+<p>This model uses an implementation of the ramp tracking filter as described in <a href=\"modelica://OpenIPSL.UsersGuide.References\">[Laera2022]</a>, which can be found under <code>OpenIPSL.NonElectrical.Continuous.RampTrackingFilter</code>.</p>
+<p>See <a href=\"modelica://OpenIPSL.UsersGuide.References\">[Laera2022]</a> for the expected behavior of this model.</p>
+
 </html>"));
 end PSS2A;
