@@ -121,17 +121,14 @@ equation
           {-74.296,-66},{-70.816,-66},{-70.816,-55.584}}, color={0,0,127}));
   annotation (Icon(graphics={Text(
           extent={{-93,6},{-24,-12}},
-          lineColor={0,0,255},
+          textColor={0,0,255},
           textStyle={TextStyle.Italic},
           textString=""),
           Text(extent={{-34,-32},{38,-52}},
-          lineColor={28,108,200},
-          fillColor={0,0,255},
-          fillPattern=FillPattern.Solid,
+          textColor={28,108,200},
           textString="%name"),
                          Line(points={{-60,-20},{-20,20},{20,-20},{60,20}},
-          color={28,108,200}),Ellipse(extent={{-100,-100},{100,100}}, lineColor
-            =
+          color={28,108,200}),Ellipse(extent={{-100,-100},{100,100}}, lineColor=
            {28,108,200})}),
     Documentation(info="<html>
 <p>Generation group for the example that uses the IEEE421.5-based data set.</p>

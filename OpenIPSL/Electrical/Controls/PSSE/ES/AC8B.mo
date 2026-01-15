@@ -192,7 +192,7 @@ equation
   annotation ( Icon(
         graphics={Text(
           extent={{-42,152},{36,82}},
-          lineColor={28,108,200},
+          textColor={28,108,200},
           textString="AC8B")}),
         Documentation(revisions="<html>
 <table cellspacing=\"1\" cellpadding=\"1\" border=\"1\"><tr>

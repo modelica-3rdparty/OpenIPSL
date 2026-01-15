@@ -73,9 +73,7 @@ equation
     Diagram(coordinateSystem(extent={{-120,-100},{120,100}},
           preserveAspectRatio=false), graphics={Text(
           extent={{-100,100},{100,80}},
-          lineColor={0,0,0},
-          lineThickness=1,
-          fillPattern=FillPattern.Solid,
+          textColor={0,0,0},
           fontSize=15,
           textStyle={TextStyle.Bold},
           textString="Step 5: Connecting network components")}),

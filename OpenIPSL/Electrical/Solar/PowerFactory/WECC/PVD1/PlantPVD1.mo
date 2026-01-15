@@ -83,7 +83,7 @@ equation
           color={118,18,62}),
         Text(
           origin={0,-10},
-          lineColor={0,0,255},
+          textColor={0,0,255},
           extent={{-100,150},{100,110}},
           textString="%name")}));
 end PlantPVD1;

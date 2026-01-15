@@ -13,9 +13,9 @@ equation
   y2 = if n==2 then u else -Modelica.Constants.inf;
   annotation (Icon(graphics={Text(
           extent={{116,94},{160,64}},
-          lineColor={28,108,200},
+          textColor={28,108,200},
           textString="1"), Text(
           extent={{118,-26},{162,-56}},
-          lineColor={28,108,200},
+          textColor={28,108,200},
           textString="2")}));
 end Switch_VUEL;

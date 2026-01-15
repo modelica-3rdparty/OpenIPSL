@@ -17,9 +17,7 @@ equation
     Diagram(coordinateSystem(extent={{-100,-100},{100,100}},
           preserveAspectRatio=false), graphics={Text(
           extent={{-110,68},{110,48}},
-          lineColor={0,0,0},
-          lineThickness=1,
-          fillPattern=FillPattern.Solid,
+          textColor={0,0,0},
           fontSize=15,
           textStyle={TextStyle.Bold},
           textString="(Constant Efd)")}),

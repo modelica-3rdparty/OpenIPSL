@@ -42,8 +42,6 @@ partial model Step_3 "Adding infinite bus"
         extent={{-120,-100},{120,100}},
         preserveAspectRatio=false,
         grid={2,2}), graphics={Text(
-          fillPattern=FillPattern.Solid,
-          lineThickness=1,
           extent={{-106,102},{84,84}},
           textString="Step 3: Adding infinite bus model",
           fontSize=15,
@@ -52,8 +50,6 @@ partial model Step_3 "Adding infinite bus"
           lineThickness=1,
           extent={{86,16},{114,-14}}),Text(
           origin={-6,2},
-          fillPattern=FillPattern.Solid,
-          lineThickness=1,
           extent={{62,24},{146,14}},
           textString="Electrical.Buses.InfiniteBus",
           fontSize=12)}));

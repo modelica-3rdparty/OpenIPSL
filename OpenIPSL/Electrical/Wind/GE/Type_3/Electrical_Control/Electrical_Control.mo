@@ -210,7 +210,6 @@ equation
           fillPattern=FillPattern.Solid,
           extent={{-100.0,-100.0},{100.0,100.0}}),Text(
           origin={-2.5076,2.901},
-          fillPattern=FillPattern.Solid,
           extent={{-67.4924,-47.099},{67.4924,47.099}},
           textString="Electrical Control",
           fontName="Arial")}));

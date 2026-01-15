@@ -177,27 +177,27 @@ equation
     Diagram(coordinateSystem(extent={{-180,-180},{200,140}}),
         graphics={Text(
           extent={{4,-32},{28,-46}},
-          lineColor={255,0,0},
+          textColor={255,0,0},
           textString="VB"),
                   Text(
           extent={{42,56},{66,42}},
-          lineColor={255,0,0},
+          textColor={255,0,0},
           textString="VR"),
                   Text(
           extent={{-74,48},{-50,34}},
-          lineColor={255,0,0},
+          textColor={255,0,0},
           textString="VS")}),
     Icon(coordinateSystem(extent={{-100,-100},{100,100}}),
         graphics={Text(
           extent={{-80,90},{-20,70}},
-          lineColor={0,0,255},
+          textColor={0,0,255},
           textString="GenT"), Text(
           extent={{-100,160},{100,100}},
-          lineColor={28,108,200},
+          textColor={28,108,200},
           textString="ESST2A"),
                   Text(
           extent={{40,90},{80,70}},
-          lineColor={0,0,255},
+          textColor={0,0,255},
           textString="Bus")}),
     Documentation(info="<html>
 <p>IEEE Type ST2A Excitation System Model.</p>

@@ -35,9 +35,7 @@ partial model Step_2 "Adding branch models to network"
     Diagram(coordinateSystem(extent={{-120,-100},{120,100}},
           preserveAspectRatio=false), graphics={Text(
           extent={{-100,100},{100,80}},
-          lineColor={0,0,0},
-          lineThickness=1,
-          fillPattern=FillPattern.Solid,
+          textColor={0,0,0},
           fontSize=15,
           textStyle={TextStyle.Bold},
           textString="Step 2: Adding transformer and line models"),Rectangle(
@@ -45,18 +43,14 @@ partial model Step_2 "Adding branch models to network"
           lineColor={255,0,0},
           lineThickness=1),Text(
           extent={{-10,44},{66,34}},
-          lineColor={0,0,0},
-          lineThickness=1,
-          fillPattern=FillPattern.Solid,
+          textColor={0,0,0},
           fontSize=12,
           textString="Electrical.Branches.PwLine"),Rectangle(
           extent={{14,34},{46,-32}},
           lineColor={255,0,0},
           lineThickness=1),Text(
           extent={{-118,26},{18,14}},
-          lineColor={0,0,0},
-          lineThickness=1,
-          fillPattern=FillPattern.Solid,
+          textColor={0,0,0},
           fontSize=12,
           textString="Electrical.Branches.PSAT.TwoWindingTransformer")}),
     Icon(coordinateSystem(extent={{-120,-100},{120,100}})));

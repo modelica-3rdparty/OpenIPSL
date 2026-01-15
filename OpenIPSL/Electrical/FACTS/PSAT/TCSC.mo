@@ -162,9 +162,7 @@ equation
           smooth=Smooth.None),
         Text(
           extent={{-80,100},{80,60}},
-          lineColor={0,0,255},
-          fillColor={175,175,175},
-          fillPattern=FillPattern.Solid,
+          textColor={0,0,255},
           textString="%name"),
         Line(
           points={{-80,-80},{-40,-80},{40,80},{80,80},{80,80}},

@@ -71,15 +71,11 @@ equation
     Diagram(coordinateSystem(
         extent={{-120,-100},{120,100}},
         preserveAspectRatio=false), graphics={Text(
-          fillPattern=FillPattern.Solid,
-          lineThickness=1,
           extent={{-100,100},{100,80}},
           textString=
             "Example 2: Single-machine infinite bus model with the PSS*",
           fontSize=15,
           textStyle={TextStyle.Bold}),Text(
-          fillPattern=FillPattern.Solid,
-          lineThickness=1,
           extent={{-120,-80},{40,-100}},
           textString=
             "*P. Kundur, \"Power System Stability and Control\", Example 13.2",

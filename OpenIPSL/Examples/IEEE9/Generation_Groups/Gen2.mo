@@ -84,20 +84,14 @@ equation
            {28,108,200}),Line(points={{-60,-20},{-20,20},{20,-20},{60,20}},
           color={28,108,200}),Text(
           extent={{-34,-32},{38,-52}},
-          lineColor={28,108,200},
-          fillColor={0,0,255},
-          fillPattern=FillPattern.Solid,
+          textColor={28,108,200},
           textString="%name"),Text(
           extent={{62,106},{134,68}},
-          lineColor={238,46,47},
-          fillColor={0,0,255},
-          fillPattern=FillPattern.Solid,
+          textColor={238,46,47},
           textString=DynamicSelect("0.0", String(P_MW, significantDigits=3))),
           Text(
           extent={{62,-70},{134,-108}},
-          lineColor={0,255,0},
-          fillColor={0,0,255},
-          fillPattern=FillPattern.Solid,
+          textColor={0,255,0},
           textString=DynamicSelect("0.0", String(Q_Mvar, significantDigits=3)))}),
     Documentation(info="<html>
 <p>13.8kV/100MVA Generation unit, identified as number 2, connected to bus 3, and composed of the following component models:</p>

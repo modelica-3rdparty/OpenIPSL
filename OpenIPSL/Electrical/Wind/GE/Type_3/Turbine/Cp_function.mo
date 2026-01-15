@@ -55,7 +55,6 @@ equation
      + matrixGain1.y[5]*multi_Powers2.y[5];
   annotation (
     Icon(graphics={Text(
-          fillPattern=FillPattern.Solid,
           extent={{-40,-20},{40,20}},
           textString="CP")}),
     Documentation(info="<html>

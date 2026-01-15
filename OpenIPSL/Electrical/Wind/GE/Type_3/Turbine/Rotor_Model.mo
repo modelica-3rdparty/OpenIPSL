@@ -277,7 +277,6 @@ equation
           fillColor={255,255,255},
           extent={{-100.0,-100.0},{100.0,100.0}}),Text(
           origin={-1.9109,6.1667},
-          fillPattern=FillPattern.Solid,
           extent={{-49.8299,-36.1667},{49.8299,36.1667}},
           textString="Rotor",
           fontName="Arial")}),

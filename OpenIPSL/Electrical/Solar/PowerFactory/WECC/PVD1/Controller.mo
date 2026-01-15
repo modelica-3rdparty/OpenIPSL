@@ -114,7 +114,7 @@ equation
   annotation (Diagram(coordinateSystem(extent={{-200,-200},{200,200}}, initialScale=0.05), graphics={
         Text(
           origin={-186,179},
-          lineColor={255,0,0},
+          textColor={255,0,0},
           extent={{-8,3},{76,-9}},
           textString="Frequency filtering has to be done outside of this block",
           horizontalAlignment=TextAlignment.Left),
@@ -126,8 +126,7 @@ equation
           extent={{-85,21},{51,-45}}),
         Text(
           origin={-92,171},
-          lineColor={0,170,0},
-          lineThickness=1,
+          textColor={0,170,0},
           extent={{-8,3},{76,-9}},
           textString="Underfrequency Droop Control",
           horizontalAlignment=TextAlignment.Left),
@@ -145,8 +144,7 @@ equation
           extent={{-85,21},{79,-57}}),
         Text(
           origin={-120,-41},
-          lineColor={0,170,0},
-          lineThickness=1,
+          textColor={0,170,0},
           extent={{30,-1},{76,-9}},
           textString="Volt/Var Control",
           horizontalAlignment=TextAlignment.Left)}), Icon(graphics={
@@ -158,25 +156,25 @@ equation
         Text(
           extent={{-100,100},{100,70}},
           textString="%name",
-          lineColor={0,0,0}),
+          textColor={0,0,0}),
         Text(
           extent={{-96,66},{-78,48}},
-          lineColor={0,0,0},
+          textColor={0,0,0},
           textString="Vt"),
         Text(
           extent={{-98,8},{-78,-12}},
-          lineColor={0,0,0},
+          textColor={0,0,0},
           textString="It"),
         Text(
           extent={{-96,-52},{-76,-72}},
-          lineColor={0,0,0},
+          textColor={0,0,0},
           textString="freq"),
         Text(
           extent={{70,70},{90,50}},
-          lineColor={0,0,0},
+          textColor={0,0,0},
           textString="Ip"),
         Text(
           extent={{70,-52},{90,-72}},
-          lineColor={0,0,0},
+          textColor={0,0,0},
           textString="Iq")}));
 end Controller;

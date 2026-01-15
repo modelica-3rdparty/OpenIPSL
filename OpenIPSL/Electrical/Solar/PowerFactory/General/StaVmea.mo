@@ -59,7 +59,7 @@ equation
         Text(extent={{70,-50},{90,-70}}, textString="fe"),
         Text(
           extent={{-100,20},{100,-20}},
-          lineColor={0,0,0},
+          textColor={0,0,0},
           textString="%name")}), Documentation(info="<html>
 <p>
 StaVmea model in PowerFactory measures voltage and frequency.

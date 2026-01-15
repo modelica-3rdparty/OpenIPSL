@@ -244,7 +244,6 @@ equation
         extent={{-100.0,-100.0},{100.0,100.0}},
         preserveAspectRatio=true,
         grid={10,10}), graphics={Text(
-          fillPattern=FillPattern.Solid,
           extent={{-55.0,-28.0231},{55.0,28.0231}},
           textString="Dfig",
           fontName="Arial"),Ellipse(

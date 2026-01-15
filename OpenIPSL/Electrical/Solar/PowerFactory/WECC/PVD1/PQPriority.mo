@@ -58,7 +58,7 @@ equation
           origin={20,90},
           extent={{-120,0},{80,-20}},
           textString="%name",
-          lineColor={0,0,0}),
+          textColor={0,0,0}),
         Text(extent={{-100,60},{-60,40}}, textString="Ipref"),
         Text(extent={{-100,-40},{-60,-60}}, textString="Iqref"),
         Text(extent={{58,60},{98,40}}, textString="Ipcmd"),

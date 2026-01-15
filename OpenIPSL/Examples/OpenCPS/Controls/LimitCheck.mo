@@ -46,9 +46,7 @@ equation
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid),Text(
           extent={{-48,96},{40,76}},
-          lineColor={28,108,200},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid,
+          textColor={28,108,200},
           textString="LIMIT CHECK")}),
     Documentation(info="<html>
 <p>This model checks if a determined variable is within an interval determined by lower and upper limits.</p>

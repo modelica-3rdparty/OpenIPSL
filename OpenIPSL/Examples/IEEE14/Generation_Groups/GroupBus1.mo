@@ -50,11 +50,9 @@ equation
   connect(AVR1.vf0, Syn1.vf0) annotation (Line(points={{0,-2},{0,-12},{20,-12},{20,30},{44,30},{44,22}},
                                               color={0,0,127}));
   annotation (
-    Icon(graphics={Text(lineColor = {0, 0, 255}, extent = {{-93, 6}, {-24, -12}}, textString = "", textStyle = {TextStyle.Italic}),
+    Icon(graphics={Text(textColor = {0, 0, 255}, extent = {{-93, 6}, {-24, -12}}, textString = "", textStyle = {TextStyle.Italic}),
        Text(
-          lineColor={28,108,200},
-          fillColor={0,0,255},
-          fillPattern=FillPattern.Solid,
+          textColor={28,108,200},
           extent={{-100,-20},{100,-40}},
           textString="%name"),
        Line(points={{-60,0},{-20,40},{20,0},{60,40}},

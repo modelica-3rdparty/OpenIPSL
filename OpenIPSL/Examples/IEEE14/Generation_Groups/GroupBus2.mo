@@ -55,9 +55,7 @@ equation
           127}));
   annotation (
     Icon(graphics={Text(extent={{-100,-20},{100,-40}},
-          lineColor={28,108,200},
-          fillColor={0,0,255},
-          fillPattern=FillPattern.Solid,
+          textColor={28,108,200},
           textString="%name"),
            Line(points={{-60,0},{-20,40},{20,0},{60,40}},
           color={28,108,200}),Ellipse(extent={{-100,-100},{100,100}}, lineColor=

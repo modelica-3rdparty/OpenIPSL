@@ -42,7 +42,6 @@ equation
           fillColor={255,255,255},
           extent={{-100.0,-100.0},{100.0,100.0}}),Text(
           origin={0.0,3.0984},
-          fillPattern=FillPattern.Solid,
           extent={{-44.9792,-41.316},{44.9792,41.316}},
           textString="pitch",
           fontName="Arial")}),

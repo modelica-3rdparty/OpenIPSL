@@ -50,7 +50,7 @@ equation
           {-20,-120},{-20,-14},{-4.8,-14},{-4.8,-14.4}}, color={0,0,127}));
   annotation (Icon(graphics={Text(
           extent={{-88,48},{10,-50}},
-          lineColor={28,108,200},
+          textColor={28,108,200},
           textString="IEEEG2")}),
         Documentation(revisions="<html>
 <table cellspacing=\"1\" cellpadding=\"1\" border=\"1\"><tr>

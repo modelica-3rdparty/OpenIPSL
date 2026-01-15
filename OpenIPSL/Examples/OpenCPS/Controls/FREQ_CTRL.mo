@@ -78,19 +78,13 @@ equation
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid),Text(
           extent={{-52,96},{48,76}},
-          lineColor={28,108,200},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid,
+          textColor={28,108,200},
           textString="FREQ CTRL"),Text(
           extent={{-82,8},{-18,-10}},
-          lineColor={28,108,200},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid,
+          textColor={28,108,200},
           textString="SPEED"),Text(
           extent={{34,10},{98,-8}},
-          lineColor={28,108,200},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid,
+          textColor={28,108,200},
           textString="P_REF")}),
     Documentation(info="<html>
 <p>This frequency controller, which is based on simple PI, is used to reduce the error (ideally to zero) of the voltage frequency difference between two different nodes in the system.</p>

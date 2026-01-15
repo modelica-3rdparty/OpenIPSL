@@ -187,7 +187,7 @@ equation
         points={{97,62},{102,62},{102,0},{112.5,0}}, color={0,0,127}));
   annotation (Icon(graphics={Text(
           extent={{-112,-60},{-42,-80}},
-          lineColor={28,108,200},
+          textColor={28,108,200},
           textString="VT"), Text(
           extent={{-50,142},{44,96}},
           textColor={28,108,200},

@@ -58,16 +58,12 @@ equation
   annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
             -100},{100,100}}), graphics={Text(
           extent={{-92,102},{98,84}},
-          lineColor={0,0,0},
-          lineThickness=1,
-          fillPattern=FillPattern.Solid,
+          textColor={0,0,0},
           fontSize=15,
           textStyle={TextStyle.Bold},
           textString="Step 2: Connecting model's signals"),Text(
           extent={{-94,86},{88,40}},
-          lineColor={0,0,0},
-          lineThickness=1,
-          fillPattern=FillPattern.Solid,
+          textColor={0,0,0},
           fontSize=12,
           horizontalAlignment=TextAlignment.Left,
           textString="1. Generator terminal voltage to voltage input of the AVR

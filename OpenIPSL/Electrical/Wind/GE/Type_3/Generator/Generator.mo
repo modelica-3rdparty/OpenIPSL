@@ -314,7 +314,6 @@ equation
           fillPattern=FillPattern.Solid,
           extent={{-100.0,-100.0},{100.0,100.0}}),Text(
           origin={0.0,-3.1866},
-          fillPattern=FillPattern.Solid,
           extent={{-64.7389,-33.1866},{64.7389,33.1866}},
           textString="Generator",
           fontName="Arial")}));

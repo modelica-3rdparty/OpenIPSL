@@ -59,7 +59,6 @@ equation
         preserveAspectRatio=true,
         grid={10,10}), graphics={Text(
           origin={-1.349,1.6286},
-          fillPattern=FillPattern.Solid,
           extent={{-55.1519,-28.3714},{55.1519,28.3714}},
           textString="lim_exc_s1",
           fontName="Arial")}),
