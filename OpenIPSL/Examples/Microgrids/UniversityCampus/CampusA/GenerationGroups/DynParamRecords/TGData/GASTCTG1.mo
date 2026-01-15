@@ -10,6 +10,5 @@ record GASTCTG1 "Type GAST TG for CTG1"
   V_MAX=1.3,
   V_MIN=0.2,
   D_turb=0);
-  annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(
-        coordinateSystem(preserveAspectRatio=false)));
+
 end GASTCTG1;

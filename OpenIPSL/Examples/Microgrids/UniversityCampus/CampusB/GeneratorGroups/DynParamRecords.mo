@@ -181,8 +181,7 @@ package DynParamRecords "Sets of generator parameters"
       parameter Types.PerUnit V_MAX "Operational control high limit on fuel valve opening";
       parameter Types.PerUnit V_MIN "Low output control limit on fuel valve opening";
       parameter Types.PerUnit D_turb "Turbine damping";
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(
-            coordinateSystem(preserveAspectRatio=false)));
+
     end GASTTemplate;
 
     record TGOV1Template "Template for TGOV1 turbine governor model"
@@ -193,8 +192,7 @@ package DynParamRecords "Sets of generator parameters"
       parameter Types.Time T_3 "Reheater time constant. It must be greater than 0";
       parameter Types.PerUnit V_MAX "Maximum valve position (on Machine Base)";
       parameter Types.PerUnit V_MIN "Minimum valve position (on Machine Base)";
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(
-            coordinateSystem(preserveAspectRatio=false)));
+
     end TGOV1Template;
 
     record GASTTG "Type GAST TG for CTG1"
@@ -208,8 +206,7 @@ package DynParamRecords "Sets of generator parameters"
       V_MAX=1.0,
       V_MIN=-0.05,
       D_turb=0.0);
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(
-            coordinateSystem(preserveAspectRatio=false)));
+
     end GASTTG;
 
     record TGOV1ST "Type TGOV1 TG for STG1"
@@ -221,8 +218,7 @@ package DynParamRecords "Sets of generator parameters"
         T_3=7,
         V_MAX=1,
         V_MIN=0);
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(
-            coordinateSystem(preserveAspectRatio=false)));
+
     end TGOV1ST;
 
   end TGData;
@@ -230,15 +226,15 @@ package DynParamRecords "Sets of generator parameters"
   record GT "Machine, ES and TG Parameters for TG"
     extends GUDynamicsTemplate;
 
-    replaceable record Machine = MachineData.MachineParsGT     constrainedby
-      MachineData.MachineDataTemplate     "Machine data";
+    replaceable record Machine = MachineData.MachineParsGT constrainedby
+      MachineData.MachineDataTemplate "Machine data";
     Machine machine;
 
-    replaceable record ExcSystem = ESData.EXAC1GT      constrainedby
-      ESData.EXAC1Template     "Excitation system data";
+    replaceable record ExcSystem = ESData.EXAC1GT constrainedby
+      ESData.EXAC1Template "Excitation system data";
     ExcSystem excSystem;
 
-    replaceable record TG = TGData.GASTTG   constrainedby TGData.GASTTemplate
+    replaceable record TG = TGData.GASTTG constrainedby TGData.GASTTemplate
                                 "Turbine governor data";
     TG tg;
 
@@ -247,15 +243,15 @@ package DynParamRecords "Sets of generator parameters"
   record ST "Machine, ES and TG Parameters for ST"
     extends GUDynamicsTemplate;
 
-    replaceable record Machine = MachineData.MachineParsST     constrainedby
-      MachineData.MachineDataTemplate     "Machine data";
+    replaceable record Machine = MachineData.MachineParsST constrainedby
+      MachineData.MachineDataTemplate "Machine data";
     Machine machine;
 
-    replaceable record ExcSystem = ESData.EXST1ST      constrainedby
-      ESData.EXST1Template     "Excitation system data";
+    replaceable record ExcSystem = ESData.EXST1ST constrainedby
+      ESData.EXST1Template "Excitation system data";
     ExcSystem excSystem;
 
-    replaceable record TG = TGData.TGOV1ST   constrainedby TGData.TGOV1Template
+    replaceable record TG = TGData.TGOV1ST constrainedby TGData.TGOV1Template
                                  "Turbine governor data";
     TG tg;
 

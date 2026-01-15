@@ -17,7 +17,7 @@ model CTG2 "SMIB test model for CTG2"
     Q_0=powerFlow.powerflow.machines.QG1,
     v_0=powerFlow.powerflow.bus.v1,
     angle_0=powerFlow.powerflow.bus.A1,
-    displayPF=true) annotation (Placement(transformation(rotation=0, extent={{-66,
+    displayPF=true) annotation (Placement(transformation(extent={{-66,
             -10},{-46,10}})));
   GUnitTest.PfDataSMIB.PowerFlow powerFlow(redeclare record PowerFlow =
         GUnitTest.PfDataSMIB.PfCTG2)

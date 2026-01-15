@@ -3,7 +3,7 @@ record PF_results
   "Collection of records that characterize the equilibrium point"
   extends Modelica.Icons.Record;
   replaceable record Voltages =
-      VoltagesCampus1 constrainedby VoltagesCampus1                  "Voltage data record template"
+      VoltagesCampus1 constrainedby VoltagesCampus1 "Voltage data record template"
                                                   annotation (
       choicesAllMatching);
   Voltages voltages;
@@ -22,7 +22,7 @@ record PF_results
   replaceable record Photovoltaic =
                                RenewablesCampus1 constrainedby
     RenewablesCampus1
-    "Power data record template for PV"     annotation (
+    "Power data record template for PV" annotation (
       choicesAllMatching);
   Photovoltaic photovoltaic;
   annotation (

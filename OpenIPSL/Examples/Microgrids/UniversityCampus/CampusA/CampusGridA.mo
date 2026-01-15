@@ -4,35 +4,35 @@ model CampusGridA "Microgrid model for university campus A"
   OpenIPSL.Electrical.Buses.Bus AENB(
     V_b=69000,
     v_0=pf.powerflow.bus.V2,
-    angle_0=pf.powerflow.bus.A2)               annotation (Placement(transformation(
+    angle_0=pf.powerflow.bus.A2) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={0,138})));
   OpenIPSL.Electrical.Buses.Bus H2E(
     V_b=12000,
     v_0=pf.powerflow.bus.V3,
-    angle_0=pf.powerflow.bus.A3)              annotation (Placement(transformation(
+    angle_0=pf.powerflow.bus.A3) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-110,78})));
   OpenIPSL.Electrical.Buses.Bus H4S(
     V_b=12000,
     v_0=pf.powerflow.bus.V4,
-    angle_0=pf.powerflow.bus.A4)              annotation (Placement(transformation(
+    angle_0=pf.powerflow.bus.A4) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-50,78})));
   OpenIPSL.Electrical.Buses.Bus H3N(
     V_b=12000,
     v_0=pf.powerflow.bus.V5,
-    angle_0=pf.powerflow.bus.A5)              annotation (Placement(transformation(
+    angle_0=pf.powerflow.bus.A5) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={50,78})));
   OpenIPSL.Electrical.Buses.Bus H1W(
     V_b=12000,
     v_0=pf.powerflow.bus.V6,
-    angle_0=pf.powerflow.bus.A6)              annotation (Placement(transformation(
+    angle_0=pf.powerflow.bus.A6) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={110,78})));
@@ -105,14 +105,14 @@ model CampusGridA "Microgrid model for university campus A"
   OpenIPSL.Electrical.Buses.Bus A1W(
     V_b=12000,
     v_0=pf.powerflow.bus.V7,
-    angle_0=pf.powerflow.bus.A7)              annotation (Placement(transformation(
+    angle_0=pf.powerflow.bus.A7) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-50,26})));
   OpenIPSL.Electrical.Buses.Bus A2E(
     V_b=12000,
     v_0=pf.powerflow.bus.V8,
-    angle_0=pf.powerflow.bus.A8)              annotation (Placement(transformation(
+    angle_0=pf.powerflow.bus.A8) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={50,26})));
@@ -125,14 +125,14 @@ model CampusGridA "Microgrid model for university campus A"
   OpenIPSL.Electrical.Buses.Bus W1W(
     V_b=12000,
     v_0=pf.powerflow.bus.V9,
-    angle_0=pf.powerflow.bus.A9)              annotation (Placement(transformation(
+    angle_0=pf.powerflow.bus.A9) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-80,-32})));
   OpenIPSL.Electrical.Buses.Bus W2E(
     V_b=12000,
     v_0=pf.powerflow.bus.V10,
-    angle_0=pf.powerflow.bus.A10)             annotation (Placement(transformation(
+    angle_0=pf.powerflow.bus.A10) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={80,-32})));
@@ -145,14 +145,14 @@ model CampusGridA "Microgrid model for university campus A"
   OpenIPSL.Electrical.Buses.Bus W3N(
     V_b=12000,
     v_0=pf.powerflow.bus.V11,
-    angle_0=pf.powerflow.bus.A11)             annotation (Placement(transformation(
+    angle_0=pf.powerflow.bus.A11) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-110,-102})));
   OpenIPSL.Electrical.Buses.Bus W4S(
     V_b=12000,
     v_0=pf.powerflow.bus.V12,
-    angle_0=pf.powerflow.bus.A12)             annotation (Placement(transformation(
+    angle_0=pf.powerflow.bus.A12) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={110,-102})));
@@ -160,7 +160,7 @@ model CampusGridA "Microgrid model for university campus A"
     R=0,
     X=0.5021,
     G=0,
-    B=0)                                 annotation (Placement(
+    B=0) annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
@@ -169,7 +169,7 @@ model CampusGridA "Microgrid model for university campus A"
     R=0,
     X=0.5021,
     G=0,
-    B=0)                                 annotation (Placement(
+    B=0) annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
@@ -177,7 +177,7 @@ model CampusGridA "Microgrid model for university campus A"
   OpenIPSL.Electrical.Buses.Bus B416N(
     V_b=4160,
     v_0=pf.powerflow.bus.V13,
-    angle_0=pf.powerflow.bus.A13)                 annotation (Placement(
+    angle_0=pf.powerflow.bus.A13) annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
@@ -209,7 +209,7 @@ model CampusGridA "Microgrid model for university campus A"
   OpenIPSL.Electrical.Buses.Bus AENA(
     V_b=69000,
     v_0=pf.powerflow.bus.V1,
-    angle_0=pf.powerflow.bus.A1)               annotation (Placement(transformation(
+    angle_0=pf.powerflow.bus.A1) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={0,168})));
@@ -217,7 +217,7 @@ model CampusGridA "Microgrid model for university campus A"
     R=0.01,
     X=0.01,
     G=0,
-    B=0)                                 annotation (Placement(
+    B=0) annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
@@ -385,7 +385,7 @@ model CampusGridA "Microgrid model for university campus A"
     V_b=12000,
     v_0=pf.powerflow.bus.V7,
     angle_0=pf.powerflow.bus.A7,
-    displayPF=true)                           annotation (Placement(transformation(
+    displayPF=true) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-50,-8})));
@@ -400,7 +400,7 @@ model CampusGridA "Microgrid model for university campus A"
   OpenIPSL.Electrical.Buses.Bus W1WG(
     V_b=12000,
     v_0=pf.powerflow.bus.V9,
-    angle_0=pf.powerflow.bus.A9)              annotation (Placement(transformation(
+    angle_0=pf.powerflow.bus.A9) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-80,-68})));
@@ -423,14 +423,14 @@ model CampusGridA "Microgrid model for university campus A"
   OpenIPSL.Electrical.Buses.Bus W2EG(
     V_b=12000,
     v_0=pf.powerflow.bus.V10,
-    angle_0=pf.powerflow.bus.A10)             annotation (Placement(transformation(
+    angle_0=pf.powerflow.bus.A10) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={80,-66})));
   OpenIPSL.Electrical.Buses.Bus W4SG(
     V_b=12000,
     v_0=pf.powerflow.bus.V12,
-    angle_0=pf.powerflow.bus.A12)             annotation (Placement(transformation(
+    angle_0=pf.powerflow.bus.A12) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={110,-142})));
@@ -448,7 +448,7 @@ model CampusGridA "Microgrid model for university campus A"
     t1=1000,
     t2=1001)
     annotation (Placement(transformation(extent={{-48,-66},{-36,-54}})));
-  Electrical.Machines.PSSE.GENCLS          UTILITY(
+  Electrical.Machines.PSSE.GENCLS UTILITY(
     V_b=69000,
     P_0=pf.powerflow.machines.PG1,
     Q_0=pf.powerflow.machines.QG1,
@@ -456,7 +456,6 @@ model CampusGridA "Microgrid model for university campus A"
     angle_0=pf.powerflow.bus.A1,
     R_a=0) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
-        rotation=0,
         origin={-30,190})));
   Electrical.Events.Breaker BreakerMicrogrid(
     enableTrigger=false,
@@ -603,8 +602,7 @@ equation
           -40},{-80,-40},{-80,-32}}, color={0,0,255}));
   connect(UTILITY.p, BreakerMicrogrid.r)
     annotation (Line(points={{-20,190},{0,190},{0,186}}, color={0,0,255}));
-  annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-            {100,100}})),            Diagram(coordinateSystem(
+  annotation ( Diagram(coordinateSystem(
           preserveAspectRatio=false, extent={{-160,-200},{160,220}})),
     experiment(
       StopTime=15,
@@ -612,11 +610,11 @@ equation
       Tolerance=1e-06,
       __Dymola_Algorithm="Dassl"),
     Documentation(info="<html>
-<p> University Campus A microgrid is located in Texas and is connected to the local utility through four 69kV feeder. 
-The utility bus voltage level is reduced to 12kV through four step-down transformers, namely T1 through T4. 
+<p> University Campus A microgrid is located in Texas and is connected to the local utility through four 69kV feeder.
+The utility bus voltage level is reduced to 12kV through four step-down transformers, namely T1 through T4.
 The microgrid also contains a 4.16kV portion in bus B15, stepped down from 12kV to 4.16kV through transformers T5, and T6.
 The university campus microgrid is powered by two combustion turbo generators (CTs) and four steam turbo generators (STs). The two oldest steam turbine generation units rarely operate, typically online for a few days a year in extreme load conditions.
-For that reason, the model contains two CTs and two STs, producing power at 12kV each. 
+For that reason, the model contains two CTs and two STs, producing power at 12kV each.
 The maximum amount of power that the combined generation units can produce is approximately 127MW. </p>
 </html>"));
 end CampusGridA;

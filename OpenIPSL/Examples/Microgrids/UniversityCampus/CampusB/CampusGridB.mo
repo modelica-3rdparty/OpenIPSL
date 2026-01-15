@@ -4,7 +4,7 @@ model CampusGridB "Microgrid Model for University Campus B"
   OpenIPSL.Electrical.Buses.Bus B1L1(
     V_b=13800,
     v_0=pf.powerflow.bus.VB1L1,
-    angle_0=pf.powerflow.bus.AB1L1)             annotation (Placement(
+    angle_0=pf.powerflow.bus.AB1L1) annotation (Placement(
         transformation(
         extent={{-20,-20},{20,20}},
         rotation=90,
@@ -12,7 +12,7 @@ model CampusGridB "Microgrid Model for University Campus B"
   OpenIPSL.Electrical.Buses.Bus B2L1(
     V_b=13800,
     v_0=pf.powerflow.bus.VB2L1,
-    angle_0=pf.powerflow.bus.VB2L1)             annotation (Placement(
+    angle_0=pf.powerflow.bus.VB2L1) annotation (Placement(
         transformation(
         extent={{-20,20},{20,-20}},
         rotation=90,
@@ -20,7 +20,7 @@ model CampusGridB "Microgrid Model for University Campus B"
   OpenIPSL.Electrical.Buses.Bus B1L4(
     V_b=13800,
     v_0=pf.powerflow.bus.VB1L4,
-    angle_0=pf.powerflow.bus.AB1L4)          annotation (Placement(
+    angle_0=pf.powerflow.bus.AB1L4) annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
@@ -28,7 +28,7 @@ model CampusGridB "Microgrid Model for University Campus B"
   OpenIPSL.Electrical.Buses.Bus B2L4(
     V_b=13800,
     v_0=pf.powerflow.bus.VB2L4,
-    angle_0=pf.powerflow.bus.AB2L4)          annotation (Placement(
+    angle_0=pf.powerflow.bus.AB2L4) annotation (Placement(
         transformation(
         extent={{10,-10},{-10,10}},
         rotation=270,
@@ -36,7 +36,7 @@ model CampusGridB "Microgrid Model for University Campus B"
   OpenIPSL.Electrical.Buses.Bus B3L4(
     V_b=13800,
     v_0=pf.powerflow.bus.VB3L4,
-    angle_0=pf.powerflow.bus.AB3L4)          annotation (Placement(
+    angle_0=pf.powerflow.bus.AB3L4) annotation (Placement(
         transformation(
         extent={{10,-10},{-10,10}},
         rotation=270,
@@ -50,12 +50,11 @@ model CampusGridB "Microgrid Model for University Campus B"
     R_a=0.01)
            annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
-        rotation=0,
         origin={-4,220})));
   OpenIPSL.Electrical.Buses.Bus B1L2(
     V_b=13800,
     v_0=pf.powerflow.bus.VB1L2,
-    angle_0=pf.powerflow.bus.AB1L2)             annotation (Placement(
+    angle_0=pf.powerflow.bus.AB1L2) annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
@@ -63,7 +62,7 @@ model CampusGridB "Microgrid Model for University Campus B"
   OpenIPSL.Electrical.Buses.Bus B2L2(
     V_b=13800,
     v_0=pf.powerflow.bus.VB2L2,
-    angle_0=pf.powerflow.bus.AB2L2)             annotation (Placement(
+    angle_0=pf.powerflow.bus.AB2L2) annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
@@ -71,14 +70,14 @@ model CampusGridB "Microgrid Model for University Campus B"
   OpenIPSL.Electrical.Buses.Bus B3L2(
     V_b=13800,
     v_0=pf.powerflow.bus.VB3L2,
-    angle_0=pf.powerflow.bus.AB3L2)            annotation (Placement(transformation(
+    angle_0=pf.powerflow.bus.AB3L2) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={120,212})));
   OpenIPSL.Electrical.Buses.Bus B1L5(
     V_b=13800,
     v_0=pf.powerflow.bus.VB1L5,
-    angle_0=pf.powerflow.bus.AB1L5)          annotation (Placement(
+    angle_0=pf.powerflow.bus.AB1L5) annotation (Placement(
         transformation(
         extent={{-10,10},{10,-10}},
         rotation=90,
@@ -86,7 +85,7 @@ model CampusGridB "Microgrid Model for University Campus B"
   OpenIPSL.Electrical.Buses.Bus B2L5(
     V_b=13800,
     v_0=pf.powerflow.bus.VB2L5,
-    angle_0=pf.powerflow.bus.AB2L5)          annotation (Placement(
+    angle_0=pf.powerflow.bus.AB2L5) annotation (Placement(
         transformation(
         extent={{-10,10},{10,-10}},
         rotation=90,
@@ -94,7 +93,7 @@ model CampusGridB "Microgrid Model for University Campus B"
   OpenIPSL.Electrical.Buses.Bus B3L5(
     V_b=13800,
     v_0=pf.powerflow.bus.VB3L5,
-    angle_0=pf.powerflow.bus.AB3L5)          annotation (Placement(
+    angle_0=pf.powerflow.bus.AB3L5) annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
@@ -102,7 +101,7 @@ model CampusGridB "Microgrid Model for University Campus B"
   OpenIPSL.Electrical.Buses.Bus B4L5(
     V_b=13800,
     v_0=pf.powerflow.bus.VB4L5,
-    angle_0=pf.powerflow.bus.AB4L5)          annotation (Placement(
+    angle_0=pf.powerflow.bus.AB4L5) annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
@@ -110,7 +109,7 @@ model CampusGridB "Microgrid Model for University Campus B"
   OpenIPSL.Electrical.Buses.Bus B5L5(
     V_b=13800,
     v_0=pf.powerflow.bus.VB5L5,
-    angle_0=pf.powerflow.bus.AB5L5)          annotation (Placement(
+    angle_0=pf.powerflow.bus.AB5L5) annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
@@ -118,7 +117,7 @@ model CampusGridB "Microgrid Model for University Campus B"
   OpenIPSL.Electrical.Buses.Bus B6L5(
     V_b=13800,
     v_0=pf.powerflow.bus.VB6L5,
-    angle_0=pf.powerflow.bus.AB6L5)          annotation (Placement(
+    angle_0=pf.powerflow.bus.AB6L5) annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
@@ -140,7 +139,7 @@ model CampusGridB "Microgrid Model for University Campus B"
   OpenIPSL.Electrical.Buses.Bus B1L7(
     V_b=13800,
     v_0=pf.powerflow.bus.VB1L7,
-    angle_0=pf.powerflow.bus.AB1L7)          annotation (Placement(
+    angle_0=pf.powerflow.bus.AB1L7) annotation (Placement(
         transformation(
         extent={{-10,10},{10,-10}},
         rotation=90,
@@ -163,7 +162,7 @@ model CampusGridB "Microgrid Model for University Campus B"
     R=0.4,
     X=0.1,
     G=0,
-    B=0)                                     annotation (Placement(
+    B=0) annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
@@ -179,7 +178,7 @@ model CampusGridB "Microgrid Model for University Campus B"
   OpenIPSL.Electrical.Buses.Bus B1L8(
     V_b=13800,
     v_0=pf.powerflow.bus.VB1L8,
-    angle_0=pf.powerflow.bus.AB1L8)          annotation (Placement(
+    angle_0=pf.powerflow.bus.AB1L8) annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
@@ -281,7 +280,7 @@ model CampusGridB "Microgrid Model for University Campus B"
   OpenIPSL.Electrical.Buses.Bus B1L6(
     V_b=13800,
     v_0=pf.powerflow.bus.VB1L6,
-    angle_0=pf.powerflow.bus.AB1L6)          annotation (Placement(
+    angle_0=pf.powerflow.bus.AB1L6) annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
@@ -304,7 +303,7 @@ model CampusGridB "Microgrid Model for University Campus B"
   OpenIPSL.Electrical.Buses.Bus B1L9(
     V_b=13800,
     v_0=pf.powerflow.bus.VB1L9,
-    angle_0=pf.powerflow.bus.AB1L9)          annotation (Placement(
+    angle_0=pf.powerflow.bus.AB1L9) annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
@@ -327,7 +326,7 @@ model CampusGridB "Microgrid Model for University Campus B"
   OpenIPSL.Electrical.Buses.Bus B2L9(
     V_b=13800,
     v_0=pf.powerflow.bus.VB2L9,
-    angle_0=pf.powerflow.bus.AB2L9)          annotation (Placement(
+    angle_0=pf.powerflow.bus.AB2L9) annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
@@ -350,7 +349,7 @@ model CampusGridB "Microgrid Model for University Campus B"
   OpenIPSL.Electrical.Buses.Bus B2L7(
     V_b=13800,
     v_0=pf.powerflow.bus.VB2L7,
-    angle_0=pf.powerflow.bus.AB2L7)          annotation (Placement(
+    angle_0=pf.powerflow.bus.AB2L7) annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
@@ -374,7 +373,7 @@ model CampusGridB "Microgrid Model for University Campus B"
   OpenIPSL.Electrical.Buses.Bus B2L8(
     V_b=13800,
     v_0=pf.powerflow.bus.VB2L8,
-    angle_0=pf.powerflow.bus.AB2L8)          annotation (Placement(
+    angle_0=pf.powerflow.bus.AB2L8) annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
@@ -413,7 +412,7 @@ model CampusGridB "Microgrid Model for University Campus B"
   OpenIPSL.Electrical.Buses.Bus B1L3(
     V_b=13800,
     v_0=pf.powerflow.bus.VB1L3,
-    angle_0=pf.powerflow.bus.AB1L3)          annotation (Placement(
+    angle_0=pf.powerflow.bus.AB1L3) annotation (Placement(
         transformation(
         extent={{10,-10},{-10,10}},
         rotation=270,
@@ -432,7 +431,6 @@ model CampusGridB "Microgrid Model for University Campus B"
     G=0,
     B=0) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
-        rotation=0,
         origin={90,138})));
   OpenIPSL.Electrical.Branches.PwLine Line1(
     R=0.3,
@@ -461,7 +459,6 @@ model CampusGridB "Microgrid Model for University Campus B"
   OpenIPSL.Electrical.Events.Breaker Br1(enableTrigger=false) annotation (
       Placement(transformation(
         extent={{-6,-6},{6,6}},
-        rotation=0,
         origin={0,280})));
   OpenIPSL.Electrical.Events.Breaker Br2
     annotation (Placement(transformation(extent={{-66,86},{-54,98}})));
@@ -497,18 +494,18 @@ model CampusGridB "Microgrid Model for University Campus B"
         extent={{-14,-14},{14,14}},
         rotation=90,
         origin={120,168})));
-  Electrical.Events.Breaker BrST(enableTrigger=false)        annotation (
+  Electrical.Events.Breaker BrST(enableTrigger=false) annotation (
       Placement(transformation(
         extent={{-6,-6},{6,6}},
         rotation=90,
         origin={120,198})));
 
-  Electrical.Events.Breaker BrGT1(enableTrigger=false)       annotation (
+  Electrical.Events.Breaker BrGT1(enableTrigger=false) annotation (
       Placement(transformation(
         extent={{-6,-6},{6,6}},
         rotation=90,
         origin={-90,198})));
-  Electrical.Events.Breaker BrGT2(enableTrigger=false)       annotation (
+  Electrical.Events.Breaker BrGT2(enableTrigger=false) annotation (
       Placement(transformation(
         extent={{-6,-6},{6,6}},
         rotation=90,
@@ -538,10 +535,10 @@ model CampusGridB "Microgrid Model for University Campus B"
         extent={{-14,-14},{14,14}},
         rotation=90,
         origin={-120,-282})));
-  Electrical.Buses.Bus          PV1B1(
+  Electrical.Buses.Bus PV1B1(
     V_b=13800,
     v_0=pf.powerflow.bus.VPV1B1,
-    angle_0=pf.powerflow.bus.APV1B1)         annotation (Placement(
+    angle_0=pf.powerflow.bus.APV1B1) annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
@@ -556,15 +553,15 @@ model CampusGridB "Microgrid Model for University Campus B"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-120,-244})));
-  Electrical.Buses.Bus          PV1B2(
+  Electrical.Buses.Bus PV1B2(
     V_b=13800,
     v_0=pf.powerflow.bus.VPV1B2,
-    angle_0=pf.powerflow.bus.APV1B2)         annotation (Placement(
+    angle_0=pf.powerflow.bus.APV1B2) annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-120,-228})));
-  Electrical.Branches.PwLine          Line26(
+  Electrical.Branches.PwLine Line26(
     R=0.04,
     X=0.08,
     G=0,
@@ -590,10 +587,10 @@ model CampusGridB "Microgrid Model for University Campus B"
         extent={{-14,-14},{14,14}},
         rotation=90,
         origin={-30,-282})));
-  Electrical.Buses.Bus          PV2B1(
+  Electrical.Buses.Bus PV2B1(
     V_b=13800,
     v_0=pf.powerflow.bus.VPV2B1,
-    angle_0=pf.powerflow.bus.APV2B1)         annotation (Placement(
+    angle_0=pf.powerflow.bus.APV2B1) annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
@@ -608,15 +605,15 @@ model CampusGridB "Microgrid Model for University Campus B"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-30,-244})));
-  Electrical.Buses.Bus          PV2B2(
+  Electrical.Buses.Bus PV2B2(
     V_b=13800,
     v_0=pf.powerflow.bus.VPV2B2,
-    angle_0=pf.powerflow.bus.APV2B2)         annotation (Placement(
+    angle_0=pf.powerflow.bus.APV2B2) annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-30,-228})));
-  Electrical.Branches.PwLine          Line27(
+  Electrical.Branches.PwLine Line27(
     R=0.02,
     X=0.04,
     G=0,
@@ -642,10 +639,10 @@ model CampusGridB "Microgrid Model for University Campus B"
         extent={{-14,-14},{14,14}},
         rotation=90,
         origin={140,-66})));
-  Electrical.Buses.Bus          PV3B1(
+  Electrical.Buses.Bus PV3B1(
     V_b=13800,
     v_0=pf.powerflow.bus.VPV3B1,
-    angle_0=pf.powerflow.bus.APV3B1)         annotation (Placement(
+    angle_0=pf.powerflow.bus.APV3B1) annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
@@ -660,15 +657,15 @@ model CampusGridB "Microgrid Model for University Campus B"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={140,-26})));
-  Electrical.Buses.Bus          PV3B2(
+  Electrical.Buses.Bus PV3B2(
     V_b=13800,
     v_0=pf.powerflow.bus.VPV3B2,
-    angle_0=pf.powerflow.bus.APV3B2)         annotation (Placement(
+    angle_0=pf.powerflow.bus.APV3B2) annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={140,-10})));
-  Electrical.Branches.PwLine          Line28(
+  Electrical.Branches.PwLine Line28(
     R=0.01,
     X=0.05,
     G=0,
@@ -694,10 +691,10 @@ model CampusGridB "Microgrid Model for University Campus B"
         extent={{-14,-14},{14,14}},
         rotation=90,
         origin={50,-94})));
-  Electrical.Buses.Bus          PV4B1(
+  Electrical.Buses.Bus PV4B1(
     V_b=13800,
     v_0=pf.powerflow.bus.VPV4B1,
-    angle_0=pf.powerflow.bus.APV4B1)         annotation (Placement(
+    angle_0=pf.powerflow.bus.APV4B1) annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
@@ -712,15 +709,15 @@ model CampusGridB "Microgrid Model for University Campus B"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={50,-54})));
-  Electrical.Buses.Bus          PV4B2(
+  Electrical.Buses.Bus PV4B2(
     V_b=13800,
     v_0=pf.powerflow.bus.VPV4B2,
-    angle_0=pf.powerflow.bus.APV4B2)         annotation (Placement(
+    angle_0=pf.powerflow.bus.APV4B2) annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={50,-38})));
-  Electrical.Branches.PwLine          Line29(
+  Electrical.Branches.PwLine Line29(
     R=0.001,
     X=0.01,
     G=0,
@@ -746,10 +743,10 @@ model CampusGridB "Microgrid Model for University Campus B"
         extent={{-14,-14},{14,14}},
         rotation=90,
         origin={90,-56})));
-  Electrical.Buses.Bus          PV5B1(
+  Electrical.Buses.Bus PV5B1(
     V_b=13800,
     v_0=pf.powerflow.bus.VPV5B1,
-    angle_0=pf.powerflow.bus.APV5B1)         annotation (Placement(
+    angle_0=pf.powerflow.bus.APV5B1) annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
@@ -764,15 +761,15 @@ model CampusGridB "Microgrid Model for University Campus B"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={90,-16})));
-  Electrical.Buses.Bus          PV5B2(
+  Electrical.Buses.Bus PV5B2(
     V_b=13800,
     v_0=pf.powerflow.bus.VPV5B2,
-    angle_0=pf.powerflow.bus.APV5B2)         annotation (Placement(
+    angle_0=pf.powerflow.bus.APV5B2) annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={90,0})));
-  Electrical.Branches.PwLine          Line30(
+  Electrical.Branches.PwLine Line30(
     R=0.03,
     X=0.05,
     G=0,
@@ -780,7 +777,7 @@ model CampusGridB "Microgrid Model for University Campus B"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={90,14})));
-  inner Electrical.SystemBase          SysData(S_b=100000000, fn=60)
+  inner Electrical.SystemBase SysData(S_b=100000000, fn=60)
     annotation (Placement(transformation(extent={{66,-272},{126,-232}})));
 
   PfData.PowerFlow pf(redeclare record PowerFlow =
@@ -794,11 +791,11 @@ equation
   connect(L7.p, B1L7.p) annotation (Line(points={{-170,-88},{-170,-74},{-150,-74},
           {-150,-68}}, color={0,0,255}));
   connect(Line18.p, B1L7.p)
-    annotation (Line(points={{-150,-27},{-150,-68}},   color={0,0,255}));
+    annotation (Line(points={{-150,-27},{-150,-68}}, color={0,0,255}));
   connect(Line18.n, B1L5.p)
-    annotation (Line(points={{-150,-9},{-150,32}},     color={0,0,255}));
+    annotation (Line(points={{-150,-9},{-150,32}}, color={0,0,255}));
   connect(Line21.n, B1L7.p) annotation (Line(points={{-130,-89},{-130,-74},{-150,
-          -74},{-150,-68}},         color={0,0,255}));
+          -74},{-150,-68}}, color={0,0,255}));
   connect(L5.p, B6L5.p) annotation (Line(points={{180,0},{180,20},{160,20},{160,
           32}}, color={0,0,255}));
   connect(B5L5.p, L4.p)
@@ -806,17 +803,17 @@ equation
   connect(L3.p, B4L5.p)
     annotation (Line(points={{26,24},{26,32}}, color={0,0,255}));
   connect(B3L5.p, Line19.n)
-    annotation (Line(points={{-14,32},{-14,21}},     color={0,0,255}));
+    annotation (Line(points={{-14,32},{-14,21}}, color={0,0,255}));
   connect(Line19.p, B1L6.p)
-    annotation (Line(points={{-14,3},{-14,-8}},      color={0,0,255}));
+    annotation (Line(points={{-14,3},{-14,-8}}, color={0,0,255}));
   connect(B1L6.p, Line20.n)
-    annotation (Line(points={{-14,-8},{-14,-29}},    color={0,0,255}));
+    annotation (Line(points={{-14,-8},{-14,-29}}, color={0,0,255}));
   connect(L6.p, B1L6.p) annotation (Line(points={{10,-40},{10,-12},{-14,-12},{-14,
           -8}}, color={0,0,255}));
   connect(Line21.p, B1L9.p) annotation (Line(points={{-130,-107},{-130,-182},{-100,
-          -182},{-100,-188}},       color={0,0,255}));
+          -182},{-100,-188}}, color={0,0,255}));
   connect(Line24.p, B1L9.p) annotation (Line(points={{-50,-167},{-50,-182},{-100,
-          -182},{-100,-188}},       color={0,0,255}));
+          -182},{-100,-188}}, color={0,0,255}));
   connect(L9.p, B1L9.p) annotation (Line(points={{-80,-220},{-80,-200},{-100,-200},
           {-100,-188}}, color={0,0,255}));
   connect(Line25.p, B2L9.p)
@@ -826,15 +823,15 @@ equation
   connect(Line24.n, B1L8.p)
     annotation (Line(points={{-50,-149},{-50,-128}}, color={0,0,255}));
   connect(Line25.n, B1L8.p) annotation (Line(points={{-10,-149},{-10,-134},{-50,
-          -134},{-50,-128}},      color={0,0,255}));
+          -134},{-50,-128}}, color={0,0,255}));
   connect(Line22.n, B2L7.p)
-    annotation (Line(points={{-50,-89},{-50,-68}},   color={0,0,255}));
+    annotation (Line(points={{-50,-89},{-50,-68}}, color={0,0,255}));
   connect(Line22.p, B1L8.p)
     annotation (Line(points={{-50,-107},{-50,-128}}, color={0,0,255}));
   connect(Line20.p, B2L7.p) annotation (Line(points={{-14,-47},{-14,-62},{-50,-62},
-          {-50,-68}},             color={0,0,255}));
+          {-50,-68}}, color={0,0,255}));
   connect(Line23.n, B2L7.p) annotation (Line(points={{20,-89},{20,-84},{-50,-84},
-          {-50,-68}},        color={0,0,255}));
+          {-50,-68}}, color={0,0,255}));
   connect(Line23.p, B2L8.p)
     annotation (Line(points={{20,-107},{20,-128}}, color={0,0,255}));
   connect(B2L8.p, L8.p)
@@ -842,13 +839,13 @@ equation
   connect(Line3.p, B3L4.p) annotation (Line(points={{160,233},{160,92}},
                            color={0,0,255}));
   connect(Line2.p, B2L4.p) annotation (Line(points={{-40,233},{-40,98},{0,98},{0,
-          92}},          color={0,0,255}));
+          92}}, color={0,0,255}));
   connect(B2L2.p, Line4.p)
     annotation (Line(points={{80,212},{80,233}}, color={0,0,255}));
   connect(Line4.n, B2L1.p) annotation (Line(points={{80,251},{80,264},{100,264},
-          {100,272}},      color={0,0,255}));
+          {100,272}}, color={0,0,255}));
   connect(Line5.n, B2L1.p) annotation (Line(points={{120,251},{120,264},{100,264},
-          {100,272}},          color={0,0,255}));
+          {100,272}}, color={0,0,255}));
   connect(Line5.p, B3L2.p)
     annotation (Line(points={{120,233},{120,212}}, color={0,0,255}));
   connect(Line1.p, B1L2.p)
@@ -860,9 +857,9 @@ equation
   connect(Br1.r, B2L1.p) annotation (Line(points={{6,280},{100,280},{100,272}},
                  color={0,0,255}));
   connect(Line3.n, B2L1.p) annotation (Line(points={{160,251},{160,264},{100,264},
-          {100,272}},      color={0,0,255}));
+          {100,272}}, color={0,0,255}));
   connect(Line2.n, B1L1.p) annotation (Line(points={{-40,251},{-40,264},{-90,264},
-          {-90,272}},          color={0,0,255}));
+          {-90,272}}, color={0,0,255}));
   connect(Line7.n, B2L4.p) annotation (Line(points={{0,111},{0,92}},
                          color={0,0,255}));
   connect(Line7.p, B1L3.p) annotation (Line(points={{1.55431e-15,129},{1.55431e-15,
@@ -871,7 +868,7 @@ equation
   connect(Br2.r, B2L4.p) annotation (Line(points={{-54,92},{-54,90},{0,90},{0,92}},
                           color={0,0,255}));
   connect(Br2.s, B1L4.p) annotation (Line(points={{-66,92},{-66,90},{-122,90},{-122,
-          92}},             color={0,0,255}));
+          92}}, color={0,0,255}));
   connect(Br3.s, B2L4.p) annotation (Line(points={{54,92},{54,90},{0,90},{0,92}},
                      color={0,0,255}));
   connect(Line8.p, B1L3.p)
@@ -880,46 +877,46 @@ equation
   connect(Line6.p, B1L3.p) annotation (Line(points={{-83,138},{12,138},{12,172}},
                                  color={0,0,255}));
   connect(Line6.n, B1L4.p) annotation (Line(points={{-101,138},{-122,138},{-122,
-          92}},                     color={0,0,255}));
+          92}}, color={0,0,255}));
   connect(Line8.n, B3L4.p)
     annotation (Line(points={{99,138},{160,138},{160,92}},
                                                         color={0,0,255}));
   connect(Line9.n, B1L4.p) annotation (Line(points={{-150,71},{-150,76},{-122,76},
-          {-122,92}},             color={0,0,255}));
+          {-122,92}}, color={0,0,255}));
   connect(Line10.n, B1L4.p)
-    annotation (Line(points={{-122,71},{-122,92}},    color={0,0,255}));
+    annotation (Line(points={{-122,71},{-122,92}}, color={0,0,255}));
   connect(Line11.n, B1L4.p) annotation (Line(points={{-90,71},{-90,76},{-122,76},
-          {-122,92}},            color={0,0,255}));
+          {-122,92}}, color={0,0,255}));
   connect(Line12.n, B2L4.p) annotation (Line(points={{-60,71},{-60,76},{0,76},{0,
-          92}},            color={0,0,255}));
+          92}}, color={0,0,255}));
   connect(Line13.n, B2L4.p) annotation (Line(points={{-30,71},{-30,76},{0,76},{0,
-          92}},            color={0,0,255}));
+          92}}, color={0,0,255}));
   connect(Line14.n, B2L4.p)
-    annotation (Line(points={{0,71},{0,92}},    color={0,0,255}));
+    annotation (Line(points={{0,71},{0,92}}, color={0,0,255}));
   connect(Line15.n, B2L4.p) annotation (Line(points={{26,71},{26,76},{0,76},{0,92}},
                          color={0,0,255}));
   connect(Line16.n, B2L4.p) annotation (Line(points={{60,71},{60,76},{0,76},{0,92}},
                          color={0,0,255}));
   connect(Line17.n, B3L4.p)
-    annotation (Line(points={{160,71},{160,92}},    color={0,0,255}));
+    annotation (Line(points={{160,71},{160,92}}, color={0,0,255}));
   connect(Line17.p, B6L5.p)
-    annotation (Line(points={{160,53},{160,32}},     color={0,0,255}));
+    annotation (Line(points={{160,53},{160,32}}, color={0,0,255}));
   connect(Line16.p, B5L5.p)
-    annotation (Line(points={{60,53},{60,32}},     color={0,0,255}));
+    annotation (Line(points={{60,53},{60,32}}, color={0,0,255}));
   connect(Line15.p, B4L5.p)
-    annotation (Line(points={{26,53},{26,32}},     color={0,0,255}));
+    annotation (Line(points={{26,53},{26,32}}, color={0,0,255}));
   connect(Line14.p, B3L5.p) annotation (Line(points={{0,53},{0,40},{-14,40},{-14,
-          32}},              color={0,0,255}));
+          32}}, color={0,0,255}));
   connect(Line13.p, B3L5.p) annotation (Line(points={{-30,53},{-30,40},{-14,40},
-          {-14,32}},              color={0,0,255}));
+          {-14,32}}, color={0,0,255}));
   connect(Line10.p, B2L5.p)
-    annotation (Line(points={{-122,53},{-122,32}},     color={0,0,255}));
+    annotation (Line(points={{-122,53},{-122,32}}, color={0,0,255}));
   connect(Line9.p, B1L5.p)
-    annotation (Line(points={{-150,53},{-150,32}},     color={0,0,255}));
+    annotation (Line(points={{-150,53},{-150,32}}, color={0,0,255}));
   connect(Line11.p, B2L7.p) annotation (Line(points={{-90,53},{-90,-62},{-50,-62},
-          {-50,-68}},             color={0,0,255}));
+          {-50,-68}}, color={0,0,255}));
   connect(Line12.p, B2L7.p) annotation (Line(points={{-60,53},{-60,-62},{-50,-62},
-          {-50,-68}},             color={0,0,255}));
+          {-50,-68}}, color={0,0,255}));
   connect(ST.pwPin, BrST.s)
     annotation (Line(points={{120,183.4},{120,192}}, color={0,0,255}));
   connect(BrST.r, B3L2.p)
@@ -992,13 +989,12 @@ equation
           106,4},{90,4},{90,5}}, color={0,0,255}));
   connect(Line26.n, B1L9.p) annotation (Line(points={{-120,-205},{-120,-200},{
           -100,-200},{-100,-188}}, color={0,0,255}));
-  annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-            {100,100}})),                                        Diagram(
+  annotation ( Diagram(
         coordinateSystem(preserveAspectRatio=false, extent={{-220,-300},{220,300}})),
     experiment(StopTime=10, __Dymola_Algorithm="Dassl"),
     Documentation(info="<html>
 <p> The university campus microgrid accommodates two Mitsubishi MF-111 Gas Turbines. Both gas turbines are single shaft and have nominal operating speeds of 9,660 RPM, reduced to 3,600 RPM by means of a reduction gear. The generator is a two pole machine, rated at 15,000 kW, 13.8 kV at 0.90 lagging power factor while operating at 60 Hz. The excitation system of the generator is a shaft mounted main and pilot permanent magnet brushless exciter with rotating fused diodes. The turbine governor is a Woodward 2301A Dual Fuel Control.
-The campus also accomodates a steam turbine unit. The  unit is comprised of a Siemens Dresser-Rand steam turbine, connected via rotor to a Kato Engineering Synchronous Generator. The generator is a brushless field revolving generator with direct connected rotating brushless exciter. The turbine's nominal operating speed is 4,700 RPM, with a single reduction parallel shaft speed reducer that decreases the rotor speed to 1,800 RPM. The generator construction is defined by a four-pole machine, with a nominal power of 3,580 kW, 13.8 kV at 0.8 lagging power factor, operating at 60 Hz.
+The campus also accomodates a steam turbine unit. The unit is comprised of a Siemens Dresser-Rand steam turbine, connected via rotor to a Kato Engineering Synchronous Generator. The generator is a brushless field revolving generator with direct connected rotating brushless exciter. The turbine's nominal operating speed is 4,700 RPM, with a single reduction parallel shaft speed reducer that decreases the rotor speed to 1,800 RPM. The generator construction is defined by a four-pole machine, with a nominal power of 3,580 kW, 13.8 kV at 0.8 lagging power factor, operating at 60 Hz.
 The microgrid also has solar farm. The university campus microgrid has five distinct photovoltaic systems (PV) spread through the microgrid, ranging from a few kW to roughly 900 kW in nominal power. The terminal voltage of the photovoltaic installation is 0.6 kV, which is increased to 13.8 kV by means of a step-up transformer (to match the microgrid's voltage magnitude).</p>
 </html>"));
 end CampusGridB;

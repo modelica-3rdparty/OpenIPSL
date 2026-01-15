@@ -8,6 +8,5 @@ record TGOV1STG2 "Type TGOV1 TG for STG2"
   T_3=0.3,
   V_MAX=1,
   V_MIN=0.3);
-  annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(
-        coordinateSystem(preserveAspectRatio=false)));
+
 end TGOV1STG2;

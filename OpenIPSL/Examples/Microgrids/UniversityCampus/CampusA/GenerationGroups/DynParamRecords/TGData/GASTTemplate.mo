@@ -9,6 +9,5 @@ record GASTTemplate "Template for GAST motor model"
   parameter Types.PerUnit V_MAX "Operational control high limit on fuel valve opening";
   parameter Types.PerUnit V_MIN "Low output control limit on fuel valve opening";
   parameter Types.PerUnit D_turb "Turbine damping";
-  annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(
-        coordinateSystem(preserveAspectRatio=false)));
+
 end GASTTemplate;

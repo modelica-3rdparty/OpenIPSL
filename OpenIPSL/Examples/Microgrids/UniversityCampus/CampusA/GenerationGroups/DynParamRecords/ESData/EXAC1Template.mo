@@ -18,5 +18,4 @@ partial record EXAC1Template "Type ST-A Excitation System Data"
   parameter Types.PerUnit S_EE_1 "Exciter saturation factor at exciter output voltage E1";
   parameter Types.PerUnit S_EE_2 "Exciter saturation factor at exciter output voltage E2";
 
-
 end EXAC1Template;

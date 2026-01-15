@@ -7,7 +7,7 @@ package GT "Gas turbine unit for Microgrid B."
           extent={{6,6},{-6,-6}},
           rotation=180,
           origin={-84,-32})));
-    replaceable Electrical.Machines.PSSE.GENROE          machine(
+    replaceable Electrical.Machines.PSSE.GENROE machine(
       V_b=V_b,
       Tpd0=gUData.guDynamics.machine.Tpd0,
       Tppd0=gUData.guDynamics.machine.Tppd0,
@@ -34,7 +34,7 @@ package GT "Gas turbine unit for Microgrid B."
       OpenIPSL.Electrical.Machines.PSSE.BaseClasses.baseMachine
       annotation (choicesAllMatching=true,
                   Placement(transformation(extent={{20,-20},{60,20}})));
-    replaceable Electrical.Controls.PSSE.TG.GAST                     governor(
+    replaceable Electrical.Controls.PSSE.TG.GAST governor(
       R=gUData.guDynamics.tg.R,
       T_1=gUData.guDynamics.tg.T_1,
       T_2=gUData.guDynamics.tg.T_2,
@@ -46,7 +46,7 @@ package GT "Gas turbine unit for Microgrid B."
       D_turb=gUData.guDynamics.tg.D_turb)
       constrainedby Electrical.Controls.PSSE.TG.BaseClasses.BaseGovernor
       annotation (Placement(transformation(extent={{-54,20},{-14,60}})));
-    replaceable Electrical.Controls.PSSE.ES.EXAC1                   baseExciter(
+    replaceable Electrical.Controls.PSSE.ES.EXAC1 baseExciter(
       T_R=gUData.guDynamics.excSystem.T_R,
       T_B=gUData.guDynamics.excSystem.T_B,
       T_C=gUData.guDynamics.excSystem.T_C,
@@ -92,8 +92,6 @@ package GT "Gas turbine unit for Microgrid B."
             -10},{82,-80},{-66,-80},{-66,-48},{-56,-48}}, color={0,0,127}));
     connect(machine.ETERM, baseExciter.ECOMP) annotation (Line(points={{62,-6},{90,
             -6},{90,-88},{-72,-88},{-72,-40},{-56,-40}}, color={0,0,127}));
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false)),
-                                     Diagram(coordinateSystem(preserveAspectRatio=
-             false)));
+
   end GasTurbineUnit;
 end GT;

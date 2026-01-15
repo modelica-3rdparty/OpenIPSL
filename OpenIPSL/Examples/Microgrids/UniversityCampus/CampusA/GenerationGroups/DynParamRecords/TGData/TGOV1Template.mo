@@ -7,6 +7,5 @@ record TGOV1Template "Template for TGOV1 motor model"
   parameter Types.Time T_3 "Reheater time constant. It must be greater than 0";
   parameter Types.PerUnit V_MAX "Maximum valve position (on Machine Base)";
   parameter Types.PerUnit V_MIN "Minimum valve position (on Machine Base)";
-  annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(
-        coordinateSystem(preserveAspectRatio=false)));
+
 end TGOV1Template;

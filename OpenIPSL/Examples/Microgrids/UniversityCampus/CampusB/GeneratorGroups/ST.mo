@@ -79,7 +79,6 @@ package ST "Steam turbine generation unit for Microgrid B."
             {90,14},{90,76},{-70,76},{-70,52},{-56,52}}, color={0,0,127}));
     connect(baseMachine.PMECH0, baseGovernor.PMECH0) annotation (Line(points={{82,
             10},{96,10},{96,84},{-76,84},{-76,28},{-56,28}}, color={0,0,127}));
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(
-          coordinateSystem(preserveAspectRatio=false)));
+
   end SteamTurbineUnit;
 end ST;

@@ -18,7 +18,7 @@ model CTG1 "SMIB test model for CTG1"
     v_0=powerFlow.powerflow.bus.v1,
     angle_0=powerFlow.powerflow.bus.A1,
     displayPF=true)
-    annotation (Placement(transformation(rotation=0, extent={{-66,-10},{-46,10}})),
+    annotation (Placement(transformation(extent={{-66,-10},{-46,10}})),
       choicesAllMatching=true);
   GUnitTest.PfDataSMIB.PowerFlow powerFlow(redeclare record PowerFlow =
         OpenIPSL.Examples.Microgrids.UniversityCampus.CampusA.GUnitTest.PfDataSMIB.PfCTG1)
