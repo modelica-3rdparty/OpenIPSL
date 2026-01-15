@@ -10,7 +10,7 @@ model Anderson
       Q_0=powerFlow.powerFlow.machines.QG2,
       v_0=powerFlow.powerFlow.bus.v2,
       angle_0=powerFlow.powerFlow.bus.A2));
-  GenerationGroup.Generator2  generator1(
+  GenerationGroup.Generator2 generator1(
     P_0=powerFlow.powerFlow.machines.PG1,
     enableP_0=true,
     Q_0=powerFlow.powerFlow.machines.QG1,
@@ -21,7 +21,7 @@ model Anderson
     enableangle_0=true,
     redeclare record GUnitDynamics =
         OpenIPSL.Data.PowerPlant.Anderson.Steam.Fossil.AndersonF15)
-    annotation (Placement(transformation(rotation=0, extent={{-60,-10},{-40,10}})));
+    annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
   PFData.PowerFlow powerFlow(redeclare record PowerFlow = PFData.PF00050)
     annotation (Placement(transformation(extent={{-90,32},{-70,52}})));
 equation

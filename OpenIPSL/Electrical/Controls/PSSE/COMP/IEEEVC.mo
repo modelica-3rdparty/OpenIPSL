@@ -6,10 +6,10 @@ model IEEEVC "Voltage Regulator Current Compensating Model [PSSE-MODELS]"
   parameter Types.PerUnit RC;
   parameter Types.PerUnit XC;
   OpenIPSL.Interfaces.PwPin Gen_terminal annotation (Placement(transformation(
-          extent={{-80,60},{-60,80}}),     iconTransformation(extent={{-80,60},{
+          extent={{-80,60},{-60,80}}), iconTransformation(extent={{-80,60},{
             -60,80}})));
   OpenIPSL.Interfaces.PwPin Bus annotation (Placement(transformation(extent={{60,60},
-            {80,80}}),            iconTransformation(extent={{60,60},{80,80}})));
+            {80,80}}), iconTransformation(extent={{60,60},{80,80}})));
   Modelica.Blocks.Interfaces.RealOutput VCT annotation (Placement(
         transformation(extent={{100,-16},{132,16}}),iconTransformation(extent={{100,-16},
             {132,16}})));
@@ -20,7 +20,7 @@ equation
   VCT = 'abs'(V_T + (RC + j*XC)*I_T);
   V_T = Gen_terminal.vr + j*Gen_terminal.vi;
   I_T = Gen_terminal.ir + j*Gen_terminal.ii;
-  connect(Gen_terminal,Bus)  annotation (Line(points={{-70,70},{70,70}},
+  connect(Gen_terminal,Bus) annotation (Line(points={{-70,70},{70,70}},
                  color={0,0,255}));
   annotation (Icon(graphics={Rectangle(extent={{-100,100},{100,-100}},
             lineColor={28,108,200}), Text(

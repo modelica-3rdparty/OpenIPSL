@@ -4,21 +4,21 @@ record AndersonCF3LP
 
   extends GUDynamicsTemplate;
 
-  replaceable record Machine = MachineData.MachineDataCF3LP  constrainedby
-    MachineData.MachineDataTemplate     "Machine data";
+  replaceable record Machine = MachineData.MachineDataCF3LP constrainedby
+    MachineData.MachineDataTemplate "Machine data";
   Machine machine;
 
-  replaceable record ExcSystem = ESData.ExcSystemDataCF3LP  constrainedby
-    ESData.ExcSystemDataTemplate     "Excitation system data";
+  replaceable record ExcSystem = ESData.ExcSystemDataCF3LP constrainedby
+    ESData.ExcSystemDataTemplate "Excitation system data";
   ExcSystem excSystem;
 
   replaceable record TurbGovernor =
-      TurbGovData.TurbGovernorDataCF3LP                                constrainedby
-    TurbGovData.TurbGovernorDataTemplate     "Turbine-Governor data";
+      TurbGovData.TurbGovernorDataCF3LP constrainedby
+    TurbGovData.TurbGovernorDataTemplate "Turbine-Governor data";
   TurbGovernor turbGovernor;
 
-  replaceable record PSS = PSSData.PSSDataCF3LP  constrainedby
-    PSSData.PSSDataTemplate     "Power system stabilizer data";
+  replaceable record PSS = PSSData.PSSDataCF3LP constrainedby
+    PSSData.PSSDataTemplate "Power system stabilizer data";
       PSS pss;
 
 end AndersonCF3LP;

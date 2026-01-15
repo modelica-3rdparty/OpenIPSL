@@ -79,17 +79,17 @@ equation
   connect(wind.pwPin, GEN1.p)
     annotation (Line(points={{-40,0},{-30,0}}, color={0,0,255}));
   connect(freq.y, wind.FREQ)
-    annotation (Line(points={{-75,0},{-62,0}},   color={0,0,127}));
+    annotation (Line(points={{-75,0},{-62,0}}, color={0,0,127}));
   connect(wind.regulate_vi, pwVoltage.vi)
-    annotation (Line(points={{-44,10},{-44,30},{-36.6,30}},  color={0,0,127}));
+    annotation (Line(points={{-44,10},{-44,30},{-36.6,30}}, color={0,0,127}));
   connect(pwVoltage.vr, wind.regulate_vr) annotation (Line(points={{-36.6,33.6},
-          {-56,33.6},{-56,10}},  color={0,0,127}));
+          {-56,33.6},{-56,10}}, color={0,0,127}));
   connect(wind.branch_ir, pwCurrent.ir) annotation (Line(points={{-44,-10},{-44,
-          -16},{-17.6,-16},{-17.6,-6.6}},     color={0,0,127}));
+          -16},{-17.6,-16},{-17.6,-6.6}}, color={0,0,127}));
   connect(pwCurrent.ii, wind.branch_ii) annotation (Line(points={{-14,-6.6},{
-          -14,-20},{-56,-20},{-56,-10}},  color={0,0,127}));
+          -14,-20},{-56,-20},{-56,-10}}, color={0,0,127}));
   annotation (experiment(
-      StopTime=5),                                Documentation(
+      StopTime=5), Documentation(
         info="<html>
 <p>
 Simulate for 5 seconds.

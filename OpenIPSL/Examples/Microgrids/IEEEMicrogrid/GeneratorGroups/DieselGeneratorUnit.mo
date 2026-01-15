@@ -25,7 +25,7 @@ model DieselGeneratorUnit "Diesel Generation Unit"
     Xpq=0.4610,
     Tpq0=0.391)
     annotation (Placement(transformation(extent={{20,-20},{60,20}})));
-  Electrical.Controls.PSSE.ES.SEXS   sEXS
+  Electrical.Controls.PSSE.ES.SEXS sEXS
     annotation (Placement(transformation(extent={{-20,-30},{0,-10}})));
   Modelica.Blocks.Sources.Constant zero(k=0) annotation (Placement(transformation(
         extent={{6,6},{-6,-6}},

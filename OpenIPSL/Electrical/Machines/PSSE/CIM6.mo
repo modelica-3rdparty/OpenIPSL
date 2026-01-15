@@ -100,7 +100,6 @@ initial equation
 
 equation
 
-
   Xa_c = if (Ctrl == false) then Xa else (we_fix.y/w_b)*(Xa);
   Xm_c = if (Ctrl == false) then Xm else (we_fix.y/w_b)*(Xm);
   X1_c = if (Ctrl == false) then X1 else (we_fix.y/w_b)*(X1);

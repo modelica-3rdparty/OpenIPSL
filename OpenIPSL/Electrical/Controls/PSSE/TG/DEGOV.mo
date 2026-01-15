@@ -13,7 +13,6 @@ model DEGOV "DEGOV - Woodward Diesel Governor"
   parameter OpenIPSL.Types.PerUnit TMAX "Upper Limit";
   parameter OpenIPSL.Types.PerUnit TMIN "Lower Limit";
 
-
   Modelica.Blocks.Continuous.TransferFunction transferFunction(b={-T3,-1}, a={
         T2*T1,T1,1},
     initType=Modelica.Blocks.Types.Init.InitialOutput,

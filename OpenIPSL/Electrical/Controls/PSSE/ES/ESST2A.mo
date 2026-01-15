@@ -131,19 +131,19 @@ equation
   connect(Gen_terminal, Bus) annotation (Line(points={{-170,130},{190,130}},
                  color={0,0,255}));
   connect(XADIFD, rectifierCommutationVoltageDrop.XADIFD) annotation (Line(points={{80,-200},
-          {80,-160},{-38,-160},{-38,-143}},                                                                                  color={0,0,127}));
+          {80,-160},{-38,-160},{-38,-143}}, color={0,0,127}));
   connect(imDerivativeLag.y, add3_1.u3) annotation (Line(points={{41,-52},{-76,-52},
-          {-76,-6},{-62,-6}},      color={0,0,127}));
+          {-76,-6},{-62,-6}}, color={0,0,127}));
   connect(simpleLagLim.y, product.u1)
     annotation (Line(points={{37,0},{52,0}}, color={0,0,127}));
   connect(feedback.u1, product.y)
     annotation (Line(points={{90,-6},{75,-6}}, color={0,0,127}));
   connect(gain.y, feedback.u2)
-    annotation (Line(points={{125,60},{98,60},{98,2}},     color={0,0,127}));
+    annotation (Line(points={{125,60},{98,60},{98,2}}, color={0,0,127}));
   connect(gain.u, EFD) annotation (Line(points={{148,60},{188,60},{188,0},{
           210,0}}, color={0,0,127}));
   connect(imDerivativeLag.u, EFD) annotation (Line(points={{64,-52},{180,-52},{180,
-          0},{210,0}},                          color={0,0,127}));
+          0},{210,0}}, color={0,0,127}));
   connect(VOTHSG, add1.u1) annotation (Line(points={{-200,90},{-120,90},{-120,52},
           {-110,52},{-110,52}}, color={0,0,127}));
   connect(VOEL, add1.u2) annotation (Line(points={{-70,-200},{-70,-160},{-100,-160},
@@ -191,7 +191,7 @@ equation
         graphics={Text(
           extent={{-80,90},{-20,70}},
           lineColor={0,0,255},
-          textString="GenT"),  Text(
+          textString="GenT"), Text(
           extent={{-100,160},{100,100}},
           lineColor={28,108,200},
           textString="ESST2A"),

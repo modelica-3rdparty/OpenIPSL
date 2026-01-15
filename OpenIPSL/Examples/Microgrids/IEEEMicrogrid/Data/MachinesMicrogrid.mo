@@ -18,8 +18,6 @@ record MachinesMicrogrid "Data record for power generation"
   parameter Modelica.Units.SI.ActivePower PInf=-0.0405e6;
   parameter Modelica.Units.SI.ReactivePower QInf= 0.0121e6;
 
-
-
   annotation (Documentation(info="<html>
 This data record has the active and reactive powers in W and var, respectively, that are delivered by the generation units to the system. The data is used to initialized the network in a certain operating point.
 </html>"));

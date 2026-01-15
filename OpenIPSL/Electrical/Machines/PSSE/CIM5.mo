@@ -23,7 +23,6 @@ model CIM5 "PSSE CIM5 three-phase induction motor model"
   parameter Real T_nom = 1 "Load torque at 1 pu speed" annotation (Dialog(group="Machine parameters"));
   parameter Real D = 1 "Load Damping Factor" annotation (Dialog(group="Machine parameters"));
 
-
   OpenIPSL.Types.PerUnit TL "Load torque";
 
   OpenIPSL.Types.PerUnit Epr "Real voltage behind transient reactance";

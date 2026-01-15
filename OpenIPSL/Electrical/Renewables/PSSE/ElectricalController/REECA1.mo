@@ -371,9 +371,9 @@ equation
   connect(VFilter.u, Vt) annotation (Line(points={{-284,220},{-290,220},{-290,200},
           {-320,200}}, color={0,0,127}));
   connect(variableLimiter1.y, Ipcmd) annotation (Line(points={{81,-172},{288,-172},
-          {288,-170},{310,-170}},                                                                          color={0,0,127}));
+          {288,-170},{310,-170}}, color={0,0,127}));
   connect(variableLimiter.y, Iqcmd) annotation (Line(points={{281,80},{290,80},{
-          290,170},{310,170}},                                                                       color={0,0,127}));
+          290,170},{310,170}}, color={0,0,127}));
   connect(VLogic.y, pI_No_Windup.voltage_dip) annotation (Line(points={{2,160},{20,160},{20,138},{82,138}}, color={255,0,255}));
   connect(VLogic.y, pI_No_Windup_notVariable.voltage_dip) annotation (Line(points={{2,160},{20,160},{20,140},{-100,140},{-100,128},{-90,128}}, color={255,0,255}));
   annotation (Documentation(info="<html>

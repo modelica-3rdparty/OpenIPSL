@@ -144,7 +144,7 @@ equation
 <p>
 Simulate for 5 seconds.
 </p>
-<p>This test system aims to show how to use IrradianceToPower block, an Add-On component that enables varying active power reference in the PV model based on irradiance levels. 
+<p>This test system aims to show how to use IrradianceToPower block, an Add-On component that enables varying active power reference in the PV model based on irradiance levels.
 This capability is not found in the original version of the WECC-based renewable models.</p>
 <p>Variables of interest:</p>
 <ul>

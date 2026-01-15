@@ -31,7 +31,6 @@ record VoltagesMicrogrid
   parameter Modelica.Units.SI.PerUnit V7=1.00;
   parameter Modelica.Units.SI.Angle A7=0.002433209*C.pi/180;
 
-
   annotation (Documentation(info="<html>
 This data record has the voltage magnitude, in per unit, and angle, in radians, that are used to initialized the network in a certain operating point.
 </html>"));

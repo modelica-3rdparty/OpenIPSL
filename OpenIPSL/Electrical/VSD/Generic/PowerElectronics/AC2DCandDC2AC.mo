@@ -112,23 +112,23 @@ equation
   connect(Vd0.y, Voltage.v)
     annotation (Line(points={{-63,-14},{-58,-14}}, color={0,0,127}));
   connect(Voltage.p, Resistor.p)
-    annotation (Line(points={{-46,-4},{-46,0},{-42,0}},      color={0,0,255}));
+    annotation (Line(points={{-46,-4},{-46,0},{-42,0}}, color={0,0,255}));
   connect(Resistor.n, Inductor.p)
-    annotation (Line(points={{-22,0},{-16,0}},     color={0,0,255}));
+    annotation (Line(points={{-22,0},{-16,0}}, color={0,0,255}));
   connect(Inductor.n, switch.p)
-    annotation (Line(points={{4,0},{10,0}},     color={0,0,255}));
+    annotation (Line(points={{4,0},{10,0}}, color={0,0,255}));
   connect(switch.n, Capacitor.p)
-    annotation (Line(points={{30,0},{30,-4}},    color={0,0,255}));
+    annotation (Line(points={{30,0},{30,-4}}, color={0,0,255}));
   connect(Voltage.n, Capacitor.n) annotation (Line(points={{-46,-24},{-46,-28},{
           30,-28},{30,-24}}, color={0,0,255}));
   connect(switch.n, signalCurrent.p) annotation (Line(points={{30,0},{50,0},{50,
-          -4}},                                                                            color={0,0,255}));
+          -4}}, color={0,0,255}));
   connect(signalCurrent.n, Capacitor.n) annotation (Line(points={{50,-24},{50,-28},
           {30,-28},{30,-24}}, color={0,0,255}));
   connect(signalCurrent.i, Ii.y) annotation (Line(points={{62,-14},{67,-14}}, color={0,0,127}));
   connect(open_circuit_condition.y, switch.control)
-    annotation (Line(points={{31,16},{20,16},{20,12}},    color={255,0,255}));
-    P =  p.vr*p.ir + p.vi*p.ii;
+    annotation (Line(points={{31,16},{20,16},{20,12}}, color={255,0,255}));
+    P = p.vr*p.ir + p.vi*p.ii;
     Q = (-p.vr*p.ii) + p.vi*p.ir;
     Q = 0;
     S = sqrt(P^2 + Q^2);
@@ -154,21 +154,21 @@ equation
         Text(
           extent={{-30,-20},{90,-80}},
           textColor={28,108,200},
-          textString="DC/AC")}),                                                                 Diagram( graphics={Rectangle(
+          textString="DC/AC")}), Diagram( graphics={Rectangle(
           extent={{14,90},{94,40}},
           lineColor={0,0,255},
           pattern=LinePattern.Dash), Text(
           extent={{24,98},{84,92}},
           lineColor={0,0,255},
           pattern=LinePattern.Dash,
-          textString="Motor Variables"),                                                       Rectangle(
+          textString="Motor Variables"), Rectangle(
           extent={{-80,80},{-40,40}},
           lineColor={0,0,255},
           pattern=LinePattern.Dash), Text(
           extent={{-92,88},{-30,82}},
           lineColor={0,0,255},
           pattern=LinePattern.Dash,
-          textString="Grid Variables"),                                                        Rectangle(
+          textString="Grid Variables"), Rectangle(
           extent={{-94,-54},{-54,-94}},
           lineColor={0,0,255},
           pattern=LinePattern.Dash), Text(

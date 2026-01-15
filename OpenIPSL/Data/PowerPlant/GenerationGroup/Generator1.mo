@@ -88,33 +88,33 @@ model Generator1
     constrainedby GUDynamicsTemplate annotation (choicesAllMatching=true);
 equation
   connect(gENSAE.PMECH,gENSAE. PMECH0) annotation (Line(points={{22,12},{10,12},
-          {10,30},{76,30},{76,10},{68,10}},          color={0,0,127}));
+          {10,30},{76,30},{76,10},{68,10}}, color={0,0,127}));
   connect(eSST1A.ECOMP,gENSAE. ETERM) annotation (Line(points={{-48.4,-38},{96,-38},
-          {96,-6},{68,-6}},                 color={0,0,127}));
+          {96,-6},{68,-6}}, color={0,0,127}));
   connect(minusInf.y,eSST1A. VUEL2) annotation (Line(points={{-54.6,-82},{-70.816,
-          -82},{-70.816,-55.584}},                                                                         color={0,0,127}));
+          -82},{-70.816,-55.584}}, color={0,0,127}));
   connect(eSST1A.VUEL,zero. y) annotation (Line(points={{-59.6,-55.6},{-60,-55.6},
-          {-60,-72},{-12.6,-72}},                                                           color={0,0,127}));
+          {-60,-72},{-12.6,-72}}, color={0,0,127}));
 
   connect(plusInf.y,eSST1A. VOEL) annotation (Line(points={{23.4,-70},{6,-70},{6,
-          -60},{-66,-60},{-66,-55.6}},                                                         color={0,0,127}));
+          -60},{-66,-60},{-66,-55.6}}, color={0,0,127}));
   connect(eSST1A.EFD,gENSAE. EFD) annotation (Line(points={{-83.6,-38},{-92,-38},
-          {-92,-12},{22,-12}},              color={0,0,127}));
+          {-92,-12},{22,-12}}, color={0,0,127}));
   connect(eSST1A.EFD0,gENSAE. EFD0) annotation (Line(points={{-48.4,-44.4},{32,-44.4},
           {32,-44},{92,-44},{92,-10},{68,-10}},
                                           color={0,0,127}));
   connect(eSST1A.VOTHSG,zero. y) annotation (Line(points={{-48.4,-31.6},{-48.4,-30},
-          {-34,-30},{-34,-72},{-12.6,-72}},                                                             color={0,0,127}));
+          {-34,-30},{-34,-72},{-12.6,-72}}, color={0,0,127}));
   connect(gENSAE.SPEED,pSS2B. V_S1) annotation (Line(points={{68,14},{82,14},{82,
-          46},{-22,46},{-22,35.9},{-21.8,35.9}},    color={0,0,127}));
+          46},{-22,46},{-22,35.9},{-21.8,35.9}}, color={0,0,127}));
   connect(gENSAE.PELEC,pSS2B. V_S2) annotation (Line(points={{68,6},{90,6},{90,54},
-          {-32.2,54},{-32.2,35.9}},               color={0,0,127}));
+          {-32.2,54},{-32.2,35.9}}, color={0,0,127}));
   connect(pSS2B.VOTHSG,eSST1A. VOTHSG2) annotation (Line(points={{-27,-5.9},{-27,
-          -16},{-48.4,-16},{-48.4,-25.2}},             color={0,0,127}));
+          -16},{-48.4,-16},{-48.4,-25.2}}, color={0,0,127}));
   connect(gENSAE.XADIFD,eSST1A. XADIFD) annotation (Line(points={{68,-18},{86,-18},
-          {86,-96},{-78.8,-96},{-78.8,-55.6}},                                                                             color={0,0,127}));
+          {86,-96},{-78.8,-96},{-78.8,-55.6}}, color={0,0,127}));
   connect(eSST1A.VT,gENSAE. ETERM) annotation (Line(points={{-48.44,-50.52},{96,
-          -50.52},{96,-6},{68,-6}},                                                                                      color={0,0,127}));
+          -50.52},{96,-6},{68,-6}}, color={0,0,127}));
   connect(gENSAE.p, pwPin)
     annotation (Line(points={{66,0},{110,0}}, color={0,0,255}));
   connect(eSST1A.VUEL3, eSST1A.VUEL2) annotation (Line(points={{-74.296,-55.592},

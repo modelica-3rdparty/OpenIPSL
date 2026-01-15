@@ -52,15 +52,15 @@ equation
   connect(FAULT.p,pwLine. p)
     annotation (Line(points={{16,0},{24,0},{24,20},{35,20}}, color={0,0,255}));
   connect(pwLine1.p,pwLine. p) annotation (Line(points={{35,-20},{24,-20},{24,20},
-          {35,20}},              color={0,0,255}));
+          {35,20}}, color={0,0,255}));
   connect(pwFault.p,FAULT. p) annotation (Line(points={{30.3333,-50},{20,-50},{20,0},{16,0}},
                          color={0,0,255}));
   connect(pwLine.n,GEN2. p)
     annotation (Line(points={{53,20},{64,20},{64,0},{74,0}}, color={0,0,255}));
   connect(pwLine1.n,GEN2. p) annotation (Line(points={{53,-20},{64,-20},{64,0},{
-          74,0}},  color={0,0,255}));
+          74,0}}, color={0,0,255}));
   connect(GEN2.p,gENCLS2_1. p)
-    annotation (Line(points={{74,0},{86,0}},        color={0,0,255}));
+    annotation (Line(points={{74,0},{86,0}}, color={0,0,255}));
   connect(pwLine2.n, FAULT.p)
     annotation (Line(points={{13,0},{16,0}}, color={0,0,255}));
   connect(pwCurrent.n, pwLine2.p)
@@ -70,7 +70,5 @@ equation
   connect(pwVoltage.p, GEN1.p) annotation (Line(points={{-24,30},{-22,30},{-22,
           0},{-30,0}}, color={0,0,255}));
   annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-            -100},{120,100}})),                                  Diagram(
-        coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-            100}})));
+            -100},{120,100}})));
 end SMIBRenewable;

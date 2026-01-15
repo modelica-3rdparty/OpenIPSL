@@ -27,7 +27,7 @@ Example:
 C:\\Users\\Miguel\\SMIB_Example><strong>python</strong> -m <strong>pip</strong> list
 Package Version
 ------- -------
-pip     24.2
+pip 24.2
 
 C:\\Users\\Miguel\\SMIB_Example><strong>python</strong> -m <strong>pip install</strong> virtualenv
 Collecting virtualenv
@@ -90,41 +90,41 @@ Successfully installed Deprecated-1.2.14 GridCalEngine-5.1.52 PySide6-6.6.3.1 Py
     <li>Verify that the Python packages were installed correctly, especially <em>GridCal v5.1.52 or newer</em>:
     <blockquote><pre>
 (openipsl_tutorial) C:\\Users\\Miguel\\SMIB_Example><strong>python</strong> -m <strong>pip list</strong>
-Package            Version
+Package Version
 ------------------ -----------
-about-time         4.2.1
-alive-progress     3.1.5
-asttokens          2.4.1
+about-time 4.2.1
+alive-progress 3.1.5
+asttokens 2.4.1
 ...
-grapheme           0.6.0
-GridCal            5.1.52
-GridCalEngine      5.1.52
+grapheme 0.6.0
+GridCal 5.1.52
+GridCalEngine 5.1.52
 ...
-ipykernel          6.29.5
-ipython            8.28.0
+ipykernel 6.29.5
+ipython 8.28.0
 ...
-jupyter_core       5.7.2
+jupyter_core 5.7.2
 ...
-matplotlib         3.9.2
-matplotlib-inline  0.1.7
-nest-asyncio       1.6.0
-networkx           3.4.2
+matplotlib 3.9.2
+matplotlib-inline 0.1.7
+nest-asyncio 1.6.0
+networkx 3.4.2
 ...
-numpy              1.26.4
-openpyxl           3.1.5
+numpy 1.26.4
+openpyxl 3.1.5
 ...
-pandas             2.2.3
+pandas 2.2.3
 ...
-pywin32            308
-pyzmq              26.2.0
-qtconsole          5.6.0
-QtPy               2.4.1
+pywin32 308
+pyzmq 26.2.0
+qtconsole 5.6.0
+QtPy 2.4.1
 ...
-scipy              1.14.1
-setuptools         75.2.0
+scipy 1.14.1
+setuptools 75.2.0
 ...
-xlrd               2.0.1
-xlwt               1.3.0
+xlrd 2.0.1
+xlwt 1.3.0
     </pre></blockquote>
     <hr>
     <p>&#x1F4CC; Remember that GridCal has only been installed in the current environment. Therefore, whenever you use a script that requires this library the environment should be activated.</p>
@@ -136,7 +136,7 @@ xlwt               1.3.0
     </pre></blockquote>
     <blockquote><pre>
 (openipsl_tutorial) C:\\Users\\Miguel\\SMIB_Example><strong>python</strong>
-Python 3.12.7 (tags/v3.12.7:0b05ead, Oct  1 2024, 03:06:41) [MSC v.1941 64 bit (AMD64)] on win32
+Python 3.12.7 (tags/v3.12.7:0b05ead, Oct 1 2024, 03:06:41) [MSC v.1941 64 bit (AMD64)] on win32
 Type \"help\", \"copyright\", \"credits\" or \"license\" for more information.
 >>> import GridCalEngine.api as gce
 >>>

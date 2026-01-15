@@ -52,8 +52,7 @@ equation
   p.vi = -vd;
   annotation (
     Icon(coordinateSystem(preserveAspectRatio=true),
-        graphics={                                  Text(
-            origin={0,0},
+        graphics={ Text(
             extent={{-80,-40},{80,40}},
           textString="%name",
           lineColor={0,0,0}), Rectangle(extent={{-100,100},{100,-100}}, lineColor={0,0,0})}),

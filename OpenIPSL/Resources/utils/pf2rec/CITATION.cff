@@ -23,7 +23,7 @@ preferred-citation:
   start: 147 # First page number
   end: 154 # Last page number
   title: "Power Flow Record Structures to Initialize OpenIPSL Phasor Time-Domain Simulations with Python"
-  issn: "21650-3740" 
+  issn: "21650-3740"
   volume: 181
   year: 2021
   url: "https://ecp.ep.liu.se/index.php/modelica/article/view/190/150"

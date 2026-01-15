@@ -109,7 +109,7 @@ equation
     annotation (Line(points={{16,-34},{-12,-34},{-12,-12},{-17,-12}},
                                                 color={0,0,127}));
   connect(add.u2, W_ref) annotation (Line(points={{-84,-74},{-94,-74},{-94,0},{-120,
-          0}},         color={0,0,127}));
+          0}}, color={0,0,127}));
   connect(Vc, gain2.u) annotation (Line(points={{-60,120},{-60,80},{-34,80}},
                                   color={0,0,127}));
   connect(gain1.u, we) annotation (Line(points={{82,10},{94,10},{94,-40},{120,-40}},
@@ -133,10 +133,10 @@ equation
           96},{60,120}}, color={0,0,127}));
   connect(product1.y, limiter1.u) annotation (Line(points={{-9,40},{6,40}},
                         color={0,0,127}));
-  annotation (preferredView = "info", Icon(                                         graphics={
+  annotation (preferredView = "info", Icon( graphics={
         Rectangle(
           extent={{-100,100},{100,-100}},
-          lineColor={28,108,200}),        Text(
+          lineColor={28,108,200}), Text(
           extent={{-80,80},{80,-80}},
           lineColor={28,108,200},
           textString="V/f

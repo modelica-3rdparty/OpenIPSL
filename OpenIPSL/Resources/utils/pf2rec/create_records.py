@@ -23,7 +23,7 @@ if __name__ == '__main__':
     path_mo_file = os.path.abspath(os.path.join(data_path, f"{_model}Total.mo"))
 
     # Remove Modelica code lines from the '.mo' file that alter the expected input for
-    #   pf2rec functions (the GenerationUnits package section of Modelica code should 
+    #   pf2rec functions (the GenerationUnits package section of Modelica code should
     #   be excluded)
     includeCodeLine = False # True if line of code should be included
     new_lines = list()

@@ -4,7 +4,7 @@ record PF_results
   extends Modelica.Icons.Record;
   replaceable record Voltages =
       VoltagesMicrogrid
-                      constrainedby VoltagesMicrogrid                "Voltage data record template"
+                      constrainedby VoltagesMicrogrid "Voltage data record template"
                                                   annotation (
       choicesAllMatching);
   Voltages voltages;

@@ -1,6 +1,6 @@
 within OpenIPSL.Electrical.Sensors;
 model PwCurrent "Current sensor"
-  Interfaces.PwPin          p
+  Interfaces.PwPin p
     annotation (Placement(transformation(extent={{-110,-10},{-90,10}}),
         iconTransformation(extent={{-110,-10},{-90,10}})));
   Interfaces.PwPin n annotation (Placement(transformation(extent={{90,-10},{110,
@@ -44,11 +44,11 @@ equation
           textString="%name"),Text(
           extent={{-70,-80},{-50,-100}},
           lineColor={0,0,255},
-          textString="ir"),   Text(
+          textString="ir"), Text(
           extent={{-10,-80},{10,-100}},
           lineColor={0,0,255},
-          textString="ii"),   Text(
+          textString="ii"), Text(
           extent={{50,-80},{70,-100}},
           lineColor={0,0,255},
-          textString="i")}),     Diagram(coordinateSystem(preserveAspectRatio=false)));
+          textString="i")}));
 end PwCurrent;

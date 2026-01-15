@@ -16,8 +16,8 @@ model VSourceIO
   // the initialization value, or to use the input as a whole quantity.
   parameter Boolean useEphasorInternalAsInput = true
   "If true, the values of E0 and delta0 are computed internally and used
-  as the start value of the input, requiring only a deviation \\Delta E and 
-  \\Delta delta to be supplied. 
+  as the start value of the input, requiring only a deviation \\Delta E and
+  \\Delta delta to be supplied.
   If false, the magnitude E and angle delta must be supplied, including
   the correct value of E0 and delta0 needed for proper initialization.";
 equation
@@ -37,8 +37,8 @@ equation
     // source, as the internally computed values that are needed to initialize
     // properly E and delta (E0 and delta0) are not included, they need to be
     // provided externally by the user.
-    delta = uDEang   "Internal voltage angle, delta, provided by the graphical input uDEang";
-    E = uDEmag   "Internal voltage magnitude, E, provided by the graphical input uDEmag";
+    delta = uDEang "Internal voltage angle, delta, provided by the graphical input uDEang";
+    E = uDEmag "Internal voltage magnitude, E, provided by the graphical input uDEmag";
     Er = p2R.y_re "Real part of phasor calculated with the p2R block on the diagram layer";
     Ei = p2R.y_im "Imaginary part of phasor calculated with the p2R block on the diagram layer";
   end if;

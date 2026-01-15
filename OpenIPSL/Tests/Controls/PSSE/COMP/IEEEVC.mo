@@ -44,18 +44,18 @@ model IEEEVC
     annotation (Placement(transformation(extent={{-94,-90},{-74,-70}})));
 equation
   connect(gENSAL.PMECH0, gENSAL.PMECH) annotation (Line(points={{-56.6,7.5},{-52,
-          7.5},{-52,28},{-94,28},{-94,9.2},{-88.8,9.2}},     color={0,0,127}));
+          7.5},{-52,28},{-94,28},{-94,9.2},{-88.8,9.2}}, color={0,0,127}));
   connect(const.y, eSDC1A.VOTHSG)
     annotation (Line(points={{-43,-80},{-56,-80},{-56,-38},{-63,-38}},
                                                    color={0,0,127}));
   connect(eSDC1A.VOEL, eSDC1A.VOTHSG) annotation (Line(points={{-74,-53},{-74,-56},
-          {-56,-56},{-56,-38},{-63,-38}},      color={0,0,127}));
+          {-56,-56},{-56,-38},{-63,-38}}, color={0,0,127}));
   connect(const1.y, eSDC1A.VUEL)
     annotation (Line(points={{-73,-80},{-70,-80},{-70,-53}}, color={0,0,127}));
   connect(gENSAL.XADIFD, eSDC1A.XADIFD) annotation (Line(points={{-56.6,-16.3},{
-          -50,-16.3},{-50,-58},{-82,-58},{-82,-53}},  color={0,0,127}));
+          -50,-16.3},{-50,-58},{-82,-58},{-82,-53}}, color={0,0,127}));
   connect(gENSAL.EFD0, eSDC1A.EFD0) annotation (Line(points={{-56.6,-9.5},{-52,-9.5},
-          {-52,-46},{-63,-46}},       color={0,0,127}));
+          {-52,-46},{-63,-46}}, color={0,0,127}));
   connect(gENSAL.p, iEEEVC.Gen_terminal) annotation (Line(points={{-58,-1},{-45.9,
           -1},{-45.9,-7.8}}, color={0,0,255}));
   connect(GEN1.p, iEEEVC.Bus) annotation (Line(points={{-30,0},{-36.1,0},{-36.1,

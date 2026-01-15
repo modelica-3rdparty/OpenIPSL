@@ -4,33 +4,33 @@ class v200 "Version 2.0.0 (2022-06-08)"
   annotation (Documentation(info="<html>
 <h4>What&apos;s Changed</h4>
 <p>
-This new release version 2.0.0 of <code><strong>OpenIPSL</strong></code> is a 
-<strong>non-backwards compatible</strong> release based on the 
+This new release version 2.0.0 of <code><strong>OpenIPSL</strong></code> is a
+<strong>non-backwards compatible</strong> release based on the
 <a href=\"https://github.com/modelica/ModelicaStandardLibrary/releases/tag/v3.2.3%2Bbuild.4\">
 Modelica Standard Library version 3.2.3</a>.
 </p>
 <p>
-A conversion script is provided for user libraries using <code><strong>OpenIPSL</strong></code> version 
-1.5.0 and older. <em>(Note: Models that extended from any of the old <code>Examples</code> models 
+A conversion script is provided for user libraries using <code><strong>OpenIPSL</strong></code> version
+1.5.0 and older. <em>(Note: Models that extended from any of the old <code>Examples</code> models
 will have to be converted manually by the user.)</em>
 </p>
 <h5>Highlights</h5>
 <ul>
 <li>Changed the license to the <a href=\"https://opensource.org/licenses/BSD-3-Clause\">
 3-Clause BSD License</a>.</li>
-<li>Use of SI or per-unit units <strong>only</strong> in quantities 
+<li>Use of SI or per-unit units <strong>only</strong> in quantities
 (i.e., no more customs scaled kilo or Mega units).</li>
-<li>The old <code>Examples</code> models have been moved under 
+<li>The old <code>Examples</code> models have been moved under
 <a href=\"modelica://OpenIPSL.Tests\"><code>Tests</code></a>.</li>
-<li>The old external <code>Application Examples</code> package has now been incorporated as 
+<li>The old external <code>Application Examples</code> package has now been incorporated as
 <a href=\"modelica://OpenIPSL.Examples\"><code>Examples</code></a> and is part of this library.</li>
 </ul>
 
 <h5>Changes in detail</h5>
 <p>
-This release consists of 
+This release consists of
 <a href=\"https://github.com/OpenIPSL/OpenIPSL/issues?q=is%3Aissue+milestone%3A2.0.0+is%3Aclosed\">
-39 closed issues</a> and 
+39 closed issues</a> and
 <a href=\"https://github.com/OpenIPSL/OpenIPSL/pulls?q=is%3Apr+milestone%3A2.0.0+is%3Aclosed\">
 61 merged pull requests</a>:
 </p>

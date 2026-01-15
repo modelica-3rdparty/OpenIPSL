@@ -29,15 +29,15 @@ model GENTPJ
     annotation (Placement(transformation(extent={{-88,-20},{-48,20}})));
 equation
   connect(GEN1.p,pwLine. p)
-    annotation (Line(points={{-30,0},{-19.4,0}},         color={0,0,255}));
+    annotation (Line(points={{-30,0},{-19.4,0}}, color={0,0,255}));
   connect(pwLine.n,LOAD. p)
-    annotation (Line(points={{-8.6,0},{0,0}},            color={0,0,255}));
+    annotation (Line(points={{-8.6,0},{0,0}}, color={0,0,255}));
   connect(pwLine3.p,LOAD. p) annotation (Line(points={{14.6,-30},{10,-30},{10,0},
           {0,0}},color={0,0,255}));
   connect(constantLoad.p,LOAD. p)
-    annotation (Line(points={{0,-52},{0,0}},       color={0,0,255}));
+    annotation (Line(points={{0,-52},{0,0}}, color={0,0,255}));
   connect(GEN2.p,gENCLS. p)
-    annotation (Line(points={{80,0},{90,0}},        color={0,0,255}));
+    annotation (Line(points={{80,0},{90,0}}, color={0,0,255}));
   connect(pwLine4.n,GEN2. p) annotation (Line(points={{65.4,-30},{70,-30},{70,0},
           {80,0}}, color={0,0,255}));
   connect(FAULT.p,pwLine4. p)
@@ -48,12 +48,12 @@ equation
     annotation (Line(points={{40,-48.3333},{40,-30},{54.6,-30}},
                                                             color={0,0,255}));
   connect(pwLine2.n,GEN2. p) annotation (Line(points={{65.4,30},{70,30},{70,0},{
-          80,0}},  color={0,0,255}));
+          80,0}}, color={0,0,255}));
   connect(gENTPJ.PMECH,gENTPJ. PMECH0) annotation (Line(points={{-92,12},{-100,
           12},{-100,26},{-42,26},{-42,10},{-46,10}}, color={0,0,127}));
   connect(gENTPJ.EFD,gENTPJ. EFD0) annotation (Line(points={{-92,-12},{-100,-12},
           {-100,-30},{-42,-30},{-42,-10},{-46,-10}}, color={0,0,127}));
   connect(gENTPJ.p,GEN1. p)
-    annotation (Line(points={{-48,0},{-30,0}},         color={0,0,255}));
+    annotation (Line(points={{-48,0},{-30,0}}, color={0,0,255}));
   annotation (experiment(StopTime=10));
 end GENTPJ;

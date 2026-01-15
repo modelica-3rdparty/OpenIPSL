@@ -13,7 +13,7 @@ model GroupBus8 "18kV/25MVA reactive power generation unit (synchronous condense
     Te=0.7,
     v0=v_0,
     vrmin=1.395,
-    vrmax=6.810) annotation (Placement(visible = true, transformation(origin={0,10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    vrmax=6.810) annotation (Placement(transformation(origin={0,10}, extent = {{-10, -10}, {10, 10}})));
   OpenIPSL.Electrical.Machines.PSAT.Order6 Syn4(
     fn=60,
     D=2,

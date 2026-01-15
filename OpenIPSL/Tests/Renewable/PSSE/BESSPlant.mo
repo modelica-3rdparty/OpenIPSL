@@ -61,7 +61,7 @@ equation
   connect(pwCurrent.ii, bESS.branch_ii) annotation (Line(points={{-14,-6.6},{
           -14,-20},{-56,-20},{-56,-10}}, color={0,0,127}));
   annotation (experiment(
-      StopTime=5),                                Documentation(
+      StopTime=5), Documentation(
         info="<html>
 <p>
 Simulate for 5 seconds.

@@ -28,10 +28,10 @@ equation
           -100,100}}, color={28,108,200}),Text(
           extent={{-100,80},{100,56}},
           lineColor={0,0,0},
-          textString="%P_0"),      Text(
+          textString="%P_0"), Text(
           extent={{-150,-110},{150,-150}},
           lineColor={0,0,255},
-          textString="%name"),            Text(
+          textString="%name"), Text(
           extent={{-100,32},{100,6}},
           lineColor={0,0,0},
           textString="%Q_0")}));

@@ -116,7 +116,7 @@ equation
   connect(gain.u, Iqcmd) annotation (Line(points={{-122,80},{-134,80},{-134,80},
           {-160,80}}, color={0,0,127}));
   connect(Ipcmd,add2. u1) annotation (Line(points={{-160,-80},{-122,-80},{-122,
-          -24},{-112,-24}},     color={0,0,127}));
+          -24},{-112,-24}}, color={0,0,127}));
   connect(Constant.y, switch1.u3) annotation (Line(points={{-51,-114},{-62,-114},
           {-62,-98},{-68,-98}}, color={0,0,127}));
   connect(limiter4.y, integrator1.u)

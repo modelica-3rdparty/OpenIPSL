@@ -12,7 +12,7 @@ model IEEEMicrogrid "IEEE Microgrid Model"
     R=0.0785/2,
     X=0.0818/2,
     G=0,
-    B=0)                                                annotation (Placement(
+    B=0) annotation (Placement(
         transformation(
         extent={{-12,-12},{12,12}},
         rotation=180,
@@ -28,7 +28,7 @@ model IEEEMicrogrid "IEEE Microgrid Model"
     R=0.04257/2,
     X=0.0796/2,
     G=0,
-    B=0)                                                annotation (Placement(
+    B=0) annotation (Placement(
         transformation(
         extent={{-12,-12},{12,12}},
         rotation=180,
@@ -81,7 +81,7 @@ model IEEEMicrogrid "IEEE Microgrid Model"
     R=0.0785/2,
     X=0.0818/2,
     G=0,
-    B=0)                                                annotation (Placement(
+    B=0) annotation (Placement(
         transformation(
         extent={{-12,-12},{12,12}},
         rotation=180,
@@ -90,7 +90,7 @@ model IEEEMicrogrid "IEEE Microgrid Model"
     R=0.04257/2,
     X=0.0796/2,
     G=0,
-    B=0)                                                annotation (Placement(
+    B=0) annotation (Placement(
         transformation(
         extent={{-12,-12},{12,12}},
         rotation=180,

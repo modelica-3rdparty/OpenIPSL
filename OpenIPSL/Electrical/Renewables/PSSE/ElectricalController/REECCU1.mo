@@ -444,7 +444,7 @@ equation
   connect(VDL1.y[1], ccl_reecc.VDL1_out) annotation (Line(points={{77,-50},{77,-50.4},
           {88.8,-50.4}}, color={0,0,127}));
   connect(PQFLAG.y, ccl_reecc.pqflag)
-    annotation (Line(points={{147,-60},{88.8,-60}},  color={255,0,255}));
+    annotation (Line(points={{147,-60},{88.8,-60}}, color={255,0,255}));
   connect(IQCMD.y, ccl_reecc.Iqcmd) annotation (Line(points={{147,-38},{132,-38},{132,-50.4},{127.2,-50.4}},
                                       color={0,0,127}));
   connect(IPCMD.y, ccl_reecc.Ipcmd) annotation (Line(points={{147,-82},{132,-82},{132,-69.6},{127.2,-69.6}},

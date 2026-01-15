@@ -48,7 +48,7 @@ equation
       color={0,0,127},
       smooth=Smooth.None));
   connect(eSAC2A.EFD, gENROU.EFD) annotation (Line(points={{-81,-50},{-100,-50},
-          {-100,-12},{-92,-12}},                      color={0,0,127}));
+          {-100,-12},{-92,-12}}, color={0,0,127}));
   connect(gENROU.p, GEN1.p) annotation (Line(points={{-48,0},{-30,0}},
                        color={0,0,255}));
   connect(zero.y, eSAC2A.VOTHSG) annotation (Line(points={{-26.6,-46},{-59,-46}}, color={0,0,127}));

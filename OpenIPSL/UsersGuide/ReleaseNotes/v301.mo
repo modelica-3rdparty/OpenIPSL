@@ -4,7 +4,7 @@ class v301 "Version 3.0.1 (2022-06-23)"
   annotation (Documentation(info="<html>
 <h4>What&apos;s Changed</h4>
 <p>
-Bugfix release which is <strong>backwards compatible</strong> with version 3.0.0 
+Bugfix release which is <strong>backwards compatible</strong> with version 3.0.0
 of <code><strong>OpenIPSL</strong></code>.
 </p>
 <h5>Changes in detail</h5>

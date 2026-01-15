@@ -63,7 +63,7 @@ equation
   connect(product2.u2, add.y)
     annotation (Line(points={{-36,-6},{-42,-6},{-42,0},{-53,0}}, color={0,0,127}));
   connect(product2.y, add3_1.u2)
-    annotation (Line(points={{-13,0},{10,0}},             color={0,0,127}));
+    annotation (Line(points={{-13,0},{10,0}}, color={0,0,127}));
   connect(gain1.u, product1.y)
     annotation (Line(points={{-18,80},{-54,80},{-54,60},{-59,60}}, color={0,0,127}));
   connect(gain1.y, product3.u1)
@@ -71,18 +71,18 @@ equation
   connect(product3.u2, product3.u1)
     annotation (Line(points={{18,74},{10,74},{10,86},{18,86}}, color={0,0,127}));
   connect(product3.y, add3_1.u1)
-    annotation (Line(points={{41,80},{44,80},{44,50},{0,50},{0,8},{10,8}},   color={0,0,127}));
+    annotation (Line(points={{41,80},{44,80},{44,50},{0,50},{0,8},{10,8}}, color={0,0,127}));
   connect(product4.y, add3_1.u3)
-    annotation (Line(points={{-59,-60},{0,-60},{0,-8},{10,-8}},   color={0,0,127}));
+    annotation (Line(points={{-59,-60},{0,-60},{0,-8},{10,-8}}, color={0,0,127}));
   connect(PELEC, product4.u1)
     annotation (Line(points={{-120,-60},{-88,-60},{-88,-54},{-82,-54}}, color={0,0,127}));
   connect(PELEC, product4.u2)
     annotation (Line(points={{-120,-60},{-88,-60},{-88,-66},{-82,-66}}, color={0,0,127}));
   connect(add3_1.y, feedback.u1) annotation (Line(points={{33,0},{42,0}}, color={0,0,127}));
   connect(feedback.y, simpleLagLim.u)
-    annotation (Line(points={{59,0},{66,0}},  color={0,0,127}));
+    annotation (Line(points={{59,0},{66,0}}, color={0,0,127}));
   connect(simpleLagLim.y, VUEL)
-    annotation (Line(points={{89,0},{110,0}},  color={0,0,127}));
+    annotation (Line(points={{89,0},{110,0}}, color={0,0,127}));
   connect(derivativeLag.u, VUEL) annotation (Line(points={{86,-40},{96,-40},{
           96,0},{110,0}},
                        color={0,0,127}));

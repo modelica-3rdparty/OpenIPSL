@@ -35,18 +35,18 @@ partial model SMIBAddOn
   Electrical.Sources.VoltageSourceReImInput voltageSourceReImInput
     annotation (Placement(transformation(extent={{96,-10},{76,10}})));
   Modelica.Blocks.Sources.RealExpression imagPart annotation (Placement(transformation(extent={{80,-30},{100,-10}})));
-  Modelica.Blocks.Sources.RealExpression realPart(y=if time < 50000 then 1 else 0.99)  annotation (Placement(transformation(extent={{80,10},{100,30}})));
+  Modelica.Blocks.Sources.RealExpression realPart(y=if time < 50000 then 1 else 0.99) annotation (Placement(transformation(extent={{80,10},{100,30}})));
 equation
   connect(FAULT.p,pwLine. p)
-    annotation (Line(points={{28,0},{36,0},{36,6},{41,6}},   color={0,0,255}));
+    annotation (Line(points={{28,0},{36,0},{36,6},{41,6}}, color={0,0,255}));
   connect(pwLine1.p,pwLine. p) annotation (Line(points={{41,-6},{36,-6},{36,6},
-          {41,6}},               color={0,0,255}));
+          {41,6}}, color={0,0,255}));
   connect(pwFault.p,FAULT. p) annotation (Line(points={{40.6667,-28},{32,-28},{32,0},{28,0}},
                          color={0,0,255}));
   connect(pwLine.n,GEN2. p)
-    annotation (Line(points={{59,6},{64,6},{64,0},{70,0}},   color={0,0,255}));
+    annotation (Line(points={{59,6},{64,6},{64,0},{70,0}}, color={0,0,255}));
   connect(pwLine1.n,GEN2. p) annotation (Line(points={{59,-6},{64,-6},{64,0},{
-          70,0}},  color={0,0,255}));
+          70,0}}, color={0,0,255}));
   connect(pwLine2.n, FAULT.p)
     annotation (Line(points={{23,0},{28,0}}, color={0,0,255}));
   connect(PV_BUS.p, pwLine2.p)
