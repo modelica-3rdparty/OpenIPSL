@@ -46,9 +46,7 @@ partial model Step_4 "Adding fault event"
     Diagram(coordinateSystem(extent={{-120,-100},{120,100}},
           preserveAspectRatio=false), graphics={Text(
           extent={{-100,100},{100,80}},
-          lineColor={0,0,0},
-          lineThickness=1,
-          fillPattern=FillPattern.Solid,
+          textColor={0,0,0},
           fontSize=15,
           textStyle={TextStyle.Bold},
           textString="Step 3: Adding fault model"),Rectangle(
@@ -56,9 +54,7 @@ partial model Step_4 "Adding fault event"
           lineColor={255,0,0},
           lineThickness=1),Text(
           extent={{-20,-66},{64,-76}},
-          lineColor={0,0,0},
-          lineThickness=1,
-          fillPattern=FillPattern.Solid,
+          textColor={0,0,0},
           fontSize=12,
           textString="Electrical.Events.PwFault")}),
     Icon(coordinateSystem(extent={{-120,-100},{120,100}})));

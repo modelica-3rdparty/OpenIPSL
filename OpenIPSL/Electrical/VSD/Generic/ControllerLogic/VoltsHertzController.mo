@@ -138,7 +138,7 @@ equation
           extent={{-100,100},{100,-100}},
           lineColor={28,108,200}), Text(
           extent={{-80,80},{80,-80}},
-          lineColor={28,108,200},
+          textColor={28,108,200},
           textString="V/f
 Control")}),
     Documentation(info="<html>

@@ -353,7 +353,6 @@ equation
         grid={10,10}), graphics={Rectangle(
           fillColor={255,255,255},
           extent={{-100.0,-100.0},{100.0,100.0}}),Text(
-          fillPattern=FillPattern.Solid,
           extent={{-44.9792,-41.316},{44.9792,41.316}},
           textString="Turbine",
           fontName="Arial")}),

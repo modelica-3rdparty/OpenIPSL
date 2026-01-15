@@ -27,18 +27,17 @@ equation
           fillPattern=FillPattern.Solid,
           extent={{-10,-100},{10,100}}),Text(
           origin={-0.02605,120.133},
-          fillPattern=FillPattern.Solid,
           extent={{-100,-20},{100,20}},
           textString="%name"),Text(
           visible=displayPF,
           origin={0,-120},
           extent={{-60,-20},{60,20}},
-          lineColor={170,0,0},
+          textColor={170,0,0},
           textString=DynamicSelect("Vpu", String(v, significantDigits=3))),Text(
           visible=displayPF,
           origin={0,-160},
           extent={{-60,-20},{60,20}},
-          lineColor={170,0,0},
+          textColor={170,0,0},
           textString=DynamicSelect("Angle", String(angleDisplay, significantDigits=3)
              + "°"))}));
 end Bus;

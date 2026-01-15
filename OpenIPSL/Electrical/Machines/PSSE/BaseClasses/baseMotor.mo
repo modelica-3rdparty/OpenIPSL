@@ -112,12 +112,12 @@ equation
           fillColor={255,255,255},
           extent={{-56,-58},{55.932,54}}), Text(
           extent={{-50,48},{50,-52}},
-          lineColor={0,0,0},
+          textColor={0,0,0},
           textString="M"),Text(
           origin={0,-80},
           extent={{-100,-20},{100,20}},
           fontName="Arial",
-          lineColor={0,0,0},
+          textColor={0,0,0},
           textString="%name")}),
     Documentation(info="<html>
 <p>

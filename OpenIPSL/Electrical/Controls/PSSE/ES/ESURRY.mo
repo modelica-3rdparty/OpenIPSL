@@ -175,7 +175,7 @@ equation
     Icon(coordinateSystem(extent={{-100,-100},{100,100}}),
         graphics={ Text(
           extent={{-104,172},{102,88}},
-          lineColor={14,8,200},
+          textColor={14,8,200},
           textString="ESURRY")}),
     Documentation(info="<html>IEEE Type AC1A Excitation System Model.</html>",
   revisions="<html>

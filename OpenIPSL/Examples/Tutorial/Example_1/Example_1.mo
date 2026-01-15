@@ -80,14 +80,10 @@ equation
         extent={{-120,-100},{120,100}},
         preserveAspectRatio=false), graphics={Text(
           origin={40,0},
-          fillPattern=FillPattern.Solid,
-          lineThickness=1,
           extent={{-160,-80},{0,-100}},
           textString=
             "*P. Kundur, \"Power System Stability and Control\", Example 13.2",
           fontSize=12),Text(
-          fillPattern=FillPattern.Solid,
-          lineThickness=1,
           extent={{-100,100},{100,80}},
           textString="Example 1: Single-machine infinite bus model*",
           fontSize=15,

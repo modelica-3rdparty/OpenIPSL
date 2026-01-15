@@ -144,7 +144,6 @@ equation
           fillColor={255,255,255},
           extent={{-100.0,-100.0},{100.0,100.0}}),Text(
           origin={5.2917,-1.4606},
-          fillPattern=FillPattern.Solid,
           extent={{-39.3935,-41.4606},{39.3935,41.4606}},
           textString="wind",
           fontName="Arial")}),

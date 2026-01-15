@@ -55,7 +55,7 @@ equation
         graphics={ Text(
             extent={{-80,-40},{80,40}},
           textString="%name",
-          lineColor={0,0,0}), Rectangle(extent={{-100,100},{100,-100}}, lineColor={0,0,0})}),
+          textColor={0,0,0}), Rectangle(extent={{-100,100},{100,-100}}, lineColor={0,0,0})}),
     Documentation(revisions="<html>
 <table cellspacing=\"1\" cellpadding=\"1\" border=\"1\">
 <tr>

@@ -294,20 +294,20 @@ equation
     Icon(graphics={Rectangle(extent={{-100,100},{100,-100}}, lineColor={28,108,200}),
          Text(
           extent={{-54,80},{6,40}},
-          lineColor={28,108,200},
+          textColor={28,108,200},
           textString="SPEED_HP"),Text(
           extent={{30,60},{90,20}},
-          lineColor={28,108,200},
+          textColor={28,108,200},
           textString="PMECH_HP"),Text(
           extent={{30,-20},{88,-60}},
-          lineColor={28,108,200},
+          textColor={28,108,200},
           textString="PMECH_LP"),Text(
           extent={{-100,160},{100,100}},
-          lineColor={28,108,200},
+          textColor={28,108,200},
           textString="WSIEG1"),
                      Text(
           extent={{-56,-56},{-10,-84}},
-          lineColor={28,108,200},
+          textColor={28,108,200},
           textString="PMECH0")}),
                 Documentation(revisions="<html>
 <table cellspacing=\"1\" cellpadding=\"1\" border=\"1\"><tr>

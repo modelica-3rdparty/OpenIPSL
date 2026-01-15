@@ -57,7 +57,6 @@ equation
   annotation (
     Icon(coordinateSystem(preserveAspectRatio=true),
       graphics={Text(
-            fillPattern=FillPattern.Solid,
             extent={{-80,-40},{80,40}},
             textString="%name"), Rectangle(extent={{-100,100},{100,-100}}, lineColor={0,0,0})}),
      Documentation(revisions="<html>

@@ -15,21 +15,15 @@ partial model BaseGovernor "Base turbine governor model"
           lineColor={28,108,200}),
         Text(
           extent={{-50,80},{10,40}},
-          lineColor={28,108,200},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid,
+          textColor={28,108,200},
           textString="SPEED"),
         Text(
           extent={{-50,-40},{10,-80}},
-          lineColor={28,108,200},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid,
+          textColor={28,108,200},
           textString="PMECH0"),
         Text(
           extent={{30,20},{90,-20}},
-          lineColor={28,108,200},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid,
+          textColor={28,108,200},
           textString="PMECH")}), Diagram(
         coordinateSystem(preserveAspectRatio=false, extent={{-240,-240},{240,
             200}})));

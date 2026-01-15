@@ -107,23 +107,21 @@ equation
   annotation (
     Diagram(graphics={Text(
           extent={{-44,16},{-34,12}},
-          lineColor={255,0,0},
+          textColor={255,0,0},
           textString="Verr"),Text(
           extent={{-82,28},{-58,24}},
-          lineColor={255,0,0},
+          textColor={255,0,0},
           textString="Vref"),Text(
           extent={{-50,38},{-42,42}},
-          lineColor={255,0,0},
+          textColor={255,0,0},
           textString="Bref"),Text(
           extent={{-80,-14},{-68,-20}},
-          lineColor={255,0,0},
+          textColor={255,0,0},
           textString="|VB|")}),
     Icon(graphics={Rectangle(extent={{-100,
           100},{100,-100}}, lineColor={0,0,255}),Text(
           extent={{-20,-60},{20,-100}},
-          lineColor={0,0,255},
-          fillColor={0,0,255},
-          fillPattern=FillPattern.Solid,
+          textColor={0,0,255},
           textString="SVC"),Line(
           points={{38,60},{18,40},{8,0},{18,-40},{40,-60}},
           color={0,0,255},

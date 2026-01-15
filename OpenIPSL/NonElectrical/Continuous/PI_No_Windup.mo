@@ -45,11 +45,11 @@ equation
         graphics={Rectangle(extent={{-100,100},{100,-100}}, lineColor={28,108,
               200}), Text(
           extent={{0,44},{94,0}},
-          lineColor={0,0,255},
+          textColor={0,0,255},
           textString="Ki"),
                           Text(
           extent={{-64,22},{-18,-18}},
-          lineColor={0,0,255},
+          textColor={0,0,255},
           textString="Kp"),
                           Line(
           points={{24,0},{68,0}},
@@ -57,7 +57,7 @@ equation
           smooth=Smooth.Bezier,
           thickness=0.5),Text(
           extent={{20,4},{72,-44}},
-          lineColor={0,0,255},
+          textColor={0,0,255},
           textString="s"),
         Text(
           extent={{-24,18},{22,-18}},

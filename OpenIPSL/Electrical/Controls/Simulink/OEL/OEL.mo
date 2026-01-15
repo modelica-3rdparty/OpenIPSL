@@ -62,16 +62,13 @@ equation
             100}}), graphics={Rectangle(extent={{-74,26},{74,-62}}, lineColor={
           0,0,127}),Text(
           extent={{-84,6},{-36,-14}},
-          lineColor={0,0,255},
-          fillPattern=FillPattern.Solid,
+          textColor={0,0,255},
           textString="ifd"),Text(
           extent={{-86,-38},{-40,-54}},
-          lineColor={0,0,255},
-          fillPattern=FillPattern.Solid,
+          textColor={0,0,255},
           textString="V"),Text(
           extent={{-52,6},{58,-42}},
-          lineColor={0,0,255},
-          fillPattern=FillPattern.Solid,
+          textColor={0,0,255},
           textString="OEL")}),
     Documentation(revisions="<html>
 <table cellspacing=\"1\" cellpadding=\"1\" border=\"1\">

@@ -282,12 +282,12 @@ equation
   annotation (Diagram(coordinateSystem(extent={{-200,-200},{200,160}})),
       Icon(graphics={ Text(
           extent={{-96,-60},{-26,-80}},
-          lineColor={28,108,200},
+          textColor={28,108,200},
           textString="
 
           "), Text(
           extent={{-104,90},{-22,70}},
-          lineColor={28,108,200},
+          textColor={28,108,200},
           textString="ETERM"),
         Text(
           extent={{-74,140},{70,98}},

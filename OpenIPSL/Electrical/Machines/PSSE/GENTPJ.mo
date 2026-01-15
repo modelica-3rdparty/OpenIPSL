@@ -189,7 +189,7 @@ equation
   annotation (
     Icon( graphics={Text(
           extent={{-54,24},{54,-26}},
-          lineColor={0,0,255},
+          textColor={0,0,255},
           textString="GENTPJ")}),
     Documentation(info="<html><p>Solid rotor generator with saturation on both axes. The saturation in this model is not only function of the air-gap flux, but also of armature current magnitude. This effect is included via parameter <code>Kis</code>.</p>
     <p> If <code>Kis</code> is set to zero, then the model will behave like the WECC Type F Generator, that is, GENTPF.</p></html>",

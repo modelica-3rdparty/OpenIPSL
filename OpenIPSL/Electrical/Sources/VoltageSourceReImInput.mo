@@ -32,7 +32,7 @@ equation
           color={0,0,0},
           thickness=0.5),Text(
           extent={{-40,20},{40,-20}},
-          lineColor={0,0,0},
+          textColor={0,0,0},
           textString="%name")}), Documentation(revisions="<html>
 <table cellspacing=\"1\" cellpadding=\"1\" border=\"1\"><tr>
 <td><p>Reference</p></td>

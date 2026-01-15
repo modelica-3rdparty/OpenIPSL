@@ -111,9 +111,7 @@ equation
           color={0,0,0},
           smooth=Smooth.Bezier),Text(
           extent={{-52,-18},{56,-66}},
-          lineColor={0,0,0},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid,
+          textColor={0,0,0},
           textString="%name")}),
     Documentation(info="<html>
 <p>24kV/100MVA generation unit connected to bus BG1, and composed of the following component models:</p>

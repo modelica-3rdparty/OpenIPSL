@@ -159,22 +159,19 @@ equation
           lineColor={0,0,255},
           pattern=LinePattern.Dash), Text(
           extent={{24,98},{84,92}},
-          lineColor={0,0,255},
-          pattern=LinePattern.Dash,
+          textColor={0,0,255},
           textString="Motor Variables"), Rectangle(
           extent={{-80,80},{-40,40}},
           lineColor={0,0,255},
           pattern=LinePattern.Dash), Text(
           extent={{-92,88},{-30,82}},
-          lineColor={0,0,255},
-          pattern=LinePattern.Dash,
+          textColor={0,0,255},
           textString="Grid Variables"), Rectangle(
           extent={{-94,-54},{-54,-94}},
           lineColor={0,0,255},
           pattern=LinePattern.Dash), Text(
           extent={{-106,-46},{-44,-52}},
-          lineColor={0,0,255},
-          pattern=LinePattern.Dash,
+          textColor={0,0,255},
           textString="DC Link Variables")}),
     Documentation(info="<html>
 <p>The AC2DCandDC2AC component represents the power electronics component of the variable speed drive.

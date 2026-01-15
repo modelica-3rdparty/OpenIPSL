@@ -28,22 +28,19 @@ equation
           fillPattern=FillPattern.Solid,
           extent={{-10.0,-100.0},{10.0,100.0}}),Text(
           origin={0.9738,119.0625},
-          fillPattern=FillPattern.Solid,
           extent={{-39.0262,-16.7966},{39.0262,16.7966}},
           textString="%name",
           fontName="Arial"),Text(
           origin={0.9738,-114.937},
-          fillPattern=FillPattern.Solid,
           extent={{-39.0262,-16.7966},{39.0262,16.7966}},
           fontName="Arial",
           textString=DynamicSelect("0.0", String(V1, significantDigits=3)),
-          lineColor={238,46,47}),Text(
+          textColor={238,46,47}),Text(
           origin={0.9738,-140.937},
-          fillPattern=FillPattern.Solid,
           extent={{-39.0262,-16.7966},{39.0262,16.7966}},
           fontName="Arial",
           textString=DynamicSelect("0.0", String(angle1, significantDigits=3)),
-          lineColor={238,46,47})}),
+          textColor={238,46,47})}),
           Documentation(info="<html>
 <p>This is a single-phase bus model.</p>
 <p>A bus represents a node in a power system. Therefore, this model can be used to verify voltage magnitude and angle in the single-phase nodes of the system.</p>

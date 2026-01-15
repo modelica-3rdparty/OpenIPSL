@@ -53,16 +53,12 @@ equation
           lineColor={255,0,0},
           lineThickness=1),Text(
           extent={{-92,102},{98,84}},
-          lineColor={0,0,0},
-          lineThickness=1,
-          fillPattern=FillPattern.Solid,
+          textColor={0,0,0},
           fontSize=15,
           textStyle={TextStyle.Bold},
           textString="Step 1: Adding PSS to the generator model"),Text(
           extent={{-84,28},{20,20}},
-          lineColor={0,0,0},
-          lineThickness=1,
-          fillPattern=FillPattern.Solid,
+          textColor={0,0,0},
           fontSize=12,
           textString="Electrical.Controls.PSAT.PSS.PSSTypeII")}));
 end Step_1;

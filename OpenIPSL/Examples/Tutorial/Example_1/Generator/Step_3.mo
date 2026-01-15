@@ -51,19 +51,15 @@ equation
         extent={{-100,-100},{100,100}},
         preserveAspectRatio=false,
         grid={2,2}), graphics={Text(
-          fillPattern=FillPattern.Solid,
-          lineThickness=1,
           extent={{-92,104},{98,86}},
           textString="Step 4: Connecting model's signals",
           fontSize=15,
           textStyle={TextStyle.Bold}),Text(
           origin={0,-8},
-          fillPattern=FillPattern.Solid,
-          lineThickness=1,
           extent={{-94,60},{36,54}},
           fontSize=10,
           horizontalAlignment=TextAlignment.Left,
-          lineColor={0,0,0},
+          textColor={0,0,0},
           textString="1. Machine's terminal voltage to AVR's input signal
 
 2. AVR's output field voltage to machine's input field voltage

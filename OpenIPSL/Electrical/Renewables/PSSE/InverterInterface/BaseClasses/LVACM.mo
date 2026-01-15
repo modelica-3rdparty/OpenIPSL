@@ -15,7 +15,7 @@ equation
           lineColor={0,0,0}),
         Text(
           extent={{-80,40},{80,-40}},
-          lineColor={28,108,200},
+          textColor={28,108,200},
           textStyle={TextStyle.Bold},
           textString="%name"),
         Line(points={{-32,66}}, color={28,108,200})}),

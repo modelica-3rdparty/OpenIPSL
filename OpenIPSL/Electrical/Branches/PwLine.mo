@@ -75,7 +75,7 @@ equation
           fillPattern=FillPattern.Solid),Text(
           visible=displayPF,
           extent={{-200,160},{-20,40}},
-          lineColor={255,0,0},
+          textColor={255,0,0},
           textString=DynamicSelect("0.0 MW",
             OpenIPSL.NonElectrical.Functions.displayPower(P12, " MW"))),Polygon(
           visible=displayPF,
@@ -87,7 +87,7 @@ equation
           fillPattern=FillPattern.Solid),Text(
           visible=displayPF,
           extent={{20,160},{200,40}},
-          lineColor={255,0,0},
+          textColor={255,0,0},
           textString=DynamicSelect("0.0 MW",
             OpenIPSL.NonElectrical.Functions.displayPower(P21, " MW"))),Polygon(
           visible=displayPF,
@@ -99,7 +99,7 @@ equation
           fillPattern=FillPattern.Solid),Text(
           visible=displayPF,
           extent={{-200,-40},{-20,-160}},
-          lineColor={0,255,0},
+          textColor={0,255,0},
           textString=DynamicSelect("0.0 Mvar",
             OpenIPSL.NonElectrical.Functions.displayPower(Q12, " Mvar"))),
           Polygon(
@@ -112,7 +112,7 @@ equation
           fillPattern=FillPattern.Solid),Text(
           visible=displayPF,
           extent={{20,-40},{200,-160}},
-          lineColor={0,255,0},
+          textColor={0,255,0},
           textString=DynamicSelect("0.0 Mvar",
             OpenIPSL.NonElectrical.Functions.displayPower(Q21, " Mvar"))),
           Polygon(
@@ -124,6 +124,6 @@ equation
           fillColor={0,255,0},
           fillPattern=FillPattern.Solid),Text(
           extent={{-80,12},{80,-14}},
-          lineColor={0,0,0},
+          textColor={0,0,0},
           textString="%name")}));
 end PwLine;

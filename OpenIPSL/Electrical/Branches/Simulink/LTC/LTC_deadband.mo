@@ -22,9 +22,7 @@ equation
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid),Text(
           extent={{-34,32},{40,-24}},
-          lineColor={0,0,255},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid,
+          textColor={0,0,255},
           textString="deadband")}),
     Documentation(revisions="<html>
 <table cellspacing=\"1\" cellpadding=\"1\" border=\"1\">

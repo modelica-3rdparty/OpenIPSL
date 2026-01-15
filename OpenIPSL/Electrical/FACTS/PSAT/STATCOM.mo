@@ -95,10 +95,7 @@ equation
           points={{-52,20},{-80,20},{-80,4}},
           color={0,0,255}), Text(
           extent={{-78,-46},{82,-86}},
-          lineColor={28,108,200},
-          lineThickness=0.5,
-          fillColor={255,0,0},
-          fillPattern=FillPattern.Solid,
+          textColor={28,108,200},
           textString="%name"),
         Line(points={{-18,0},{-14,0}}, color={217,67,180}),
         Polygon(

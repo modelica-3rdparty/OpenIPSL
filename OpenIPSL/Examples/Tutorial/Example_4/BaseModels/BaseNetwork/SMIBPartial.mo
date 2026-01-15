@@ -92,8 +92,7 @@ equation
         coordinateSystem(preserveAspectRatio=false), graphics={
                                                 Text(
           extent={{-92,68},{94,48}},
-          lineColor={0,0,0},
-          lineThickness=1,
+          textColor={0,0,0},
           fontSize=15,
           textStyle={TextStyle.Bold},
           textString="Single-machine infinite bus model")}));

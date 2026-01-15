@@ -29,16 +29,10 @@ equation
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid),Text(
           extent={{44,-40},{74,-58}},
-          lineColor={0,0,255},
-          lineThickness=0.5,
-          fillColor={0,0,255},
-          fillPattern=FillPattern.Solid,
+          textColor={0,0,255},
           textString="V"),Text(
           extent={{-54,68},{-24,50}},
-          lineColor={0,0,255},
-          lineThickness=0.5,
-          fillColor={0,0,255},
-          fillPattern=FillPattern.Solid,
+          textColor={0,0,255},
           textString="LVPL"),Line(
           points={{-66,20},{-54,20},{-54,20}},
           color={0,0,255},
@@ -55,15 +49,9 @@ equation
           color={0,0,255},
           thickness=0.5),Text(
           extent={{-102,22},{-72,4}},
-          lineColor={0,0,255},
-          lineThickness=0.5,
-          fillColor={0,0,255},
-          fillPattern=FillPattern.Solid,
+          textColor={0,0,255},
           textString="V"),Text(
           extent={{66,8},{96,-10}},
-          lineColor={0,0,255},
-          lineThickness=0.5,
-          fillColor={0,0,255},
-          fillPattern=FillPattern.Solid,
+          textColor={0,0,255},
           textString="LVLP")}));
 end LVPL;

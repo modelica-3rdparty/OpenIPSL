@@ -33,26 +33,22 @@ equation
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid),Text(
           extent={{-50,70},{46,56}},
-          lineColor={28,108,200},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid,
+          textColor={28,108,200},
           textString="Rotating Exciter"),Text(
           extent={{-81,4},{-57,-6}},
-          lineColor={28,108,200},
+          textColor={28,108,200},
           textString="I_C"),Text(
           extent={{56,6},{77,-4}},
-          lineColor={28,108,200},
+          textColor={28,108,200},
           textString="V_E"),Text(
           extent={{-56,60},{52,44}},
-          lineColor={255,0,0},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid,
+          textColor={255,0,0},
           textString="with Demagnetization Effect"),Text(
           extent={{-19,-64},{18,-74}},
-          lineColor={28,108,200},
+          textColor={28,108,200},
           textString="XADIFD"),Text(
           extent={{-77,-44},{-53,-54}},
-          lineColor={28,108,200},
+          textColor={28,108,200},
           textString="V_FE")}),
     Diagram(coordinateSystem(initialScale=0.05, extent={{-80,-80},{80,80}})));
 end RotatingExciterWithDemagnetization;

@@ -26,7 +26,7 @@ equation
           fillPattern=FillPattern.Solid),
                          Text(
           extent={{-40,20},{40,-20}},
-          lineColor={0,0,0},
+          textColor={0,0,0},
           textString="%name"),
         Line(points={{-90,0},{-50,0}}, color={0,0,0}),
         Line(points={{50,0},{80,0}}, color={0,0,0}),

@@ -37,10 +37,9 @@ equation
   vf0 = vf00;
   annotation (Icon(coordinateSystem(extent={{-100,-100},{100,100}}), graphics={Text(
           origin={0,60},
-          fillPattern=FillPattern.Solid,
           extent={{-60,-20},{60,20}},
           fontName="Arial",
-          lineColor={28,108,200},
+          textColor={28,108,200},
           textString="Order V - Type 1")}), Documentation(revisions="<html>
 <table cellspacing=\"1\" cellpadding=\"1\" border=\"1\">
 <tr>
