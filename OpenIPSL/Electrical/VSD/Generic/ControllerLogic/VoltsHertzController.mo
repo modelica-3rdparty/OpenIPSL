@@ -100,9 +100,6 @@ equation
   connect(add.y, gain.u) annotation (Line(points={{-61,-68},{-56,-68},{-56,-50},
           {-50,-50}},
                color={0,0,127}));
-  connect(integrator.u, gain.u) annotation (Line(points={{-50,-82},{-56,-82},{-56,
-          -50},{-50,-50}},
-                       color={0,0,127}));
   connect(gain.y, add1.u1) annotation (Line(points={{-27,-50},{-24,-50},{-24,-60},
           {-16,-60}},
                  color={0,0,127}));
