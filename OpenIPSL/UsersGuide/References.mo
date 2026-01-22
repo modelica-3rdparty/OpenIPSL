@@ -1,4 +1,4 @@
-within OpenIPSL.UsersGuide;
+﻿within OpenIPSL.UsersGuide;
 model References "References"
   extends Modelica.Icons.References;
   annotation (Documentation(info="<html>
@@ -132,7 +132,7 @@ G. Laera, L. Vanfretti, M. de Castro Fernandes, S.A. Dorado-Rojas, F. Fachini, C
         &quot;Simplified variable frequency induction-motor drive model for power system stability studies and control&quot;.
 	In: IFAC-PapersOnLine,
         November 2016,
-        <a href=\"https://www.sciencedirect.com/science/article/pii/S240589631632403X\">DOI: https://doi.org/10.1016/j.ifacol.2016.10.774</a>
+        <a href=\"https://doi.org/10.1016/j.ifacol.2016.10.774\">DOI: https://doi.org/10.1016/j.ifacol.2016.10.774</a>
 </td>
 </tr>
 <tr>
@@ -156,7 +156,7 @@ G. Laera, L. Vanfretti, M. de Castro Fernandes, S.A. Dorado-Rojas, F. Fachini, C
 <td>Siemens:
         &quot;PSS&reg;E Program Application Guide Volume 1&quot;,
         version 33, April 2017,
-        (<a href=\"https://new.siemens.com/global/en/products/energy/energy-automation-and-smart-grid/pss-software/pss-e.html\">Home page</a>)
+        (<a href=\"https://xcelerator.siemens.com/global/en/all-offerings/products/p/psse-version-33.html\">Home page</a>)
 </td>
 </tr>
 <tr>
@@ -164,7 +164,7 @@ G. Laera, L. Vanfretti, M. de Castro Fernandes, S.A. Dorado-Rojas, F. Fachini, C
 <td>Siemens:
         &quot;PSS&reg;E Program Application Guide Volume 2&quot;,
         version 33, April 2017,
-        (<a href=\"https://new.siemens.com/global/en/products/energy/energy-automation-and-smart-grid/pss-software/pss-e.html\">Home page</a>)
+        (<a href=\"https://xcelerator.siemens.com/global/en/all-offerings/products/p/psse-version-33.html\">Home page</a>)
 </td>
 </tr>
 <tr>
@@ -172,7 +172,7 @@ G. Laera, L. Vanfretti, M. de Castro Fernandes, S.A. Dorado-Rojas, F. Fachini, C
 <td>Siemens:
         &quot;PSS&reg;E Model Library&quot;,
         version 33, April 2017,
-        (<a href=\"https://new.siemens.com/global/en/products/energy/energy-automation-and-smart-grid/pss-software/pss-e.html\">Home page</a>)
+        (<a href=\"https://xcelerator.siemens.com/global/en/all-offerings/products/p/psse-version-33.html\">Home page</a>)
 </td>
 </tr>
 <tr>
@@ -189,7 +189,7 @@ G. Laera, L. Vanfretti, M. de Castro Fernandes, S.A. Dorado-Rojas, F. Fachini, C
 <td>WECC:
         &quot;Battery Storage Dynamic Modeling Guideline&quot;,
 	November 2016,
-        (<a href=\"https://www.wecc.org/Reliability/WECC%20Battery%20Storage%20Guideline%20updates_%20Bo%204-5-17%20SLT%204-7-17%20XX%20SC.docx\">document</a>)
+        (<a href=\"https://docest.com/doc/133900/energy-storage-dynamic-modeling-guideline\">document</a>)
 </td>
 </tr>
 <tr>
@@ -197,7 +197,7 @@ G. Laera, L. Vanfretti, M. de Castro Fernandes, S.A. Dorado-Rojas, F. Fachini, C
 <td>WECC:
         &quot;Solar Photovoltaic Power Plant Modeling and Validation Guideline&quot;,
 	December 2019,
-        (<a href=\"https://www.wecc.org/Reliability/Solar%20PV%20Plant%20Modeling%20and%20Validation%20Guidline.pdf\">document</a>)
+        (<a href=\"https://web.archive.org/web/20230510163349/https://www.wecc.org/Reliability/Solar%20PV%20Plant%20Modeling%20and%20Validation%20Guidline.pdf</a>)
 </td>
 </tr>
 <tr>
@@ -205,7 +205,7 @@ G. Laera, L. Vanfretti, M. de Castro Fernandes, S.A. Dorado-Rojas, F. Fachini, C
 <td>WECC:
         &quot;Wind Power Plant Dynamic Modeling Guideline&quot;,
 	April 2014,
-        (<a href=\"https://www.wecc.org/Reliability/WECC%20Wind%20Plant%20Dynamic%20Modeling%20Guidelines.pdf\">document</a>)
+        (<a href=\"https://web.archive.org/web/20240815190629/https://www.wecc.org/Reliability/WECC%20Wind%20Plant%20Dynamic%20Modeling%20Guidelines.pdf\">document</a>)
 </td>
 </tr>
 </table>

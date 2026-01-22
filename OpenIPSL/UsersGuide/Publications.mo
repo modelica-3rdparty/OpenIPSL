@@ -1,9 +1,9 @@
-within OpenIPSL.UsersGuide;
+﻿within OpenIPSL.UsersGuide;
 model Publications "Publications"
   extends Modelica.Icons.References;
   annotation (Documentation(info="<html>
 <p>The list of publications written about OpenIPSL library and its models can be found below. </p>
-<p>If you use OpenIPSL in your work or research, we kindly ask you to cite (preferably), our <a href=\"https://www.sciencedirect.com/science/article/pii/S2352711018300050\">SoftwareX</a> paper:</p>
+<p>If you use OpenIPSL in your work or research, we kindly ask you to cite (preferably), our <a href=\"https://doi.org/10.1016/j.softx.2018.01.002\">SoftwareX</a> paper:</p>
 
 <ul>
 <li>M. Baudette, M. Castro, T. Rabuzin, J. Lavenius, T. Bogodorova, L. Vanfretti,
