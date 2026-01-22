@@ -1,4 +1,4 @@
-﻿within OpenIPSL.UsersGuide;
+within OpenIPSL.UsersGuide;
 model References "References"
   extends Modelica.Icons.References;
   annotation (Documentation(info="<html>
@@ -130,7 +130,7 @@ G. Laera, L. Vanfretti, M. de Castro Fernandes, S.A. Dorado-Rojas, F. Fachini, C
 <td>[Panasetsky2016]</td>
 <td>Panasetsky, D., Osak, A., Sidorov, D., Yong, Li:
         &quot;Simplified variable frequency induction-motor drive model for power system stability studies and control&quot;.
-	In: IFAC-PapersOnLine,
+        In: IFAC-PapersOnLine,
         November 2016,
         <a href=\"https://doi.org/10.1016/j.ifacol.2016.10.774\">DOI: https://doi.org/10.1016/j.ifacol.2016.10.774</a>
 </td>
@@ -139,7 +139,7 @@ G. Laera, L. Vanfretti, M. de Castro Fernandes, S.A. Dorado-Rojas, F. Fachini, C
 <td>[PES-TR 66]</td>
 <td>IEEE PES Power System Dynamic Performance Committee, and IEEE PES Task Force on Microgrid Stability Analysis and Modeling:
         &quot;Microgrid Stability Definitions, Analysis, and Modeling&quot;.
-	 In: IEEE Power & Energy Society,
+         In: IEEE Power & Energy Society,
         April 2018,
         <a href=\"https://ieeexplore.ieee.org/document/8750828\">DOI: 10.1109/TPWRS.2019.2925703</a>
 </td>
@@ -188,7 +188,7 @@ G. Laera, L. Vanfretti, M. de Castro Fernandes, S.A. Dorado-Rojas, F. Fachini, C
 <td>[WECCBattery]</td>
 <td>WECC:
         &quot;Battery Storage Dynamic Modeling Guideline&quot;,
-	November 2016,
+        November 2016,
         (<a href=\"https://docest.com/doc/133900/energy-storage-dynamic-modeling-guideline\">document</a>)
 </td>
 </tr>
@@ -196,15 +196,15 @@ G. Laera, L. Vanfretti, M. de Castro Fernandes, S.A. Dorado-Rojas, F. Fachini, C
 <td>[WECCPhotovoltaic]</td>
 <td>WECC:
         &quot;Solar Photovoltaic Power Plant Modeling and Validation Guideline&quot;,
-	December 2019,
-        (<a href=\"https://web.archive.org/web/20230510163349/https://www.wecc.org/Reliability/Solar%20PV%20Plant%20Modeling%20and%20Validation%20Guidline.pdf</a>)
+        December 2019,
+        (<a href=\"https://web.archive.org/web/20230510163349/https://www.wecc.org/Reliability/Solar%20PV%20Plant%20Modeling%20and%20Validation%20Guidline.pdf\">document</a>)
 </td>
 </tr>
 <tr>
 <td>[WECCWind]</td>
 <td>WECC:
         &quot;Wind Power Plant Dynamic Modeling Guideline&quot;,
-	April 2014,
+        April 2014,
         (<a href=\"https://web.archive.org/web/20240815190629/https://www.wecc.org/Reliability/WECC%20Wind%20Plant%20Dynamic%20Modeling%20Guidelines.pdf\">document</a>)
 </td>
 </tr>
