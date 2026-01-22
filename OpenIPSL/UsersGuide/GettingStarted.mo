@@ -25,7 +25,7 @@ If you do not have access to these tools or do not want to use them, there are s
 available on GitHub.
 Examples on how to generate Modelica records from open source and proprietary power flow solvers, specifically
 <a href=\"https://github.com/SanPen/GridCal\">GridCal</a> and
-<a href=\"https://new.siemens.com/global/en/products/energy/energy-automation-and-smart-grid/pss-software/pss-e.html\">PSS&reg;E</a>
+<a href=\"https://www.siemens.com/global/en/products/energy/grid-software/planning/pss-software/pss-e.html\">PSS&reg;E</a>
 can be found in <a href=\"https://doi.org/10.3384/ecp21181147\">this paper</a> and in <a href=\"https://github.com/ALSETLab/SMIB_Tutorial\">this GitHub repository</a>.
 </p>
 <p>
