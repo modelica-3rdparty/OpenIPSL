@@ -48,3 +48,17 @@ ModelicaSyntaxChecker/Linux64/moparser -v 3.4 -r OpenIPSL
 ```
 
 If you find gaps or want me to include more examples (specific packages, common refactors, or typical test runs), tell me which areas to expand.
+
+PR Labeling & Release Notes
+- PRs are auto-labeled by [`.github/workflows/label-pr.yml`](.github/workflows/label-pr.yml) using Conventional Commit-style titles.
+	- Examples: `feat: add new generator model` -> `feat`; `fix: correct parameter` -> `fix`; `docs: update UsersGuide` -> `docs`.
+	- Breaking changes: include `!` in the title (e.g. `feat!: change interface`) or `!(scope):` to trigger the `breaking` label.
+	- The workflow adds labels it detects to the PR (see the mapping in the workflow script).
+- Release changelog grouping is configured in [`.github/release.yml`](.github/release.yml).
+	- The changelog generator excludes PRs labeled `ignore-for-release` and contributions by `dependabot`.
+	- Labels are mapped to categories (e.g., `feat` -> Features, `fix` -> Bug Fixes, `docs` -> Documentation). Keep PR labels aligned to these categories to ensure useful release notes.
+
+Practical tips
+- Use Conventional Commits in the PR title to get consistent labels and clean changelog entries.
+- If a PR should be omitted from releases (internal chore/config only), add the `ignore-for-release` label.
+- If you intend a breaking change, use the `!` indicator in the title so the `breaking` label is applied and the change surfaces in the BREAKING CHANGES section.
