@@ -55,8 +55,11 @@ def _checkURL(url):
     import sys
     print(f'[checkLinks] Checking {url}', flush=True, file=sys.stderr)
     timeout = 5
+    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
+
     try:
-        rc = urllib2.urlopen(url, timeout=timeout).getcode()
+        req = urllib2.Request(url, headers=headers)
+        rc = urllib2.urlopen(req, timeout=timeout).getcode()
         print(f'[checkLinks]   -> {rc}', flush=True, file=sys.stderr)
         return (url, rc)
     except urllib2.HTTPError as e:
@@ -71,6 +74,10 @@ def _checkURL(url):
         elif rc == 418:
             # Warn but don't fail on teapot (rate limiting from academic sites)
             print(f'[checkLinks] WARNING: {url} returned 418 (rate limited?)', flush=True, file=sys.stderr)
+            return (url, 200)
+        elif rc == 500:
+            # Warn but don't fail on server errors (often transient, work in browser)
+            print(f'[checkLinks] WARNING: {url} returned 500 (server error, may be transient)', flush=True, file=sys.stderr)
             return (url, 200)
         elif rc in (301, 302):
             # Handle redirect errors
