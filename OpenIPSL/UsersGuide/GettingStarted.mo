@@ -17,7 +17,7 @@ power system analysis tools. Tutorials on OpenIPSL have been given at many confe
 The time domain simulations using OpenIPSL models require Modelica-compliant tools.
 Users of the <strong><code>OpenIPSL</code></strong> are free to choose their tool of choice. However, note that the development of <strong><code>OpenIPSL</code></strong> has been carried out using <a href=\"https://www.openmodelica.org/\">OpenModelica</a>, <a href=\"http://www.3ds.com/products-services/catia/products/dymola\">Dymola</a>, <a href=\"https://www.modelon.com/modelon-impact/\">Modelon Impact</a> and <a href=\"https://www.wolfram.com/system-modeler/\">Wolfram SystemModeler</a>.
 The library is, also, systematically checked using the two mentioned tools (see <a href=\"modelica://OpenIPSL.UsersGuide.LibraryTesting\">Library Testing</a>).
-Nonetheless, it might be possible to face issues when using other <a href=\"https://modelica.org/tools\">Modelica Tools</a> that we have not fully tested. 
+Nonetheless, it might be possible to face issues when using other <a href=\"https://modelica.org/tools\">Modelica Tools</a> that we have not fully tested.
 </p>
 <p>
 There are many examples included in the library that can be used as a starting point for the users to run time domain simulations. They are located in the <a href=\"modelica://OpenIPSL.Examples\">Examples</a> package.
@@ -51,8 +51,8 @@ As we have just mentioned, the full initialization of the components&apos; inter
 In a effort to harmonized the presentation of the power flow parameters, a model should extend <strong>pfComponent</strong> that will provide all the necessary parameters for data coming from power flow solutions to be used in the initialization of the model.
 The <strong>pfComponent</strong> also provide the support for the common <strong>SystemBase</strong> component that provides a single instance of the system's common parameters, i.e., frequency and base power.
 </p>
-<p> 
-A specific tutorial for the user's to adopt the use power flow records is included in the library and can be found in <a href=\"modelica://OpenIPSL.Examples.Tutorial.Example_4\"> Examples.Tutorial.Example_4</a>, 
+<p>
+A specific tutorial for the user's to adopt the use power flow records is included in the library and can be found in <a href=\"modelica://OpenIPSL.Examples.Tutorial.Example_4\"> Examples.Tutorial.Example_4</a>,
 along with the Python utilities to generate the records from PSS&reg;E and VeraGrid, which are distributed with this library under <a href=\"modelica://OpenIPSL.Resources.utils/pf2rec\"> Resources.utils.pf2rec</a>.
 </p>
 </html>"));

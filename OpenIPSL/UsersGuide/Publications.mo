@@ -6,8 +6,8 @@ model Publications "Publications"
 <p>If you use OpenIPSL in your work or research, we kindly ask you to cite (preferably), our <a href=\"https://doi.org/10.1016/j.softx.2022.101277\">SoftwareX</a> paper(s):</p>
 
 <ul>
-<li> M. de Castro, D. Winkler, G. Laera, L. Vanfretti, S.A. Dorado-Rojas, T. Rabuzin, B. Mukherjee, M. Navarro, 
-     Version [OpenIPSL 2.0.0] - [iTesla Power Systems Library (iPSL): A Modelica library for phasor time-domain simulations], SoftwareX, Volume 21, 2023, 101277, ISSN 2352-7110, 
+<li> M. de Castro, D. Winkler, G. Laera, L. Vanfretti, S.A. Dorado-Rojas, T. Rabuzin, B. Mukherjee, M. Navarro,
+     Version [OpenIPSL 2.0.0] - [iTesla Power Systems Library (iPSL): A Modelica library for phasor time-domain simulations], SoftwareX, Volume 21, 2023, 101277, ISSN 2352-7110,
      <a href=\"https://doi.org/10.1016/j.softx.2022.101277\">DOI: 10.1016/j.softx.2022.101277</a>.</li>
 <li>M. Baudette, M. Castro, T. Rabuzin, J. Lavenius, T. Bogodorova, L. Vanfretti,
     OpenIPSL: Open-Instance Power System Library — Update 1.5 to &quot;iTesla Power Systems Library (iPSL):
@@ -24,7 +24,6 @@ model Publications "Publications"
     Renewable Energy, Volume 244, 2025, 122627, ISSN 0960-1481,
     <a href=\"https://doi.org/10.1016/j.renene.2025.122627\">DOI: 10.1016/j.renene.2025.122627</a>.</li>
 
-
 <li>F. Fachini, T. Bogodorova, L. Vanfretti and S. Boersma,
     &quot;A microgrid control scheme for islanded operation and re-synchronization utilizing Model Predictive Control,&quot;
     Sustainable Energy, Grids and Networks, Volume 39, 2024, 101464, ISSN 2352-4677,
@@ -39,7 +38,6 @@ model Publications "Publications"
     &quot;OpenIWPI: Open-Instance Wave-Phasor Interface Library for Power System Simulation Studies in Modelica,&quot;
     16th International Modelica &amp; FMI Conference, Lucerne, Switzerland, September 8-10, 2025.
     <a href=\"https://doi.org/10.3384/ecp218\">DOI: 10.3384/ecp218</a>.</li>
-
 
 <li>S. Basumallik, L. Vanfretti, M.A. Dashtaki, Z. Zhang, R. Pourramezan and H. Hooshyar,
     &quot;Enhancing Large-Scale Power Systems Simulations through Functional Mockup Unit-based Grid-Forming Inverter Models,&quot;
@@ -56,8 +54,8 @@ model Publications "Publications"
     Proceedings of the American Modelica Conference 2024, October 14-16, 2024, Storrs, Connecticut, USA.
     <a href=\"https://doi.org/10.3384/ecp20763\">DOI: 10.3384/ecp20763</a>.</li>
 
-<li> L. Vanfretti and C.R. Laughman, 
-    &quot;Power System Modeling for Identification and Control Applications using Modelica and OpenIPSL,&quot; 
+<li> L. Vanfretti and C.R. Laughman,
+    &quot;Power System Modeling for Identification and Control Applications using Modelica and OpenIPSL,&quot;
     2024 IEEE Conference on Control Technology and Applications (CCTA), Newcastle upon Tyne, United Kingdom, 2024, pp. 525-532,
     <a href=\"https://ieeexplore.ieee.org/document/10666594\">DOI: 10.1109/CCTA60707.2024.10666594</a>.</li>
 

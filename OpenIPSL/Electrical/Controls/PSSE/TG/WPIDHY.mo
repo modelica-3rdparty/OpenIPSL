@@ -179,11 +179,11 @@ equation
     annotation (Line(points={{86.6,0},{110,0}}, color={0,0,127}));
   annotation (
         Icon(graphics={Rectangle(lineColor = {28, 108, 200}, extent = {{-100, 100}, {100, -100}}),
-        Text(textColor = {28, 108, 200},     extent={{-56,60},
+        Text(textColor = {28, 108, 200}, extent={{-56,60},
               {4,20}}, textString = "SPEED"),
-        Text(textColor = {28, 108, 200},     extent={{-56,-40},
+        Text(textColor = {28, 108, 200}, extent={{-56,-40},
               {4,-80}}, textString = "PELEC"),
-        Text(textColor = {28, 108, 200},     extent = {{30, 20}, {90, -20}}, textString = "PMECH"),
+        Text(textColor = {28, 108, 200}, extent = {{30, 20}, {90, -20}}, textString = "PMECH"),
         Text(textColor={4,7,200}, extent={{-94,172},{94,90}},
           textString="WPIDHY")}),
     Documentation(info="<html>
