@@ -5,8 +5,8 @@ package OpenIPSL "Open-Instance Power System Library"
 annotation (preferredView="info",
   Protection(access = Access.packageDuplicate),
   uses(Complex(version="4.0.0"), Modelica(version="4.0.0")),
-  version="3.1.0",
-  versionDate="2026-02-25",
+  version="3.2.0-dev",
+  versionDate="2026-xx-xx",
   conversion(
     noneFromVersion="3.0.1",
     noneFromVersion="3.0.0",
