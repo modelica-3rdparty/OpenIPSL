@@ -27,7 +27,7 @@ There are many examples included in the library that can be used as a starting p
 </p>
 <p>
 In the case of OpenIPSL, all models require initial guess values that should come from a solution of
-the steady state of the overall model, i.e., a power flow fsolution. However, there is no power flow solver associated to the library as of the present time. The users are free to choose their power flow software of choice.
+the steady state of the overall model, i.e., a power flow solution. However, there is no power flow solver associated to the library as of the present time. The users are free to choose their power flow software of choice.
 </p>
 <p>
 Almost all of our models have been developed to provide the same response than a reference power system
