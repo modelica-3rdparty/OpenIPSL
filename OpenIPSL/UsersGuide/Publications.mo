@@ -3,12 +3,9 @@ model Publications "Publications"
   extends Modelica.Icons.References;
   annotation (Documentation(info="<html>
 <p>The list of publications written about OpenIPSL library and its models can be found below. </p>
-<p>If you use OpenIPSL in your work or research, we kindly ask you to cite (preferably), our <a href=\"https://doi.org/10.1016/j.softx.2022.101277\">SoftwareX</a> paper(s):</p>
+<p>If you use OpenIPSL in your work or research, we kindly ask you to cite (preferably), our <a href=\"https://doi.org/10.1016/j.softx.2018.01.002\">SoftwareX</a> paper:</p>
 
 <ul>
-<li> M. de Castro, D. Winkler, G. Laera, L. Vanfretti, S.A. Dorado-Rojas, T. Rabuzin, B. Mukherjee, M. Navarro, 
-     Version [OpenIPSL 2.0.0] - [iTesla Power Systems Library (iPSL): A Modelica library for phasor time-domain simulations], SoftwareX, Volume 21, 2023, 101277, ISSN 2352-7110, 
-     <a href=\"https://doi.org/10.1016/j.softx.2022.101277\">DOI: 10.1016/j.softx.2022.101277</a>.</li>
 <li>M. Baudette, M. Castro, T. Rabuzin, J. Lavenius, T. Bogodorova, L. Vanfretti,
     OpenIPSL: Open-Instance Power System Library — Update 1.5 to &quot;iTesla Power Systems Library (iPSL):
     A Modelica library for phasor time-domain simulations&quot;, SoftwareX, Volume 7, January–June 2018, Pages 34-36, ISSN 2352-7110,
@@ -19,52 +16,9 @@ model Publications "Publications"
 
 <ul>
 
-<li>F. Fachini, H. Chang, T. Bogodorova, and L. Vanfretti,
-    &quot;Customized open source renewable energy models validated through PHIL lab experiments,&quot;
-    Renewable Energy, Volume 244, 2025, 122627, ISSN 0960-1481,
-    <a href=\"https://doi.org/10.1016/j.renene.2025.122627\">DOI: 10.1016/j.renene.2025.122627</a>.</li>
-
-
-<li>F. Fachini, T. Bogodorova, L. Vanfretti and S. Boersma,
-    &quot;A microgrid control scheme for islanded operation and re-synchronization utilizing Model Predictive Control,&quot;
-    Sustainable Energy, Grids and Networks, Volume 39, 2024, 101464, ISSN 2352-4677,
-    <a href=\"https://doi.org/10.1016/j.segan.2024.101464\">DOI: 10.1016/j.segan.2024.101464</a>.</li>
-
-<li>F. Fachini, M. de Castro, T. Bogodorova, and L. Vanfretti,
-    &quot;Modeling of Induction Motors and Variable Speed Drives for Multi-Domain System Simulations Using Modelica and the OpenIPSL Library&quot;,
-    Electronics, Volume 13, Issue 10, 2024, 1866, ISSN 2079-9292,
-    <a href=\"https://doi.org/10.3390/electronics13101866\">DOI: 10.3390/electronics13101866</a>.</li>
-
-<li>M. de Castro and L. Vanfretti,
-    &quot;OpenIWPI: Open-Instance Wave-Phasor Interface Library for Power System Simulation Studies in Modelica,&quot;
-    16th International Modelica &amp; FMI Conference, Lucerne, Switzerland, September 8-10, 2025.
-    <a href=\"https://doi.org/10.3384/ecp218\">DOI: 10.3384/ecp218</a>.</li>
-
-
-<li>S. Basumallik, L. Vanfretti, M.A. Dashtaki, Z. Zhang, R. Pourramezan and H. Hooshyar,
-    &quot;Enhancing Large-Scale Power Systems Simulations through Functional Mockup Unit-based Grid-Forming Inverter Models,&quot;
-    16th International Modelica &amp; FMI Conference, Lucerne, Switzerland, September 8-10, 2025.
-    <a href=\"https://doi.org/10.3384/ecp218\">DOI: 10.3384/ecp218</a>.</li>
-
-<li>S. Bhattacharjee, F. Fachini, and L. Vanfretti,
-    &quot;Advancing Generic Renewable Energy Models: Implementation of the REEC_D and REGC_B Models in Modelica and OpenIPSL,&quot;
-    16th International Modelica &amp; FMI Conference, Lucerne, Switzerland, September 8-10, 2025.
-    <a href=\"https://doi.org/10.3384/ecp218\">DOI: 10.3384/ecp218</a>.</li>
-
-<li>S. Bhattacharjee, L. Vanfretti, and F. Fachini,
-    &quot;Building Models for Stability and Control Design Analysis using Modelica and the OpenIPSL,&quot;
-    Proceedings of the American Modelica Conference 2024, October 14-16, 2024, Storrs, Connecticut, USA.
-    <a href=\"https://doi.org/10.3384/ecp20763\">DOI: 10.3384/ecp20763</a>.</li>
-
-<li> L. Vanfretti and C.R. Laughman, 
-    &quot;Power System Modeling for Identification and Control Applications using Modelica and OpenIPSL,&quot; 
-    2024 IEEE Conference on Control Technology and Applications (CCTA), Newcastle upon Tyne, United Kingdom, 2024, pp. 525-532,
-    <a href=\"https://ieeexplore.ieee.org/document/10666594\">DOI: 10.1109/CCTA60707.2024.10666594</a>.</li>
-
 <li>Fachini, Fernando, Srijita Bhattacharjee, Miguel Aguilera, Luigi Vanfretti, Giuseppe Laera, Tetiana Bogodorova, Ardeshir Moftakhari, Michael Huylo, and Atila Novoselac,
     &quot;Exploiting Modelica and the OpenIPSL for University Campus Microgrid Model Development&quot;,
-    15th International Modelica Conference 2023, October 9-11, Aachen, Germany.
-    <a href=\"https://doi.org/10.3384/ecp21181147\">DOI: 10.3384/ecp21181147</a>.</li>
+    15th International Modelica Conference 2023, October 9-11, Aachen, Germany.</li>
 
 <li>Fachini, Fernando, Aisling Pigott, Giuseppe Laera, Tetiana Bogodorova, Luigi Vanfretti, and Kyri Baker,
     &quot;Developing a Campus Microgrid Model utilizing Modelica and the OpenIPSL Library&quot;,
@@ -73,13 +27,12 @@ model Publications "Publications"
 
 <li>M. de Castro, G. Laera, F. Fachini, S.A. Dorado-Rojas, L. Vanfretti, S. Ahmed, C. Mishra, K.D. Jones and R. M. Gardner,
     &quot;Power System Real-Time Simulation using Modelica and the FMI&quot;,
-    American Modelica Conference 2022, October 26-28, 2022, Dallas, Texas, US.
-    <a href=\"https://doi.org/10.3384/ECP2118685\">DOI: 10.3384/ECP2118685</a>.</li>
+    American Modelica Conference 2022, October 26-28, 2022, Dallas, Texas, US.</li>
 
 <li>G. Laera, L. Vanfretti, M. de Castro Fernandes, S.A. Dorado-Rojas, F. Fachini, C. Mishra, K.D. Jones and R.M. Gardner,
     &quot;Guidelines and Use Cases for Power System Dynamics Modeling and Model Verification using Modelica&quot;,
     American Modelica Conference 2022, October 26-28, 2022, Dallas, Texas, US.
-    <a href=\"https://doi.org/10.3384/ECP21186146\">DOI: 10.3384/ECP21186146</a>.</li>
+</li>
 
 <li>S. Boersma, X. Bombois, L. Vanfretti, J.C. Gonzalez-Torres, and A. Benchaib,
     &quot;Probing Signal Design for Enhanced Damping Estimation in Power Networks&quot;,
