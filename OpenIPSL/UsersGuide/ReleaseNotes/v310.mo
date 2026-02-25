@@ -96,7 +96,7 @@ class v310 "Version 3.1.0 (2026-02-24)"
 <li><a href=\"https://github.com/maltelenz\">@maltelenz</a> made their first contribution in <a href=\"https://github.com/OpenIPSL/OpenIPSL/pull/369\">#369</a></li>
 <li><a href=\"https://github.com/beutlich\">@beutlich</a> made their first contribution in <a href=\"https://github.com/OpenIPSL/OpenIPSL/pull/382\">#382</a></li>
 </ul>
-<p><br><br><h5>Full Changelog</h5></p>
+<h5>Full Changelog</h5>
 <p><code><a href=\"https://github.com/OpenIPSL/OpenIPSL/compare/v3.0.1...v3.1.0\">v3.0.1...v3.1.0</a></code></p>
 </html>"));
 end v310;
