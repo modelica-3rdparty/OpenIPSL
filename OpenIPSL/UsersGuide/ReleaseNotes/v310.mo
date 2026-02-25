@@ -1,5 +1,5 @@
 within OpenIPSL.UsersGuide.ReleaseNotes;
-class v310 "Version 3.1.0 (2026-02-24)"
+class v310 "Version 3.1.0 (2026-02-25)"
   extends Modelica.Icons.ReleaseNotes;
   annotation (Documentation(info="<html>
 <p>This release version 3.1.0 of <strong><code>OpenIPSL</code></strong> is led by an <strong>Industrial-Grade Model Expansion</strong>. The release significantly expands the availability of <strong>new models</strong> and examples, with broad additions across synchronous machine dynamics, governors, excitation and stabilizer systems, and WECC-type renewable energy source models (Wind, PV and BESS), while also improving compatibility and quality checks. </p>

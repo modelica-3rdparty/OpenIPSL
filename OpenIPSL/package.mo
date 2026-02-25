@@ -6,7 +6,7 @@ annotation (preferredView="info",
   Protection(access = Access.packageDuplicate),
   uses(Complex(version="4.0.0"), Modelica(version="4.0.0")),
   version="3.1.0",
-  versionDate="2026-01-xx",
+  versionDate="2026-02-25",
   conversion(
     noneFromVersion="3.0.1",
     noneFromVersion="3.0.0",
