@@ -18,7 +18,8 @@ protected
 initial equation
   der(x) = 0;
 equation
-  assert(Tf > 0, "ZIP_Jimma: Tf cannot be zero; Tf = 0.001 s is used, as PSAT does.", AssertionLevel.warning);
+  assert(Tf >= 0, "ZIP_Jimma: Tf must not be negative.");
+  assert(Tf < 0 or Tf > 0, "ZIP_Jimma: Tf cannot be zero; Tf = 0.001 s is used, as PSAT does.", AssertionLevel.warning);
   a = v/v_0;
   der(x) = ((-v/T) - x)/T;
   b = x + v/T;
@@ -40,7 +41,8 @@ into reactive power (pu), as in eq. 16.16 of the PSAT 2.1.11 manual,
 error of the manual: with 1/s the term would be in pu/s<sup>2</sup>.</p>
 <p><code>Tf</code> cannot be zero, since the filter divides by it. PSAT replaces
 <code>Tf = 0</code> with 0.001 s and warns (<code>@JIclass/setx0.m</code>); this model does the
-same, with a warning, so that a case translated from PSAT behaves as it does there.</p>
+same, with a warning, so that a case translated from PSAT behaves as it does there. A negative
+<code>Tf</code> is rejected with an error.</p>
 </html>", revisions="<html>
 <table cellspacing=\"1\" cellpadding=\"1\" border=\"1\">
 <tr>
