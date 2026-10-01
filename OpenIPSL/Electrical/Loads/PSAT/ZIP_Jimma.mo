@@ -8,11 +8,11 @@ model ZIP_Jimma "Jimma - Jimma's Load"
   parameter Types.PerUnit Qz=0.33 "Susceptance";
   parameter Types.PerUnit Qi=0.33 "Reactive current";
   parameter Types.PerUnit Qp=1 - Qz - Qi "Reactive power";
-  parameter Types.TimeAging Kv=100 "coefficient of the voltage time derivative";
+  parameter Types.TimeAging Kv=100 "Coefficient of the voltage time derivative (system base)";
 protected
   Real a(start=1) "Auxiliary variable, voltage division";
   Real b "Auxiliary variable, derivation";
-  Real x(start=0);
+  Real x(start=-v_0/Tf);
 initial equation
   der(x) = 0;
 equation
@@ -20,7 +20,7 @@ equation
   der(x) = ((-v/Tf) - x)/Tf;
   b = x + v/Tf;
   P = P_0/S_b*(Pz*a^2 + Pi*a + Pp);
-  Q = Q_0/S_b*(Qz*a^2 + Qi*a + Qp + Kv*b);
+  Q = Q_0/S_b*(Qz*a^2 + Qi*a + Qp) + Kv*b;
   annotation (
     Documentation(revisions="<html>
 <table cellspacing=\"1\" cellpadding=\"1\" border=\"1\">
