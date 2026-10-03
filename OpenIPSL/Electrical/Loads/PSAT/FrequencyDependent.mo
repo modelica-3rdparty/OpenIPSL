@@ -9,17 +9,28 @@ model FrequencyDependent "Fl - Frequency Dependent Load"
   Types.PerUnit deltaw "Frequency deviation";
 protected
   Real a(start=1) "Auxiliary variable, voltage division";
-  Real x(start=0) "auxiliary variable";
+  Types.Angle phi(start=angle_0) "Voltage angle through a first-order lag of time constant Tf";
 initial equation
-  der(x) = 0;
+  der(phi) = 0;
 equation
   a = v/v_0;
-  der(x) = -deltaw/Tf;
-  0 = x + 1/(2*C.pi*fn)*1/Tf*(anglev - angle_0) - deltaw;
+  deltaw = atan2(p.vi*cos(phi) - p.vr*sin(phi), p.vr*cos(phi) + p.vi*sin(phi))/(2*C.pi*fn*Tf) 
+      "The voltage angle minus phi, from the phasor rotated by -phi: it never wraps where anglev does";
+  der(phi) = 2*C.pi*fn*deltaw;
   P = P_0/S_b*a^alpha_p*(1 + deltaw)^beta_p;
   Q = Q_0/S_b*a^alpha_q*(1 + deltaw)^beta_q;
   annotation (
-    Documentation(revisions="<html>
+    Documentation(info="<html>
+<p>The frequency deviation is the voltage angle &theta; through a washout filter of time constant
+<code>Tf</code>, as in PSAT: <code>deltaw</code> = s&theta;/(&omega;<sub>0</sub>(1 + sTf)), with
+&omega;<sub>0</sub> = 2&pi;fn. It is computed as (&theta; - &phi;)/(&omega;<sub>0</sub>Tf), where
+&phi; = &theta;/(1 + sTf) is the angle through a first-order lag, and &theta; - &phi; is the angle
+of the voltage phasor rotated by -&phi;. The angle <code>anglev</code> of the base class,
+<code>atan2(vi, vr)</code>, jumps by 2&pi; where the voltage angle passes &plusmn;&pi; - in any
+network without an infinite bus whose frequency differs from <code>fn</code> - and a filter on it
+turns each jump into a spurious frequency spike of about 1/(fn&middot;Tf) pu. &theta; - &phi; stays
+small: it would wrap only for a frequency deviation above 1/(2fn&middot;Tf) pu.</p>
+</html>", revisions="<html>
 <table cellspacing=\"1\" cellpadding=\"1\" border=\"1\">
 <tr>
 <td><p>Reference</p></td>
