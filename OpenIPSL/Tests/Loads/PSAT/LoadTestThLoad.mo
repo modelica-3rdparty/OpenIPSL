@@ -10,6 +10,8 @@ model LoadTestThLoad "Simple system to test functionality of thermostatically co
     Sn=10000000,
     P_0=800000,
     Q_0=600000,
+    v_0=0.999519320578487,
+    angle_0=-0.000760311717819549,
     Ti=12,
     Kl=1) annotation (Placement(transformation(extent={{70,-40},{90,-20}})));
 equation

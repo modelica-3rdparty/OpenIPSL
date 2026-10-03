@@ -8,7 +8,8 @@ model LoadTestExpRecovery "Simple system to test functionality of eponential rec
     Sn=10000000,
     P_0=800000,
     Q_0=600000,
-    v_0=0.993325452568749) annotation (Placement(transformation(origin={80,-30}, extent={{-10,-10},{10,10}})));
+    v_0=0.999519320578487,
+    angle_0=-0.000760311717819549) annotation (Placement(transformation(origin={80,-30}, extent={{-10,-10},{10,10}})));
 equation
   connect(bus3.p, exponentialRecovery.p) annotation (Line(points={{70,0},{80,0},{80,-20}}, color={0,0,255}));
   annotation (experiment(

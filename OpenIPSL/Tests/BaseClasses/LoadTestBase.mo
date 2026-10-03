@@ -48,8 +48,8 @@ partial model LoadTestBase "Base class for the different load cases."
         extent={{-4,-4},{4,4}})));
   OpenIPSL.Electrical.Machines.PSAT.Order3 order3_Inputs_Outputs1(
     D=0,
-    M=10,P_0=800989.8784778,
-    Q_0=570163.38872796,
+    M=10,P_0=800081.083650728,
+    Q_0=200983.110628528,
     Sn= 20000000,
     T1d0=8,
     V_b=400000,
@@ -69,9 +69,9 @@ partial model LoadTestBase "Base class for the different load cases."
     Placement(transformation(origin = {10, -10}, extent = {{-10, -10}, {10, 10}})));
   Electrical.Buses.Bus bus1 annotation (
     Placement(transformation(origin = {-10, 0}, extent = {{-10, -10}, {10, 10}})));
-  OpenIPSL.Electrical.Buses.Bus bus3 annotation (
+  OpenIPSL.Electrical.Buses.Bus bus3(v_0=0.999519320578487, angle_0=-0.000760311717819549) annotation (
     Placement(transformation(origin = {70, 0}, extent = {{-10, -10}, {10, 10}})));
-  OpenIPSL.Electrical.Buses.Bus bus2 annotation (
+  OpenIPSL.Electrical.Buses.Bus bus2(v_0=0.999809578513804, angle_0=-0.000385064720404356) annotation (
     Placement(transformation(origin = {30, 0}, extent = {{-10, -10}, {10, 10}})));
 equation
   connect(Vstep1.y, sumV.u[1]) annotation (
