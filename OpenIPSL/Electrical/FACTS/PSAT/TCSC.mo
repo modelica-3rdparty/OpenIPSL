@@ -39,6 +39,9 @@ model TCSC "Thyristor Controlled Series Compensator"
    annotation (Dialog(group="Device parameters"));
   parameter Real Kr=10 "Gain of stabilizing signal [pu/pu]"
    annotation (Dialog(group="Device parameters"));
+  parameter Boolean useWindupGuard=true
+    "true: non-windup limit as in PSAT (LagLimWindupGuard); false: SimpleLagLim, as before the option existed"
+    annotation (Evaluate=true, choices(checkBox=true), Dialog(group="Limiter"));
   parameter Types.PerUnit x_L=0.2 "Reactance (inductive)"
    annotation (Dialog(group="Device parameters"));
   parameter Types.PerUnit x_C=0.1 "Reactance (capacitive)"
@@ -72,7 +75,15 @@ model TCSC "Thyristor Controlled Series Compensator"
     T=Tr,
     y_start=x10,
     outMax=x1_max,
-    outMin=x1_min) annotation (Placement(transformation(extent={{40,-10},{60,10}})));
+    outMin=x1_min) if not useWindupGuard annotation (Placement(transformation(extent={{40,-10},{60,10}})));
+  NonElectrical.Continuous.LagLimWindupGuard X1WindupGuard(
+    K=1,
+    T=Tr,
+    y_start=x10,
+    outMax=x1_max,
+    outMin=x1_min) if useWindupGuard annotation (Placement(transformation(extent={{40,14},{60,34}})));
+  Modelica.Blocks.Routing.RealPassThrough x1Limited "The output of whichever limiter is in use"
+    annotation (Placement(transformation(extent={{70,-10},{90,10}})));
   Modelica.Blocks.Sources.RealExpression Pref(y=pref) annotation (Placement(transformation(extent={{-80,-70},{-60,-50}})));
   Modelica.Blocks.Sources.RealExpression Pkm(y=pkm) annotation (Placement(transformation(extent={{-80,-50},{-60,-30}})));
 
@@ -97,7 +108,7 @@ equation
   vm = sqrt(n.vr^2 + n.vi^2) "Voltage magnitude of receiving bus";
   pkm = p.vr*p.ir + p.vi*p.ii "Transferred active power from k to m";
 
-  x1 = X1.y;
+  x1 = x1Limited.y;
   b = if alphaCtrl then
       C.pi*(kx^4 - 2*kx^2 + 1)*cos(kx*(C.pi - x1))/
       (xC*(C.pi*kx^4*cos(kx*(C.pi - x1)))
@@ -120,6 +131,9 @@ equation
   connect(Pkm.y, powerDiff.u1) annotation (Line(points={{-59,-40},{-48,-40}}, color={0,0,127}));
   connect(Pref.y, powerDiff.u2) annotation (Line(points={{-59,-60},{-40,-60},{-40,-48}}, color={0,0,127}));
   connect(feedback.y, X1.u) annotation (Line(points={{29,0},{38,0}}, color={0,0,127}));
+  connect(feedback.y, X1WindupGuard.u) annotation (Line(points={{29,0},{34,0},{34,24},{38,24}}, color={0,0,127}));
+  connect(X1.y, x1Limited.u) annotation (Line(points={{61,0},{68,0}}, color={0,0,127}));
+  connect(X1WindupGuard.y, x1Limited.u) annotation (Line(points={{61,24},{64,24},{64,0},{68,0}}, color={0,0,127}));
   connect(stabilizer.y, feedback.u1) annotation (Line(points={{1,0},{12,0}}, color={0,0,127}));
   connect(Vs_pod, stabilizer.u) annotation (Line(points={{0,120},{0,40},{-40,40},
           {-40,0},{-22,0}}, color={0,0,127}));

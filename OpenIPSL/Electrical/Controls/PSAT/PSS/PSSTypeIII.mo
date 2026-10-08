@@ -9,13 +9,23 @@ model PSSTypeIII "PSAT PSS Type III"
   parameter Types.Time Tc "SimpleLagLim time constant";
   parameter Types.PerUnit vsmax "Max stabilizer output signal";
   parameter Types.PerUnit vsmin "Min stabilizer output signal";
+  parameter Boolean useWindupGuard=true
+    "true: non-windup limit (LagLimWindupGuard); false: SimpleLagLim, as before the option existed"
+    annotation (Evaluate=true, choices(checkBox=true), Dialog(group="Limiter"));
   OpenIPSL.NonElectrical.Continuous.SimpleLagLim simpleLagLim(
     K=1,
     T=Tc,
     y_start=0,
     outMax=vsmax,
-    outMin=vsmin)
+    outMin=vsmin) if not useWindupGuard
     annotation (Placement(transformation(extent={{40,-10},{60,10}})));
+  OpenIPSL.NonElectrical.Continuous.LagLimWindupGuard lagLimWindupGuard(
+    K=1,
+    T=Tc,
+    y_start=0,
+    outMax=vsmax,
+    outMin=vsmin) if useWindupGuard
+    annotation (Placement(transformation(extent={{40,14},{60,34}})));
   Modelica.Blocks.Interfaces.RealInput vs1 "Rotor speed" annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
   Modelica.Blocks.Interfaces.RealOutput Vref
     "Indexes of the algebraic variable" annotation (Placement(transformation(extent={{100,-10},{120,10}})));
@@ -34,6 +44,10 @@ equation
     annotation (Line(points={{-39,0},{-12,0}}, color={0,0,127}));
   connect(simpleLagLim.u, transferFunction.y)
     annotation (Line(points={{38,0},{11,0}}, color={0,0,127}));
+  connect(lagLimWindupGuard.y, Vref)
+    annotation (Line(points={{61,24},{80,24},{80,0},{110,0}}, color={0,0,127}));
+  connect(lagLimWindupGuard.u, transferFunction.y)
+    annotation (Line(points={{38,24},{24,24},{24,0},{11,0}}, color={0,0,127}));
   annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
           Rectangle(
           extent={{-100,100},{100,-100}},

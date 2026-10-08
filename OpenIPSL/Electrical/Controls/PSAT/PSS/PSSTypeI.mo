@@ -7,6 +7,9 @@ model PSSTypeI "PSAT PSS Type I"
   parameter Types.PerUnit vsmin "Min stabilizer output signal";
   parameter Types.Time Tw "Wash-out time constant";
   parameter Types.Time Tc "Lag time constant";
+  parameter Boolean useWindupGuard=true
+    "true: non-windup limit (LagLimWindupGuard); false: SimpleLagLim, as before the option existed"
+    annotation (Evaluate=true, choices(checkBox=true), Dialog(group="Limiter"));
   Modelica.Blocks.Interfaces.RealInput w "Rotor speed"
     annotation (Placement(transformation(extent={{-140,60},{-100,100}}), iconTransformation(extent={{-140,40},{-100,80}})));
   Modelica.Blocks.Interfaces.RealOutput Vref
@@ -34,8 +37,15 @@ of the generator to which the PSS is connected through the AVR"
     T=Tc,
     y_start=0,
     outMax=vsmax,
-    outMin=vsmin)
+    outMin=vsmin) if not useWindupGuard
     annotation (Placement(transformation(extent={{12,-10},{32,10}})));
+  OpenIPSL.NonElectrical.Continuous.LagLimWindupGuard lagLimWindupGuard(
+    K=1,
+    T=Tc,
+    y_start=0,
+    outMax=vsmax,
+    outMin=vsmin) if useWindupGuard
+    annotation (Placement(transformation(extent={{12,14},{32,34}})));
   Modelica.Blocks.Interfaces.RealInput vref0 annotation (Placement(transformation(
         extent={{-20,-20},{20,20}},
         rotation=270,
@@ -50,6 +60,9 @@ equation
   connect(derivativeLag.y, simpleLagLim.u)
     annotation (Line(points={{1,0},{10,0}}, color={0,0,127}));
   connect(simpleLagLim.y, add.u2) annotation (Line(points={{33,0},{42,0},{42,-6},{68,-6}}, color={0,0,127}));
+  connect(derivativeLag.y, lagLimWindupGuard.u)
+    annotation (Line(points={{1,0},{6,0},{6,24},{10,24}}, color={0,0,127}));
+  connect(lagLimWindupGuard.y, add.u2) annotation (Line(points={{33,24},{42,24},{42,-6},{68,-6}}, color={0,0,127}));
   connect(add.y, Vref) annotation (Line(points={{91,0},{110,0}}, color={0,0,127}));
   connect(vref0, add.u1) annotation (Line(points={{0,120},{0,66},{40,66},{40,6},{68,6}}, color={0,0,127}));
   connect(w, gainStabilizer.u) annotation (Line(points={{-120,80},{-82,80}}, color={0,0,127}));
