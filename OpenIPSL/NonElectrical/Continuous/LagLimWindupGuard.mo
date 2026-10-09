@@ -44,6 +44,8 @@ and <code>state &lt;= outMin</code>, away from zero in normal operation; the com
 </ul>
 <p>With <code>T = 0</code> the output is <code>K*u</code> limited to [<code>outMin</code>, <code>outMax</code>], as in
 <code>SimpleLagLim</code>.</p>
+<p><a href=\"modelica://OpenIPSL.Tests.NonElectrical.Continuous.LagLimWindupGuard\">Tests.NonElectrical.Continuous.LagLimWindupGuard</a>
+shows the two limiters side by side; plot their <code>state</code> and <code>y</code>.</p>
 </html>", revisions="<html>
 <table cellspacing=\"1\" cellpadding=\"1\" border=\"1\">
 <tr>

@@ -66,8 +66,19 @@ limit and back: the fault at 2 s, and a step of the voltage reference by <code>r
 <code>refStepTime</code>, which holds the regulator at its ceiling until the field voltage has risen.</p>
 <p><a href=\"modelica://OpenIPSL.Tests.Controls.PSAT.AVR.AVRTypeII_LagLimWindupGuard\">AVRTypeII_LagLimWindupGuard</a>
 is the same test with the default limiter, <code>LagLimWindupGuard</code>, which reproduces PSAT's non-windup limit.
-Compare the regulator output <code>avr.vf</code>, the terminal voltage <code>machine.v</code> and the number of events
-of the two.</p>
+</p>
+<p>What to plot, from this test and its pair (the variables of the limiter in use carry its name):</p>
+<ul>
+<li><code>avr.simpleLagLim.state</code> here and <code>avr.lagLimWindupGuard.state</code> in the pair, against the limits
+(<code>avr.vrmax</code>, <code>avr.vrmin</code>): this is where the two differ. <code>SimpleLagLim</code>'s state runs past the limit and is reset to it whenever
+the input turns back; <code>LagLimWindupGuard</code>'s stops at the limit.</li>
+<li><code>avr.simpleLagLim.y</code> and <code>avr.lagLimWindupGuard.y</code>, and <code>machine.v</code>: the same in both
+tests. The limiters' outputs leave the limit at the same time, so the system does not see the difference.</li>
+<li>The number of state events in the simulation log: 27 and 16 with <code>SimpleLagLim</code> and <code>LagLimWindupGuard</code> in Dymola
+2026x; every reset of <code>SimpleLagLim</code> is an event.</li>
+</ul>
+<p><a href=\"modelica://OpenIPSL.Tests.NonElectrical.Continuous.LagLimWindupGuard\">Tests.NonElectrical.Continuous.LagLimWindupGuard</a>
+shows the two limiters side by side in one model.</p>
 <p>The machine, the AVR and the network are those of the PSAT-2-Modelica unit test of the PSAT type 2 AVR.</p>
 </html>"));
 end AVRTypeII_SimpleLagLim;

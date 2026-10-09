@@ -80,8 +80,19 @@ previous limiter, <code>SimpleLagLim</code> (<code>useWindupGuard = false</code>
 stabilizer to its output limit and back: the fault at 2 s, and a step of the mechanical power by
 <code>pmStepHeight</code> at <code>pmStepTime</code>.</p>
 <p><a href=\"modelica://OpenIPSL.Tests.Controls.PSAT.PSS.PSSTypeIII_LagLimWindupGuard\">PSSTypeIII_LagLimWindupGuard</a>
-is the same test with the default limiter, <code>LagLimWindupGuard</code>. Compare the stabilizer output
-<code>pss.Vref</code>, the state of its limiter and the number of events of the two.</p>
+is the same test with the default limiter, <code>LagLimWindupGuard</code>.</p>
+<p>What to plot, from this test and its pair (the variables of the limiter in use carry its name):</p>
+<ul>
+<li><code>pss.simpleLagLim.state</code> here and <code>pss.lagLimWindupGuard.state</code> in the pair, against the limits
+(<code>pss.vsmax</code>, <code>pss.vsmin</code>): this is where the two differ. <code>SimpleLagLim</code>'s state runs past the limit and is reset to it whenever
+the input turns back; <code>LagLimWindupGuard</code>'s stops at the limit.</li>
+<li><code>pss.simpleLagLim.y</code> and <code>pss.lagLimWindupGuard.y</code>, and <code>machine.v</code>: the same in both
+tests. The limiters' outputs leave the limit at the same time, so the system does not see the difference.</li>
+<li>The number of state events in the simulation log: 340 and 80 with <code>SimpleLagLim</code> and <code>LagLimWindupGuard</code> in Dymola
+2026x; every reset of <code>SimpleLagLim</code> is an event.</li>
+</ul>
+<p><a href=\"modelica://OpenIPSL.Tests.NonElectrical.Continuous.LagLimWindupGuard\">Tests.NonElectrical.Continuous.LagLimWindupGuard</a>
+shows the two limiters side by side in one model.</p>
 <p>The machine, the AVR, the stabilizer and the network are those of the PSAT-2-Modelica unit test of the PSAT type 3
 stabilizer, with the stabilizer's limits tightened from &plusmn;0.1 to &plusmn;0.02 pu so that the disturbances reach
 them.</p>
