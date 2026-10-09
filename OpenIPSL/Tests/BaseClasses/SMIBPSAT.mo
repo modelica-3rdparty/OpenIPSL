@@ -85,9 +85,9 @@ equation
   connect(pwLine1.p, LOAD.p)
     annotation (Line(points={{14.6,30},{10,30},{10,0},{0,0}},
                                                             color={0,0,255}));
-  connect(pwLine1.n,SHUNT. p)
+  connect(pwLine1.n, SHUNT.p)
     annotation (Line(points={{25.4,30},{40,30}}, color={0,0,255}));
-  connect(pwLine2.p,SHUNT. p)
+  connect(pwLine2.p, SHUNT.p)
     annotation (Line(points={{54.6,30},{40,30}}, color={0,0,255}));
   connect(pwLine2.n, GEN2.p) annotation (Line(points={{65.4,30},{70,30},{70,0},{80,0}},
                    color={0,0,255}));

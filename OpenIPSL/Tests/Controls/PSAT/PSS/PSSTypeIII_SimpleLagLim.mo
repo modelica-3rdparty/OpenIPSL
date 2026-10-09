@@ -88,8 +88,9 @@ is the same test with the default limiter, <code>LagLimWindupGuard</code>.</p>
 the input turns back; <code>LagLimWindupGuard</code>'s stops at the limit.</li>
 <li><code>pss.simpleLagLim.y</code> and <code>pss.lagLimWindupGuard.y</code>, and <code>machine.v</code>: the same in both
 tests. The limiters' outputs leave the limit at the same time, so the system does not see the difference.</li>
-<li>The number of state events in the simulation log: 340 and 80 with <code>SimpleLagLim</code> and <code>LagLimWindupGuard</code> in Dymola
-2026x; every reset of <code>SimpleLagLim</code> is an event.</li>
+<li>The number of state events in the simulation log: 332 and 74 with <code>SimpleLagLim</code> and <code>LagLimWindupGuard</code> in Dymola
+2026x with the test's experiment settings (the count changes a little with the output interval); every reset of
+<code>SimpleLagLim</code> is an event.</li>
 </ul>
 <p><a href=\"modelica://OpenIPSL.Tests.NonElectrical.Continuous.LagLimWindupGuard\">Tests.NonElectrical.Continuous.LagLimWindupGuard</a>
 shows the two limiters side by side in one model.</p>

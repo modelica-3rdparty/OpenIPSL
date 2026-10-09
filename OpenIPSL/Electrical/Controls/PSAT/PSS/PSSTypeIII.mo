@@ -6,7 +6,7 @@ model PSSTypeIII "PSAT PSS Type III"
   parameter Types.Time T2 "Second stabilizer time constant";
   parameter Types.Time T3 "Third stabilizer time constant";
   parameter Types.Time T4 "Fourth stabilizer time constant";
-  parameter Types.Time Tc "SimpleLagLim time constant";
+  parameter Types.Time Tc "Lag time constant of the output limiter";
   parameter Types.PerUnit vsmax "Max stabilizer output signal";
   parameter Types.PerUnit vsmin "Min stabilizer output signal";
   parameter Boolean useWindupGuard=true

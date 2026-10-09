@@ -75,7 +75,8 @@ the input turns back; <code>LagLimWindupGuard</code>'s stops at the limit.</li>
 <li><code>avr.simpleLagLim.y</code> and <code>avr.lagLimWindupGuard.y</code>, and <code>machine.v</code>: the same in both
 tests. The limiters' outputs leave the limit at the same time, so the system does not see the difference.</li>
 <li>The number of state events in the simulation log: 27 and 16 with <code>SimpleLagLim</code> and <code>LagLimWindupGuard</code> in Dymola
-2026x; every reset of <code>SimpleLagLim</code> is an event.</li>
+2026x with the test's experiment settings (the count changes a little with the output interval); every reset of
+<code>SimpleLagLim</code> is an event.</li>
 </ul>
 <p><a href=\"modelica://OpenIPSL.Tests.NonElectrical.Continuous.LagLimWindupGuard\">Tests.NonElectrical.Continuous.LagLimWindupGuard</a>
 shows the two limiters side by side in one model.</p>

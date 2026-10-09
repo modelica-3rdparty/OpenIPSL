@@ -10,14 +10,15 @@ block LagLimWindupGuard
   Real state(start=y_start) "State of the lag, held between outMin and outMax";
 protected
   parameter Boolean noLag=T < Modelica.Constants.eps "Without a lag, the output is the limited gain";
-  parameter Types.Time T_mod=if noLag then 1000 else T "Time constant of the unused state when there is no lag";
+  parameter Types.Time T_mod=if noLag then 1000 else T "Any positive value when there is no lag: the state is then held";
 initial equation
   state = y_start;
 equation
-  T_mod*der(state) = if state >= outMax then smooth(0, noEvent(min(K*u - state, 0)))
+  T_mod*der(state) = if noLag then 0
+    elseif state >= outMax then smooth(0, noEvent(min(K*u - state, 0)))
     elseif state <= outMin then smooth(0, noEvent(max(K*u - state, 0)))
     else K*u - state
-    "At a limit the state may only move back inside; the only events are the state reaching a limit";
+    "At a limit the state may only move back inside; the only events are the state reaching a limit. Without a lag the state is not used and stays at y_start";
   y = if noLag then smooth(0, noEvent(max(min(K*u, outMax), outMin)))
     else smooth(0, noEvent(max(min(state, outMax), outMin)))
     "The limits also bound the output while the state overshoots a limit by the solver's tolerance";
