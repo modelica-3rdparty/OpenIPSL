@@ -26,9 +26,6 @@ model STATCOM "Static Var Compensator"
     annotation (Dialog(group="Device parameters"));
   parameter Types.PerUnit i_Min=-0.1 "Minimum current (device base)"
     annotation (Dialog(group="Device parameters"));
-  parameter Boolean useWindupGuard=true
-    "true: non-windup limit as in PSAT (LagLimWindupGuard); false: SimpleLagLim, as before the option existed"
-    annotation (Evaluate=true, choices(checkBox=true), Dialog(group="Limiter"));
   Types.PerUnit v(start=v_0) "Bus voltage magnitude";
   Types.PerUnit Q
               "Injected reactive power (system base)";
@@ -62,16 +59,8 @@ protected
     y_start=i0,
     outMax=i_max,
     outMin=i_min,
-    u(start=u0)) if not useWindupGuard
+    u(start=u0))
     annotation (Placement(transformation(extent={{0,-20},{40,20}})));
-  NonElectrical.Continuous.LagLimWindupGuard lagLimWindupGuard(
-    K=Kr,
-    T=Tr,
-    y_start=i0,
-    outMax=i_max,
-    outMin=i_min,
-    u(start=u0)) if useWindupGuard
-    annotation (Placement(transformation(extent={{0,26},{40,66}})));
 equation
   v = sqrt(p.vr^2 + p.vi^2);
   0 = p.vr*p.ir + p.vi*p.ii;
@@ -81,9 +70,6 @@ equation
   connect(simpleLagLim.y, i_SH) annotation (Line(points={{42,0},{70,0}}, color={0,0,127}));
   connect(feedback.y, simpleLagLim.u)
     annotation (Line(points={{-25,0},{-4,0}}, color={0,0,127}));
-  connect(lagLimWindupGuard.y, i_SH) annotation (Line(points={{42,46},{56,46},{56,0},{70,0}}, color={0,0,127}));
-  connect(feedback.y, lagLimWindupGuard.u)
-    annotation (Line(points={{-25,0},{-14,0},{-14,46},{-4,46}}, color={0,0,127}));
   connect(V.y, feedback.u1) annotation (Line(points={{-69,40},{-64,40},{-64,8},{
           -48,8}}, color={0,0,127}));
   connect(V_ref.y, feedback.u3) annotation (Line(points={{-69,-40},{-64,-40},{-64,

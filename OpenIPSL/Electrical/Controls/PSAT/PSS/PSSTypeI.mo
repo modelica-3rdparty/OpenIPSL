@@ -8,7 +8,7 @@ model PSSTypeI "PSAT PSS Type I"
   parameter Types.Time Tw "Wash-out time constant";
   parameter Types.Time Tc "Lag time constant";
   parameter Boolean useWindupGuard=true
-    "true: non-windup limit (LagLimWindupGuard); false: SimpleLagLim, as before the option existed"
+    "true (default, reproduces PSAT): LagLimWindupGuard, output as PSAT's clamp with the state held within the limits; false: SimpleLagLim, as before this option (same output, its state winds up past the limit)"
     annotation (Evaluate=true, choices(checkBox=true), Dialog(group="Limiter"));
   Modelica.Blocks.Interfaces.RealInput w "Rotor speed"
     annotation (Placement(transformation(extent={{-140,60},{-100,100}}), iconTransformation(extent={{-140,40},{-100,80}})));
@@ -79,5 +79,17 @@ equation
 For more information see <a href=\"modelica://OpenIPSL.UsersGuide.References\">[Milano2013]</a>, section \"18.4.1
 Type I\".
 </p>
+<h5>Limiter of the output</h5>
+<p>PSAT clamps the stabilizer output between <code>vsmin</code> and <code>vsmax</code> without a lag
+(<code>@PSclass/gcall.m</code>); this model puts the limit on a lag of time constant <code>Tc</code>. The default,
+<code>useWindupGuard = true</code>, uses
+<a href=\"modelica://OpenIPSL.NonElectrical.Continuous.LagLimWindupGuard\">LagLimWindupGuard</a>: its state stays
+within the limits, and with a small <code>Tc</code> the output follows PSAT's clamp. With
+<code>useWindupGuard = false</code> the model uses
+<a href=\"modelica://OpenIPSL.NonElectrical.Continuous.SimpleLagLim\">SimpleLagLim</a>, as before this option existed.
+Its output is the same, but its state runs past the limit until the input turns back, and it needs more events.
+<a href=\"modelica://OpenIPSL.Tests.Controls.PSAT.PSS.PSSTypeI_LagLimWindupGuard\">PSSTypeI_LagLimWindupGuard</a> and
+<a href=\"modelica://OpenIPSL.Tests.Controls.PSAT.PSS.PSSTypeI_SimpleLagLim\">PSSTypeI_SimpleLagLim</a> show the
+difference.</p>
 </html>"));
 end PSSTypeI;

@@ -31,9 +31,10 @@ limit).</p>
 ways:</p>
 <ul>
 <li><code>SimpleLagLim</code> lets its state run past the limit while its output is clamped, and resets it to the
-limit only when the input falls below the state that has run past it. Its output therefore leaves the limit later
-than a non-windup limit does. Here the state stops at the limit, and the output leaves it as soon as
-<code>K*u</code> falls below the limit.</li>
+limit whenever the input turns back below that state. Its output therefore leaves the limit at the same time as here,
+but its state winds up (ten times the limit in
+<a href=\"modelica://OpenIPSL.Tests.Controls.PSAT.AVR.AVRTypeII_SimpleLagLim\">AVRTypeII_SimpleLagLim</a>), and every
+reset is an event. Here the state stops at the limit.</li>
 <li><code>SimpleLagLim</code> detects that turning point with the relation <code>K*u - state &lt; 0</code> (and
 <code>&gt; 0</code>) in a <code>when</code> condition. In steady state <code>K*u - state</code> is exactly zero, so
 numerical noise changes its sign again and again; a tool that stops at every such sign change (Wolfram System
@@ -62,8 +63,14 @@ and <code>state &lt;= outMin</code>, away from zero in normal operation; the com
 <td><p>see <a href=\"modelica://OpenIPSL.UsersGuide.Contact\">UsersGuide.Contact</a></p></td>
 </tr>
 </table>
-</html>"), Icon(graphics={Line(points={{40,100},{60,140},{100,140}}, color={0,0,
-          0}),Text(
+</html>"), Icon(graphics={Line(
+          points={{40,100},{60,140},{100,140}},
+          color={162,29,29},
+          thickness=1),Rectangle(
+          extent={{96,130},{106,150}},
+          lineColor={162,29,29},
+          fillColor={162,29,29},
+          fillPattern=FillPattern.Solid),Text(
           extent={{-20,68},{20,8}},
           textColor={0,0,255},
           textString="K"),Line(
@@ -71,8 +78,17 @@ and <code>state &lt;= outMin</code>, away from zero in normal operation; the com
           color={0,0,255},
           smooth=Smooth.Bezier,
           thickness=0.5),Text(
-          extent={{-70,-20},{70,-80}},
+          extent={{-70,-14},{70,-64}},
           textColor={0,0,255},
-          textString="1 + Ts"),Line(points={{-100,-140},{-60,-140},{-40,-100}},
-          color={0,0,0})}));
+          textString="1 + Ts"),Text(
+          extent={{-90,-70},{90,-94}},
+          textColor={162,29,29},
+          textString="non-windup"),Line(
+          points={{-100,-140},{-60,-140},{-40,-100}},
+          color={162,29,29},
+          thickness=1),Rectangle(
+          extent={{-106,-150},{-96,-130}},
+          lineColor={162,29,29},
+          fillColor={162,29,29},
+          fillPattern=FillPattern.Solid)}));
 end LagLimWindupGuard;
