@@ -185,8 +185,7 @@ equation
       color={0,0,127},
       smooth=Smooth.None));
   connect(dw.y, Proportional.u) annotation (Line(points={{53.4,50},{62.8,50}}, color={0,0,127}));
-  connect(we, dw.u1) annotation (Line(points={{-190,0},{-172,0},{-172,62},{36,62},{36,50},{43.2,50}},
-        color={0,0,127}));
+  connect(we, dw.u1) annotation (Line(points={{-190,0},{-172,0},{-172,50},{43.2,50}}, color={0,0,127}));
   connect(nominal.y, dw.u2) annotation (Line(points={{42.6,30},{48,30},{48,45.2}}, color={0,0,127}));
   connect(integrator3.y, division.u1) annotation (Line(points={{176.6,20},{180,20},{180,-10},{60,-10},{60,23.6},{62.8,23.6}},
                                                                                                                             color={0,0,127}));
