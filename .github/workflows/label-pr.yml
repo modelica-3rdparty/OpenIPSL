@@ -9,7 +9,7 @@ permissions:
 
 jobs:
   label:
-    runs-on: ubuntu-26
+    runs-on: ubuntu-26.04
     steps:
       - name: Label PR based on title
         uses: actions/github-script@v9
