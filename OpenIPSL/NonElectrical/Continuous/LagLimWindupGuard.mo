@@ -14,11 +14,11 @@ protected
 initial equation
   state = y_start;
 equation
-  T_mod*der(state) = if noLag then 0
-    elseif state >= outMax then smooth(0, noEvent(min(K*u - state, 0)))
-    elseif state <= outMin then smooth(0, noEvent(max(K*u - state, 0)))
-    else K*u - state
-    "At a limit the state may only move back inside; the only events are the state reaching a limit. Without a lag the state is not used and stays at y_start";
+  T_mod*der(state) = smooth(0, noEvent(if noLag then 0
+    elseif state >= outMax then min(K*u - state, 0)
+    elseif state <= outMin then max(K*u - state, 0)
+    else K*u - state))
+    "At a limit the state may only move back inside. The limits are tested without events, as the strict option of Modelica.Blocks.Continuous.LimIntegrator does: tested with events, the relation chatters while the state leaves a limit. Without a lag the state is not used and stays at y_start";
   y = if noLag then smooth(0, noEvent(max(min(K*u, outMax), outMin)))
     else smooth(0, noEvent(max(min(state, outMax), outMin)))
     "The limits also bound the output while the state overshoots a limit by the solver's tolerance";
@@ -39,10 +39,19 @@ reset is an event. Here the state stops at the limit.</li>
 <li><code>SimpleLagLim</code> detects that turning point with the relation <code>K*u - state &lt; 0</code> (and
 <code>&gt; 0</code>) in a <code>when</code> condition. In steady state <code>K*u - state</code> is exactly zero, so
 numerical noise changes its sign again and again; a tool that stops at every such sign change (Wolfram System
-Modeler) spends thousands of events on it. Here the only event-generating relations are <code>state &gt;= outMax</code>
-and <code>state &lt;= outMin</code>, away from zero in normal operation; the comparison with zero is a continuous
-<code>min</code> or <code>max</code> inside <code>noEvent</code>.</li>
+Modeler) spends thousands of events on it. Here no relation generates events: the comparison with zero is a
+continuous <code>min</code> or <code>max</code>, and the limit tests <code>state &gt;= outMax</code> and
+<code>state &lt;= outMin</code> are inside <code>noEvent</code> as well.</li>
 </ul>
+<p>The limits are tested without events for the same reason that
+<a href=\"modelica://Modelica.Blocks.Continuous.LimIntegrator\">Modelica.Blocks.Continuous.LimIntegrator</a> offers its
+<code>strict</code> option: when the state leaves a limit, the relation <code>state &gt;= outMax</code> sits on its
+boundary with the derivative zero on one side and pointing at the boundary on the other, and a tool that handles the
+relation with events walks through its hysteresis band in a cluster of events (on
+<a href=\"modelica://OpenIPSL.Examples.IEEE14.IEEE_14_Buses\">Examples.IEEE14.IEEE_14_Buses</a>, 2 to 13 events
+within a millisecond at each limit exit, in Dymola, OpenModelica and System Modeler alike). Without events the state
+may overshoot a limit by the integration error of one step; the output is clipped to the limits separately, so the
+overshoot does not reach it.</p>
 <p>With <code>T = 0</code> the output is <code>K*u</code> limited to [<code>outMin</code>, <code>outMax</code>], as in
 <code>SimpleLagLim</code>.</p>
 <p><a href=\"modelica://OpenIPSL.Tests.NonElectrical.Continuous.LagLimWindupGuard\">Tests.NonElectrical.Continuous.LagLimWindupGuard</a>
@@ -55,7 +64,7 @@ shows the two limiters side by side; plot their <code>state</code> and <code>y</
 </tr>
 <tr>
 <td><p>Last update</p></td>
-<td>2026-10-08</td>
+<td>2026-10-15</td>
 </tr>
 <tr>
 <td><p>Author</p></td>
