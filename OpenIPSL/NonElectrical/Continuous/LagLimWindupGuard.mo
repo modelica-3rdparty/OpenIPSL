@@ -14,10 +14,10 @@ protected
 initial equation
   state = y_start;
 equation
-  T_mod*der(state) = smooth(0, noEvent(if noLag then 0
+  T_mod*der(state) = noEvent(if noLag then 0
     elseif state >= outMax then min(K*u - state, 0)
     elseif state <= outMin then max(K*u - state, 0)
-    else K*u - state))
+    else K*u - state)
     "At a limit the state may only move back inside. The limits are tested without events, as the strict option of Modelica.Blocks.Continuous.LimIntegrator does: tested with events, the relation chatters while the state leaves a limit. Without a lag the state is not used and stays at y_start";
   y = if noLag then smooth(0, noEvent(max(min(K*u, outMax), outMin)))
     else smooth(0, noEvent(max(min(state, outMax), outMin)))
