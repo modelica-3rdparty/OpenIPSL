@@ -1,5 +1,5 @@
 within OpenIPSL.Electrical.FACTS.PSAT;
-model STATCOM "Static Var Compensator"
+model STATCOM "Static Synchronous Compensator (PSAT)"
   extends OpenIPSL.Electrical.Essentials.pfComponent(
     final enabledisplayPF=false,
     final enableQ_0=true,
@@ -25,6 +25,9 @@ model STATCOM "Static Var Compensator"
   parameter Types.PerUnit i_Max=0.7 "Maximum current (device base)"
     annotation (Dialog(group="Device parameters"));
   parameter Types.PerUnit i_Min=-0.1 "Minimum current (device base)"
+    annotation (Dialog(group="Device parameters"));
+  parameter Boolean useWindupGuard=true
+    "true: LagLimWindupGuard, PSAT's non-windup limit (STclass/fcall.m, fm_windup); false: SimpleLagLim, as before this option (same output, its state winds up past the limit)"
     annotation (Dialog(group="Device parameters"));
   Types.PerUnit v(start=v_0) "Bus voltage magnitude";
   Types.PerUnit Q
@@ -53,14 +56,23 @@ protected
   parameter Types.PerUnit i0=(Q_0/S_b)/v_0 "Initial current";
   parameter Types.PerUnit v_ref=i0/Kr + v_0 "Reference voltage";
 
+public
   NonElectrical.Continuous.SimpleLagLim simpleLagLim(
     K=Kr,
     T=Tr,
     y_start=i0,
     outMax=i_max,
     outMin=i_min,
-    u(start=u0))
+    u(start=u0)) if not useWindupGuard
     annotation (Placement(transformation(extent={{0,-20},{40,20}})));
+  NonElectrical.Continuous.LagLimWindupGuard lagLimWindupGuard(
+    K=Kr,
+    T=Tr,
+    y_start=i0,
+    outMax=i_max,
+    outMin=i_min,
+    u(start=u0)) if useWindupGuard
+    annotation (Placement(transformation(extent={{0,48},{40,88}})));
 equation
   v = sqrt(p.vr^2 + p.vi^2);
   0 = p.vr*p.ir + p.vi*p.ii;
@@ -70,6 +82,10 @@ equation
   connect(simpleLagLim.y, i_SH) annotation (Line(points={{42,0},{70,0}}, color={0,0,127}));
   connect(feedback.y, simpleLagLim.u)
     annotation (Line(points={{-25,0},{-4,0}}, color={0,0,127}));
+  connect(lagLimWindupGuard.y, i_SH) annotation (Line(points={{42,68},{56,68},{
+          56,0},{70,0}},                                                                      color={0,0,127}));
+  connect(feedback.y, lagLimWindupGuard.u)
+    annotation (Line(points={{-25,0},{-14,0},{-14,68},{-4,68}}, color={0,0,127}));
   connect(V.y, feedback.u1) annotation (Line(points={{-69,40},{-64,40},{-64,8},{
           -48,8}}, color={0,0,127}));
   connect(V_ref.y, feedback.u3) annotation (Line(points={{-69,-40},{-64,-40},{-64,
@@ -131,6 +147,8 @@ to the bus voltage so that only reactive power is exchanged between the ac syste
 and the STATCOM.
 </p>
 </blockquote>
+<p><strong>Limiter.</strong> <code>useWindupGuard = true</code> (the default) limits the current with <a href=\"modelica://OpenIPSL.NonElectrical.Continuous.LagLimWindupGuard\">LagLimWindupGuard</a>, PSAT's non-windup limit (<code>@STclass/fcall.m</code>, <code>fm_windup</code>); <code>false</code> uses <a href=\"modelica://OpenIPSL.NonElectrical.Continuous.SimpleLagLim\">SimpleLagLim</a>, as before the option. The two give the same output to within 3e-5 pu; their state and the events differ. The guard's limits are tested without events; the STATCOM saturates once and is not sensitive to the step on which the state leaves the limit, unlike the <a href=\"modelica://OpenIPSL.Electrical.FACTS.PSAT.TCSC\">TCSC</a>, which keeps <code>SimpleLagLim</code> as its default. <code>SimpleLagLim</code>'s anti-windup relation is zero at rest, and System Modeler makes an event of each of its sign changes: with it the STATCOM at rest stops after thousands of events in System Modeler, with the guard it runs.</p>
+<p>The input <code>v_POD</code> adds to the voltage reference (a power oscillation damper, or a reference step).</p>
 </html>", revisions="<html>
 <table cellspacing=\"2\" cellpadding=\"0\" border=\"1\"><tr>
 <td><p>Reference</p></td>
