@@ -20,10 +20,10 @@ protected
   Modelica.Blocks.Interfaces.RealInput phi_internal if use_ref_machine_frequency "Helping variable/connector"; 
 equation
   u = sqrt(p.vr^2 + p.vi^2) "Get the magnitude of the voltage phasor"; 
-  connect(omega, omega_internal);
-  connect(phi, phi_internal);
   
   if use_ref_machine_frequency then
+    connect(omega, omega_internal);
+    connect(phi, phi_internal);
     der(phi_internal) = 2*C.pi*fn*(omega_internal - 1) "First this has to be transformed to the rotating reference frame (w.r.t. the frequency of the reference machine) to correspond to PowerFactory implementation";
     vx = p.vr*cos(phi_internal) + p.vi*sin(phi_internal);
     vy = (-p.vr*sin(phi_internal)) + p.vi*cos(phi_internal);
