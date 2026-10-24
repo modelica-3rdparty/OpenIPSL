@@ -15,33 +15,28 @@ model StaVmea "Voltage Measurement Device"
   Modelica.Blocks.Interfaces.RealInput omega if use_ref_machine_frequency "Reference machine frequency [Hz]" annotation (Placement(transformation(extent={{-140,40},{-100,80}})));
 
 protected
-  Modelica.Blocks.Interfaces.RealInput omega_internal "Helping variable/connector";
-  Modelica.Blocks.Interfaces.RealInput phi if use_ref_machine_frequency "Conditional angle";
-  Modelica.Blocks.Interfaces.RealInput phi_internal "Helping variable/connector";
-  Modelica.Blocks.Interfaces.RealInput local_df if not use_ref_machine_frequency "Conditional frequency difference";
-  Modelica.Blocks.Interfaces.RealInput local_df_internal "Helping variable/connector";
+  Modelica.Blocks.Interfaces.RealOutput omega_internal "Internal reference machine frequency";
+  Types.Angle phi_internal "Internal reference frame angle";
 equation
-  u = sqrt(p.vr^2 + p.vi^2);
-  connect(omega, omega_internal);
-  connect(phi, phi_internal);
-  connect(local_df, local_df_internal);
+  u = sqrt(p.vr^2 + p.vi^2) "Get the magnitude of the voltage phasor";
+
   if use_ref_machine_frequency then
-    der(phi_internal) = 2*C.pi*50*(omega_internal - 1) "First this has to be transformed to the rotating reference frame (w.r.t. the frequency of the reference machine) to correspond to PowerFactory implementation
-";
+    connect(omega, omega_internal);
+    der(phi_internal) = 2*C.pi*fn*(omega_internal - 1) "First this has to be transformed to the rotating reference frame (w.r.t. the frequency of the reference machine) to correspond to PowerFactory implementation";
     vx = p.vr*cos(phi_internal) + p.vi*sin(phi_internal);
     vy = (-p.vr*sin(phi_internal)) + p.vi*cos(phi_internal);
     der(cosphi) = (vx/u - cosphi)/Tfe;
     der(sinphi) = (vy/u - sinphi)/Tfe;
-    fe = omega_internal + df;
+    fe = omega_internal + df "Apply the calculation w.r.t provided frequency of synchronous machine";
   else
-    cosphi = vx/u;
-    sinphi = vy/u;
-    der(local_df_internal) = (df - local_df_internal)/Tfe;
+    omega_internal = 1;
+    phi_internal = angle_0;
     vx = p.vr;
     vy = p.vi;
-    fe = 1 + local_df_internal;
-    omega_internal = 0 "Balance equation";
-    phi_internal = 0 "Balance equation";
+    der(cosphi) = (vx/u - cosphi)/Tfe;
+    der(sinphi) = (vy/u - sinphi)/Tfe;
+    fe = 1 + df "Apply the calculation w.r.t system base frequency";
+
   end if;
   if abs(cosphi) > abs(sinphi) then
     df = der(sinphi)/cosphi/(2*C.pi*fn);
