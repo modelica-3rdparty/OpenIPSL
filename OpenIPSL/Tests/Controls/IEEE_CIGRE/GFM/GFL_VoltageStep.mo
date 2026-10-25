@@ -7,8 +7,7 @@ model GFL_VoltageStep "Converter through the wye-delta transformer to a 230 kV s
     annotation (Placement(transformation(extent={{-124,-6},{-112,6}})));
   Modelica.Blocks.Sources.Constant Vref(k=1)
     annotation (Placement(transformation(extent={{-124,-26},{-112,-14}})));
-  OpenIPSL.Electrical.Controls.IEEE_CIGRE.GFM.Components.EMTPTransformerZeroSeq
-                  eMTPtransformerZeroSeq(f_cut=500, Rtf_delta=0.3)
+  OpenIPSL.Electrical.Controls.IEEE_CIGRE.GFM.Components.EMTPTransformerZeroSeq transformer(f_cut=500, Rtf_delta=0.3)
     annotation (Placement(transformation(extent={{20,-20},{-36,20}})));
   Modelica.Blocks.Sources.Constant Pref(k=0.5)
     annotation (Placement(transformation(extent={{-124,12},{-112,24}})));
@@ -26,19 +25,19 @@ equation
   connect(Vref.y,gFM_GFL_IBR. V_ref_pu)
     annotation (Line(points={{-111.4,-20},{-88,-20},{-88,-12},{-86,-12}},
                                                      color={0,0,127}));
-  connect(gFM_GFL_IBR.C, eMTPtransformerZeroSeq.Cd)
+  connect(gFM_GFL_IBR.C, transformer.Cd)
     annotation (Line(points={{-46,12},{-36,12}}, color={0,0,255}));
-  connect(gFM_GFL_IBR.B, eMTPtransformerZeroSeq.Bd)
+  connect(gFM_GFL_IBR.B, transformer.Bd)
     annotation (Line(points={{-46,0},{-36,0}}, color={0,0,255}));
-  connect(gFM_GFL_IBR.A, eMTPtransformerZeroSeq.Ad)
+  connect(gFM_GFL_IBR.A, transformer.Ad)
     annotation (Line(points={{-46,-12},{-36,-12}}, color={0,0,255}));
   connect(Pref.y, gFM_GFL_IBR.P_ref_pu) annotation (Line(points={{-111.4,
           18},{-96,18},{-96,12},{-86,12}}, color={0,0,127}));
-  connect(eMTPtransformerZeroSeq.Cy, gridWithFault.C)
+  connect(transformer.Cy, gridWithFault.C)
     annotation (Line(points={{19.6,12},{48,12}}, color={0,0,255}));
-  connect(eMTPtransformerZeroSeq.By, gridWithFault.B)
+  connect(transformer.By, gridWithFault.B)
     annotation (Line(points={{20,0},{48,0}}, color={0,0,255}));
-  connect(eMTPtransformerZeroSeq.Ay, gridWithFault.A)
+  connect(transformer.Ay, gridWithFault.A)
     annotation (Line(points={{20,-12},{48,-12}}, color={0,0,255}));
   annotation (
     Diagram(coordinateSystem(preserveAspectRatio=false)),

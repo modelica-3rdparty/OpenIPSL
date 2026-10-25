@@ -24,26 +24,23 @@ model EMTPTransformerZeroSeq "Three-phase wye-grounded/delta transformer with re
     annotation (Placement(transformation(extent={{170,-10},{190,10}})));
   Modelica.Electrical.Analog.Interfaces.Pin Ad "Phase A of winding 2 (delta)"
     annotation (Placement(transformation(extent={{170,-70},{190,-50}})));
-  TransformerSubcircuitZeroZsec
-               tFsubcircuitZeroZsec(
+  TransformerSubcircuitZeroZsec phaseC(
     n=Ratio,
     Lp=Lp,
     Rp=Rp,
-    f_cut=f_cut)
+    f_cut=f_cut) "Single-phase unit of phase C (pins Cy and Cd)"
            annotation (Placement(transformation(extent={{-10,40},{10,60}})));
-  TransformerSubcircuitZeroZsec
-               tFsubcircuitZeroZsec1(
+  TransformerSubcircuitZeroZsec phaseB(
     n=Ratio,
     Lp=Lp,
     Rp=Rp,
-    f_cut=f_cut)
+    f_cut=f_cut) "Single-phase unit of phase B (pins By and Bd)"
            annotation (Placement(transformation(extent={{-10,-20},{10,0}})));
-  TransformerSubcircuitZeroZsec
-               tFsubcircuitZeroZsec2(
+  TransformerSubcircuitZeroZsec phaseA(
     n=Ratio,
     Lp=Lp,
     Rp=Rp,
-    f_cut=f_cut)
+    f_cut=f_cut) "Single-phase unit of phase A (pins Ay and Ad)"
            annotation (Placement(transformation(extent={{-10,-80},{10,-60}})));
   Modelica.Electrical.Analog.Basic.Ground ground
     annotation (Placement(transformation(extent={{-46,-100},{-26,-80}})));
@@ -90,27 +87,27 @@ model EMTPTransformerZeroSeq "Three-phase wye-grounded/delta transformer with re
   Modelica.Electrical.Analog.Sensors.CurrentSensor Bcurrent "Phase B current of winding 2"
     annotation (Placement(transformation(extent={{132,-10},{152,10}})));
 equation
-  connect(Cy, tFsubcircuitZeroZsec.pin_p)
+  connect(Cy, phaseC.pin_p)
     annotation (Line(points={{-98,60},{-10,60}}, color={0,0,255}));
-  connect(By, tFsubcircuitZeroZsec1.pin_p)
+  connect(By, phaseB.pin_p)
     annotation (Line(points={{-100,0},{-10,0}}, color={0,0,255}));
-  connect(Ay, tFsubcircuitZeroZsec2.pin_p)
+  connect(Ay, phaseA.pin_p)
     annotation (Line(points={{-100,-60},{-10,-60}}, color={0,0,255}));
-  connect(tFsubcircuitZeroZsec1.pin_n, tFsubcircuitZeroZsec2.pin_n)
+  connect(phaseB.pin_n, phaseA.pin_n)
     annotation (Line(points={{-10,-20},{-36,-20},{-36,-80},{-10,-80}},
         color={0,0,255}));
-  connect(tFsubcircuitZeroZsec.pin_n, tFsubcircuitZeroZsec1.pin_n)
+  connect(phaseC.pin_n, phaseB.pin_n)
     annotation (Line(points={{-10,40},{-36,40},{-36,-20},{-10,-20}},
         color={0,0,255}));
-  connect(tFsubcircuitZeroZsec1.pin_n, ground.p) annotation (Line(points=
+  connect(phaseB.pin_n, ground.p) annotation (Line(points=
           {{-10,-20},{-36,-20},{-36,-80}}, color={0,0,255}));
-  connect(tFsubcircuitZeroZsec.pin_p1, Cd)
+  connect(phaseC.pin_p1, Cd)
     annotation (Line(points={{10,60},{180,60}}, color={0,0,255}));
-  connect(tFsubcircuitZeroZsec2.pin_p1, Ad)
+  connect(phaseA.pin_p1, Ad)
     annotation (Line(points={{10,-60},{180,-60}}, color={0,0,255}));
-  connect(VPrimABLL.p, tFsubcircuitZeroZsec2.pin_p) annotation (Line(
+  connect(VPrimABLL.p, phaseA.pin_p) annotation (Line(
         points={{-70,-40},{-70,-60},{-10,-60}}, color={0,0,255}));
-  connect(VPrimABLL.n, tFsubcircuitZeroZsec1.pin_p) annotation (Line(
+  connect(VPrimABLL.n, phaseB.pin_p) annotation (Line(
         points={{-70,-20},{-70,0},{-10,0}}, color={0,0,255}));
   connect(VSecABLL.p, Ad) annotation (Line(points={{56,-48},{56,-60},{180,
           -60}}, color={0,0,255}));
@@ -126,25 +123,25 @@ equation
           -14},{86,24},{100,24}}, color={0,0,127}));
   connect(VSecABLL.v, VabcSum.u3) annotation (Line(points={{67,-38},{92,
           -38},{92,16},{100,16}}, color={0,0,127}));
-  connect(tFsubcircuitZeroZsec1.pin_n1, Rba.n) annotation (Line(points={{
+  connect(phaseB.pin_n1, Rba.n) annotation (Line(points={{
           10,-20},{16,-20},{16,-28}}, color={0,0,255}));
-  connect(tFsubcircuitZeroZsec.pin_n1, Rcb.n)
+  connect(phaseC.pin_n1, Rcb.n)
     annotation (Line(points={{10,40},{16,40},{16,30}}, color={0,0,255}));
   connect(Rba.p, Ad) annotation (Line(points={{16,-48},{16,-60},{180,-60}},
         color={0,0,255}));
-  connect(Rac.p, tFsubcircuitZeroZsec2.pin_n1) annotation (Line(points={{
+  connect(Rac.p, phaseA.pin_n1) annotation (Line(points={{
           32,-48},{32,-80},{10,-80}}, color={0,0,255}));
   connect(Rac.n, Cd) annotation (Line(points={{32,-28},{34,-28},{34,60},{
           180,60}}, color={0,0,255}));
-  connect(Bcurrent.p, tFsubcircuitZeroZsec1.pin_p1)
+  connect(Bcurrent.p, phaseB.pin_p1)
     annotation (Line(points={{132,0},{10,0}}, color={0,0,255}));
   connect(Bcurrent.n, Bd)
     annotation (Line(points={{152,0},{180,0}}, color={0,0,255}));
-  connect(Rcb.p, tFsubcircuitZeroZsec1.pin_p1)
+  connect(Rcb.p, phaseB.pin_p1)
     annotation (Line(points={{16,10},{16,0},{10,0}}, color={0,0,255}));
-  connect(VSecBCLL1.p, tFsubcircuitZeroZsec1.pin_p1)
+  connect(VSecBCLL1.p, phaseB.pin_p1)
     annotation (Line(points={{56,22},{56,0},{10,0}}, color={0,0,255}));
-  connect(VSecABLL.n, tFsubcircuitZeroZsec1.pin_p1)
+  connect(VSecABLL.n, phaseB.pin_p1)
     annotation (Line(points={{56,-28},{56,0},{10,0}}, color={0,0,255}));
   annotation (Documentation(info="<html>
 <p>
@@ -163,7 +160,9 @@ Line-to-line voltage sensors on winding 2, their sum <code>VabcSum.y</code> and 
 Ported from <code>GridComponents.EMTPtransformerZeroSeq</code> of <a href=\"https://github.com/OpenIPSL/OpenIPSL/pull/362\">OpenIPSL pull request #362</a>: renamed, the unused parameters
 <code>GroundingResistance</code>, <code>Zbase2</code>, <code>Rs</code> and <code>Ls</code> removed, derived
 parameters made <code>final</code>, the self-connection <code>connect(Bd, Bd)</code> removed and the copied
-descriptions corrected.
+descriptions corrected. The single-phase units, instances <code>tFsubcircuitZeroZsec2</code>,
+<code>tFsubcircuitZeroZsec1</code> and <code>tFsubcircuitZeroZsec</code> in the pull request, are now
+<code>phaseA</code>, <code>phaseB</code> and <code>phaseC</code>.
 </p>
 </html>"),
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{

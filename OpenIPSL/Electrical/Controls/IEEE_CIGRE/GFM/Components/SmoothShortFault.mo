@@ -39,11 +39,11 @@ model SmoothShortFault "Three-phase-to-ground fault through a resistance with sm
     startValue=false,
     extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint)
     annotation (Placement(transformation(extent={{-150,-48},{-130,-28}})));
-  ZeroCrossingDetector zeroXdetect
+  ZeroCrossingDetector zeroCrossingC "Switch command of phase C, opened at the current zero"
     annotation (Placement(transformation(extent={{-80,4},{-40,40}})));
-  ZeroCrossingDetector zeroXdetect2
+  ZeroCrossingDetector zeroCrossingB "Switch command of phase B, opened at the current zero"
     annotation (Placement(transformation(extent={{-80,-56},{-40,-20}})));
-  ZeroCrossingDetector zeroXdetect1
+  ZeroCrossingDetector zeroCrossingA "Switch command of phase A, opened at the current zero"
     annotation (Placement(transformation(extent={{-80,-120},{-40,-80}})));
   Modelica.Electrical.Analog.Sensors.CurrentSensor currentSensor
     annotation (Placement(transformation(extent={{48,50},{28,70}})));
@@ -75,32 +75,32 @@ equation
     annotation (Line(points={{0,-142},{0,-148}},            color={0,0,255}));
   connect(resistor2.n, ground.p)
     annotation (Line(points={{20,-142},{20,-148},{0,-148}}, color={0,0,255}));
-  connect(FaultTime.y, zeroXdetect.u) annotation (Line(points={{-129,-38},
+  connect(FaultTime.y, zeroCrossingC.u) annotation (Line(points={{-129,-38},
           {-116,-38},{-116,22},{-80,22}}, color={255,0,255}));
-  connect(zeroXdetect2.u, FaultTime.y)
+  connect(zeroCrossingB.u, FaultTime.y)
     annotation (Line(points={{-80,-38},{-129,-38}}, color={255,0,255}));
-  connect(zeroXdetect1.u, FaultTime.y) annotation (Line(points={{-80,-100},
+  connect(zeroCrossingA.u, FaultTime.y) annotation (Line(points={{-80,-100},
           {-116,-100},{-116,-38},{-129,-38}}, color={255,0,255}));
 
   connect(currentSensor.p, C_n)
     annotation (Line(points={{48,60},{100,60}}, color={0,0,255}));
   connect(currentSensor.n, C)
     annotation (Line(points={{28,60},{-100,60}}, color={0,0,255}));
-  connect(currentSensor.i, zeroXdetect.u1) annotation (Line(points={{38,49},
+  connect(currentSensor.i, zeroCrossingC.u1) annotation (Line(points={{38,49},
           {38,48},{-60,48},{-60,40}},     color={0,0,127}));
   connect(currentSensor1.p, B_n)
     annotation (Line(points={{50,0},{100,0}}, color={0,0,255}));
   connect(currentSensor1.n, B)
     annotation (Line(points={{30,0},{-100,0}}, color={0,0,255}));
-  connect(zeroXdetect2.u1, currentSensor1.i) annotation (Line(points={{
+  connect(zeroCrossingB.u1, currentSensor1.i) annotation (Line(points={{
           -60,-20},{-60,-14},{40,-14},{40,-11}}, color={0,0,127}));
   connect(currentSensor2.p, A_n)
     annotation (Line(points={{50,-60},{100,-60}}, color={0,0,255}));
   connect(currentSensor2.n, A)
     annotation (Line(points={{30,-60},{-100,-60}}, color={0,0,255}));
-  connect(zeroXdetect1.u1, currentSensor2.i) annotation (Line(points={{-60,-80},
+  connect(zeroCrossingA.u1, currentSensor2.i) annotation (Line(points={{-60,-80},
           {-60,-72},{40,-72},{40,-71}},          color={0,0,127}));
-  connect(zeroXdetect.y, smoothSwitch.u) annotation (Line(
+  connect(zeroCrossingC.y, smoothSwitch.u) annotation (Line(
       points={{-38,22},{-38,16},{-30,16}},
       color={255,0,255},
       smooth=Smooth.Bezier));
@@ -116,7 +116,7 @@ equation
       points={{0,-50},{0,-122}},
       color={0,0,255},
       smooth=Smooth.Bezier));
-  connect(zeroXdetect1.y, smoothSwitch2.u) annotation (Line(
+  connect(zeroCrossingA.y, smoothSwitch2.u) annotation (Line(
       points={{-38,-100},{-38,-100},{10,-100}},
       color={255,0,255},
       smooth=Smooth.Bezier));
@@ -126,7 +126,7 @@ equation
       points={{20,-110},{20,-122}},
       color={0,0,255},
       smooth=Smooth.Bezier));
-  connect(zeroXdetect2.y, smoothSwitch1.u) annotation (Line(
+  connect(zeroCrossingB.y, smoothSwitch1.u) annotation (Line(
       points={{-38,-38},{-38,-40},{-10,-40}},
       color={255,0,255},
       smooth=Smooth.Bezier));
@@ -145,7 +145,9 @@ This is the fault of the point-of-connection fault tests of the 2026 papers.
 Ported from <code>GridComponents.SmoothShortFault</code> of <a href=\"https://github.com/OpenIPSL/OpenIPSL/pull/362\">OpenIPSL pull request #362</a>: the unused parameters
 <code>line_capacitance</code> and <code>threshold</code>, the self-connection <code>connect(C, C)</code> and the
 redundant <code>connect(resistor2.n, resistor1.n)</code> (both pins are already connected to <code>ground.p</code>) removed,
-<code>Ron</code> and <code>Goff</code> typed.
+<code>Ron</code> and <code>Goff</code> typed, and the switch commands <code>zeroXdetect1</code>,
+<code>zeroXdetect2</code> and <code>zeroXdetect</code> renamed <code>zeroCrossingA</code>, <code>zeroCrossingB</code> and
+<code>zeroCrossingC</code> after their class and phase.
 </p>
 </html>"),
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{

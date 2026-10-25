@@ -57,11 +57,11 @@ model ShortFault "Three-phase-to-ground fault through a resistance, cleared at c
     startValue=false,
     extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint)
     annotation (Placement(transformation(extent={{-146,-52},{-126,-32}})));
-  ZeroCrossingDetector zeroXdetectC
+  ZeroCrossingDetector zeroCrossingC "Switch command of phase C, opened at the current zero"
     annotation (Placement(transformation(extent={{-60,6},{-40,26}})));
-  ZeroCrossingDetector zeroXdetectB
+  ZeroCrossingDetector zeroCrossingB "Switch command of phase B, opened at the current zero"
     annotation (Placement(transformation(extent={{-62,-52},{-42,-32}})));
-  ZeroCrossingDetector zeroXdetectA
+  ZeroCrossingDetector zeroCrossingA "Switch command of phase A, opened at the current zero"
     annotation (Placement(transformation(extent={{-60,-110},{-40,-90}})));
   Modelica.Electrical.Analog.Sensors.CurrentSensor currentSensor
     annotation (Placement(transformation(extent={{48,50},{28,70}})));
@@ -83,24 +83,24 @@ equation
     annotation (Line(points={{20,-110},{20,-122}},color={0,0,255}));
   connect(resistor2.n, ground.p)
     annotation (Line(points={{20,-142},{20,-148},{0,-148}}, color={0,0,255}));
-  connect(zeroXdetectC.y, switch.control)
+  connect(zeroCrossingC.y, switch.control)
     annotation (Line(points={{-39,16},{-32,16}}, color={255,0,255}));
-  connect(zeroXdetectB.y, switch1.control)
+  connect(zeroCrossingB.y, switch1.control)
     annotation (Line(points={{-41,-42},{-12,-42}}, color={255,0,255}));
-  connect(zeroXdetectA.y, switch2.control)
+  connect(zeroCrossingA.y, switch2.control)
     annotation (Line(points={{-39,-100},{8,-100}}, color={255,0,255}));
-  connect(booleanTable.y, zeroXdetectC.u) annotation (Line(points={{-125,-42},{-114,
+  connect(booleanTable.y, zeroCrossingC.u) annotation (Line(points={{-125,-42},{-114,
           -42},{-114,16},{-60,16}}, color={255,0,255}));
-  connect(zeroXdetectB.u, booleanTable.y)
+  connect(zeroCrossingB.u, booleanTable.y)
     annotation (Line(points={{-62,-42},{-125,-42}}, color={255,0,255}));
-  connect(zeroXdetectA.u, booleanTable.y) annotation (Line(points={{-60,-100},{-114,
+  connect(zeroCrossingA.u, booleanTable.y) annotation (Line(points={{-60,-100},{-114,
           -100},{-114,-42},{-125,-42}}, color={255,0,255}));
 
   connect(currentSensor.p, C_n)
     annotation (Line(points={{48,60},{100,60}}, color={0,0,255}));
   connect(currentSensor.n, C)
     annotation (Line(points={{28,60},{-100,60}}, color={0,0,255}));
-  connect(currentSensor.i, zeroXdetectC.u1) annotation (Line(points={{38,49},{38,
+  connect(currentSensor.i, zeroCrossingC.u1) annotation (Line(points={{38,49},{38,
           36},{-50,36},{-50,26}}, color={0,0,127}));
   connect(switch.n, C)
     annotation (Line(points={{-20,26},{-20,60},{-100,60}}, color={0,0,255}));
@@ -108,13 +108,13 @@ equation
     annotation (Line(points={{50,0},{100,0}}, color={0,0,255}));
   connect(currentSensor1.n, B)
     annotation (Line(points={{30,0},{-100,0}}, color={0,0,255}));
-  connect(zeroXdetectB.u1, currentSensor1.i) annotation (Line(points={{-52,-32},
+  connect(zeroCrossingB.u1, currentSensor1.i) annotation (Line(points={{-52,-32},
           {-52,-24},{40,-24},{40,-11}}, color={0,0,127}));
   connect(currentSensor2.p, A_n)
     annotation (Line(points={{50,-60},{100,-60}}, color={0,0,255}));
   connect(currentSensor2.n, A)
     annotation (Line(points={{30,-60},{-100,-60}}, color={0,0,255}));
-  connect(zeroXdetectA.u1, currentSensor2.i) annotation (Line(points={{-50,-90},
+  connect(zeroCrossingA.u1, currentSensor2.i) annotation (Line(points={{-50,-90},
           {-50,-80},{40,-80},{40,-71}}, color={0,0,127}));
   connect(switch1.n, B)
     annotation (Line(points={{0,-32},{0,0},{-100,0}}, color={0,0,255}));
@@ -135,7 +135,9 @@ sets, so the phases clear one after the other.
 Ported from <code>GridComponents.ShortFault</code> of <a href=\"https://github.com/OpenIPSL/OpenIPSL/pull/362\">OpenIPSL pull request #362</a>: the unused parameter
 <code>line_capacitance</code>, the self-connection <code>connect(C, C)</code> and the redundant
 <code>connect(resistor2.n, resistor1.n)</code> (both pins are already connected to <code>ground.p</code>) removed, <code>Ron</code> and
-<code>Goff</code> typed (the description of <code>Goff</code> said &quot;Switch on resistance&quot;).
+<code>Goff</code> typed (the description of <code>Goff</code> said &quot;Switch on resistance&quot;), and the switch
+commands <code>zeroXdetectA</code>, <code>zeroXdetectB</code> and <code>zeroXdetectC</code> renamed
+<code>zeroCrossingA</code>, <code>zeroCrossingB</code> and <code>zeroCrossingC</code> after their class.
 </p>
 </html>"),
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,

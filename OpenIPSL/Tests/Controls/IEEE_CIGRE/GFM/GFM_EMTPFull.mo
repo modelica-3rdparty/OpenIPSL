@@ -18,8 +18,7 @@ model GFM_EMTPFull "Converter, wye-delta transformer, smooth fault and 230 kV Th
   OpenIPSL.Electrical.Controls.IEEE_CIGRE.GFM.Components.SmoothShortFault
              smoothShortFault(R=5, faultTime=5.000005)
     annotation (Placement(transformation(extent={{76,-28},{36,20}})));
-  OpenIPSL.Electrical.Controls.IEEE_CIGRE.GFM.Components.EMTPTransformer
-                  eMTPtransformer(f_cut=500, Rtf_delta=0.3)
+  OpenIPSL.Electrical.Controls.IEEE_CIGRE.GFM.Components.EMTPTransformer transformer(f_cut=500, Rtf_delta=0.3)
     annotation (Placement(transformation(extent={{20,-20},{-20,20}})));
 equation
 
@@ -35,17 +34,17 @@ equation
     annotation (Line(points={{76,0},{94,0}}, color={0,0,255}));
   connect(smoothShortFault.A, eMTPGrid.A)
     annotation (Line(points={{76,-12},{94,-12}}, color={0,0,255}));
-  connect(eMTPtransformer.Cy, smoothShortFault.C_n)
+  connect(transformer.Cy, smoothShortFault.C_n)
     annotation (Line(points={{19.6,12},{36,12}}, color={0,0,255}));
-  connect(eMTPtransformer.By, smoothShortFault.B_n)
+  connect(transformer.By, smoothShortFault.B_n)
     annotation (Line(points={{20,0},{36,0}}, color={0,0,255}));
-  connect(eMTPtransformer.Ay, smoothShortFault.A_n)
+  connect(transformer.Ay, smoothShortFault.A_n)
     annotation (Line(points={{20,-12},{36,-12}}, color={0,0,255}));
-  connect(gFM_GFL_IBR.C, eMTPtransformer.Cd)
+  connect(gFM_GFL_IBR.C, transformer.Cd)
     annotation (Line(points={{-40,12},{-20,12}}, color={0,0,255}));
-  connect(gFM_GFL_IBR.B, eMTPtransformer.Bd)
+  connect(gFM_GFL_IBR.B, transformer.Bd)
     annotation (Line(points={{-40,0},{-20,0}}, color={0,0,255}));
-  connect(gFM_GFL_IBR.A, eMTPtransformer.Ad)
+  connect(gFM_GFL_IBR.A, transformer.Ad)
     annotation (Line(points={{-40,-12},{-20,-12}}, color={0,0,255}));
   annotation (
     Diagram(coordinateSystem(preserveAspectRatio=false)),
