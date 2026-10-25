@@ -8,10 +8,11 @@ model GFL_Fault "Converter on an ideal 6.5 kV source: active power step at 2 s, 
   Modelica.Blocks.Sources.Step Pref(
     height=0.2,
     offset=0.5,
-    startTime=2)
+    startTime=2.000005)
     annotation (Placement(transformation(extent={{-92,34},{-80,46}})));
   OpenIPSL.Electrical.Controls.IEEE_CIGRE.GFM.Components.GridWithFault gridWithFault(
-      FaultVoltage=0.8)                                                                                    annotation (Placement(
+      FaultVoltage=0.8,
+      FaultTime=5.000005) annotation (Placement(
         transformation(rotation=0, extent={{32,-28},{90,30}})));
   OpenIPSL.Electrical.Controls.IEEE_CIGRE.GFM.GFM_GFL_IBR gFM_GFL_IBR
     annotation (Placement(transformation(extent={{-42,-24},{8,26}})));
@@ -38,8 +39,8 @@ The converter <code>gFM_GFL_IBR</code> (default parameters, 6.5 kV, 10 MVA) feed
 6.5 kV) directly at its terminals. This is the smallest test of the DLL with a disturbance.
 </p>
 <ul>
-<li>Events: the active power reference steps from 0.5 to 0.7 pu at 2 s; the source voltage dips to 0.8 pu at 5 s and
-recovers at 5.1 s. Reactive power reference 0, voltage reference 1 pu.</li>
+<li>Events: the active power reference steps from 0.5 to 0.7 pu at 2.000005 s; the source voltage dips to 0.8 pu at
+5.000005 s and recovers at 5.100005 s. Reactive power reference 0, voltage reference 1 pu.</li>
 <li>Plot <code>gFM_GFL_IBR.grid_sensor_a.voltage</code>, <code>.grid_sensor_b.voltage</code>,
 <code>.grid_sensor_c.voltage</code> (V) and the matching <code>.current</code> signals (A) at the converter terminal,
 <code>gFM_GFL_IBR.out[11]</code> (P, MW) and <code>gFM_GFL_IBR.out[12]</code> (Q, Mvar).</li>
@@ -49,6 +50,14 @@ No figure of the papers uses this case.</li>
 <p>
 Ported from <code>GFM.GFM_Test</code> of <a href=\"https://github.com/OpenIPSL/OpenIPSL/pull/362\">OpenIPSL pull request #362</a>; StopTime 5.8 s as in its plot script
 <code>plot_GFM_Test.mos</code> (the model annotation said 10 s).
+</p>
+<p>
+The event instants are the round times of the pull request (2 s, 5 s, 5.1 s) shifted by half a DLL sample, 5e-6 s,
+with the 0.1 s dip duration kept. On a 1e-5 s sample instant of the DLL a disturbance and the DLL step are
+simultaneous events that the tools order differently: the verification of 2026-10-25 measured that Dymola and System
+Modeler step the DLL after the disturbance and OpenModelica just before it, so that OpenModelica's DLL saw the change
+one sample later (0.015 MW in P after the dip at 5 s in this test). Half a sample off the grid the order is unique;
+with the disturbances of GFL_Fault moved this way, Dymola and OpenModelica agreed to 1e-4 MW in P.
 </p>
 <h4>How to run</h4>
 <ul>

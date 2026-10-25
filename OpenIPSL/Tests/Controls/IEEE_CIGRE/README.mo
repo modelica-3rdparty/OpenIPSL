@@ -49,16 +49,31 @@ Explicit Euler with the DLL's step is the cheapest solver and the one the EMT te
 (<code>__Dymola_Algorithm=&quot;Euler&quot;</code>, <code>__Dymola_fixedstepsize=1e-05</code>); the SCRX9 tests keep
 the default variable-step solver, which stops at each 5 ms sample.
 </p>
+<h4>Disturbances half a sample off the sample grid</h4>
 <p>
-A disturbance placed exactly on a sample instant (the SMIB fault at 2 s and its clearing at 2.15 s, the power step at
-2 s and the voltage dip at 5 s of the EMT tests) coincides with a DLL step, and the tools order the two events
-differently. In the SCRX9 test Dymola 2026x steps the DLL at 2 s with the faulted voltage, while OpenModelica 1.27.1
-places the sample just before 2 s (it accumulates the sample times) and the fault just after it, so the DLL sees the
-voltage before the fault. The response is then shifted by one sample between the tools after that instant (up to
-3.3 pu in the field voltage for one 5 ms sample at 2.15 s, 0.09 pu later on); with the fault half a sample off the
-grid the two tools agree to 7e-5 pu. The EMT test <code>GFL_Fault</code> shows the same effect on a smaller scale
-(0.015 MW in P after the dip at 5 s, 6e-5 MW off the grid). Compare tools on such a test away from the disturbance
-instants, or move the disturbance off the sample grid.
+The papers and the pull request placed the disturbances at round times (the SMIB fault at 2 s and its clearing at
+2.15 s, the power steps at 2 s and the voltage dips and faults at 5 s of the EMT tests), which are sample instants of
+the DLLs. A disturbance on a sample instant and the DLL step there are simultaneous events, and the tools order them
+differently: the verification of 2026-10-25 measured that Dymola 2026x and System Modeler 15.0 step the DLL after the
+disturbance, while OpenModelica 1.27.1 places the sample just before it (it accumulates the sample times) and the
+disturbance just after it, so its DLL sees the change one sample later. The response is then shifted by one sample
+between the tools after that instant (up to 3.3 pu in the field voltage of SCRX9 for one 5 ms sample at 2.15 s,
+0.09 pu later on; 0.015 MW in P after the dip of <code>GFL_Fault</code>).
+</p>
+<p>
+The tests therefore apply every disturbance half a DLL sample after the papers' round time: the SCRX9 tests fault the
+SMIB system from 2.0025 s to 2.1525 s (half of 5 ms), and the GFM tests add 5e-6 s (half of 1e-5 s) to every step,
+ramp, dip, fault and frequency or voltage step, keeping the durations (for example 2.000005 s and 5.000005 s to
+5.100005 s). Off the grid the order of events is unique, and Dymola and OpenModelica agreed to 1e-4 (6.7e-5 pu in the
+field voltage of SCRX9, 5.5e-5 MW in P of <code>GFL_Fault</code>). Dymola's fixed-step Euler does not stop inside a
+step: it applies a time event that falls inside a step at the end of that step, together with the DLL step there (the
+power step of 2.000005 s acts at 2.00001 s). The network then sees the disturbance half a sample later than with a
+solver that stops at the event (2.5 ms with the 5 ms Euler step of the SCRX9 tests, none with DASSL), while the DLL
+still sees it at the first sample after the event, as in OpenModelica. The native
+<a href=\"modelica://OpenIPSL.Tests.Controls.PSSE.ES.SCRX\">Tests.Controls.PSSE.ES.SCRX</a> keeps its round times
+(it has no sampled controller); <code>SCRX9_vs_SCRX</code> shifts the fault of its copy by a modifier. The two
+network-only tests in <code>GFM.Components</code> contain no DLL and keep their times. Keep a disturbance off the
+sample grid in any new test of a DLL model.
 </p>
 <h4>SCRX9 tests (phasor, SMIB)</h4>
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"1\">
@@ -99,44 +114,48 @@ The tests of the grid-forming / grid-following inverter model
 (<a href=\"modelica://OpenIPSL.Tests.Controls.IEEE_CIGRE.GFM\">Tests.Controls.IEEE_CIGRE.GFM</a>) run with explicit
 Euler at the DLL's step of 1e-5 s and an output interval of 1e-4 s, as their experiment annotations say. All converter
 tests start the converter from rest (no current, power states zero): the first second is the start-up of the
-controller and the phase-locked loop, and the scenario begins at 2 s. Unless the table says otherwise the converter
-uses the default parameter record (6.5 kV, 10 MVA, droop frequency control, Q control, P priority); <code>P</code> is
-<code>gFM_GFL_IBR.out[11]</code> (MW), <code>Q</code> is <code>gFM_GFL_IBR.out[12]</code> (Mvar), the PLL frequency
-<code>gFM_GFL_IBR.out[10]</code> (Hz), and the terminal waveforms are <code>gFM_GFL_IBR.grid_sensor_a.voltage</code>
-... <code>grid_sensor_c.current</code> (V, A).
+controller and the phase-locked loop, and the scenario begins at 2.000005 s (2 s in the papers, see above). Unless
+the table says otherwise the converter uses the default parameter record (6.5 kV, 10 MVA, droop frequency control,
+Q control, P priority); <code>P</code> is <code>gFM_GFL_IBR.out[11]</code> (MW), <code>Q</code> is
+<code>gFM_GFL_IBR.out[12]</code> (Mvar), the PLL frequency <code>gFM_GFL_IBR.out[10]</code> (Hz), and the terminal
+waveforms are <code>gFM_GFL_IBR.grid_sensor_a.voltage</code> ... <code>grid_sensor_c.current</code> (V, A).
 </p>
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"1\">
 <tr><th>Test</th><th>Stop time</th><th>Network and events</th><th>Plot</th><th>Paper figure</th></tr>
 <tr><td><a href=\"modelica://OpenIPSL.Tests.Controls.IEEE_CIGRE.GFM.GFL_Fault\">GFM.GFL_Fault</a></td><td>5.8 s</td>
-<td>ideal 6.5 kV source at the terminals; Pref 0.5 to 0.7 pu at 2 s; source dip to 0.8 pu from 5 s to 5.1 s</td>
+<td>ideal 6.5 kV source at the terminals; Pref 0.5 to 0.7 pu at 2.000005 s; source dip to 0.8 pu from 5.000005 s to
+5.100005 s</td>
 <td>P, Q at 4.95-5.6 s; waveforms at 4.98-5.2 s</td><td>none</td></tr>
 <tr><td><a href=\"modelica://OpenIPSL.Tests.Controls.IEEE_CIGRE.GFM.GFL_POCFault\">GFM.GFL_POCFault</a></td><td>4 s</td>
-<td>wye-delta transformer and 230 kV grid; Pref 0.5 to 0.7 pu at 2 s; three-phase fault through 5 Ohm at the point of
-connection at 3 s, cleared from 3.1 s at the current zeros; Qref 0.07 pu</td>
+<td>wye-delta transformer and 230 kV grid; Pref 0.5 to 0.7 pu at 2.000005 s; three-phase fault through 5 Ohm at the
+point of connection at 3.000005 s, cleared from 3.100005 s at the current zeros; Qref 0.07 pu</td>
 <td>waveforms at 2.98-3.3 s</td><td>the three-phase fault figure of CIGRE 2026 paper C4-10724</td></tr>
 <tr><td><a href=\"modelica://OpenIPSL.Tests.Controls.IEEE_CIGRE.GFM.GFL_FrequencyStep\">GFM.GFL_FrequencyStep</a></td><td>3 s</td>
-<td>wye-delta transformer and 230 kV source; source frequency 60 to 59.5 Hz at 2 s; Pref 0.5 pu, Qref 0.07 pu</td>
+<td>wye-delta transformer and 230 kV source; source frequency 60 to 59.5 Hz at 2.000005 s; Pref 0.5 pu, Qref
+0.07 pu</td>
 <td>P, Q and the PLL frequency at 1.9-2.8 s; waveforms at 1.98-2.25 s</td><td>none</td></tr>
 <tr><td><a href=\"modelica://OpenIPSL.Tests.Controls.IEEE_CIGRE.GFM.GFL_VoltageStep\">GFM.GFL_VoltageStep</a></td><td>3 s</td>
-<td>wye-delta transformer and 230 kV source; source voltage to 0.95 pu at 2 s; Pref 0.5 pu, Qref 0.03 pu</td>
+<td>wye-delta transformer and 230 kV source; source voltage to 0.95 pu at 2.000005 s; Pref 0.5 pu, Qref 0.03 pu</td>
 <td>P, Q; waveforms at 1.98-2.3 s</td><td>none (a case of the 2026 studies)</td></tr>
 <tr><td><a href=\"modelica://OpenIPSL.Tests.Controls.IEEE_CIGRE.GFM.GFL_PowerRamp\">GFM.GFL_PowerRamp</a></td><td>3.6 s</td>
-<td>wye-delta transformer and 230 kV source; Pref 0 to 0.4 pu and Qref -0.03 to 0.02 pu, ramps from 2 s to 2.8 s</td>
+<td>wye-delta transformer and 230 kV source; Pref 0 to 0.4 pu and Qref -0.03 to 0.02 pu, ramps from 2.000005 s to
+2.800005 s</td>
 <td>P with Pref, Q with Qref at 1.8-3.4 s; waveforms at 1.9-3.1 s</td><td>none (a case of the 2026 studies)</td></tr>
 <tr><td><a href=\"modelica://OpenIPSL.Tests.Controls.IEEE_CIGRE.GFM.GFL_FaultPSCAD\">GFM.GFL_FaultPSCAD</a></td><td>5.8 s</td>
-<td>EPRI's PSCAD parameter record on an ideal 650 V source; Pref 0.2 to 0.4 pu at 2 s; dip to 0.7 pu from 5 s to
-5.1 s; Q settles at about -72 Mvar (-0.72 pu) although Qref = 0 (voltage droop of the record through the line, see the
-test)</td>
+<td>EPRI's PSCAD parameter record on an ideal 650 V source; Pref 0.2 to 0.4 pu at 2.000005 s; dip to 0.7 pu from
+5.000005 s to 5.100005 s; Q settles at about -72 Mvar (-0.72 pu) although Qref = 0 (voltage droop of the record
+through the line, see the test)</td>
 <td>P, Q; waveforms around 5 s</td><td>none</td></tr>
 <tr><td><a href=\"modelica://OpenIPSL.Tests.Controls.IEEE_CIGRE.GFM.GFM_EMTPFault\">GFM.GFM_EMTPFault</a></td><td>5.9 s</td>
-<td>6.5 kV Thevenin grid; Pref 0.5 to 0.7 pu at 2 s; three-phase fault through 5 Ohm at 5 s, cleared from 5.1 s</td>
+<td>6.5 kV Thevenin grid; Pref 0.5 to 0.7 pu at 2.000005 s; three-phase fault through 5 Ohm at 5.000005 s, cleared
+from 5.100005 s</td>
 <td>P, Q at 4.95-5.7 s; waveforms at 4.98-5.25 s</td><td>none</td></tr>
 <tr><td><a href=\"modelica://OpenIPSL.Tests.Controls.IEEE_CIGRE.GFM.GFM_EMTPFull\">GFM.GFM_EMTPFull</a></td><td>6 s</td>
-<td>grounded-delta transformer and 230 kV Thevenin grid; Pref 0.5 to 0.7 pu at 2 s; fault on the 230 kV side at 5 s,
-cleared from 5.1 s</td>
+<td>grounded-delta transformer and 230 kV Thevenin grid; Pref 0.5 to 0.7 pu at 2.000005 s; fault on the 230 kV side
+at 5.000005 s, cleared from 5.100005 s</td>
 <td>waveforms at 4.98-5.3 s</td><td>none</td></tr>
 <tr><td><a href=\"modelica://OpenIPSL.Tests.Controls.IEEE_CIGRE.GFM.Components.SmoothShortFault\">GFM.Components.SmoothShortFault</a></td><td>5.5 s</td>
-<td>network only (no DLL): smooth fault on the 230 kV Thevenin grid at 5 s</td>
+<td>network only (no DLL): smooth fault on the 230 kV Thevenin grid at 5 s, command off at 5.03 s</td>
 <td>the three fault currents</td><td>none</td></tr>
 <tr><td><a href=\"modelica://OpenIPSL.Tests.Controls.IEEE_CIGRE.GFM.Components.EMTPTransformerZeroSeq\">GFM.Components.EMTPTransformerZeroSeq</a></td><td>3 s</td>
 <td>network only (no DLL): wye-delta transformer between the grid and a resistive load</td>

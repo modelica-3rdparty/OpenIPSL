@@ -24,6 +24,11 @@ EPRI model.
 <li><a href=\"modelica://OpenIPSL.Tests.Controls.IEEE_CIGRE.GFM.Components\">Components</a>: two network-only tests (no DLL) of the fault and the transformer.</li>
 </ul>
 <p>
+The times in this list are the papers' round times. The converter tests apply each disturbance 5e-6 s later, half a
+DLL sample off the sample grid, so that every tool orders it the same way relative to the DLL step (see the
+<a href=\"modelica://OpenIPSL.Tests.Controls.IEEE_CIGRE.README\">README</a>).
+</p>
+<p>
 Every converter test steps the DLL every 1e-5 s through <code>when sample(0, Ts)</code> and carries
 <code>experiment(Interval=1e-4, Tolerance=1e-6)</code> with fixed-step Euler at 1e-5 s for Dymola and
 <code>__OpenModelica_simulationFlags(s=&quot;euler&quot;)</code> for OpenModelica, whose Euler step equals the output

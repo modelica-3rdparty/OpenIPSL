@@ -16,7 +16,7 @@ model GFL_VoltageStep "Converter through the wye-delta transformer to a 230 kV s
     gridWithFault(
     Vbase=230000,
     FaultVoltage=0.95,
-    FaultTime=2,
+    FaultTime=2.000005,
     FaultDuration=10)
     annotation (Placement(transformation(extent={{48,-20},{88,20}})));
 equation
@@ -50,9 +50,9 @@ an ideal 230 kV source
 (<a href=\"modelica://OpenIPSL.Electrical.Controls.IEEE_CIGRE.GFM.Components.GridWithFault\">GridWithFault</a>).
 </p>
 <ul>
-<li>Events: the source voltage steps to 0.95 pu at 2 s and stays there (the 10 s dip outlasts the run). Active power
-reference 0.5 pu (constant <code>Pref</code>, called <code>Vref1</code> in the pull request), reactive power reference
-0.03 pu, voltage reference 1 pu.</li>
+<li>Events: the source voltage steps to 0.95 pu at 2.000005 s and stays there (the 10 s dip outlasts the run). Active
+power reference 0.5 pu (constant <code>Pref</code>, called <code>Vref1</code> in the pull request), reactive power
+reference 0.03 pu, voltage reference 1 pu.</li>
 <li>Plot <code>gFM_GFL_IBR.grid_sensor_a.voltage</code>, <code>.grid_sensor_b.voltage</code>,
 <code>.grid_sensor_c.voltage</code> (V) and the matching <code>.current</code> signals (A) at the converter terminal,
 <code>gFM_GFL_IBR.out[11]</code> (P, MW) and <code>gFM_GFL_IBR.out[12]</code> (Q, Mvar).</li>
@@ -65,6 +65,14 @@ Ported from <code>GFM.DYMOLA_GFL_Vstep</code> of <a href=\"https://github.com/Op
 name it used the default parameters, not the PSCAD set, and combined a fault at 5 s with a permanent 0.95 pu step at
 6 s, which this test and
 <a href=\"modelica://OpenIPSL.Tests.Controls.IEEE_CIGRE.GFM.GFL_POCFault\">GFL_POCFault</a> cover separately.
+</p>
+<p>
+The voltage step is the round time of the pull request (2 s) shifted by half a DLL sample, 5e-6 s. On a 1e-5 s sample
+instant of the DLL a disturbance and the DLL step are simultaneous events that the tools order differently: the
+verification of 2026-10-25 measured that Dymola and System Modeler step the DLL after the disturbance and OpenModelica
+just before it, so that OpenModelica's DLL saw the change one sample later (in GFL_Fault 0.015 MW in P after the dip
+at 5 s). Half a sample off the grid the order is unique; with the disturbances of GFL_Fault moved this way, Dymola and
+OpenModelica agreed to 1e-4 MW in P.
 </p>
 <h4>How to run</h4>
 <ul>

@@ -19,13 +19,13 @@ model GFL_PowerRamp "Converter through the wye-delta transformer to a 230 kV sou
     height=0.4,
     duration=0.8,
     offset=0,
-    startTime=2)
+    startTime=2.000005)
     annotation (Placement(transformation(extent={{-124,16},{-112,28}})));
   Modelica.Blocks.Sources.Ramp ramp1(
     height=0.05,
     duration=0.8,
     offset=-0.03,
-    startTime=2)
+    startTime=2.000005)
     annotation (Placement(transformation(extent={{-128,-6},{-116,6}})));
 equation
 
@@ -59,8 +59,8 @@ an ideal 230 kV source
 its dip at 10 s lies after the end of the run).
 </p>
 <ul>
-<li>Events: from 2 s to 2.8 s the active power reference ramps from 0 to 0.4 pu and the reactive power reference from
--0.03 to 0.02 pu; voltage reference 1 pu.</li>
+<li>Events: from 2.000005 s to 2.800005 s the active power reference ramps from 0 to 0.4 pu and the reactive power
+reference from -0.03 to 0.02 pu; voltage reference 1 pu.</li>
 <li>Plot <code>gFM_GFL_IBR.grid_sensor_a.voltage</code>, <code>.grid_sensor_b.voltage</code>,
 <code>.grid_sensor_c.voltage</code> (V) and the matching <code>.current</code> signals (A) at the converter terminal,
 <code>gFM_GFL_IBR.out[11]</code> (P, MW) and <code>gFM_GFL_IBR.out[12]</code> (Q, Mvar).</li>
@@ -70,6 +70,15 @@ studies of Chang and Vanfretti.</li>
 <p>
 Ported from <code>GFM.DYMOLA_GFL_Pramp</code> of <a href=\"https://github.com/OpenIPSL/OpenIPSL/pull/362\">OpenIPSL pull request #362</a>; StopTime 3.6 s as in
 <code>plot_DYMOLA_GFL_Pramp.mos</code>.
+</p>
+<p>
+The ramps start and end at the round times of the pull request (2 s, 2.8 s) shifted by half a DLL sample, 5e-6 s, with
+the 0.8 s ramp duration kept (the dip of the source at 10 s lies after the end of the run and is not an event of it).
+On a 1e-5 s sample instant of the DLL a disturbance and the DLL step are simultaneous events that the tools order
+differently: the verification of 2026-10-25 measured that Dymola and System Modeler step the DLL after the disturbance
+and OpenModelica just before it, so that OpenModelica's DLL saw the change one sample later (in GFL_Fault 0.015 MW in
+P after the dip at 5 s). Half a sample off the grid the order is unique; with the disturbances of GFL_Fault moved this
+way, Dymola and OpenModelica agreed to 1e-4 MW in P.
 </p>
 <h4>How to run</h4>
 <ul>

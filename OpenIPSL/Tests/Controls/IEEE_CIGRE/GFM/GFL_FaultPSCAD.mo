@@ -8,9 +8,11 @@ model GFL_FaultPSCAD "Converter with EPRI's PSCAD parameter set on an ideal 650 
   Modelica.Blocks.Sources.Step Pref(
     height=0.2,
     offset=0.2,
-    startTime=2)
+    startTime=2.000005)
     annotation (Placement(transformation(extent={{-92,34},{-80,46}})));
-  OpenIPSL.Electrical.Controls.IEEE_CIGRE.GFM.Components.GridWithFault gridWithFault(Vbase=650)        annotation (Placement(
+  OpenIPSL.Electrical.Controls.IEEE_CIGRE.GFM.Components.GridWithFault gridWithFault(
+    Vbase=650,
+    FaultTime=5.000005) annotation (Placement(
         transformation(rotation=0, extent={{100,-28},{158,30}})));
   OpenIPSL.Electrical.Controls.IEEE_CIGRE.GFM.GFM_GFL_IBR gFM_GFL_IBR(
     c_filter=0.0105,
@@ -55,8 +57,8 @@ through 5 mOhm per phase (<a href=\"modelica://OpenIPSL.Electrical.Controls.IEEE
 It is the only test of the PSCAD parameter set.
 </p>
 <ul>
-<li>Events: the active power reference steps from 0.2 to 0.4 pu at 2 s; the source voltage dips to 0.7 pu at 5 s and
-recovers at 5.1 s. Reactive power reference 0, voltage reference 1 pu.</li>
+<li>Events: the active power reference steps from 0.2 to 0.4 pu at 2.000005 s; the source voltage dips to 0.7 pu at
+5.000005 s and recovers at 5.100005 s. Reactive power reference 0, voltage reference 1 pu.</li>
 <li>Expected steady state: P follows the reference (20 MW, then 40 MW), while Q settles at about -72 Mvar (-0.72 pu
 on 100 MVA) although the reactive power reference is 0. The record works in voltage droop (<code>KvDroop</code> = 30),
 and the 5 mOhm line is 1.18 pu on the 650 V, 100 MVA base, so the droop holds the reactive power away from zero;
@@ -72,6 +74,15 @@ this case.</li>
 Ported from <code>GFM_PSCAD.GFM_Test</code> of <a href=\"https://github.com/OpenIPSL/OpenIPSL/pull/362\">OpenIPSL pull request #362</a>, which used a separate DLL compiled with the PSCAD
 constants and a 2e-5 s Dymola step; StopTime 5.8 s (fault plus recovery; the pull request ran 10 s and had no plot
 script for this case).
+</p>
+<p>
+The event instants are the round times of the pull request (2 s, 5 s, 5.1 s) shifted by half a DLL sample, 5e-6 s,
+with the 0.1 s dip duration kept. On a 1e-5 s sample instant of the DLL a disturbance and the DLL step are
+simultaneous events that the tools order differently: the verification of 2026-10-25 measured that Dymola and System
+Modeler step the DLL after the disturbance and OpenModelica just before it, so that OpenModelica's DLL saw the change
+one sample later (in GFL_Fault 0.015 MW in P after the dip at 5 s; here a series resistance separates the source from
+the filter, no measured input jumped and the tools agreed even on the grid). Half a sample off the grid the order is
+unique; with the disturbances of GFL_Fault moved this way, Dymola and OpenModelica agreed to 1e-4 MW in P.
 </p>
 <h4>How to run</h4>
 <ul>

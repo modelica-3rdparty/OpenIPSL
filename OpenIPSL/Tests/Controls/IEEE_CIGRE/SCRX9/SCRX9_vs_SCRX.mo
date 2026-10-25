@@ -5,7 +5,9 @@ model SCRX9_vs_SCRX "SCRX9 DLL exciter and native SCRX exciter on two copies of 
   parameter Real r_cr_fd_common=10 "Crowbar to field resistance ratio used in both systems (inactive here, the field current stays positive)";
   OpenIPSL.Tests.Controls.IEEE_CIGRE.SCRX9.SCRX9 dll(sCRX9(T_E=T_E_common, r_cr_fd=r_cr_fd_common)) "SMIB system with the SCRX9 DLL exciter"
     annotation (Placement(transformation(extent={{-60,-20},{-20,20}})));
-  OpenIPSL.Tests.Controls.PSSE.ES.SCRX native(sCRX(T_E=T_E_common, r_cr_fd=r_cr_fd_common)) "SMIB system with the native SCRX exciter"
+  OpenIPSL.Tests.Controls.PSSE.ES.SCRX native(
+    pwFault(t1=2.0025, t2=2.1525),
+    sCRX(T_E=T_E_common, r_cr_fd=r_cr_fd_common)) "SMIB system with the native SCRX exciter, faulted at the times of the DLL system"
     annotation (Placement(transformation(extent={{20,-20},{60,20}})));
   OpenIPSL.Types.PerUnit dEFD=dll.sCRX9.EFD - native.sCRX.EFD "Field voltage, DLL minus native";
   OpenIPSL.Types.PerUnit dV=dll.GEN1.v - native.GEN1.v "Voltage magnitude of bus GEN1, DLL minus native";
@@ -38,10 +40,18 @@ act).
 <p>
 Plot <code>dll.sCRX9.EFD</code> with <code>native.sCRX.EFD</code>, <code>dll.GEN1.v</code> with
 <code>native.GEN1.v</code>, and the differences <code>dEFD</code>, <code>dV</code> and <code>dw</code>. Before the
-fault at 2 s the differences stay below 1e-6 (both systems start in the same steady state); after it they show the effect
-of the DLL's 5 ms sample-and-hold and trapezoidal discretisation against the continuous native model. This is the
-comparison of Figs. 7 and 9 of H. Chang and L. Vanfretti, American Modelica Conference 2024,
+fault at 2.0025 s the differences stay below 1e-6 (both systems start in the same steady state); after it they show
+the effect of the DLL's 5 ms sample-and-hold and trapezoidal discretisation against the continuous native model. This
+is the comparison of Figs. 7 and 9 of H. Chang and L. Vanfretti, American Modelica Conference 2024,
 <a href=\"https://doi.org/10.3384/ecp20772\">DOI: 10.3384/ecp20772</a>, in one model.
+</p>
+<p>
+Both systems are faulted from 2.0025 s to 2.1525 s, the paper's 2 s to 2.15 s shifted by half a DLL sample (2.5 ms):
+<code>dll</code> inherits these times from its test, and <code>native</code> gets them by a modifier, so that the
+native test of the PSS/E package keeps its round times. On a 5 ms sample instant of the DLL the fault and the DLL step
+are simultaneous events that the tools order differently (the verification of 2026-10-25 measured that Dymola and
+System Modeler step the DLL after the fault and OpenModelica before it); half a sample off the grid the order is
+unique and Dymola and OpenModelica agreed to 1e-4 pu in the field voltage.
 </p>
 <p>
 System Modeler 15.0 does not translate the native test system it contains (see the

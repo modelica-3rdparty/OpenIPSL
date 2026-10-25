@@ -11,7 +11,7 @@ model GFL_FrequencyStep "Converter through the wye-delta transformer to a 230 kV
                   eMTPtransformerZeroSeq(f_cut=500, Rtf_delta=0.3)
     annotation (Placement(transformation(extent={{20,-20},{-36,20}})));
   OpenIPSL.Electrical.Controls.IEEE_CIGRE.GFM.Components.GridFrequencyStep gridFStep(
-      Vbase=230000, FstepTime=2)
+      Vbase=230000, FstepTime=2.000005)
     annotation (Placement(transformation(extent={{44,-20},{84,20}})));
   Modelica.Blocks.Sources.Constant Pref(k=0.5)
     annotation (Placement(transformation(extent={{-124,12},{-112,24}})));
@@ -46,7 +46,7 @@ an ideal 230 kV source
 (<a href=\"modelica://OpenIPSL.Electrical.Controls.IEEE_CIGRE.GFM.Components.GridFrequencyStep\">GridFrequencyStep</a>).
 </p>
 <ul>
-<li>Events: the source frequency steps from 60 Hz to 59.5 Hz at 2 s. Active power reference 0.5 pu (constant
+<li>Events: the source frequency steps from 60 Hz to 59.5 Hz at 2.000005 s. Active power reference 0.5 pu (constant
 <code>Pref</code>, called <code>Vref1</code> in the pull request), reactive power reference 0.07 pu, voltage reference
 1 pu.</li>
 <li>Plot <code>gFM_GFL_IBR.grid_sensor_a.voltage</code>, <code>.grid_sensor_b.voltage</code>,
@@ -58,6 +58,14 @@ papers uses this case.</li>
 <p>
 Ported from <code>GFM.DYMOLA_GFL_Fstep</code> of <a href=\"https://github.com/OpenIPSL/OpenIPSL/pull/362\">OpenIPSL pull request #362</a>; StopTime 3 s as in
 <code>plot_DYMOLA_GFL_Fstep.mos</code>.
+</p>
+<p>
+The frequency step is the round time of the pull request (2 s) shifted by half a DLL sample, 5e-6 s. On a 1e-5 s
+sample instant of the DLL a disturbance and the DLL step are simultaneous events that the tools order differently: the
+verification of 2026-10-25 measured that Dymola and System Modeler step the DLL after the disturbance and OpenModelica
+just before it, so that OpenModelica's DLL saw the change one sample later (in GFL_Fault 0.015 MW in P after the dip
+at 5 s). Half a sample off the grid the order is unique; with the disturbances of GFL_Fault moved this way, Dymola and
+OpenModelica agreed to 1e-4 MW in P.
 </p>
 <h4>How to run</h4>
 <ul>
