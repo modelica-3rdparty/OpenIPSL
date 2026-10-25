@@ -143,8 +143,8 @@ point of connection at 3.000005 s, cleared from 3.100005 s at the current zeros;
 <td>P with Pref, Q with Qref at 1.8-3.4 s; waveforms at 1.9-3.1 s</td><td>none (a case of the 2026 studies)</td></tr>
 <tr><td><a href=\"modelica://OpenIPSL.Tests.Controls.IEEE_CIGRE.GFM.GFL_FaultPSCAD\">GFM.GFL_FaultPSCAD</a></td><td>5.8 s</td>
 <td>EPRI's PSCAD parameter record on an ideal 650 V source; Pref 0.2 to 0.4 pu at 2.000005 s; dip to 0.7 pu from
-5.000005 s to 5.100005 s; Q settles at about -72 Mvar (-0.72 pu) although Qref = 0 (voltage droop of the record
-through the line, see the test)</td>
+5.000005 s to 5.100005 s; Q settles at -71.6 Mvar (-0.716 pu) although Qref = 0 (voltage droop of the record,
+see below)</td>
 <td>P, Q; waveforms around 5 s</td><td>none</td></tr>
 <tr><td><a href=\"modelica://OpenIPSL.Tests.Controls.IEEE_CIGRE.GFM.GFM_EMTPFault\">GFM.GFM_EMTPFault</a></td><td>5.9 s</td>
 <td>6.5 kV Thevenin grid; Pref 0.5 to 0.7 pu at 2.000005 s; three-phase fault through 5 Ohm at 5.000005 s, cleared
@@ -161,6 +161,16 @@ at 5.000005 s, cleared from 5.100005 s</td>
 <td>network only (no DLL): wye-delta transformer between the grid and a resistive load</td>
 <td>delta-side line-to-line voltages and their sum</td><td>none</td></tr>
 </table>
+<p>
+<code>GFL_FaultPSCAD</code> settles far from its reactive power reference of 0. Dymola 2026x (Euler, 1e-5 s,
+2026-10-25) gives Q = -53.2 Mvar (-0.532 pu on the record's 100 MVA) as the mean of the last 0.5 s before the power
+step, -71.59 Mvar (-0.716 pu) in the last 0.5 s before the dip and -71.70 Mvar (-0.717 pu) at 5.8 s, the values that
+the first verification found in all three tools. The record runs the droop control type (<code>Wtype</code> = 1), in
+which the DLL holds <code>Q = Qref/Sbase + KvDroop*(Vref - Vd)</code> with <code>KvDroop</code> = 30. The converter
+drives 71 kA rms per phase through the 5 mOhm line, 1.18 pu on the 650 V, 100 MVA base, so its terminal voltage
+<code>Vd</code> (<code>gFM_GFL_IBR.out[8]</code>) settles at 1.0239 pu after the power step and
+30*(1 - 1.0239) = -0.716 pu. The test documents the values in detail.
+</p>
 <p>
 How to run them:
 </p>

@@ -59,10 +59,8 @@ It is the only test of the PSCAD parameter set.
 <ul>
 <li>Events: the active power reference steps from 0.2 to 0.4 pu at 2.000005 s; the source voltage dips to 0.7 pu at
 5.000005 s and recovers at 5.100005 s. Reactive power reference 0, voltage reference 1 pu.</li>
-<li>Expected steady state: P follows the reference (20 MW, then 40 MW), while Q settles at about -72 Mvar (-0.72 pu
-on 100 MVA) although the reactive power reference is 0. The record works in voltage droop (<code>KvDroop</code> = 30),
-and the 5 mOhm line is 1.18 pu on the 650 V, 100 MVA base, so the droop holds the reactive power away from zero;
-this is not a defect of the port (Dymola 2026x Refresh 1, 2026-10-25). The pull request's test had the same line.</li>
+<li>Steady state: P follows the reference (20 MW, then 40 MW), while Q settles at -71.6 Mvar (-0.716 pu on the
+record's 100 MVA) although the reactive power reference is 0; see the settled values below.</li>
 <li>Plot <code>gFM_GFL_IBR.grid_sensor_a.voltage</code>, <code>.grid_sensor_b.voltage</code>,
 <code>.grid_sensor_c.voltage</code> (V) and the matching <code>.current</code> signals (A) at the converter terminal,
 <code>gFM_GFL_IBR.out[11]</code> (P, MW) and <code>gFM_GFL_IBR.out[12]</code> (Q, Mvar).</li>
@@ -70,6 +68,32 @@ this is not a defect of the port (Dymola 2026x Refresh 1, 2026-10-25). The pull 
 the DLL (see Records.PSCAD), so results are close to, not identical with, the PSCAD case. No figure of the papers uses
 this case.</li>
 </ul>
+<h4>Settled reactive power</h4>
+<p>
+Measured with Dymola 2026x Refresh 1 (Euler, 1e-5 s, 2026-10-25): means of <code>gFM_GFL_IBR.out[11]</code> (P),
+<code>gFM_GFL_IBR.out[12]</code> (Q) and of the terminal voltage that the DLL measures, <code>gFM_GFL_IBR.out[8]</code>
+(Vd), over the last 0.5 s before each event, and the values at the end of the run; per unit on the record's
+<code>Sbase</code> of 100 MVA.
+</p>
+<table cellspacing=\"0\" cellpadding=\"2\" border=\"1\">
+<tr><th>Window</th><th>P (MW)</th><th>Q (Mvar)</th><th>Q (pu)</th><th>Vd (pu)</th></tr>
+<tr><td>1.5 s to 2 s, before the power step</td><td>19.95</td><td>-53.2</td><td>-0.532</td><td>1.0173</td></tr>
+<tr><td>4.5 s to 5 s, after the power step, before the dip</td><td>40.00</td><td>-71.59</td><td>-0.716</td><td>1.0239</td></tr>
+<tr><td>5.8 s, end of the run, 0.7 s after the dip</td><td>40.15</td><td>-71.70</td><td>-0.717</td><td>1.0233</td></tr>
+</table>
+<p>
+Q is not zero because the record runs the droop control type (<code>Wtype</code> = 1), in which the DLL regulates its
+terminal voltage to <code>Vref + (Qref/Sbase - Q)/KvDroop</code>, so that in steady state
+<code>Q = Qref/Sbase + KvDroop*(Vref - Vd)</code>. With <code>KvDroop</code> = 30, <code>Vref</code> = 1 pu and
+<code>Qref</code> = 0, a terminal voltage 2.39 % above 1 pu gives Q = 30*(1 - 1.0239) = -0.716 pu, the measured value.
+The terminal voltage is that high because the converter drives 71 kA rms per phase into the ideal 650 V source
+through the 5 mOhm line, which is 1.18 pu on the 650 V, 100 MVA base. Before the power step the start from rest has not
+fully settled (Q is 0.013 pu below the droop value 30*(1 - 1.0173) = -0.520 pu), and after the dip Q still swings
+between -71.73 and -70.22 Mvar in the last 0.5 s. This is the behaviour of EPRI's parameter set in this circuit, not a
+defect of the port; the pull request's test had the same line. The first verification of 2026-10-25, with the events
+still on the round times, found the same values (-71.59 Mvar before the dip, -71.70 Mvar at 5.8 s) in Dymola,
+OpenModelica and System Modeler.
+</p>
 <p>
 Ported from <code>GFM_PSCAD.GFM_Test</code> of <a href=\"https://github.com/OpenIPSL/OpenIPSL/pull/362\">OpenIPSL pull request #362</a>, which used a separate DLL compiled with the PSCAD
 constants and a 2e-5 s Dymola step; StopTime 5.8 s (fault plus recovery; the pull request ran 10 s and had no plot
