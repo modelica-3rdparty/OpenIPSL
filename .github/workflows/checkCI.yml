@@ -59,3 +59,27 @@ jobs:
           python-version: 3.14
       - name: Check deprecated Text.lineColor annotation
         run: python ./.CI/check_deprecated_line_color.py OpenIPSL
+  external_c_build:
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 5
+      - name: Configure the IEEE/CIGRE C libraries
+        run: cmake -S OpenIPSL/Resources/C-Sources/IEEE_CIGRE -B build -DCMAKE_BUILD_TYPE=Release
+      - name: Build
+        run: cmake --build build --config Release
+      - name: Test
+        run: ctest --test-dir build -C Release --output-on-failure
+      - name: Install into stage/Library/<platform>
+        run: cmake --install build --config Release --prefix stage
+      - name: Upload the libraries
+        uses: actions/upload-artifact@v6
+        with:
+          name: ieee-cigre-${{ matrix.os }}
+          path: stage
