@@ -64,12 +64,15 @@ between the tools after that instant (up to 3.3 pu in the field voltage of SCRX9
 The tests therefore apply every disturbance half a DLL sample after the papers' round time: the SCRX9 tests fault the
 SMIB system from 2.0025 s to 2.1525 s (half of 5 ms), and the GFM tests add 5e-6 s (half of 1e-5 s) to every step,
 ramp, dip, fault and frequency or voltage step, keeping the durations (for example 2.000005 s and 5.000005 s to
-5.100005 s). Off the grid the order of events is unique, and Dymola and OpenModelica agreed to 1e-4 (6.7e-5 pu in the
-field voltage of SCRX9, 5.5e-5 MW in P of <code>GFL_Fault</code>). Dymola's fixed-step Euler does not stop inside a
-step: it applies a time event that falls inside a step at the end of that step, together with the DLL step there (the
-power step of 2.000005 s acts at 2.00001 s). The network then sees the disturbance half a sample later than with a
-solver that stops at the event (2.5 ms with the 5 ms Euler step of the SCRX9 tests, none with DASSL), while the DLL
-still sees it at the first sample after the event, as in OpenModelica. The native
+5.100005 s). Off the grid the order of events is unique. With DASSL, Dymola and OpenModelica agreed to 6.7e-5 pu in the
+field voltage of SCRX9, and with fixed-step Euler to 5.5e-5 MW in P of <code>GFL_Fault</code>. OpenModelica 1.27.1 and
+System Modeler 15.0 stop a fixed-step Euler run at an off-grid event; Dymola applies it at the end of the step (below),
+so with Euler Dymola differs from the other two by that half step: up to 0.021 MW in P for a few milliseconds after the
+fault of <code>GFM_EMTPFault</code>, and by 2.5 ms of fault timing in the 5 ms Euler run of SCRX9. Dymola's fixed-step
+Euler does not stop inside a step: it applies a time event that falls inside a step at the end of that step, together
+with the DLL step there (the power step of 2.000005 s acts at 2.00001 s). The network then sees the disturbance half a
+sample later than with a solver that stops at the event (2.5 ms with the 5 ms Euler step of the SCRX9 tests, none with
+DASSL), while the DLL still sees it at the first sample after the event, as in OpenModelica. The native
 <a href=\"modelica://OpenIPSL.Tests.Controls.PSSE.ES.SCRX\">Tests.Controls.PSSE.ES.SCRX</a> keeps its round times
 (it has no sampled controller); <code>SCRX9_vs_SCRX</code> shifts the fault of its copy by a modifier. The two
 network-only tests in <code>GFM.Components</code> contain no DLL and keep their times. Keep a disturbance off the

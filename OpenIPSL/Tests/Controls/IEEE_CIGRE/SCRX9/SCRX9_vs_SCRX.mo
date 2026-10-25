@@ -40,9 +40,10 @@ act).
 <p>
 Plot <code>dll.sCRX9.EFD</code> with <code>native.sCRX.EFD</code>, <code>dll.GEN1.v</code> with
 <code>native.GEN1.v</code>, and the differences <code>dEFD</code>, <code>dV</code> and <code>dw</code>. Before the
-fault at 2.0025 s the differences stay below 1e-6 (both systems start in the same steady state); after it they show
-the effect of the DLL's 5 ms sample-and-hold and trapezoidal discretisation against the continuous native model. This
-is the comparison of Figs. 7 and 9 of H. Chang and L. Vanfretti, American Modelica Conference 2024,
+fault at 2.0025 s the differences stay below 2e-6 (both systems start in the same steady state; the largest, 1.22e-6 pu
+in the field voltage, is the held DLL output just before a sample, and right after each sample it is 3.3e-7 pu); after
+it they show the effect of the DLL's 5 ms sample-and-hold and trapezoidal discretisation against the continuous native
+model. This is the comparison of Figs. 7 and 9 of H. Chang and L. Vanfretti, American Modelica Conference 2024,
 <a href=\"https://doi.org/10.3384/ecp20772\">DOI: 10.3384/ecp20772</a>, in one model.
 </p>
 <p>
