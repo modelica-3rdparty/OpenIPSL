@@ -28,8 +28,9 @@ when a simulation loads both libraries. The libraries use glibc symbol versions 
 particular distribution.</li>
 </ul>
 <p>
-A GitHub Actions job of the OpenIPSL repository builds and tests the same sources on <code>windows-latest</code> and
-<code>ubuntu-latest</code> and uploads the libraries as artifacts; it does not commit them.
+A CI job is proposed separately: a GitHub Actions job that builds and tests the same sources on
+<code>windows-latest</code> and <code>ubuntu-latest</code> and uploads the libraries as artifacts, without committing
+them.
 </p>
 <h4>Building on Windows (MSVC and CMake)</h4>
 <p>

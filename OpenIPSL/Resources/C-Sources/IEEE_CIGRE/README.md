@@ -98,10 +98,9 @@ cmake --install <build>
 
 `cmake --install` copies `<Name>.dll` + `<Name>.lib` (Windows) or `lib<Name>.so` (Linux) to
 `OpenIPSL/Resources/Library/<platform>/` (platform `win64`, `linux64`, ... from the target system and pointer
-size). With `--prefix <stage>` they go to `<stage>/Library/<platform>/` instead; the GitHub Actions job
-`external_c_build` in `.github/workflows/checkCI.yml` builds, tests and installs this way on `ubuntu-latest`
-and `windows-latest` and uploads `stage` as an artifact. CI does not commit binaries; the committed ones are
-those listed below.
+size). With `--prefix <stage>` they go to `<stage>/Library/<platform>/` instead. A CI job that builds, tests
+and installs this way on `ubuntu-latest` and `windows-latest` and uploads `stage` as an artifact is proposed
+separately; it would not commit binaries. The committed binaries are those listed below.
 
 Compiler settings (from `CMakeLists.txt`): C11; MSVC `/O2 /Ob2 /DNDEBUG /W4 /utf-8 /Brepro`, linked with
 `/Brepro`, and the static C runtime `/MT` (`CMAKE_MSVC_RUNTIME_LIBRARY = MultiThreaded`), so the DLLs depend on
@@ -132,8 +131,8 @@ mismatches, rejected parameters, `simToolMode` other than 1 or 2, NULL objects).
 `test/layout_test.c` compiles the model source itself (entry points renamed, nothing exported) and compares
 `offsetof`/`sizeof` of the model's private structures `MyModelParameters`, `MyModelInputs` and `MyModelOutputs`
 with the offsets and block sizes that the adapter in the library computes from `Model_GetInfo()` (`count(10..12)`,
-`count(1000 + i)`, `count(2000 + i)`, `count(3000 + i)`), so a layout difference of any compiler that CI uses shows
-up. `test/two_libraries_test.c` links one program against both libraries, in both orders, as a Modelica tool
+`count(1000 + i)`, `count(2000 + i)`, `count(3000 + i)`), so a layout difference of any compiler that builds the
+libraries shows up. `test/two_libraries_test.c` links one program against both libraries, in both orders, as a Modelica tool
 does when one model uses both, and checks that each adapter reaches its own model (counts, sample time, create,
 2000 interleaved steps). Linked against the `linux64` libraries of 2026-10-25 11:31 (without `-Bsymbolic`) it
 fails 5 of its checks in either order.

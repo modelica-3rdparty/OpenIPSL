@@ -68,10 +68,9 @@ From `../C-Sources/IEEE_CIGRE/` (CMake 3.20 or newer; build outside Dropbox/OneD
   i.e. `cmake -S . -B /tmp/cigre_build_linux64 -DCMAKE_BUILD_TYPE=Release`, `cmake --build /tmp/cigre_build_linux64`,
   `ctest --test-dir /tmp/cigre_build_linux64 --output-on-failure`, `cmake --install /tmp/cigre_build_linux64`.
 
-`cmake --install` writes into this folder. The GitHub Actions job `external_c_build`
-(`.github/workflows/checkCI.yml`) runs the same steps on `ubuntu-latest` and `windows-latest` and uploads the
-result as an artifact; it does not replace the files here. After a rebuild, update the table above and the one
-in `../C-Sources/IEEE_CIGRE/README.md`.
+`cmake --install` writes into this folder. A CI job that runs the same steps on `ubuntu-latest` and
+`windows-latest` and uploads the result as an artifact is proposed separately; it would not replace the files
+here. After a rebuild, update the table above and the one in `../C-Sources/IEEE_CIGRE/README.md`.
 
 ## How the Modelica tools find these libraries
 
