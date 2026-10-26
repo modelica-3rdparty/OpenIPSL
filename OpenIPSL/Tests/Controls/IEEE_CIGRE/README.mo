@@ -13,7 +13,10 @@ The tests need the shared libraries of the models in <code>OpenIPSL/Resources/Li
 built with the Microsoft C/C++ compiler 19.51 for x64 (Visual Studio Community 2026 18.10.4) and the static C
 runtime (<code>/MT</code>), so they depend on <code>KERNEL32.dll</code> only;</li>
 <li>linux64: <code>libSCRX9.so</code>, <code>libGFM_GFL_IBR.so</code>, built with gcc 15.2.0 on Ubuntu 26.04.1 LTS
-under WSL2 (glibc 2.43; the libraries need glibc 2.4 or newer).</li>
+under WSL2 (glibc 2.43; the libraries need glibc 2.4 or newer). Dymola, OpenModelica and System Modeler ran these
+tests with them on Ubuntu 24.04 LTS under WSL2 (glibc 2.39, 2026-10-25) and reproduced their Windows results. A
+System Modeler simulation executable run outside the tool needs <code>Resources/Library/linux64</code> on
+<code>LD_LIBRARY_PATH</code>.</li>
 </ul>
 <h4>Building the libraries</h4>
 <p>
@@ -179,7 +182,9 @@ How to run them:
 </p>
 <ul>
 <li><strong>Dymola</strong>: simulate as is; the experiment annotation selects Euler with the fixed step 1e-5 s. A
-5.8 s run takes about 1.5 s of integration time.</li>
+5.8 s run takes about 1.5 s of integration time. The verification ran Dymola with the flag
+<code>Evaluate = true</code> (typed in the command line before the translation); with Dymola's default
+<code>false</code> the tests with a transformer take 2.5 to 3.3 times as long.</li>
 <li><strong>OpenModelica</strong>: the annotation <code>__OpenModelica_simulationFlags(s=&quot;euler&quot;)</code> selects
 Euler, whose step is the output interval, so from a script use
 <code>simulate(OpenIPSL.Tests.Controls.IEEE_CIGRE.GFM.GFL_PowerRamp, stopTime=3.6, numberOfIntervals=360000,

@@ -24,8 +24,8 @@ same sources gives bit-identical files.</li>
 <li>linux64: gcc 15.2.0 on Ubuntu 26.04.1 LTS under WSL2 (glibc 2.43), <code>-fPIC -fvisibility=hidden</code>,
 linked with <code>-Wl,-Bsymbolic</code> so that each library's adapter calls the model functions of its own library
 when a simulation loads both libraries. The libraries use glibc symbol versions up to <code>GLIBC_2.4</code> only
-(<code>objdump -T</code>), so they load with any current C library; rebuild from source if one does not load on a
-particular distribution.</li>
+(<code>objdump -T</code>), so they load with any current C library (the three tools ran them on glibc 2.39); rebuild
+from source if one does not load on a particular distribution.</li>
 </ul>
 <p>
 A CI job is proposed separately: a GitHub Actions job that builds and tests the same sources on
@@ -80,8 +80,9 @@ directory and without <code>-G</code>.
 Every external function carries <code>annotation(Library=&quot;&lt;Name&gt;&quot;,
 LibraryDirectory=&quot;modelica://OpenIPSL/Resources/Library&quot;)</code>; the tools add the platform folder
 (<code>win64</code>, <code>linux64</code>) themselves. Nothing has to be copied and no environment variable has to be
-set. Measured on Windows 11 (2026-10-25); the <code>linux64</code> libraries passed the C tests only, no Modelica tool
-was run on Linux.
+set inside the tools. Measured on Windows 11 and, with the shipped <code>linux64</code> libraries, on Ubuntu 24.04
+LTS under WSL2 (glibc 2.39), both on 2026-10-25: each tool reproduced its Windows results on Linux to 4.5e-9
+relative.
 </p>
 <ul>
 <li><strong>Dymola</strong> (2026x Refresh 1, MSVC): links <code>&lt;Name&gt;.lib</code>, switches to a 64-bit
@@ -102,6 +103,10 @@ in Model Center when asked (from the Wolfram Language:
 stored per user). Parameters bound to external functions without arguments, such as <code>Ts =
 Functions.sampleTime()</code>, are evaluated at translation by a helper program, which adds a few seconds to the
 model check.</li>
+<li><strong>On Linux</strong> Dymola and OpenModelica write the library folder into the simulation executable
+(<code>RUNPATH</code>, <code>RPATH</code>), so it also runs outside the tool. System Modeler does not: to run a
+System Modeler simulation executable outside the tool, put <code>Resources/Library/linux64</code> on
+<code>LD_LIBRARY_PATH</code> first.</li>
 </ul>
 <h4>The fixed-step contract</h4>
 <p>

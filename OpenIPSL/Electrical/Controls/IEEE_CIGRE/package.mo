@@ -55,8 +55,8 @@ load, build the libraries from <code>Resources/C-Sources/IEEE_CIGRE/</code> as d
 <h4>Tools</h4>
 <p>
 The binding of the shared libraries was checked with Dymola 2026x Refresh 1, OpenModelica 1.27.1 and Wolfram System
-Modeler 15.0 on Windows 11 (2026-10-25). The <code>linux64</code> libraries passed the C tests only; no Modelica tool
-was run on Linux. System Modeler asks once to trust the external functions of the library; the README explains this
+Modeler 15.0 on Windows 11 and, with the shipped <code>linux64</code> libraries, on Ubuntu 24.04 LTS under WSL2
+(2026-10-25). System Modeler asks once to trust the external functions of the library; the README explains this
 and how each tool finds the shared library.
 </p>
 <h4>References</h4>

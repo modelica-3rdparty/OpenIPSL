@@ -166,8 +166,10 @@ nothing is copied. Dymola 2026x Refresh 1 delay-loads the DLL from its absolute 
 and selects 64-bit by itself; OpenModelica 1.27.1 links the MSVC `.lib` with MinGW ld and puts the folder on
 PATH in the generated `.bat`; System Modeler 15.0 needs both `<Name>.lib` and `<Name>.dll` in the folder, puts
 it on PATH, and asks to trust the library before it evaluates external functions. Details in
-`../../Library/README.md`. The `linux64` libraries were tested with `ctest` only; no Modelica tool was run on
-Linux.
+`../../Library/README.md`. On Ubuntu 24.04 LTS under WSL2 (glibc 2.39, 2026-10-25) the three tools ran the
+tests with the shipped `linux64` libraries and reproduced their Windows results; Dymola and OpenModelica write the
+library folder into the executable, System Modeler does not, so a System Modeler executable run outside the tool
+needs `Resources/Library/linux64` on `LD_LIBRARY_PATH`.
 
 ## Known limitations
 

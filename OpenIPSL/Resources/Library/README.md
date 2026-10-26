@@ -104,7 +104,11 @@ IEEE/CIGRE models themselves in the three tools is recorded separately.
   ``WSMLink`Library`ConfigureExternalFunctionEvaluationForLibrary["OpenIPSL", True]`` once (the setting persists
   under `HKCU\Software\Wolfram\SystemModeler150002\LibrarySetup\trustedLibraries`). The standalone kernel
   `WSMKernelX.exe` run with a `.mos` script does not ask.
-- Linux: the `linux64` libraries were built and tested with `ctest` only; no Modelica tool was run on Linux.
+- Linux: Dymola 2026x Refresh 1, OpenModelica 1.27.1 and System Modeler 15.0 ran the tests with the `linux64`
+  libraries on Ubuntu 24.04 LTS under WSL2 (glibc 2.39, 2026-10-25) and reproduced their Windows results to
+  4.5e-9 relative. Dymola writes the library folder into the executable as `RUNPATH`, OpenModelica as `RPATH`;
+  System Modeler writes none, so a System Modeler simulation executable run outside the tool needs
+  `LD_LIBRARY_PATH=<OpenIPSL>/Resources/Library/linux64`.
 - Dymola does not copy the simulator's standard error stream into `dslog.txt` or its log window, so the messages
   of the adapter (and of the model) do not show up there; run `dymosim.exe` from a command prompt in the working
   directory to see them. OpenModelica shows them among the simulation messages (measured with Dymola 2026x
