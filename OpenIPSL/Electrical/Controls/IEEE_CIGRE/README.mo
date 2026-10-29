@@ -20,7 +20,8 @@ licence of every file</td></tr>
 <ul>
 <li>win64: Microsoft C/C++ compiler 19.51 for x64 (Visual Studio Community 2026 18.10.4), static C runtime
 <code>/MT</code>, so the DLLs depend on no Visual C++ redistributable, and <code>/Brepro</code>, so a rebuild of the
-same sources gives bit-identical files.</li>
+same sources with the same tool chain gives bit-identical files (a newer Visual Studio or Windows SDK changes a few
+bytes outside the code).</li>
 <li>linux64: gcc 15.2.0 on Ubuntu 26.04.1 LTS under WSL2 (glibc 2.43), <code>-fPIC -fvisibility=hidden</code>,
 linked with <code>-Wl,-Bsymbolic</code> so that each library's adapter calls the model functions of its own library
 when a simulation loads both libraries. The libraries use glibc symbol versions up to <code>GLIBC_2.4</code> only

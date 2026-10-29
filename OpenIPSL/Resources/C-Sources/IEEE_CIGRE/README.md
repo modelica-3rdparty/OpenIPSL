@@ -148,7 +148,11 @@ Results on 2026-10-25 (after the review fixes): `ctest` 6 of 6 passed with MSVC,
 
 Built on 2026-10-25 with `build_win64.bat` and `build_linux64.sh` after the review fixes (`/Brepro`,
 `-Bsymbolic`, the `simToolMode` check); details, sizes and the tool lookups are in `../../Library/README.md`.
-Both builds are reproducible: two build folders gave bit-identical DLLs, import libraries and shared objects.
+Both builds are reproducible with the same tool chain: two build folders gave bit-identical DLLs, import
+libraries and shared objects. A newer Visual Studio or Windows SDK gives DLLs that differ in a few bytes (import
+hints and the hash derived from them; see `../../Library/README.md`). The libraries are meant to be rebuilt and
+re-shipped with the current tool chain when the tools are updated, so that they never become stale binaries;
+`../../Library/README.md`, section "Rebuilding", explains why.
 
 | File | Built with | SHA-256 |
 |---|---|---|

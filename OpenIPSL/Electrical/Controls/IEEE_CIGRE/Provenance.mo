@@ -87,7 +87,11 @@ header comment); LF line endings; trailing blanks; one blank line</td><td>PR #36
 The changes marked &quot;here&quot; and the <code>snprintf</code> of PR #362 are those that let the unchanged model code
 build with any C11 compiler on Windows and Linux: no Windows header, no MSVC-only function, and the export
 decoration in one header. The shipped libraries are release builds with the static C runtime on Windows, so they need
-no Visual C++ runtime or Visual Studio on the user's machine. How to build them, and the build of the shipped binaries,
+no Visual C++ runtime or Visual Studio on the user's machine. This is deliberate: real-code models are often
+distributed only as compiled DLLs for one platform, sometimes linked against the Visual Studio debug runtime, which
+may not be redistributed. With the sources, the build project and the tests in OpenIPSL, the libraries can be rebuilt
+and re-shipped with the current Visual Studio, Windows SDK, gcc and CMake whenever those are updated, instead of
+becoming stale binaries. How to build them, and the build of the shipped binaries,
 are in <a href=\"modelica://OpenIPSL.Electrical.Controls.IEEE_CIGRE.README\">README</a> and in
 <code>OpenIPSL/Resources/C-Sources/IEEE_CIGRE/README.md</code>.
 </p>

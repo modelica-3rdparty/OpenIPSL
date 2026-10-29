@@ -30,8 +30,11 @@ adapter interface and the licences). The Modelica wrappers call only adapter fun
 - Compile: `/O2 /Ob2 /DNDEBUG -std:c11 -MT /W4 /utf-8 /Brepro -DOIPSL_PREFIX=<Name>`; link: `/dll /machine:x64
   /INCREMENTAL:NO /Brepro`. Static C runtime (`/MT`): each DLL depends on `KERNEL32.dll` only (`dumpbin
   /dependents`), no Visual C++ redistributable is needed. PE32+ x64 (`8664 machine`). `/Brepro` replaces the time
-  stamps of the PE file by a hash of its content, so the build is reproducible: a second build folder gave
-  bit-identical DLLs and import libraries.
+  stamps of the PE file by a hash of its content, so the build is reproducible with the same tool chain: a
+  second build folder gave bit-identical DLLs and import libraries. A newer tool chain gives different files:
+  rebuilt on 2026-10-28 with Visual Studio 18.11.2 (same `cl` 19.51.36260), both DLLs had an identical code
+  section and differed in 120 bytes each, the `KERNEL32` import hints taken from the SDK's `kernel32.lib` and
+  the `/Brepro` hash and time stamps derived from them; the import libraries were identical.
 - Exports (`dumpbin /exports`, 12 names each): `Model_CheckParameters`, `Model_GetInfo`, `Model_Initialize`,
   `Model_Outputs`, `Model_PrintInfo`, `Model_Terminate` and `<Name>_oipsl_count`, `_create`, `_free`,
   `_sampleTime`, `_status`, `_step`. `<Name>.lib` is the import library of `<Name>.dll` (same 12 names).
@@ -57,6 +60,15 @@ Both platforms: `ctest` ran six tests against these libraries, all passed: `adap
 OpenModelica's MinGW-w64 gcc 16.1.0 (not shipped).
 
 ## Rebuilding
+
+The binaries here are not meant to stay as they are. Real-code models are often distributed only as compiled
+DLLs: a single platform, sometimes 32-bit only, sometimes linked against the Visual Studio debug runtime, which
+may not be redistributed, and without a way to rebuild them when the tools change. OpenIPSL ships instead the
+sources, the build project and the tests, uses only freely available tools (Visual Studio Community or any CMake
+with MSVC, MinGW-w64 or gcc), and links the C runtime statically on Windows, so the libraries need no Visual
+Studio on the user's machine. Whenever Visual Studio, the Windows SDK, gcc or CMake are updated, the libraries
+can be rebuilt and re-shipped with the most recent tool chain (run the tests, update the tables), instead of
+remaining stale binaries that only their original build machine could reproduce.
 
 From `../C-Sources/IEEE_CIGRE/` (CMake 3.20 or newer; build outside Dropbox/OneDrive-synchronised folders):
 
