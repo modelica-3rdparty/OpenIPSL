@@ -8,18 +8,21 @@ prebuilt libraries are in `../../Library/win64` and `../../Library/linux64`; the
 
 | Library | Model | Origin | Sample time (compile-time constant) |
 |---|---|---|---|
-| `SCRX9` | SCRX bus-fed or solid-fed static exciter, 7 inputs, 1 output, 8 parameters, 6 double states | example model of CIGRE TB 958, Appendix E (G. Irwin, Electranix, 2021) | 0.005 s |
-| `GFM_GFL_IBR` | grid-forming / grid-following inverter-based resource (EMT), 12 inputs, 12 outputs, 41 parameters, 36 double states | EPRI, D. Ramasubramanian, 2022 ([EPRI2023], [Ramasubramanian2022]) | 1e-5 s |
+| `SCRX9` | SCRX bus-fed or solid-fed static exciter, 7 inputs, 1 output, 8 parameters, 6 double states | example model of the standard (G. Irwin, Electranix, 2021), CIGRE JWG B4.82 example code `DLL_V1_1`; another revision is printed in CIGRE TB 958, Appendix E | 0.005 s |
+| `GFM_GFL_IBR` | grid-forming / grid-following inverter-based resource (EMT), 12 inputs, 12 outputs, 41 parameters, 36 double states | EPRI `GFM-GFL-IBR-PWM-Model` (D. Ramasubramanian, 2022), CIGRE JWG B4.82 example code `DLL_V1_1`; cite [EPRI2023], [Ramasubramanian2022] | 1e-5 s |
+
+Where each source comes from and every difference from its original: provenance block at the top of each file,
+and the class `OpenIPSL.Electrical.Controls.IEEE_CIGRE.Provenance`.
 
 ## Files
 
 | Path | Content |
 |---|---|
-| `include/IEEE_Cigre_DLLInterface.h`, `include/IEEE_Cigre_DLLInterface_types.h` | the standard's two headers (API V2) as distributed in OpenIPSL PR #362, with the PR's non-standard `rec_struct` removed and an OpenIPSL provenance block added at the top; not compared line by line with TB 958 Appendix D |
+| `include/IEEE_Cigre_DLLInterface.h`, `include/IEEE_Cigre_DLLInterface_types.h` | the standard's two headers (API V2) as distributed by CIGRE JWG B4.82 (`DLL_V1_1`) and in OpenIPSL PR #362, with the PR's non-standard `rec_struct` removed and an OpenIPSL provenance block added at the top; the code matches TB 958 Appendix D token for token |
 | `include/ieee_cigre_export.h` | export and calling-convention macros (`IEEE_CIGRE_EXPORT <type> IEEE_CIGRE_CALL <name>`) and the prototypes of the standard's eight entry points |
 | `include/oipsl_cigre_adapter.h` | prototypes of the OpenIPSL adapter, prefixed per library with `-DOIPSL_PREFIX=<Name>` |
 | `src/oipsl_cigre_adapter.c` | the generic adapter (one source for every model) |
-| `src/SCRX9.c`, `src/GFM_GFL_IBR.c` | the model sources; every change against PR #362 is listed in the provenance block at the top of each file |
+| `src/SCRX9.c`, `src/GFM_GFL_IBR.c` | the model sources; the provenance block at the top of each file lists every difference from the CIGRE JWG B4.82 original and every change against PR #362 |
 | `test/adapter_test.c` | test program, built once per library and run by `ctest` |
 | `test/layout_test.c` | layout test, built once per library: the model's private structures against the adapter's block layout |
 | `test/two_libraries_test.c` | one program linked against both libraries (both link orders) |
@@ -199,13 +202,20 @@ needs `Resources/Library/linux64` on `LD_LIBRARY_PATH`.
   Modeling Standard, published by CIGRE JWG B4.82/IEEE in Technical Brochure 958, "Guidelines for use of
   real-code in EMT models for HVDC, FACTs and inverter based generators in power systems analysis", 2025,
   Appendix D. Copyright CIGRE and IEEE; they are not covered by the OpenIPSL licence. They are kept as
-  distributed in OpenIPSL PR #362, with the PR's `rec_struct` removed and an OpenIPSL provenance block added at
-  the top; they have not been compared line by line with TB 958 Appendix D.
-- `SCRX9.c`: example model of TB 958, Appendix E, by Garth D. Irwin (Electranix), 2021; copyright of its author
-  and of CIGRE/IEEE; not covered by the OpenIPSL licence.
-- `GFM_GFL_IBR.c`: EPRI model by Deepak Ramasubramanian, 2022. EPRI (D. Ramasubramanian, S. Thakar) gave written
-  permission on 2026-06-09 to distribute it in the OpenIPSL repository on condition that [EPRI2023] and
-  [Ramasubramanian2022] are cited; the EPRI report is licensed CC BY 4.0. Not covered by the OpenIPSL licence.
+  distributed by CIGRE JWG B4.82 (example code `DLL_V1_1`) and in OpenIPSL PR #362, with the PR's `rec_struct`
+  removed and an OpenIPSL provenance block added at the top; their code matches TB 958 Appendix D token for
+  token (compared on 2026-10-28).
+- `SCRX9.c`: example model of the standard by Garth D. Irwin (Electranix), 2021, in the revision of the CIGRE
+  JWG B4.82 example code `DLL_V1_1`; TB 958, Appendix E prints another revision with the same control code
+  (return-code tests and empty `Model_FirstCall`, `Model_Iterate` added). Copyright of its author and of
+  CIGRE/IEEE; not covered by the OpenIPSL licence.
+- `GFM_GFL_IBR.c`: EPRI's `GFM-GFL-IBR-PWM-Model` by Deepak Ramasubramanian, 2022, as distributed in the CIGRE
+  JWG B4.82 example code `DLL_V1_1`. EPRI (D. Ramasubramanian, S. Thakar) gave written permission on 2026-06-09
+  to distribute it in the OpenIPSL repository on condition that [EPRI2023] and [Ramasubramanian2022] are cited.
+  The source is not printed in [EPRI2023] (its Appendix B holds a different model), so the report's CC BY 4.0
+  licence does not extend to it. Not covered by the OpenIPSL licence.
+- Every difference of the three files from their originals, and who made it, is listed in the provenance block of
+  each file and in `OpenIPSL.Electrical.Controls.IEEE_CIGRE.Provenance`.
 - `ieee_cigre_export.h`, `oipsl_cigre_adapter.h`, `oipsl_cigre_adapter.c`, `adapter_test.c`, the CMake project
   and the scripts: OpenIPSL, BSD 3-Clause License.
 

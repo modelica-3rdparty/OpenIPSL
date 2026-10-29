@@ -1,12 +1,17 @@
 /*
-Provenance and licence (block added for OpenIPSL, 2026-10-25)
--------------------------------------------------------------
+Provenance and licence (block added for OpenIPSL, 2026-10-25; origin corrected 2026-10-28)
+-------------------------------------------------------------------------------------------
 File: OpenIPSL/Resources/C-Sources/IEEE_CIGRE/src/GFM_GFL_IBR.c
 
 Origin: "GFM-GFL-IBR-PWM-Model", a grid-forming / grid-following inverter-based resource (IBR) model written
 by Deepak Ramasubramanian (EPRI) according to the IEEE/CIGRE DLL Modeling Standard, API V2 (DLLInterfaceVersion
-1.1.0.0), January 27, 2022 (original header comment below, unchanged). Taken from OpenIPSL pull request #362 by
-Hao Chang (head 3c15968f, file OpenIPSL/Resources/Library/IEEE_CIGRE_SRC/src/GFM_GFL_IBR.c).
+1.1.0.0), January 27, 2022 (original header comment below, unchanged). The original is the file
+"GFM_GFL_IBR Model/GFM_GFL_IBR.c" in the folder DLL_V1_1 of the example code distributed by CIGRE JWG B4.82
+(file date 2023-02-21, 85445 bytes, SHA-256 5df73248babe81b364def77680d51364a234649159b75d0ca076d020b1cccef1).
+It reached OpenIPSL through pull request #362 by Hao Chang (head 3c15968f, file
+OpenIPSL/Resources/Library/IEEE_CIGRE_SRC/src/GFM_GFL_IBR.c). This source is not printed in the EPRI report
+[EPRI2023]: Appendix B of that report prints a different model, "IBR-Average-Model" (V. Verma, EPRI,
+September 21, 2023; 15 inputs, 13 outputs and 54 parameters, against 12, 12 and 41 here).
 
 Cite when using this model:
   [EPRI2023] EPRI, "Code Based Generic Inverter Based Resource Model," Technical Update 3002028322, Palo Alto,
@@ -23,12 +28,24 @@ Integration in Modelica tools:
   France, August 2026.
 
 Licence: EPRI (D. Ramasubramanian, S. Thakar) gave written permission on 2026-06-09 to distribute this model
-in the OpenIPSL repository on condition that [EPRI2023] and [Ramasubramanian2022] are cited; the EPRI report
-3002028322, which publishes EPRI's code-based generic IBR model, is licensed CC BY 4.0. Redistribution is
-therefore with attribution, and the changes made for OpenIPSL are listed here. This file is not covered by the
-OpenIPSL licence.
+in the OpenIPSL repository on condition that [EPRI2023] and [Ramasubramanian2022] are cited. That permission
+is the licence of this file: the CC BY 4.0 licence of the report [EPRI2023] covers the report, which does not
+contain this source. The changes made for OpenIPSL are listed here. This file is not covered by the OpenIPSL
+licence.
 
-Modified for OpenIPSL (2026-10-25), and only as listed here:
+Differences from the B4.82 original (compared on 2026-10-28 with diff --strip-trailing-cr -w):
+ a. Made in PR #362 and kept: the five messages of Model_CheckParameters that report the reset of KiI, KiPLL,
+    KiP, KiQ and KiV to 1/(2 delt) are commented out (they used sprintf_s, which only MSVC provides). The
+    gains are still reset; Model_CheckParameters now returns an empty LastGeneralMessage where the original
+    returned the last of these messages. Also made in PR #362 and kept: #include <stdlib.h> added; the file
+    re-encoded from Windows-1252 to UTF-8 (three lines of the header comment hold quotation marks and a dash);
+    LF line endings, trailing blanks removed, one blank line added in Model_Outputs.
+ b. Made in PR #362 and reverted here (changes 4 and 5 below): the parameter overwrite in Model_Outputs and
+    the zeroed seeding of six states in Model_Initialize. The B4.82 original has neither.
+ c. Made here: changes 2, 3 and 6 below.
+There are no other differences: the code of Model_Initialize and Model_Outputs equals the original.
+
+Modified for OpenIPSL (2026-10-25) against the copy of PR #362, and only as listed here:
  1. Deleted the Modelica glue and scaffolding of PR #362 (old lines 1629-1925: init_gfm_model,
     deinit_gfm_model, update_gfm_input, model_calculate, save_states and load_states with their "list.dat"
     file I/O, free_out, my_add, get_sim_time) and the file-scope globals sim_time and pre_sim_time (old lines

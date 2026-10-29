@@ -127,11 +127,14 @@ IEEE/CIGRE models themselves in the three tools is recorded separately.
 
 ## Licences and citations
 
-The model code in these binaries is not covered by the OpenIPSL licence: SCRX9 is the example model of CIGRE
-Technical Brochure 958, Appendix E (G. Irwin, Electranix, 2021; copyright of its author and of CIGRE/IEEE);
-GFM_GFL_IBR is EPRI's model (D. Ramasubramanian, 2022), distributed with EPRI's written permission of
-2026-06-09 on condition that [EPRI2023] and [Ramasubramanian2022] are cited (the EPRI report is licensed
-CC BY 4.0). The adapter and build files are OpenIPSL's (BSD 3-Clause). Cite:
+The model code in these binaries is not covered by the OpenIPSL licence: SCRX9 is the example model of the
+IEEE/CIGRE DLL Modeling Standard (G. Irwin, Electranix, 2021; copyright of its author and of CIGRE/IEEE), in the
+revision of the CIGRE JWG B4.82 example code (another revision is printed in CIGRE Technical Brochure 958,
+Appendix E); GFM_GFL_IBR is EPRI's model (D. Ramasubramanian, 2022) from the same example code, distributed
+with EPRI's written permission of 2026-06-09 on condition that [EPRI2023] and [Ramasubramanian2022] are cited
+(the source is not printed in [EPRI2023]). Origins and differences from the originals: provenance blocks of the
+sources and `OpenIPSL.Electrical.Controls.IEEE_CIGRE.Provenance`. The adapter and build files are OpenIPSL's
+(BSD 3-Clause). Cite:
 
 - H. Chang and L. Vanfretti, "Integrating the IEEE/CIGRE DLL Modeling Standard to Use 'Real Code' Models for
   Power System Analysis in Modelica Tools," Proceedings of the American Modelica Conference 2024, October 14-16,

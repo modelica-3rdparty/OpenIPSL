@@ -12,6 +12,8 @@ Modelica tools in OpenIPSL's verification (Dymola, OpenModelica and Wolfram Syst
 <ul>
 <li><a href=\"modelica://OpenIPSL.Electrical.Controls.IEEE_CIGRE.README\">README</a>: how the shared libraries are
 built for each platform, where they are, how each tool finds them, and the references.</li>
+<li><a href=\"modelica://OpenIPSL.Electrical.Controls.IEEE_CIGRE.Provenance\">Provenance</a>: where each C source comes
+from, every difference from its original, and what was changed so that anyone can build the libraries.</li>
 <li><a href=\"modelica://OpenIPSL.Electrical.Controls.IEEE_CIGRE.SCRX9\">SCRX9</a>: the SCRX static exciter, the
 example model of the standard (phasor, RMS mode, 5 ms sample time).</li>
 <li><a href=\"modelica://OpenIPSL.Electrical.Controls.IEEE_CIGRE.GFM\">GFM</a>: the EPRI grid-forming / grid-following

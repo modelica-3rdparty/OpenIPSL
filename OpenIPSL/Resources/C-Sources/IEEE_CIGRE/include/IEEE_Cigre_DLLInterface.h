@@ -1,15 +1,19 @@
 /*
-Provenance (block added for OpenIPSL, 2026-10-25; the original header comment follows unchanged)
+Provenance (block added for OpenIPSL, 2026-10-25, origin corrected 2026-10-28; the original header comment
+follows unchanged)
 File: OpenIPSL/Resources/C-Sources/IEEE_CIGRE/include/IEEE_Cigre_DLLInterface.h
 Interface file of the IEEE/CIGRE DLL Modeling Standard, API V2, published in CIGRE Technical Brochure 958,
 Appendix D: CIGRE JWG B4.82/IEEE, "Guidelines for use of real-code in EMT models for HVDC, FACTs and inverter
 based generators in power systems analysis," Technical Brochure 958, Paris, 2025. Copyright CIGRE and IEEE;
 not covered by the OpenIPSL licence.
-Taken from OpenIPSL pull request #362 by Hao Chang (head 3c15968f, file
-OpenIPSL/Resources/Library/IEEE_CIGRE_SRC/inc/IEEE_Cigre_DLLInterface.h). Changes against that copy: the
-structure rec_struct that the pull request had added (6 lines before the commented-out function pointer
-typedefs) is removed and this block is added. The file has not been compared line by line with the text of
-TB 958 Appendix D.
+The original is the file of the same name in the folder DLL_V1_1 of the example code distributed by CIGRE JWG
+B4.82 (file date 2022-02-14, SHA-256 8fa780c31b8575906c9142cb107f405be71cf72f1110f9984eeca584d9f5b5a2). It
+reached OpenIPSL through pull request #362 by Hao Chang (head 3c15968f, file
+OpenIPSL/Resources/Library/IEEE_CIGRE_SRC/inc/IEEE_Cigre_DLLInterface.h), which had added a structure
+rec_struct (6 lines before the commented-out function pointer typedefs). Changes against the original: that
+structure is removed again and two blank lines with it, LF line endings, and this block. Its code matches
+the text of TB 958 Appendix D token for token; only the wording of the file comment differs (compared on
+2026-10-28).
 */
 /*
 File: IEEE_Cigre_DLLInterface.h

@@ -168,9 +168,12 @@ stops with an assertion that names the DLL when a step returns an error code.
 <h4>Provenance and references</h4>
 <p>
 <code>SCRX9.c</code> is the example model of the IEEE/CIGRE DLL Modeling Standard (API V2) by Garth Irwin
-(Electranix), September 14, 2021, published as Appendix E of CIGRE Technical Brochure 958, &quot;Guidelines for use
-of real-code in EMT models for HVDC, FACTs and inverter based generators in power systems analysis&quot;, JWG
-B4.82/IEEE, 2025. The source with its provenance block and the build project are in
+(Electranix), September 14, 2021, in the revision distributed by CIGRE JWG B4.82 with its example code (DLL_V1_1).
+Appendix E of CIGRE Technical Brochure 958, &quot;Guidelines for use of real-code in EMT models for HVDC, FACTs and
+inverter based generators in power systems analysis&quot;, JWG B4.82/IEEE, 2025, prints another revision with the same
+control code, which adds return-code tests and empty <code>Model_FirstCall</code> and <code>Model_Iterate</code>
+functions; see <a href=\"modelica://OpenIPSL.Electrical.Controls.IEEE_CIGRE.Provenance\">IEEE_CIGRE.Provenance</a>.
+The source with its provenance block and the build project are in
 <code>OpenIPSL/Resources/C-Sources/IEEE_CIGRE/</code>; how to build the library is in
 <a href=\"modelica://OpenIPSL.Electrical.Controls.IEEE_CIGRE.README\">IEEE_CIGRE.README</a>. The integration in
 Modelica follows H. Chang and L. Vanfretti, &quot;Integrating the IEEE/CIGRE DLL Modeling Standard to Use 'Real Code'
@@ -182,7 +185,7 @@ Models for Power System Analysis in Modelica Tools,&quot; Proceedings of the Ame
 <table cellspacing=\"1\" cellpadding=\"1\" border=\"1\">
 <tr>
 <td><p>Reference</p></td>
-<td><p>IEEE/CIGRE DLL Modeling Standard API V2, CIGRE TB 958 Appendix E (SCRX9 example model)</p></td>
+<td><p>IEEE/CIGRE DLL Modeling Standard API V2, SCRX9 example model (CIGRE JWG B4.82 example code DLL_V1_1; another revision is printed in CIGRE TB 958 Appendix E)</p></td>
 </tr>
 <tr>
 <td><p>Last update</p></td>

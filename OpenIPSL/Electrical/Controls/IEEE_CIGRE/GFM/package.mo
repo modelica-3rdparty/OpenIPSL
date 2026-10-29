@@ -28,10 +28,14 @@ experiment annotations of the tests in
 </p>
 <h4>Provenance and licence</h4>
 <p>
-The C source of the controller is Appendix B of the EPRI report [EPRI2023], licensed CC BY 4.0, and is redistributed in
-<code>OpenIPSL/Resources/C-Sources/IEEE_CIGRE/</code> with EPRI's written permission. Whoever uses or redistributes the
-model shall cite the report and the paper by Ramasubramanian listed below. The Modelica integration follows the two
-papers by Chang and Vanfretti.
+The C source of the controller is EPRI's <code>GFM-GFL-IBR-PWM-Model</code> as distributed by CIGRE JWG B4.82 in its
+example code (version DLL_V1_1). It reached OpenIPSL through pull request #362 and is redistributed in
+<code>OpenIPSL/Resources/C-Sources/IEEE_CIGRE/</code> with EPRI's written permission (2026-06-09), on condition that
+whoever uses or redistributes the model cites the EPRI report [EPRI2023] and the paper by Ramasubramanian listed below.
+The source itself is not printed in [EPRI2023]: Appendix B of that report holds a different model, and the CC BY 4.0
+licence of the report does not extend to this file. The origin of every C file and its differences from the original
+are listed in <a href=\"modelica://OpenIPSL.Electrical.Controls.IEEE_CIGRE.Provenance\">IEEE_CIGRE.Provenance</a>.
+The Modelica integration follows the two papers by Chang and Vanfretti.
 </p>
 <h4>References</h4>
 <ul>

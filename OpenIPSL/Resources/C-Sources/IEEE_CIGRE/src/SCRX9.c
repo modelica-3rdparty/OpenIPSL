@@ -1,14 +1,20 @@
 /*
-Provenance and licence (block added for OpenIPSL, 2026-10-25)
--------------------------------------------------------------
+Provenance and licence (block added for OpenIPSL, 2026-10-25; origin corrected 2026-10-28)
+-------------------------------------------------------------------------------------------
 File: OpenIPSL/Resources/C-Sources/IEEE_CIGRE/src/SCRX9.c
 
 Origin: the "SCRX9" example model of the IEEE/CIGRE DLL Modeling Standard, API V2 (DLLInterfaceVersion
 1.1.0.0), written by Garth D. Irwin (Electranix), September 14, 2021 (original header comment below,
-unchanged). It is the example model of CIGRE Technical Brochure 958, Appendix E "Example Model Source Code
-(Synchronous Machine Exciter SCRX)": CIGRE JWG B4.82/IEEE, "Guidelines for use of real-code in EMT models for
-HVDC, FACTs and inverter based generators in power systems analysis," Technical Brochure 958, Paris, 2025.
-Taken from OpenIPSL pull request #362 by Hao Chang (head 3c15968f, file
+unchanged). The original is the file "Static Exciter Model/SCRX9.c" in the folder DLL_V1_1 of the example code
+distributed by CIGRE JWG B4.82 (file date 2022-02-14, 27298 bytes, SHA-256
+f4515d7ddb22aa27e177b42a579826645e497707bb34fc0a5b57472af8d219c4). CIGRE Technical Brochure 958, Appendix E
+"Example Model Source Code (Synchronous Machine Exciter SCRX)" prints another revision of the same model, with
+the same control code: it adds, at the end of Model_CheckParameters, Model_Initialize and Model_Outputs, tests of
+instance->LastErrorMessage[0] and instance->LastGeneralMessage[0] that return the Error or Message code, and
+empty Model_FirstCall and Model_Iterate entry points. This file follows the B4.82 revision. TB 958: CIGRE JWG
+B4.82/IEEE, "Guidelines for use of real-code in EMT models for HVDC, FACTs and inverter based generators in
+power systems analysis," Technical Brochure 958, Paris, 2025.
+It reached OpenIPSL through pull request #362 by Hao Chang (head 3c15968f, file
 OpenIPSL/Resources/Library/IEEE_CIGRE_SRC/src/SCRX9.c), where it was integrated in Modelica tools for:
   H. Chang and L. Vanfretti, "Integrating the IEEE/CIGRE DLL Modeling Standard to Use 'Real Code' Models for
   Power System Analysis in Modelica Tools," Proceedings of the American Modelica Conference 2024, October
@@ -18,10 +24,18 @@ See also:
   the IEEE/CIGRE 'Real Code'/DLL Modelling Guidelines," CIGRE Paris Session 2026, paper C4-10724, Paris,
   France, August 2026.
 
-Licence: example code of CIGRE TB 958 Appendix E, distributed with the standard; copyright stays with its
-author and with CIGRE/IEEE as publishers of the standard. It is not covered by the OpenIPSL licence.
+Licence: example code of the standard, distributed by CIGRE JWG B4.82 and printed (in the revision described
+above) in TB 958 Appendix E; copyright stays with its author and with CIGRE/IEEE as publishers of the standard.
+It is not covered by the OpenIPSL licence.
 
-Modified for OpenIPSL (2026-10-25), and only as listed here:
+Differences from the B4.82 original (compared on 2026-10-28 with diff --strip-trailing-cr -w):
+ a. Made in PR #362 and kept: sprintf_s replaced by snprintf in the five messages (two in
+    Model_CheckParameters, three in Model_Initialize), with the same text and buffer size; sprintf_s is only
+    provided by MSVC. The messages and the behaviour are unchanged. Also made in PR #362: LF line endings.
+ b. Made here: changes 2 and 3 below.
+There are no other differences: the control code equals the original.
+
+Modified for OpenIPSL (2026-10-25) against the copy of PR #362, and only as listed here:
  1. Deleted the Modelica glue and test scaffolding of PR #362 (old lines 554-639: my_sum, init_test_rec,
     init_scrx_model, deinit_scrx_model, update_scrx_input, model_calculate, init_efd). OpenIPSL drives the
     model through the standard entry points from oipsl_cigre_adapter.c, compiled into the same library.

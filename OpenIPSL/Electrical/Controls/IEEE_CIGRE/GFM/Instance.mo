@@ -63,8 +63,9 @@ prefix <code>GFM_GFL_IBR_oipsl_</code> that drives the model through the standar
 converter; instances are independent.
 </p>
 <p>
-Provenance: EPRI report [EPRI2023] (CC BY 4.0) and D. Ramasubramanian, EPSR 205 (2022) 107739; see the documentation of
-<a href=\"modelica://OpenIPSL.Electrical.Controls.IEEE_CIGRE.GFM\">the GFM package</a>.
+Cite EPRI report [EPRI2023] and D. Ramasubramanian, EPSR 205 (2022) 107739 (EPRI's condition for the redistribution);
+see the documentation of <a href=\"modelica://OpenIPSL.Electrical.Controls.IEEE_CIGRE.GFM\">the GFM package</a> and
+<a href=\"modelica://OpenIPSL.Electrical.Controls.IEEE_CIGRE.Provenance\">IEEE_CIGRE.Provenance</a>.
 </p>
 </html>"));
 end Instance;

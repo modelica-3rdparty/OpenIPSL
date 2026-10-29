@@ -1,13 +1,17 @@
 /*
-Provenance (block added for OpenIPSL, 2026-10-25; the original header comment follows unchanged)
+Provenance (block added for OpenIPSL, 2026-10-25, origin corrected 2026-10-28; the original header comment
+follows unchanged)
 File: OpenIPSL/Resources/C-Sources/IEEE_CIGRE/include/IEEE_Cigre_DLLInterface_types.h
 Interface file of the IEEE/CIGRE DLL Modeling Standard, API V2, published in CIGRE Technical Brochure 958,
 Appendix D: CIGRE JWG B4.82/IEEE, "Guidelines for use of real-code in EMT models for HVDC, FACTs and inverter
 based generators in power systems analysis," Technical Brochure 958, Paris, 2025. Copyright CIGRE and IEEE;
 not covered by the OpenIPSL licence.
-Taken from OpenIPSL pull request #362 by Hao Chang (head 3c15968f, file
-OpenIPSL/Resources/Library/IEEE_CIGRE_SRC/inc/IEEE_Cigre_DLLInterface_types.h). Apart from this block the file
-is byte-identical to that copy. It has not been compared line by line with the text of TB 958 Appendix D.
+The original is the file of the same name in the folder DLL_V1_1 of the example code distributed by CIGRE JWG
+B4.82 (file date 2022-02-14, SHA-256 1e7bc245b46a1dd6bc9c2aa5f4a24cefc88646e7d1ffe1098d64d64f3fee9f0a). It
+reached OpenIPSL unchanged through pull request #362 by Hao Chang (head 3c15968f, file
+OpenIPSL/Resources/Library/IEEE_CIGRE_SRC/inc/IEEE_Cigre_DLLInterface_types.h). Apart from this block, LF line
+endings and a final newline the file is identical to the original. Its code matches the text of TB 958
+Appendix D token for token (compared on 2026-10-28).
 */
 /*
 * File: IEEE_Cigre_DLLInterface_types.h

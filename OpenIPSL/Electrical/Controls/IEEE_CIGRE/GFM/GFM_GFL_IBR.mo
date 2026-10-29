@@ -283,8 +283,10 @@ standard error stream. Every instance of this model owns an independent DLL inst
 <p>
 Ported from <code>GFM.GFM_GFL_IBR</code> of
 <a href=\"https://github.com/OpenIPSL/OpenIPSL/pull/362\">OpenIPSL pull request #362</a> (Hao Chang). The C source
-of the controller is Appendix B of [EPRI2023] (CC BY 4.0), redistributed with EPRI's permission; cite [EPRI2023] and
-[Ramasubramanian2022] when using it.
+of the controller is EPRI's <code>GFM-GFL-IBR-PWM-Model</code> as distributed by CIGRE JWG B4.82 (example code,
+version DLL_V1_1), redistributed with EPRI's written permission on condition that [EPRI2023] and [Ramasubramanian2022]
+are cited when using it. The source is not printed in [EPRI2023]. Its origin and every difference from the original
+are listed in <a href=\"modelica://OpenIPSL.Electrical.Controls.IEEE_CIGRE.Provenance\">IEEE_CIGRE.Provenance</a>.
 </p>
 <ul>
 <li>[EPRI2023] EPRI, &quot;Code Based Generic Inverter Based Resource Model,&quot; Technical Update 3002028322, Palo
@@ -305,7 +307,7 @@ August 2026,
 <table cellspacing=\"1\" cellpadding=\"1\" border=\"1\">
 <tr>
 <td><p>Reference</p></td>
-<td><p>EPRI report 3002028322, Appendix B (GFM-GFL-IBR-PWM-Model 1.1.0.0)</p></td>
+<td><p>EPRI GFM-GFL-IBR-PWM-Model 1.1.0.0 (D. Ramasubramanian, 2022), CIGRE JWG B4.82 example code DLL_V1_1; cite EPRI report 3002028322 and Ramasubramanian, EPSR 205 (2022) 107739</p></td>
 </tr>
 <tr>
 <td><p>Last update</p></td>

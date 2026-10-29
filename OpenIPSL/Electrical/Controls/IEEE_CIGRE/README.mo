@@ -134,11 +134,13 @@ prompt in the working directory to see it), and the wrapper model stops with an 
 <ul>
 <li>CIGRE JWG B4.82/IEEE, &quot;Guidelines for use of real-code in EMT models for HVDC, FACTs and inverter based
 generators in power systems analysis,&quot; CIGRE Technical Brochure 958, 2025, ISBN 978-2-85873-663-8: the IEEE/CIGRE
-DLL Modeling Standard; its Appendix D holds the two headers and Appendix E the SCRX example model.</li>
+DLL Modeling Standard; its Appendix D holds the two headers and Appendix E a revision of the SCRX example model
+(see <a href=\"modelica://OpenIPSL.Electrical.Controls.IEEE_CIGRE.Provenance\">Provenance</a>).</li>
 <li>[EPRI2023] EPRI, &quot;Code Based Generic Inverter Based Resource Model,&quot; Technical Update 3002028322, Palo
 Alto, CA, November 2023 (CC BY 4.0),
-<a href=\"https://www.epri.com/research/products/000000003002028322\">epri.com</a>: the source of the GFM_GFL_IBR
-model, redistributed with EPRI's written permission.</li>
+<a href=\"https://www.epri.com/research/products/000000003002028322\">epri.com</a>: to be cited, as EPRI's condition
+for redistributing the GFM_GFL_IBR source with their written permission (the source itself is not printed in the
+report; see <a href=\"modelica://OpenIPSL.Electrical.Controls.IEEE_CIGRE.Provenance\">Provenance</a>).</li>
 <li>[Ramasubramanian2022] D. Ramasubramanian, &quot;Differentiating between plant level and inverter level voltage
 control to bring about operation of 100% inverter-based resource grids,&quot; Electric Power Systems Research, vol.
 205, 107739, April 2022, <a href=\"https://doi.org/10.1016/j.epsr.2021.107739\">DOI: 10.1016/j.epsr.2021.107739</a>.</li>
