@@ -56,7 +56,10 @@ with the library name, the model name and the time): `LastErrorMessage`, `LastGe
 mismatches, and parameters outside the `[MinValue, MaxValue]` range of `ParametersInfo` (a warning, the value
 is used). It does not call ModelicaUtilities (a DLL cannot import functions from the simulation executable that
 loads it; in OpenModelica 1.27.1 a `ModelicaFormatError` inside an ExternalObject constructor terminates the
-simulation without a message), opens no files and keeps no global state of its own.
+simulation without a message), opens no files and keeps no global state of its own. Before every call of the
+model it sets `LastErrorMessage` and `LastGeneralMessage` to an empty string, not NULL: the SCRX9 example printed
+in TB 958 Appendix E tests `instance->LastErrorMessage[0]` before setting it and crashed (access violation) with
+NULL pointers (measured 2026-10-28; with empty strings it gives the same outputs as the shipped SCRX9).
 
 ## Building
 
@@ -66,7 +69,7 @@ linkers fail at random.
 
 Windows, MSVC x64: Visual Studio 2022 or later with the C++ workload and its component "C++ CMake tools for
 Windows" (CMake and Ninja), or any CMake 3.20 or newer on PATH; the shipped binaries were built with Visual Studio
-Community 2026 18.10.4:
+Community 2026 18.11.2:
 
 ```bat
 build_win64.bat [build folder]
@@ -146,8 +149,9 @@ Results on 2026-10-25 (after the review fixes): `ctest` 6 of 6 passed with MSVC,
 
 ## Shipped binaries
 
-Built on 2026-10-25 with `build_win64.bat` and `build_linux64.sh` after the review fixes (`/Brepro`,
-`-Bsymbolic`, the `simToolMode` check); details, sizes and the tool lookups are in `../../Library/README.md`.
+Built on 2026-10-28 with `build_win64.bat` (Visual Studio Community 2026 18.11.2) and `build_linux64.sh`, after
+the adapter change of that day (message pointers start as an empty string, not NULL; the outputs are bit-identical
+to the libraries of 2026-10-25); details, sizes and the tool lookups are in `../../Library/README.md`.
 Both builds are reproducible with the same tool chain: two build folders gave bit-identical DLLs, import
 libraries and shared objects. A newer Visual Studio or Windows SDK gives DLLs that differ in a few bytes (import
 hints and the hash derived from them; see `../../Library/README.md`). The libraries are meant to be rebuilt and
@@ -156,12 +160,12 @@ re-shipped with the current tool chain when the tools are updated, so that they 
 
 | File | Built with | SHA-256 |
 |---|---|---|
-| `win64/SCRX9.dll` | MSVC 19.51.36260 x64, `/MT /Brepro` | `09d08d23357aa15e43a75253e54d14aaf7344b904b93493c24b33c79e18e06ef` |
+| `win64/SCRX9.dll` | MSVC 19.51.36260 x64, `/MT /Brepro` | `04eda5535a0a9e7d56f881759def04a023c768d77b4b4b6be98634b72cb2bec8` |
 | `win64/SCRX9.lib` | (import library) | `cacc6b290ae6f613b98efe3ac4aea667700267cda39162fd350f896d41d5eda8` |
-| `win64/GFM_GFL_IBR.dll` | MSVC 19.51.36260 x64, `/MT /Brepro` | `546c6e2f0b52f3a3993ee459c21be02543492c71af0078fb93c49d304bddcfb6` |
+| `win64/GFM_GFL_IBR.dll` | MSVC 19.51.36260 x64, `/MT /Brepro` | `87f1004d0b2dfc2d14590406b81e9669ca6b9f1f7431f77928baa9af8cc82369` |
 | `win64/GFM_GFL_IBR.lib` | (import library) | `307dc68ef7c447adf2db325e3f2a144508f909380da212b83edcdc5f1efffee4` |
-| `linux64/libSCRX9.so` | gcc 15.2.0, `-Wl,-Bsymbolic`, Ubuntu 26.04.1 (WSL2), glibc 2.43 | `974323eb708069a0bc7ccb0c443efb54f3caa8ac615f0d7817eedb409fb5f71e` |
-| `linux64/libGFM_GFL_IBR.so` | gcc 15.2.0, `-Wl,-Bsymbolic`, Ubuntu 26.04.1 (WSL2), glibc 2.43 | `2591aa18402a17110888ff134c22557596daa396c1afa2a590b044834eb007b0` |
+| `linux64/libSCRX9.so` | gcc 15.2.0, `-Wl,-Bsymbolic`, Ubuntu 26.04.1 (WSL2), glibc 2.43 | `171f5e3209d74b7397175a09c7d7d3e3066eb4381f55eb8b9a91708e9da5e7e4` |
+| `linux64/libGFM_GFL_IBR.so` | gcc 15.2.0, `-Wl,-Bsymbolic`, Ubuntu 26.04.1 (WSL2), glibc 2.43 | `3e4435d94695d1cfe0853ef871ee9d190796afbba2347accc9bc761c3d4a2e32` |
 
 After a rebuild, update both tables (here and in `../../Library/README.md`).
 

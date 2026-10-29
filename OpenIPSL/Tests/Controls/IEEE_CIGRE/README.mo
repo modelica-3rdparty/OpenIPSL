@@ -10,7 +10,7 @@ The tests need the shared libraries of the models in <code>OpenIPSL/Resources/Li
 </p>
 <ul>
 <li>win64: <code>SCRX9.dll</code>, <code>SCRX9.lib</code>, <code>GFM_GFL_IBR.dll</code>, <code>GFM_GFL_IBR.lib</code>,
-built with the Microsoft C/C++ compiler 19.51 for x64 (Visual Studio Community 2026 18.10.4) and the static C
+built with the Microsoft C/C++ compiler 19.51 for x64 (Visual Studio Community 2026 18.11.2) and the static C
 runtime (<code>/MT</code>), so they depend on <code>KERNEL32.dll</code> only;</li>
 <li>linux64: <code>libSCRX9.so</code>, <code>libGFM_GFL_IBR.so</code>, built with gcc 15.2.0 on Ubuntu 26.04.1 LTS
 under WSL2 (glibc 2.43; the libraries need glibc 2.4 or newer). Dymola, OpenModelica and System Modeler ran these

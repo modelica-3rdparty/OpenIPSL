@@ -24,8 +24,10 @@ generic source, src/oipsl_cigre_adapter.c, is compiled into each model library.
   int    <P>_oipsl_status(obj)               status of the last call on obj (codes as for step; -1 for NULL).
 
 Messages (LastErrorMessage, LastGeneralMessage, size mismatches, parameters outside their Min/Max) are
-written to stderr with the model name and the time, each distinct text once in a row. The adapter never
-calls ModelicaUtilities (a DLL cannot import functions from the simulation executable that loads it).
+written to stderr with the model name and the time, each distinct text once in a row. Before every call of
+the model, LastErrorMessage and LastGeneralMessage are set to an empty string, never NULL (the TB 958
+Appendix E example of SCRX9 reads them before it sets them). The adapter never calls ModelicaUtilities (a DLL
+cannot import functions from the simulation executable that loads it).
 
 Limits of this generic adapter (none of them affects SCRX9 or GFM_GFL_IBR, whose ports are all real64_T and
 whose only non-real64_T parameter is the int32_T CSwitch of SCRX9):

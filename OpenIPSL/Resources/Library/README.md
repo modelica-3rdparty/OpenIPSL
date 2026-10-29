@@ -12,29 +12,30 @@ adapter interface and the licences). The Modelica wrappers call only adapter fun
 
 | File | Size (bytes) | SHA-256 |
 |---|---|---|
-| `win64/SCRX9.dll` | 155,648 | `09d08d23357aa15e43a75253e54d14aaf7344b904b93493c24b33c79e18e06ef` |
+| `win64/SCRX9.dll` | 155,648 | `04eda5535a0a9e7d56f881759def04a023c768d77b4b4b6be98634b72cb2bec8` |
 | `win64/SCRX9.lib` | 3,996 | `cacc6b290ae6f613b98efe3ac4aea667700267cda39162fd350f896d41d5eda8` |
-| `win64/GFM_GFL_IBR.dll` | 184,832 | `546c6e2f0b52f3a3993ee459c21be02543492c71af0078fb93c49d304bddcfb6` |
+| `win64/GFM_GFL_IBR.dll` | 184,832 | `87f1004d0b2dfc2d14590406b81e9669ca6b9f1f7431f77928baa9af8cc82369` |
 | `win64/GFM_GFL_IBR.lib` | 4,314 | `307dc68ef7c447adf2db325e3f2a144508f909380da212b83edcdc5f1efffee4` |
-| `linux64/libSCRX9.so` | 34,440 | `974323eb708069a0bc7ccb0c443efb54f3caa8ac615f0d7817eedb409fb5f71e` |
-| `linux64/libGFM_GFL_IBR.so` | 45,456 | `2591aa18402a17110888ff134c22557596daa396c1afa2a590b044834eb007b0` |
+| `linux64/libSCRX9.so` | 34,480 | `171f5e3209d74b7397175a09c7d7d3e3066eb4381f55eb8b9a91708e9da5e7e4` |
+| `linux64/libGFM_GFL_IBR.so` | 45,496 | `3e4435d94695d1cfe0853ef871ee9d190796afbba2347accc9bc761c3d4a2e32` |
 
-## Provenance (all built on 2026-10-25)
+## Provenance (all built on 2026-10-28)
 
 `win64` (MSVC):
 
 - Machine: Windows 11 Pro 10.0.26300, x64.
-- Tool chain: Visual Studio Community 2026 18.10.4 (installation version 18.10.12306.391), MSVC `cl` 19.51.36260
+- Tool chain: Visual Studio Community 2026 18.11.2 (installation version 18.11.12324.101), MSVC `cl` 19.51.36260
   for x64 (tools 14.51.36231), `link` 14.51.36260.0, Windows SDK 10.0.26100.0; CMake 4.3.1-msvc1 and Ninja 1.13.2
   as bundled with Visual Studio.
 - Compile: `/O2 /Ob2 /DNDEBUG -std:c11 -MT /W4 /utf-8 /Brepro -DOIPSL_PREFIX=<Name>`; link: `/dll /machine:x64
   /INCREMENTAL:NO /Brepro`. Static C runtime (`/MT`): each DLL depends on `KERNEL32.dll` only (`dumpbin
   /dependents`), no Visual C++ redistributable is needed. PE32+ x64 (`8664 machine`). `/Brepro` replaces the time
   stamps of the PE file by a hash of its content, so the build is reproducible with the same tool chain: a
-  second build folder gave bit-identical DLLs and import libraries. A newer tool chain gives different files:
-  rebuilt on 2026-10-28 with Visual Studio 18.11.2 (same `cl` 19.51.36260), both DLLs had an identical code
-  section and differed in 120 bytes each, the `KERNEL32` import hints taken from the SDK's `kernel32.lib` and
-  the `/Brepro` hash and time stamps derived from them; the import libraries were identical.
+  second build folder gave bit-identical DLLs and import libraries. A different tool chain gives different files
+  from the same sources: the DLLs built on 2026-10-25 with Visual Studio 18.10.4 (same `cl` 19.51.36260) and a
+  rebuild of the same sources with 18.11.2 had an identical code section and differed in 120 bytes each, the
+  `KERNEL32` import hints taken from the SDK's `kernel32.lib` and the `/Brepro` hash and time stamps derived from
+  them; the import libraries were identical.
 - Exports (`dumpbin /exports`, 12 names each): `Model_CheckParameters`, `Model_GetInfo`, `Model_Initialize`,
   `Model_Outputs`, `Model_PrintInfo`, `Model_Terminate` and `<Name>_oipsl_count`, `_create`, `_free`,
   `_sampleTime`, `_status`, `_step`. `<Name>.lib` is the import library of `<Name>.dll` (same 12 names).
@@ -54,10 +55,18 @@ adapter interface and the licences). The Modelica wrappers call only adapter fun
   Ubuntu 26.04 was tried). Exports (`nm -D --defined-only`): the same 12 names as on Windows. The build is
   reproducible: a second build tree gave bit-identical files.
 
-Both platforms: `ctest` ran six tests against these libraries, all passed: `adapter_test_SCRX9` (55 checks),
+Both platforms: `ctest` ran six tests against these libraries (2026-10-28), all passed: `adapter_test_SCRX9` (55 checks),
 `adapter_test_GFM_GFL_IBR` (60), `layout_test_SCRX9` (27), `layout_test_GFM_GFL_IBR` (76) and
 `two_libraries_test` linked in both orders (14 each). The sources also build and pass the six tests with
-OpenModelica's MinGW-w64 gcc 16.1.0 (not shipped).
+OpenModelica's MinGW-w64 gcc 16.1.0 (not shipped; checked with the sources of 2026-10-25).
+
+Rebuilt on 2026-10-28 because the adapter now sets `LastErrorMessage` and `LastGeneralMessage` to an empty
+string instead of NULL before each call of the model (see `../C-Sources/IEEE_CIGRE/README.md`). The model code is
+unchanged. Against the libraries of 2026-10-25, the new ones give bit-identical outputs (all outputs, every
+sample: SCRX9 1201 samples; GFM_GFL_IBR 100 001 samples in PLL and in droop mode; a C program stepping both with
+identical inputs), and OpenModelica 1.27.1 on Windows gives identical result files for
+`Tests.Controls.IEEE_CIGRE.GFM.GFL_FaultPSCAD` (5.8 s) and `Tests.Controls.IEEE_CIGRE.SCRX9.SCRX9`. The runs of
+Dymola and System Modeler, and those on Linux, were made with the libraries of 2026-10-25.
 
 ## Rebuilding
 

@@ -18,7 +18,7 @@ licence of every file</td></tr>
 </table>
 <h4>Build platform of the shipped binaries</h4>
 <ul>
-<li>win64: Microsoft C/C++ compiler 19.51 for x64 (Visual Studio Community 2026 18.10.4), static C runtime
+<li>win64: Microsoft C/C++ compiler 19.51 for x64 (Visual Studio Community 2026 18.11.2), static C runtime
 <code>/MT</code>, so the DLLs depend on no Visual C++ redistributable, and <code>/Brepro</code>, so a rebuild of the
 same sources with the same tool chain gives bit-identical files (a newer Visual Studio or Windows SDK changes a few
 bytes outside the code).</li>

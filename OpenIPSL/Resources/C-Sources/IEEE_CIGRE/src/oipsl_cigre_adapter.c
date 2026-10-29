@@ -17,7 +17,8 @@ What it does, following the calling sequence the standard prescribes for a simul
     RCdRFD at byte 56;
   - converts the doubles it receives from Modelica to each port or parameter DataType and back;
   - calls Model_CheckParameters and Model_Initialize once, Model_Outputs once per step, Model_Terminate
-    once at the end;
+    once at the end, each with LastErrorMessage and LastGeneralMessage set to an empty string (not NULL), so
+    that a model may test them before it sets them, as the TB 958 Appendix E example of SCRX9 does;
   - reports through return codes and stderr only (no ModelicaUtilities, no files, no global state of its
     own). Global state of a vendor model (e.g. a static message buffer) is shared by its instances.
 
@@ -35,6 +36,12 @@ BSD 3-Clause License, see the LICENSE file of OpenIPSL.
 #include "oipsl_cigre_adapter.h"
 
 #define OIPSL_MESSAGE_SIZE 512
+
+/* Value of LastErrorMessage and LastGeneralMessage before every call of the model: an empty string, never NULL.
+   A model may read them before it sets them: the SCRX9 example printed in CIGRE TB 958 Appendix E tests
+   instance->LastErrorMessage[0] at the end of Model_CheckParameters, Model_Initialize and Model_Outputs, and a
+   NULL pointer there makes it crash. */
+static const char oipsl_noMessage[] = "";
 
 /* One adapter object = one model instance */
 typedef struct OipslCigre {
@@ -462,8 +469,8 @@ static void oipsl_destroy(OipslCigre* a)
     }
     if (a->terminate && (a->instance != NULL)) {
         int32_T rc;
-        a->instance->LastErrorMessage = NULL;
-        a->instance->LastGeneralMessage = NULL;
+        a->instance->LastErrorMessage = oipsl_noMessage;
+        a->instance->LastGeneralMessage = oipsl_noMessage;
         rc = Model_Terminate(a->instance);
         (void)oipsl_report(a, a->instance->Time, "Model_Terminate", rc);
     }
@@ -603,8 +610,8 @@ IEEE_CIGRE_EXPORT void* IEEE_CIGRE_CALL OIPSL_FUNCTION(_oipsl_create)(const doub
             .Parameters = a->parameters,
             .Time = 0.0,
             .SimTool_EMT_RMS_Mode = (uint8_T)simToolMode,
-            .LastErrorMessage = NULL,
-            .LastGeneralMessage = NULL,
+            .LastErrorMessage = oipsl_noMessage,
+            .LastGeneralMessage = oipsl_noMessage,
             .IntStates = a->intStates,
             .FloatStates = a->floatStates,
             .DoubleStates = a->doubleStates
@@ -619,8 +626,8 @@ IEEE_CIGRE_EXPORT void* IEEE_CIGRE_CALL OIPSL_FUNCTION(_oipsl_create)(const doub
         oipsl_destroy(a);
         return NULL;
     }
-    a->instance->LastErrorMessage = NULL;
-    a->instance->LastGeneralMessage = NULL;
+    a->instance->LastErrorMessage = oipsl_noMessage;
+    a->instance->LastGeneralMessage = oipsl_noMessage;
     rc = Model_Initialize(a->instance);
     statusInit = oipsl_report(a, 0.0, "Model_Initialize", rc);
     if (statusInit == OIPSL_STATUS_ERROR) {
@@ -663,8 +670,8 @@ IEEE_CIGRE_EXPORT int IEEE_CIGRE_CALL OIPSL_FUNCTION(_oipsl_step)(void* obj, dou
     }
     oipsl_writeSignals(a->inputs, a->info->InputPortsInfo, a->info->NumInputPorts, a->inputOffsets, inputs);
     a->instance->Time = t;
-    a->instance->LastErrorMessage = NULL;
-    a->instance->LastGeneralMessage = NULL;
+    a->instance->LastErrorMessage = oipsl_noMessage;
+    a->instance->LastGeneralMessage = oipsl_noMessage;
     rc = Model_Outputs(a->instance);
     oipsl_readSignals(a->outputs, a->info->OutputPortsInfo, a->info->NumOutputPorts, a->outputOffsets, outputs);
     a->status = oipsl_report(a, t, "Model_Outputs", rc);

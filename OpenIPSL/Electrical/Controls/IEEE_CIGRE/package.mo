@@ -48,7 +48,7 @@ functions: several instances of the same model can run side by side in one simul
 <h4>Platforms</h4>
 <p>
 Binaries are shipped for <strong>win64</strong> (<code>Resources/Library/win64/&lt;Name&gt;.dll</code> and
-<code>&lt;Name&gt;.lib</code>, built with MSVC 19.51 x64, Visual Studio Community 2026 18.10.4, static runtime
+<code>&lt;Name&gt;.lib</code>, built with MSVC 19.51 x64, Visual Studio Community 2026 18.11.2, static runtime
 <code>/MT</code>) and <strong>linux64</strong> (<code>Resources/Library/linux64/lib&lt;Name&gt;.so</code>, built with
 gcc 15.2.0 on Ubuntu 26.04.1 LTS under WSL2, glibc 2.43, linked with <code>-Bsymbolic</code>). On any other platform, or when a shipped binary does not
 load, build the libraries from <code>Resources/C-Sources/IEEE_CIGRE/</code> as described in the
